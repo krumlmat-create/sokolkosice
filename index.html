@@ -172,6 +172,7 @@ a.bar:hover span{color:var(--club)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
 .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
 .strip .pcard{scroll-snap-align:start}
+.strip{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
 .pcard{position:relative;display:block;aspect-ratio:3/4;max-width:100%;border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--on-club);background:linear-gradient(160deg,var(--club) 0%,var(--club-dk) 70%);isolation:isolate}
 .pcard::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 14px,transparent 14px 28px);z-index:-1}
 .pnum{position:absolute;top:6px;left:10px;font-family:var(--f-display);font-weight:900;font-size:4.2rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);z-index:1}
@@ -179,11 +180,11 @@ a.bar:hover span{color:var(--club)}
 .pimg{position:absolute;inset:14% 0 0 0;display:flex;align-items:flex-end;justify-content:center;color:rgba(0,0,0,.28)}
 .pimg img{width:100%;height:100%;object-fit:cover;object-position:top}
 .pimg .sil{width:78%;height:auto}
-.pini{position:absolute;inset:18% 0 auto;text-align:center;font-family:var(--f-display);font-weight:900;font-size:5.5rem;line-height:1;color:rgba(255,255,255,.14)}
+.pini{position:absolute;inset:26% 0 auto;text-align:center;font-family:var(--f-display);font-weight:900;font-size:5.5rem;line-height:1;color:rgba(255,255,255,.14)}
 .pname{position:absolute;left:0;right:0;bottom:0;padding:40px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));display:grid;line-height:1}
 .pname small{font-size:.78rem;font-weight:500;opacity:.9}
 .pname b{font-family:var(--f-display);font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:.95}
-.pname em{font-style:normal;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;opacity:.8;margin-top:5px}
+.pname em{font-style:normal;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;opacity:.8;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pcard:hover .pnum{-webkit-text-stroke-color:#fff}
 .pcard:hover{box-shadow:0 0 0 3px var(--gold)}
 .sgroup+.sgroup{margin-top:40px}
@@ -204,6 +205,8 @@ a.bar:hover span{color:var(--club)}
 .phero-img{align-self:end;display:flex;justify-content:center;color:rgba(255,255,255,.16);max-height:420px}
 .phero-img img{max-height:420px;width:auto;object-fit:cover;border-radius:var(--r) var(--r) 0 0}
 .phero-img .sil{width:min(320px,80%)}
+.phero-img.nophoto .sil{width:min(240px,60%)}
+@media (max-width:980px){.phero-img.nophoto{display:none}}
 .pstats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-top:0;margin-top:0}
 .pstats div{padding:18px 16px;border-right:1px solid var(--line)}
 .pstats div:last-child{border-right:0}
@@ -312,6 +315,23 @@ a.bar:hover span{color:var(--club)}
 .dokopna p{opacity:.85;max-width:56ch;margin-top:6px}
 .dokopna .btn{position:relative;z-index:1}
 @media (max-width:620px){.feature{grid-template-columns:1fr}.feature .pcard{aspect-ratio:4/3}.feature>div{padding:0 18px 20px}.dokopna{grid-template-columns:1fr}}
+.recap-hero{background:#0b0d0c;color:#f2eee4;border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.recap-hero::after{content:"2026";position:absolute;right:-10px;bottom:-40px;font-family:var(--f-display);font-weight:900;font-size:11rem;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(196,149,43,.35)}
+.recap-hero h3{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:var(--gold);position:relative}
+.recap-hero p{max-width:60ch;opacity:.88;margin-top:8px;position:relative}
+.vs{width:100%;border-collapse:collapse;margin-top:20px;font-size:.95rem}
+.vs th{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-align:right;padding:8px;border-bottom:2px solid var(--ink)}
+.vs th:first-child{text-align:left}
+.vs td{padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.vs td.n{text-align:right;font-family:var(--f-display);font-weight:900;font-size:1.7rem;line-height:1;white-space:nowrap}
+.vs td.n.old{color:var(--muted)}
+.vs td small{display:block;color:var(--muted);font-size:.85rem;margin-top:3px;font-style:italic}
+.facts-fun{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:20px}
+.fun{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:6px;align-content:start}
+.fun b{font-family:var(--f-display);font-weight:900;font-size:2.6rem;line-height:1;color:var(--club)}
+.fun h4{margin:0;font-family:var(--f-display);text-transform:uppercase;font-size:1.3rem;line-height:1}
+.fun p{font-size:.92rem;color:var(--muted)}
+.toastline{margin-top:24px;text-align:center;font-family:var(--f-display);font-weight:900;font-size:clamp(1.6rem,4vw,2.4rem);text-transform:uppercase;color:var(--club)}
 /* ---------- hra ---------- */
 .gamegrid{display:grid;grid-template-columns:380px 1fr;gap:24px}
 .gamegrid>*{min-width:0}
@@ -478,7 +498,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
       <div class="blk card"><h3>Tabulka <a href="#zapasy">celá</a></h3><div class="scroll"><table class="tbl" id="tblHome"></table></div>
         <div class="formrow">Jsme <b id="homePos"></b> · forma <span id="homeForm" style="display:flex;gap:4px"></span></div></div>
       <div class="blk card"><h3>Střelci 26/27</h3><div class="scorers" id="homeScorers"></div></div>
-      <div class="champ"><span class="stag" style="color:var(--gold)">Sezona 2025/26</span><h3>Mistři 10. ligy</h3><p>16 výher, 2 remízy, 3 porážky, skóre 71:26 a 50 bodů. Druhý tým ztratil 12 bodů.</p><a class="btn light sm" href="#zprava-mistri-2026" style="justify-self:start;position:relative">Příběh sezony</a></div>
+      <div class="champ"><span class="stag" style="color:var(--gold)">Sezona 2025/26</span><h3>Mistři 10. ligy</h3><p>16 výher, 2 remízy, 3 porážky, skóre 71:26 a 50 bodů. Druhý tým měl o 12 bodů méně.</p><a class="btn light sm" href="#zprava-mistri-2026" style="justify-self:start;position:relative">Příběh sezony</a></div>
     </div>
   </div>
 
@@ -564,7 +584,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   <div class="wrap band">
     <h2 class="sec">Klub</h2>
     <div class="facts-row">
-      <div class="fact"><b>9.</b><span>liga, nejvyšší soutěž v historii klubu, kterou máme v datech</span></div>
+      <div class="fact"><b>9.</b><span>liga, kde Sokol hraje od sezony 2026/27</span></div>
       <div class="fact"><b>50</b><span>bodů v mistrovské sezoně 2025/26</span></div>
       <div class="fact"><b>71</b><span>gólů v sezoně 2025/26</span></div>
       <div class="fact"><b>~800</b><span>obyvatel Košic, Doubí a Borku</span></div>
@@ -578,7 +598,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
           <div><b>1252</b><p class="muted">První písemná zmínka o Košicích.</p></div>
           <div><b>2025/26</b><p class="muted">Vítězství v KAVAS ELEKTRO 10. lize okresu Tábor s náskokem 12 bodů.</p></div>
           <div><b>2026/27</b><p class="muted">První sezona ve Fixi Coffee 9. lize.</p></div>
-          <div><b>Doplňte</b><p class="muted">Rok založení oddílu, postupy, legendy klubu. Pošlete je a doplníme je.</p></div>
         </div>
       </div>
       <div class="card">
@@ -586,7 +605,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
         <p><b>TJ Sokol Košice</b><br>391 17 Košice, okres Tábor</p>
         <p class="muted" style="margin-top:10px">Košice leží asi 11 km jihovýchodně od Tábora, převážně na Křemešnické vrchovině. K obci patří Doubí a Borek a obcí prochází dálnice D3. Železniční zastávka Doubí u Tábora leží na trati České Budějovice – Tábor.</p>
         <p style="margin-top:14px"><a class="btn ghost" href="https://mapy.cz/zakladni?q=Ko%C5%A1ice%20T%C3%A1bor" target="_blank" rel="noopener">Mapa: Košice u Tábora</a></p>
-        <p class="muted" style="margin-top:12px;font-size:.85rem">Telefon, e-mail a přesnou adresu hřiště doplňte.</p>
       </div>
     </div>
   </div>
@@ -596,7 +614,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <section class="view" id="v-akademie">
   <div class="wrap band">
     <h2 class="sec">Akademie <small>tipy a triky pro áčko</small></h2>
-    <p class="muted" style="max-width:68ch;margin:-8px 0 22px">Krátké rady, cvičení a pravidla, která se hodí na okresních trávnících. Každý tip zvládnete sami, s míčem a pár kužely.</p>
+    <p class="muted" style="max-width:68ch;margin:-8px 0 22px">Krátké rady, cvičení a pravidla, která se hodí na okresních trávnících. Část cvičení zvládnete sami s míčem, zbytek je na trénink s partou.</p>
     <div class="seg" role="group" aria-label="Téma" id="tipFilter" style="flex-wrap:wrap;margin-bottom:20px"></div>
     <div class="tips" id="tips"></div>
   </div>
@@ -638,10 +656,11 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   <div id="kabina" hidden>
     <div class="sechead"><h2 class="sec">Kabina</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><div class="seg" role="group" aria-label="Sekce kabiny">
-        <button type="button" data-k="sluzby" aria-pressed="true">Služby</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
+        <button type="button" data-k="dokopna" aria-pressed="true">Dokopná</button><button type="button" data-k="sluzby" aria-pressed="false">Služby</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
         <button class="btn ghost sm" id="logout" type="button">Zamknout</button></div></div>
     <p class="muted" id="storeNote" style="margin:-8px 0 18px;font-size:.88rem"></p>
-    <div data-kpane="sluzby"><div class="kgrid" id="dutyMatches"></div>
+    <div data-kpane="dokopna"><div id="recap"></div></div>
+    <div data-kpane="sluzby" hidden><div class="kgrid" id="dutyMatches"></div>
       <form class="card f" id="addMatch" style="max-width:560px;margin-top:16px"><h3 style="font-size:1.5rem">Přidat zápas nebo akci</h3>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><label class="l" for="am-date">Datum<input type="date" id="am-date" required></label><label class="l" for="am-opp">Soupeř nebo akce<input type="text" id="am-opp" required placeholder="např. Brigáda na hřišti"></label></div>
         <button class="btn" type="submit">Přidat do rozpisu</button></form></div>
@@ -764,16 +783,16 @@ const FU="fotbalunas.cz";
 /* Medailonky sestavené z veřejných fotbalových statistik (fotbalunas.cz, Táborský deník). Klub je může v editoru přepsat. */
 const PROFILES={
  "jan-bohac":{since:"2025",bio:"Kanonýr mistrovské sezony. V ročníku 2025/26 dal v KAVAS ELEKTRO 10. lize 24 gólů ve 20 zápasech a byl nejlepším střelcem Košic. Proti Pojbukům a v posledním kole proti Červenému koni dal hattrick.\n\nDo Košic přišel s velkými zkušenostmi z vyšších soutěží. Odehrál 169 zápasů v Divizi A (4. liga) a 53 v krajském přeboru, hlavně v dresu Spartaku Soběslav.",career:[{season:"2014–2017",club:"FK Spartak Soběslav a další",league:"Krajský přebor",apps:"53",goals:"2"},{season:"2017–2025",club:"FK Spartak Soběslav, TJ Spartak Choustník",league:"Divize A",apps:"169",goals:"9"},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"20",goals:"24"}],careerSrc:FU},
- "petr-himl":{since:"2024",bio:"Střelec, který skóruje ve velkých zápasech. V mistrovské sezoně dal 8 gólů v 8 zápasech, z toho dva doublety na jaře proti Veselí B a Pojbukům. Letos otevíral skóre ve výhře 3:2 nad Radenínem Kozmicemi.\n\nPřed Košicemi hrál pražské a středočeské soutěže, mimo jiné za Bílou Horu, Hořovice a Jeneč, a nakoukl i do Divize A.",career:[{season:"2015–2023",club:"Bílá Hora, Hořovice, Jeneč",league:"pražské a středočeské soutěže",apps:null,goals:null},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:"12",goals:"3"},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"8",goals:"8"}],careerSrc:FU},
- "tomas-holota":{since:"2021",bio:"Odchovanec košické sestavy posledních let, v Sokole hraje od sezony 2021/22 a každý rok dává góly. Nejvíc jich nastřílel v ročníku 2023/24 (8).\n\nLetos ve Stádlci rozhodl dvěma góly během tří minut (80. a 83.) o výhře 6:3.",career:[{season:"2021/22",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"3"},{season:"2022/23",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"4"},{season:"2023/24",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"8"},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"3"},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:"6"}],careerSrc:FU},
- "dominik-petr-tucek":{since:"2026",bio:"Letošní posila do zálohy. Za Košice dal v prvních zápasech 3 góly, dva ve Stádlci a jeden v Božejovicích.\n\nPřišel s bohatou zkušeností z jindřichohradeckého okresu a kraje. Hrál za Novou Včelnici a FK Jindřichův Hradec 1910. Má 30 zápasů v krajském přeboru, přes 160 zápasů v I.A a I.B třídě a v sezoně 2018/19 dal 16 gólů v okresním přeboru.",career:[{season:"2015–2025",club:"Nová Včelnice, FK Jindřichův Hradec 1910",league:"I.A a I.B třída",apps:"160+",goals:null},{season:"2017/18",club:"Nová Včelnice, FK Jindřichův Hradec 1910",league:"Krajský přebor",apps:"30",goals:"2"},{season:"2018/19",club:"Nová Včelnice, FK Jindřichův Hradec 1910",league:"OP Jindřichův Hradec",apps:null,goals:"16"},{season:"2026/27",club:"TJ Sokol Košice",league:"9. liga Tábor",apps:null,goals:"3"}],careerSrc:FU},
+ "petr-himl":{since:"2024",bio:"Střelec s čichem na góly. V mistrovské sezoně dal 8 gólů v 8 zápasech, z toho dva doublety na jaře proti Veselí B a Pojbukům. Letos otevíral skóre ve výhře 3:2 nad Radenínem Kozmicemi.\n\nPřed Košicemi hrál pražské a středočeské soutěže, mimo jiné za Bílou Horu, Hořovice a Jeneč. Má za sebou i start v Divizi A.",career:[{season:"2015–2023",club:"Bílá Hora, Hořovice, Jeneč",league:"pražské a středočeské soutěže",apps:null,goals:null},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:"12",goals:"3"},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"8",goals:"8"}],careerSrc:FU},
+ "tomas-holota":{since:"2021",bio:"Opora košické sestavy, v Sokole hraje od sezony 2021/22 a každý rok dává góly. Nejvíc jich nastřílel v ročnících 2023/24 a 2025/26, pokaždé 8.\n\nLetos ve Stádlci rozhodl dvěma góly během tří minut (80. a 83.) o výhře 6:3.",career:[{season:"2021/22",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"3"},{season:"2022/23",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"4"},{season:"2023/24",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"8"},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:null,goals:"3"},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:"8"}],careerSrc:FU+", Táborský deník"},
+ "dominik-petr-tucek":{since:"2026",bio:"Letošní posila do zálohy. Za Košice dal na podzim 3 góly, dva ve Stádlci a jeden v Božejovicích.\n\nPřišel s bohatou zkušeností z jindřichohradeckého okresu a kraje. Hrál za Novou Včelnici a FK Jindřichův Hradec 1910. Má 30 zápasů v krajském přeboru, přes 160 zápasů v I.A a I.B třídě a v sezoně 2018/19 dal 16 gólů v okresním přeboru.",career:[{season:"2015–2025",club:"Nová Včelnice, FK Jindřichův Hradec 1910",league:"I.A a I.B třída",apps:"160+",goals:null},{season:"2017/18",club:"jindřichohradecký kraj",league:"Krajský přebor",apps:"30",goals:"2"},{season:"2018/19",club:"jindřichohradecký okres",league:"OP Jindřichův Hradec",apps:null,goals:"16"},{season:"2026/27",club:"TJ Sokol Košice",league:"9. liga Tábor",apps:null,goals:"3"}],careerSrc:FU},
  "petr-picha":{since:"2025",bio:"Záložník, který chodí do koncovek. V mistrovské sezoně dal 3 góly, včetně posledního gólu sezony v utkání s Červeným koněm (8:0). Letos skóroval v úvodním domácím zápase s Planou a pečetil výhru 6:3 ve Stádlci.",career:[{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"10",goals:"3"},{season:"2026/27",club:"TJ Sokol Košice",league:"9. liga Tábor",apps:null,goals:"2"}],careerSrc:FU},
- "jiri-slunecko":{pos:"B",since:"2025",bio:"Brankář mistrovského týmu. Za sebou má devět sezon okresního přeboru Tábor (90 zápasů) v dresech Želče a Vlastiboře, začínal v Horním Žďáru.",career:[{season:"2015/16",club:"SK Horní Žďár",league:"",apps:null,goals:null},{season:"2017–2025",club:"TJ Sokol Želeč, TJ Vlastiboř",league:"Okresní přebor Tábor",apps:"90",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:null}],careerSrc:FU},
+ "jiri-slunecko":{pos:"B",since:"2025",bio:"Brankář mistrovského týmu. Za sebou má osm sezon okresního přeboru Tábor (90 zápasů) v dresech Želče a Vlastiboře, začínal v Horním Žďáru.",career:[{season:"2015/16",club:"SK Horní Žďár",league:"",apps:null,goals:null},{season:"2017–2025",club:"TJ Sokol Želeč, TJ Vlastiboř",league:"Okresní přebor Tábor",apps:"90",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:null}],careerSrc:FU},
  "david-cizek":{pos:"U",since:"2015",bio:"Košická stálice: od sezony 2015/16 odehrál za Sokol 138 zápasů a dal 16 gólů. Nejlepší sezonu měl v ročníku 2024/25 se 6 góly v 15 zápasech. V mistrovském roce přidal 4 góly.",career:[{season:"2015–2026",club:"TJ Sokol Košice",league:"okresní soutěže Tábor",apps:"138",goals:"16"},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:"15",goals:"6"}],careerSrc:FU},
- "david-marsik":{pos:"O",since:"2023",bio:"Obránce s divizní zkušeností. Za Soběslav a Choustník odehrál 69 zápasů v Divizi A, do Košic přišel v roce 2023. V mistrovské sezoně dal jako obránce 4 góly.",career:[{season:"do 2023",club:"FK Spartak Soběslav, TJ Spartak Choustník",league:"Divize A",apps:"69",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"17",goals:"4"}],careerSrc:FU},
+ "david-marsik":{pos:"O",since:"2023",bio:"Obránce s divizní zkušeností. Za Soběslav a Choustník odehrál 69 zápasů v Divizi A, v Košicích hraje od sezony 2023/24. V mistrovské sezoně dal jako obránce 4 góly.",career:[{season:"do 2023",club:"FK Spartak Soběslav, TJ Spartak Choustník",league:"Divize A",apps:"69",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"17",goals:"4"}],careerSrc:FU},
  "stanislav-kadlec":{pos:"Z",since:"2015",bio:"Záložník a jeden z pilířů kádru. Od sezony 2015/16 má za Košice 149 zápasů a 35 gólů. Letos otevřel skóre v Božejovicích (2:2).",career:[{season:"2015–2026",club:"TJ Sokol Košice",league:"okresní soutěže Tábor",apps:"149",goals:"35"}],careerSrc:FU},
  "zdenek-radosta":{pos:"T",since:"2015",bio:"Trenér Košic a zároveň hráč. Jako obránce odehrál za Sokol od sezony 2015/16 celkem 172 zápasů a dal 9 gólů. V mistrovském roce 2025/26 dovedl tým k titulu v 10. lize s náskokem 12 bodů.",career:[{season:"2015–2026",club:"TJ Sokol Košice",league:"okresní soutěže Tábor",apps:"172",goals:"9"}],careerSrc:FU+", JcTed.cz"},
- "adam-cizek":{since:"2025",bio:"Mladší z Čížků v kádru. V mistrovské sezoně odehrál 6 zápasů a v posledním kole proti Červenému koni se trefil.",career:[{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"6",goals:"1"}],careerSrc:FU}
+ "adam-cizek":{since:"2025",bio:"Druhý Čížek v kádru. V mistrovské sezoně odehrál 6 zápasů a v posledním kole proti Červenému koni se trefil.",career:[{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"6",goals:"1"}],careerSrc:FU}
 };
 const QUESTIONS=["Jak ses dostal k fotbalu a do Košic?","Na který zápas za Sokol nikdy nezapomeneš?","Máš před zápasem nějaký rituál nebo pověru?","Kdo je největší bavič kabiny?","Fotbalový vzor?","Co Košicím přeješ do jara?"];
 /* ================= HELPERS ================= */
@@ -836,7 +855,7 @@ function renderPlayer(id){
  const p=players().find(x=>x.id===id);const el=$("#playerView");
  if(!p){el.innerHTML=`<div class="wrap band"><h2>Hráč nenalezen</h2><p><a href="#tym">Zpět na soupisku</a></p></div>`;return;}
  const st=playerStats(p.name);
- const facts=[["Post",POS_NAME[p.pos]||"–"],["Číslo",p.num||"–"],["Ročník",p.born||"–"],["V Sokole od",p.since||"–"],["Přezdívka",p.nick||"–"],["Profese",p.job||"–"]];if(p.cap)facts.unshift(["Role","Kapitán"]);
+ const facts=[["Post",POS_NAME[p.pos]||(canEdit?"–":"")],["Číslo",p.num],["Ročník",p.born],["V Sokole od",p.since],["Přezdívka",p.nick],["Profese",p.job]].filter(f=>f[1]||canEdit).map(([a,b])=>[a,b||"–"]);if(p.cap)facts.unshift(["Role","Kapitán"]);
  const iv=(p.interview||[]).filter(x=>x&&x.a);
  el.innerHTML=`<div class="phero"><div class="wrap phero-in">
    <div class="phero-txt"><a class="back" href="#tym">Soupiska</a>
@@ -845,9 +864,9 @@ function renderPlayer(id){
     <p class="phero-pos">${esc(POS_NAME[p.pos]||"Hráč")} · TJ Sokol Košice</p>
     ${p.quote?`<blockquote>${esc(p.quote)}</blockquote>`:""}
    </div>
-   <div class="phero-img">${playerPhoto(p)}</div>
+   <div class="phero-img ${p.photo?"":"nophoto"}">${playerPhoto(p)}</div>
   </div></div>
-  <div class="pstats wrap">${[["Góly 26/27",st.g27],["Góly 25/26",st.g26],["Góly celkem",st.g26+st.g27],["Zápasy se skórováním",st.log.length]].map(([a,b])=>`<div><b>${b}</b><span>${a}</span></div>`).join("")}</div>
+  <div class="pstats wrap">${[["Góly 26/27",st.g27],["Góly 25/26",st.g26],["Góly celkem",st.g26+st.g27],["Zápasy s gólem",st.log.length]].map(([a,b])=>`<div><b>${b}</b><span>${a}</span></div>`).join("")}</div>
   <div class="wrap band pbody">
    <aside class="facts">${facts.map(([a,b])=>`<div><span>${a}</span><b>${esc(b)}</b></div>`).join("")}
     <div class="sponsor">${p.sponsor?`<span class="stag">Sponzor hráče</span><b>${esc(p.sponsor)}</b>`:`<span class="stag">Sponzor hráče</span><p>Volné místo. Vaše firma tu může podporovat tohoto hráče.</p>`}</div>
@@ -855,7 +874,7 @@ function renderPlayer(id){
    <div class="pmain">
     <section><h2 class="sec"><span>Medailonek</span></h2>${p.bio?`<div class="prose">${esc(p.bio).split(/\n{2,}/).map(x=>`<p>${x.replace(/\n/g,"<br>")}</p>`).join("")}</div>`:`<p class="muted">Medailonek se připravuje.${canEdit?" Doplňte ho tlačítkem Upravit medailonek.":""}</p>`}</section>
     ${(p.career||[]).length?`<section><h2 class="sec"><span>Kariéra</span></h2><div class="scroll"><table class="tbl"><thead><tr><th>Sezona</th><th>Klub</th><th>Soutěž</th><th class="n">Z</th><th class="n">G</th></tr></thead><tbody>${p.career.map(c=>`<tr class="${/Košice/.test(c.club||"")?"":""}"><td class="n" style="text-align:left">${esc(c.season)}</td><td>${esc(c.club)}</td><td>${esc(c.league||"")}</td><td class="n">${esc(c.apps??"–")}</td><td class="n">${esc(c.goals??"–")}</td></tr>`).join("")}</tbody></table></div>${p.careerSrc?`<p class="muted" style="font-size:.8rem;margin-top:8px">Zdroj: ${esc(p.careerSrc)}</p>`:""}</section>`:""}
-    <section><h2 class="sec"><span>Rozhovor</span></h2>${iv.length?`<dl class="iv">${iv.map(x=>`<dt>${esc(x.q)}</dt><dd>${esc(x.a)}</dd>`).join("")}</dl>`:`<p class="muted">Rozhovor zatím chybí.</p>`}</section>
+    ${iv.length?`<section><h2 class="sec"><span>Rozhovor</span></h2><dl class="iv">${iv.map(x=>`<dt>${esc(x.q)}</dt><dd>${esc(x.a)}</dd>`).join("")}</dl></section>`:canEdit?`<section><h2 class="sec"><span>Rozhovor</span></h2><p class="muted">Rozhovor zatím chybí. Doplňte ho tlačítkem Upravit medailonek.</p></section>`:""}
     <section><h2 class="sec"><span>Góly za Sokol</span></h2>${st.log.length?["9. liga 26/27","10. liga 25/26"].map(L=>{const x=st.log.filter(e=>e.lbl===L);return x.length?`<h3 class="loghead">${L}<span>${x.reduce((a,e)=>a+e.c,0)} ${plural(x.reduce((a,e)=>a+e.c,0),"gól","góly","gólů")}</span></h3><div class="mlist compact">${x.map(({m,c})=>mRow(m,`${c}× gól`)).join("")}</div>`:"";}).join(""):`<p class="muted">V zápisech z novin zatím bez gólu.</p>`}</section>
    </div></div>`;
  const b=$("#editPlayer");if(b)b.onclick=()=>openEditor(p);
@@ -952,7 +971,7 @@ function stories(){
 }
 function storyCard(s,big){return `<a class="story ${big?"big":""} ${s.res||""}" href="#zprava-${s.id}"><span class="stag">${esc(s.tag)}${s.res?` · ${RES_WORD[s.res]}`:""}</span><b>${esc(s.title)}</b>${big?`<p>${esc(s.body[0])}</p>`:""}<em>${fmtD(s.date)} ${dt(s.date).getFullYear()}</em></a>`;}
 function renderNews(){const s=stories();
- $("#lead").innerHTML=`<span class="stag">${esc(s[0].tag)}</span><h1>${esc(s[0].title)}</h1><p>${esc(s[0].body[0])}</p><a class="btn light" href="#zprava-${s[0].id}">Číst</a>`;
+ $("#lead").innerHTML=`<span class="stag">${esc(s[0].tag)}</span><h1>${esc(s[0].title).replace(/ – /g,"\u00a0– ")}</h1><p>${esc(s[0].body[0])}</p><a class="btn light" href="#zprava-${s[0].id}">Číst</a>`;
  $("#newsGrid").innerHTML=s.slice(1,5).map(x=>storyCard(x)).join("");
  $("#newsAll").innerHTML=s.map(x=>storyCard(x,true)).join("");}
 function renderStory(id){const s=stories().find(x=>x.id===id);const el=$("#storyView");
@@ -1004,8 +1023,8 @@ function applySeason(d){
 /* ================= AKADEMIE: TIPY A TRIKY ================= */
 const TIPS=[
  {t:"Střelba",h:"Placírka k tyči místo rány",p:["Na menší vzdálenost (do 11 m) bývá přesnost cennější než síla.","Stojná noha vedle míče, špička kopající nohy ven, kotník zpevněný.","Míř k vzdálenější tyči: když gólman vyrazí, je tam dorážka."],d:"10× zpracování do strany a placírka k tyči, každou nohou."},
- {t:"Střelba",h:"První dotek rozhoduje",p:["Před přihrávkou se rozhlédni a věz, kam si míč zpracuješ.","Zpracuj do strany od obránce, ne pod sebe.","Ve vápně zpracování a střela do dvou doteků."],d:"Přihrávky o zeď: převzetí do strany vnitřní částí, 3× 2 minuty každou nohou."},
- {t:"Brankář",h:"Základní postoj a výběh",p:["Váha na přední části chodidel, kolena pokrčená, ruce před tělem.","Při střelbě z dálky drž úhel mezi míčem a středem branky.","Na centry křič včas a jasně: „mám“, nebo „pryč“."],d:"Spoluhráč střílí z různých úhlů, ty se před každou střelou posuneš do úhlu. 20 opakování."},
+ {t:"Technika",h:"První dotek rozhoduje",p:["Před přihrávkou se rozhlédni a věz, kam si míč zpracuješ.","Zpracuj do strany od obránce, ne pod sebe.","Ve vápně zpracování a střela do dvou doteků."],d:"Přihrávky o zeď: převzetí do strany vnitřní částí, 3× 2 minuty každou nohou."},
+ {t:"Brankář",h:"Postoj a postavení",p:["Váha na přední části chodidel, kolena pokrčená, ruce před tělem.","Stůj na pomyslné ose mezi míčem a středem branky, tak zmenšíš úhel k oběma tyčím.","Když jdeš na centr, zakřič včas a jasně „mám“. Obránci pak vědí, že mají uhnout."],d:"Spoluhráč střílí z různých úhlů, ty se před každou střelou posuneš do úhlu. 20 opakování."},
  {t:"Brankář",h:"Výkop, který něco přinese",p:["Dlouhý výkop na hlavu útočníka je padesát na padesát.","Když je obránce volný, rozehraj krátce a rychle.","Rychlé vyhození rukou na křídlo bývá nejlepší start brejku."],d:"Vyhazování rukou na cíl (kužel) ze 20 m, 15× každou rukou."},
  {t:"Obrana",h:"Bránění jeden na jednoho",p:["Nejdi hned do skluzu, zpomal útočníka a tlač ho k postranní čáře.","Stůj bokem, ne čelem, ať se rychle otočíš.","Do míče jdi, až když útočník míč odkryje."],d:"Hra 1 na 1 v koridoru 10 × 20 m: útočník se snaží projít, obránce ho tlačí ven. 6× 30 s."},
  {t:"Obrana",h:"Mluvení na hřišti",p:["Krátké a jasné pokyny: „hraj“, „otoč“, „čas“, „hlídej“.","Kdo vidí víc, mluví víc. Obvykle brankář a stoper.","Po ztrátě míče hned řekni, kdo jde do presinku."],d:"V tréninkové hře smí přihrávat jen ten, kdo byl před přihrávkou zavolán jménem."},
@@ -1013,26 +1032,74 @@ const TIPS=[
  {t:"Kondice",h:"Prevence zranění: třísla a hamstringy",p:["Copenhagen a nordic hamstring snižují riziko natažených svalů.","Před zápasem dynamická rozcvička, ne dlouhé výdrže v protažení.","Bolest, která neustupuje, je důvod vynechat, ne hrát přes ni."],d:"Copenhagen plank 3× 8 na stranu, nordic hamstring 3× 5. Dvakrát týdně."},
  {t:"Regenerace",h:"Den po zápase",p:["Lehká procházka nebo kolo 20–30 minut rozproudí krev.","Válec na stehna a lýtka 10 minut.","Jídlo s bílkovinami do dvou hodin po zápase a dost spánku."],d:"Neděle: 25 min chůze, 10 min válec, 10 min protažení."},
  {t:"Regenerace",h:"Po dokopné",p:["Voda mezi pivy, ne až ráno.","Dobrá snídaně a procházka dělají víc než prášek.","Na první zimní trénink přijď, i když nejsi ve formě. Forma se vrátí rychleji, když nevypadneš z tempa."],d:"V pondělí 30 min klusu. Nic víc, nic míň."},
- {t:"Taktika",h:"Standardky rozhodují zápasy",p:["V okresních soutěžích padá velká část gólů ze standardních situací.","Mějte domluvené dva tři rohy: na první tyč, na velké vápno, krátce.","Kdo bere míč na roh, ví to předem, žádné dohadování."],d:"Konec každého tréninku: 10 rohů, 5 přímých kopů, s bránícím týmem."},
+ {t:"Taktika",h:"Standardky rozhodují zápasy",p:["V okresních soutěžích padá velká část gólů ze standardních situací.","Mějte domluvené dva tři rohy: na první tyč, na velké vápno, krátce.","Kdo kope rohy a kdo jde na první tyč, je jasné předem. Žádné dohadování."],d:"Konec každého tréninku: 10 rohů, 5 přímých kopů, s bránícím týmem."},
  {t:"Taktika",h:"Po ztrátě míče prvních pět sekund",p:["Nejbližší hráč okamžitě tlačí na míč.","Ostatní zavřou nejbližší přihrávky.","Když se míč nepodaří získat, všichni zpátky za míč."],d:"Hra 5 na 5: po ztrátě má tým 5 sekund na zisk, jinak bod soupeři."},
- {t:"Pravidla",h:"Ofsajd v kostce",p:["Ofsajd se posuzuje v okamžiku přihrávky spoluhráče.","Nejde o ofsajd z autu, z kopu od branky ani z rohového kopu.","Na vlastní polovině hřiště ofsajd není."],d:"Před zápasem si s obranou domluvte, kdo řídí vysunutí."},
- {t:"Pravidla",h:"Kdy je ruka",p:["Trestná je ruka, kterou si hráč zvětšuje objem těla nebo jde rukou k míči.","Gól přímo z ruky útočníka neplatí, ani když je náhodná.","Rozhodčí rozhoduje podle toho, co viděl. Diskuse kartu neruší, spíš přidá."],d:"Při bránění střely dej ruce za záda nebo k tělu."}
+ {t:"Pravidla",h:"Ofsajd v kostce",p:["Rozhoduje postavení v okamžiku, kdy spoluhráč zahraje míč. Stejná úroveň s předposledním hráčem soupeře ještě ofsajd není.","Samotné postavení mimo hru přestupek není. Odpíská se, až když hráč aktivně zasáhne do hry.","Z autu, z kopu od branky a z rohu ofsajd není. Na vlastní polovině také ne."],d:"Před zápasem si s obranou domluvte, kdo řídí vysunutí.",tip:true},
+ {t:"Pravidla",h:"Kdy je ruka",p:["Trestná je ruka, kterou si hráč zvětšuje objem těla nebo jde rukou k míči.","Gól přímo z ruky útočníka neplatí, ani když je náhodná.","Rozhodčí rozhoduje podle toho, co viděl. Za protesty hrozí žlutá karta."],d:"Při bránění střely dej ruce za záda nebo k tělu.",tip:true}
 ];
 let tipTopic="Vše";
 function renderTips(){const topics=["Vše",...new Set(TIPS.map(t=>t.t))];
  $("#tipFilter").innerHTML=topics.map(t=>`<button type="button" aria-pressed="${t===tipTopic}" data-tip="${esc(t)}">${esc(t)}</button>`).join("");
  $$("[data-tip]").forEach(b=>b.onclick=()=>{tipTopic=b.dataset.tip;renderTips();});
- $("#tips").innerHTML=TIPS.filter(t=>tipTopic==="Vše"||t.t===tipTopic).map(t=>`<article class="tip"><span class="stag">${esc(t.t)}</span><h3>${esc(t.h)}</h3><ul>${t.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="drill"><b>Cvičení</b>${esc(t.d)}</div></article>`).join("");}
+ $("#tips").innerHTML=TIPS.filter(t=>tipTopic==="Vše"||t.t===tipTopic).map(t=>`<article class="tip"><span class="stag">${esc(t.t)}</span><h3>${esc(t.h)}</h3><ul>${t.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="drill"><b>${t.tip?"Tip":"Cvičení"}</b>${esc(t.d)}</div></article>`).join("");}
 
 /* ================= MEDAILONEK NA ÚVODU ================= */
 function renderFeature(){const ps=players().filter(p=>p.pos!=="T");if(!ps.length)return;
- const withStory=ps.filter(p=>p.quote||p.bio);
+ const withStory=ps.filter(p=>p.quote||p.bio);const fromDb=withStory.filter(p=>playerDocs[p.id]);
  const day=Math.floor(Date.now()/864e5);
- const p=withStory.length?withStory[day%withStory.length]:[...ps].sort((a,b)=>((G27[b.name]||0)+(G26[b.name]||0))-((G27[a.name]||0)+(G26[a.name]||0)))[0];
- const st=playerStats(p.name);
+ const pool=fromDb.length?fromDb:withStory;const p=pool.length?pool[day%pool.length]:[...ps].sort((a,b)=>((G27[b.name]||0)+(G26[b.name]||0))-((G27[a.name]||0)+(G26[a.name]||0)))[0];
+ const st=playerStats(p.name),tot=st.g26+st.g27,para=(p.bio||"").split(/\n{2,}/)[0];
  $("#featurePlayer").innerHTML=`<div class="feature">${playerCard(p)}<div><span class="stag">${withStory.length?"Medailonek":"Nejlepší střelec klubu"}</span><h3>${esc(p.name)}</h3>
-  ${p.quote?`<blockquote>${esc(p.quote)}</blockquote>`:`<p class="muted">${st.g26+st.g27} ${plural(st.g26+st.g27,"gól","góly","gólů")} za poslední dvě sezony${st.g26?`, z toho ${st.g26} v mistrovském ročníku 2025/26`:""}. Medailonek s rozhovorem se připravuje.</p>`}
+  ${p.quote?`<blockquote>${esc(p.quote)}</blockquote>`:para?`<p>${esc(para)}</p>`:`<p class="muted">${tot} ${plural(tot,"gól","góly","gólů")} za poslední dvě sezony.</p>`}
   <a class="btn" href="#hrac-${p.id}" style="justify-self:start">Celý medailonek</a></div></div>`;}
+
+/* ================= DOKOPNÁ: SOUHRN SEZONY ================= */
+function seasonStats(L){L=L.filter(m=>m[3]!=null);const o={n:L.length,w:0,d:0,l:0,gf:0,ga:0,cs:0,nog:0,hp:0,ap:0,hg:0,ag:0,hn:0,an:0,big:null,streak:0,hat:[]};let cur=0;
+ L.forEach(m=>{const h=isUs(m[2]),f=h?m[3]:m[5],a=h?m[5]:m[3],p=f>a?3:f===a?1:0;o.gf+=f;o.ga+=a;if(!a)o.cs++;if(!f)o.nog++;p===3?o.w++:p===1?o.d++:o.l++;
+  if(h){o.hp+=p;o.hg+=f;o.hn++}else{o.ap+=p;o.ag+=f;o.an++}
+  if(!o.big||f-a>o.big.f-o.big.a)o.big={f,a,m};if(p===3){cur++;o.streak=Math.max(o.streak,cur)}else cur=0;
+  const c={};m[6].forEach(n=>c[n]=(c[n]||0)+1);Object.entries(c).forEach(([n,k])=>{if(k>=3)o.hat.push({n,m})});});
+ o.pts=o.w*3+o.d;o.ppg=o.n?o.pts/o.n:0;o.gpg=o.n?o.gf/o.n:0;o.apg=o.n?o.ga/o.n:0;
+ o.sc=goals(L);o.top=Object.entries(o.sc).sort((a,b)=>b[1]-a[1]);return o;}
+const f1=x=>x.toFixed(1).replace(".",","),f2=x=>x.toFixed(2).replace(".",",");
+function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)return;
+ const pos=T2627.findIndex(r=>isUs(r[0]))+1,leader=T2627[0],us=T2627[pos-1],left=Math.max(0,22-B.n);
+ const projOld=Math.round(B.pts+left*A.ppg),projNew=Math.round(B.pts+left*B.ppg);
+ const bohA=A.sc["Jan Boháč"]||0,topB=B.top.filter(t=>t[1]===B.top[0][1]).map(t=>t[0]);
+ const stad=S2627.find(m=>m[0]===6),stadG=stad?6:0;
+ const maz=S2526.filter(m=>m[2]==="Mažice"||m[4]==="Mažice"),mazF=maz.reduce((a,m)=>a+(isUs(m[2])?m[3]:m[5]),0),mazA=maz.reduce((a,m)=>a+(isUs(m[2])?m[5]:m[3]),0);
+ const rows=[
+  ["Body na zápas",f2(A.ppg),f2(B.ppg),B.ppg<A.ppg?"Vyšší soutěž je opravdu vyšší. Kdo by to byl řekl.":"Nováček, který se nebojí."],
+  ["Vstřelené góly na zápas",f1(A.gpg),f1(B.gpg),`Loni padaly góly jako hrušky. Letos ${B.gf} za ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, takže hrušky dozrávají pomaleji.`],
+  ["Obdržené góly na zápas",f1(A.apg),f1(B.apg),"Obrana zjistila, že v 9. lize se taky střílí."],
+  ["Čistá konta",A.cs,B.cs,B.cs?"":`Loni ${A.cs}× nula vzadu. Letos ji pořád hledáme, prý se zakutálela za brankovou čáru.`],
+  ["Zápasy bez vstřeleného gólu",A.nog,B.nog,A.nog===0?`Loni jsme dali gól v každém z ${A.n} zápasů. Letos jsme ${B.nog}× zapomněli kopačky ve skříňce.`:""],
+  ["Nejvyšší výhra",`${A.big.f}:${A.big.a}`,`${B.big.f}:${B.big.a}`,`Loni ${isUs(A.big.m[2])?"doma":"venku"} (${isUs(A.big.m[2])?A.big.m[4]:A.big.m[2]}), letos ${isUs(B.big.m[2])?"doma":"venku"} (${isUs(B.big.m[2])?B.big.m[4]:B.big.m[2]}).`],
+  ["Nejdelší vítězná série",A.streak,B.streak,A.streak>B.streak?`Loni ${A.streak} výher v řadě. Letos se série zatím drží na jedné, ale zato poctivě.`:""],
+  ["Různých střelců",Object.keys(A.sc).length,Object.keys(B.sc).length,"Góly loni dávalo půl vesnice."],
+  ["Nejlepší střelec",`${bohA}`,`${B.top[0]?B.top[0][1]:0}`,`Loni Jan Boháč, letos ${topB.join(" a ")}.`],
+  ["Místo v tabulce","1.",pos+".",pos>6?"Výhled z dolní poloviny tabulky má jednu výhodu: všechno je nad námi a dá se na to dosáhnout.":"Drží se to."]
+ ];
+ const fun=[
+  [`${Math.round(bohA/A.gf*100)} %`,"Boháčův efekt",`Jan Boháč dal loni ${bohA} z ${A.gf} gólů týmu. Zbytek týmu mu za to dluží minimálně jedno pivo za gól.`],
+  [`${mazF}:${mazA}`,"Oblíbený soupeř",`Mažice jsme loni porazili třikrát se skóre ${mazF}:${mazA}. Prosíme OFS, aby je zařadil i do 9. ligy.`],
+  [`${Math.round(stadG/B.gf*100)} %`,"Stádlecký zlatý důl",`Ve Stádlci jsme dali ${stadG} gólů, to je ${Math.round(stadG/B.gf*100)} % všech letošních. Ve zbylých ${B.n-1} zápasech jsme dali ${B.gf-stadG}. Navrhujeme hrát ve Stádlci každý týden.`],
+  ["1′","Nejrychlejší gól","Jan Boháč skóroval v Chotovinách v 1. minutě (31. 5. 2026). Soupeř ještě dovazoval špunty do kopaček."],
+  ["3 min","Holotovo okénko","Tomáš Holota dal ve Stádlci dva góly v 80. a 83. minutě. Tři minuty, dva góly, nula slitování."],
+  [`${A.hat.length}`,"Hattricky",`Loni ${A.hat.length}, oba Jan Boháč (Pojbuky a Červený kůň). Letos zatím ${B.hat.length}. Míč s podpisy je k mání.`],
+  [`${B.hp} : ${B.ap}`,"Doma vs. venku",`Letos ${B.hp} bodů doma a ${B.ap} venku. Venku jsme dali ${B.ag} gólů v ${B.an} zápasech, doma ${B.hg} ve ${B.hn}. ${B.hp<B.ap?"Doma jsme zřejmě moc pohostinní.":B.hp>B.ap?"Doma jsme nepříjemní, venku turisté.":"Spravedlivě rozděleno, jak se na Sokol sluší."}`],
+  ["3","Brankářova sbírka","Jiří Slunéčko má letos 3 žluté karty. Na brankáře úctyhodný výkon, většina hráčů v poli se může jen učit."],
+  [`${leader[7]-us[7]}`,"Bodů na čelo",`Letos vede ${leader[0]} s ${leader[7]} body. Loni jsme naopak my měli náskok 12 bodů. Karma je kulatá jako míč.`],
+  [`~${projOld}`,"Jarní věštba",`Kdybychom na jaře hráli jako loni (${f2(A.ppg)} bodu na zápas), skončíme se zhruba ${projOld} body. Když jako letos na podzim, bude to kolem ${projNew}. Volba je jasná.`]
+ ];
+ $("#recap").innerHTML=`<div class="recap-hero"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
+  <p>Mistrovský ročník 2025/26 v 10. lize proti podzimu 2026 v 9. lize. ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, ${B.pts} ${plural(B.pts,"bod","body","bodů")}, ${B.gf}:${B.ga}. Čísla nelžou, jen občas trochu bolí.</p></div>
+  <div class="scroll"><table class="vs"><thead><tr><th>Statistika</th><th>2025/26</th><th>Podzim 2026</th></tr></thead><tbody>${rows.map(([l,a,b,c])=>`<tr><td><b>${esc(l)}</b>${c?`<small>${esc(c)}</small>`:""}</td><td class="n old">${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
+  <div class="facts-fun">${fun.map(([b,h,p])=>`<div class="fun"><b>${esc(b)}</b><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("")}</div>
+  <div class="card" style="margin-top:16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap"><div><h3 style="font-size:1.6rem">Ceny dokopné</h3><p class="muted" style="font-size:.9rem">Hráč roku, kabiňák, nejcennější gól a největší zlepšení. Hlasujte a výsledky se ukážou živě.</p></div><button class="btn" type="button" id="toVote">Hlasovat</button></div>
+  <p class="toastline">Na mistry 10. ligy a na jaro v 9. lize!</p>
+  <p class="muted" style="font-size:.78rem;text-align:center">Zdroj čísel: Táborský deník, fotbalunas.cz. Stav k <span class="asOf">${esc($(".asOf")?.textContent||"")}</span>.</p>`;
+ $("#toVote").onclick=()=>$('[data-k="anketa"]').click();}
 /* ================= VIRTUÁLNÍ LIGA ================= */
 const oppList=()=>T2627.filter(r=>!isUs(r[0])).map(r=>({n:r[0],s:Math.round(52+(r[7]/r[1])*11+((r[5]-r[6])/r[1])*3)}));
 let OPP=oppList();
@@ -1206,7 +1273,7 @@ function renderAll(){
  $("#homeForm").innerHTML=S2627.filter(m=>m[3]!=null).slice(-5).map(m=>{const r=res(m);return `<span class="pill ${r}" title="${esc(m[2])} ${m[3]}:${m[5]} ${esc(m[4])}">${r}</span>`;}).join("");
  const us=T2627.findIndex(r=>isUs(r[0]));$("#homePos").textContent=(us+1)+".";
  scorers($("#homeScorers"),G27,5);
- renderSeason();renderSquad();renderFeature();renderRates();fillVoteSelects();renderDuties();
+ renderSeason();renderSquad();renderFeature();renderRates();fillVoteSelects();renderDuties();renderRecap();
  const h=location.hash.slice(1);if(h.startsWith("hrac-"))renderPlayer(h.slice(5));if(h.startsWith("zprava-"))renderStory(h.slice(7));
 }
 async function initCaps(){
