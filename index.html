@@ -215,6 +215,7 @@ a.bar:hover span{color:var(--club)}
 .facts b{text-align:right}
 .facts .btn{margin-top:18px}
 .sponsor{margin-top:18px;border:1px dashed var(--gold);padding:14px;border-radius:var(--r);font-size:.88rem}
+.sponsor .stag{display:block;margin-bottom:4px}
 .sponsor b{display:block;font-family:var(--f-display);font-size:1.3rem;text-transform:uppercase}
 .pmain{display:grid;gap:44px}
 .pmain .sec{font-size:2rem}
@@ -222,6 +223,12 @@ a.bar:hover span{color:var(--club)}
 .iv dt{font-weight:700;color:var(--club)}
 .iv dd{margin:4px 0 0;font-size:1.05rem;max-width:66ch}
 .mlist{display:grid;gap:6px}
+.mlist.compact .mrow{padding:7px 12px;grid-template-columns:70px minmax(0,1fr) auto auto}
+.mlist.compact .mteams{grid-auto-flow:column;justify-content:start;gap:6px}
+.mlist.compact .mteams span+span::before{content:"– ";font-weight:400}
+.mlist.compact .msc{grid-column:auto;order:3;white-space:nowrap}
+.loghead{display:flex;justify-content:space-between;font-size:1.3rem;margin:18px 0 8px}
+.loghead span{font-family:var(--f-mono);font-size:.85rem;color:var(--muted);text-transform:none}
 
 /* ---------- match rows ---------- */
 .mrow{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:4px 14px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:var(--r);padding:11px 14px}
@@ -390,6 +397,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   .rate{grid-template-columns:22px minmax(0,1fr) 84px 28px}
   footer .wrap{grid-template-columns:1fr}
   .mrow{grid-template-columns:64px minmax(0,1fr) auto}
+  .mlist.compact .mrow{grid-template-columns:56px minmax(0,1fr) auto}
+  .mlist.compact .mteams{grid-auto-flow:row}
+  .mlist.compact .mteams span+span::before{content:none}
+  .mlist.compact .msc{grid-column:2/-1;order:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
@@ -715,7 +726,7 @@ const QUESTIONS=["Jak ses dostal k fotbalu a do Košic?","Na který zápas za So
 /* ================= HELPERS ================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const slug=t=>String(t).toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48)||"x";
+const slug=t=>String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48)||"x";
 const DNY=["ne","po","út","st","čt","pá","so"];
 const dt=iso=>new Date(iso.length>10?iso:iso+"T12:00");
 const fmtD=iso=>{const d=dt(iso);return d.getDate()+". "+(d.getMonth()+1)+".";};
@@ -785,12 +796,12 @@ function renderPlayer(id){
   <div class="pstats wrap">${[["Góly 26/27",st.g27],["Góly 25/26",st.g26],["Góly celkem",st.g26+st.g27],["Zápasy se skórováním",st.log.length]].map(([a,b])=>`<div><b>${b}</b><span>${a}</span></div>`).join("")}</div>
   <div class="wrap band pbody">
    <aside class="facts">${facts.map(([a,b])=>`<div><span>${a}</span><b>${esc(b)}</b></div>`).join("")}
-    <div class="sponsor">${p.sponsor?`<span class="stag">Sponzor hráče</span><b>${esc(p.sponsor)}</b>`:`<span class="stag">Sponzor hráče</span><p>Volné. Podpořte ${esc(firstName(p.name)?p.name:"hráče")} a vaše firma bude tady.</p>`}</div>
+    <div class="sponsor">${p.sponsor?`<span class="stag">Sponzor hráče</span><b>${esc(p.sponsor)}</b>`:`<span class="stag">Sponzor hráče</span><p>Volné místo. Vaše firma tu může podporovat tohoto hráče.</p>`}</div>
     ${canEdit?`<button class="btn" type="button" id="editPlayer">Upravit medailonek</button>`:""}</aside>
    <div class="pmain">
     <section><h2 class="sec"><span>Medailonek</span></h2>${p.bio?`<div class="prose">${esc(p.bio).split(/\n{2,}/).map(x=>`<p>${x.replace(/\n/g,"<br>")}</p>`).join("")}</div>`:`<p class="muted">Medailonek se připravuje.${canEdit?" Doplňte ho tlačítkem Upravit medailonek.":""}</p>`}</section>
     <section><h2 class="sec"><span>Rozhovor</span></h2>${iv.length?`<dl class="iv">${iv.map(x=>`<dt>${esc(x.q)}</dt><dd>${esc(x.a)}</dd>`).join("")}</dl>`:`<p class="muted">Rozhovor zatím chybí.</p>`}</section>
-    <section><h2 class="sec"><span>Góly za Sokol</span></h2>${st.log.length?`<div class="mlist">${st.log.map(({m,c,lbl})=>mRow(m,`${lbl} · ${c}× ${"⚽".repeat(Math.min(c,4))}`)).join("")}</div>`:`<p class="muted">V zápisech z novin zatím bez gólu.</p>`}</section>
+    <section><h2 class="sec"><span>Góly za Sokol</span></h2>${st.log.length?["9. liga 26/27","10. liga 25/26"].map(L=>{const x=st.log.filter(e=>e.lbl===L);return x.length?`<h3 class="loghead">${L}<span>${x.reduce((a,e)=>a+e.c,0)} ${plural(x.reduce((a,e)=>a+e.c,0),"gól","góly","gólů")}</span></h3><div class="mlist compact">${x.map(({m,c})=>mRow(m,`${c}× gól`)).join("")}</div>`:"";}).join(""):`<p class="muted">V zápisech z novin zatím bez gólu.</p>`}</section>
    </div></div>`;
  const b=$("#editPlayer");if(b)b.onclick=()=>openEditor(p);
 }
@@ -864,14 +875,14 @@ function stories(){
  const played=S2627.filter(m=>m[3]!=null);
  const next=S2627.find(m=>m[3]==null);
  if(next){const opp=isUs(next[2])?next[4]:next[2],row=T2627.find(r=>r[0]===opp),us=T2627.find(r=>isUs(r[0]));
-  out.push({id:"pozvanka-"+next[0],tag:"Pozvánka",date:next[1],title:`${isUs(next[2])?"Doma":"Venku"} proti ${opp}`,
+  out.push({id:"pozvanka-"+next[0],tag:"Pozvánka",date:next[1],title:`${next[0]}. kolo: ${next[2]} – ${next[4]}`,
    body:[`V ${next[0]}. kole Fixi Coffee 9. ligy ${isUs(next[2])?"hostíme":"jedeme na hřiště"} ${opp}, výkop je ${fmtDL(next[1])}${next[1].length>10?" v "+next[1].slice(11,16):""}.`,
     row&&us?`${opp} je v tabulce ${T2627.indexOf(row)+1}. s ${row[7]} body, my jsme ${T2627.indexOf(us)+1}. s ${us[7]} body. Výhra by nás posunula ${us[7]+3>row[7]?"před soupeře":"blíž k němu"}.`:"",
     "Přijďte nás podpořit, každý hlas od lajny je znát."].filter(Boolean)});}
  played.slice(-6).reverse().forEach(m=>{const r=res(m),home=isUs(m[2]),opp=home?m[4]:m[2],us=home?m[3]:m[5],th=home?m[5]:m[3];
   const sc=Object.entries(m[6].reduce((a,n)=>(a[n]=(a[n]||0)+1,a),{}));
-  const title=r==="V"?(us-th>=3?`Gólová přestřelka: ${us}:${th} ${home?"doma s":"v"} ${opp}`:`Výhra ${us}:${th} ${home?"doma s":"na hřišti"} ${opp}`)
-   :r==="R"?`Remíza ${us}:${th} ${home?"doma s":"v"} ${opp}`:`Porážka ${us}:${th} ${home?"doma s":"v"} ${opp}`;
+  const lead=r==="V"?(home?"Tři body doma":"Výhra venku"):r==="R"?(home?"Bod doma":"Bod z venku"):(home?"Porážka doma":"Porážka venku");
+  const title=`${lead}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}`;
   const body=[`${m[0]}. kolo Fixi Coffee 9. ligy, ${fmtDL(m[1])}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}.`,
    sc.length?`Za Košice ${sc.length===1&&sc[0][1]===1?"skóroval":"skórovali"} ${sc.map(([n,c])=>n+(c>1?` (${c}×)`:"")).join(", ")}.`:"Gól jsme tentokrát nedali."];
   if(m[0]===6)body.push("Šest gólů na hřišti soupeře je náš nejvyšší letošní počet. Dva přidali Dominik Petr Tuček a Tomáš Holota.");
