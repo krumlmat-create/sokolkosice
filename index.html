@@ -101,6 +101,7 @@ form.f{display:grid;gap:14px}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:11px 18px;border-radius:var(--r);font-weight:600;z-index:60}
 .back{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;margin-bottom:16px}
 .back::before{content:"← "}
+.article .back{display:block}
 
 /* ---------- hero (home) ---------- */
 .hero{background:var(--club);color:var(--on-club);position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),0 100%);padding-bottom:44px}
@@ -121,7 +122,7 @@ form.f{display:grid;gap:14px}
 .mc-t{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:12px 0 10px}
 .mc-t>div{display:flex;align-items:center;gap:8px;min-width:0}
 .mc-t>div:last-child{flex-direction:row-reverse;text-align:right}
-.mc-t b{font-family:var(--f-display);font-weight:800;font-size:1.3rem;text-transform:uppercase;line-height:1}
+.mc-t b{font-family:var(--f-display);font-weight:800;font-size:1.3rem;text-transform:uppercase;line-height:1;min-width:0;overflow-wrap:anywhere}
 .mc-s{font-family:var(--f-mono);font-weight:700;font-size:2rem;letter-spacing:.04em}
 .mc.next .mc-s{color:var(--gold)}
 .mc-f{font-size:.78rem;color:var(--muted)}
@@ -178,6 +179,7 @@ a.bar:hover span{color:var(--club)}
 .pimg{position:absolute;inset:14% 0 0 0;display:flex;align-items:flex-end;justify-content:center;color:rgba(0,0,0,.28)}
 .pimg img{width:100%;height:100%;object-fit:cover;object-position:top}
 .pimg .sil{width:78%;height:auto}
+.pini{position:absolute;inset:18% 0 auto;text-align:center;font-family:var(--f-display);font-weight:900;font-size:5.5rem;line-height:1;color:rgba(255,255,255,.14)}
 .pname{position:absolute;left:0;right:0;bottom:0;padding:40px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));display:grid;line-height:1}
 .pname small{font-size:.78rem;font-weight:500;opacity:.9}
 .pname b{font-family:var(--f-display);font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:.95}
@@ -291,12 +293,30 @@ a.bar:hover span{color:var(--club)}
 .tier b{font-family:var(--f-display);font-size:1.6rem;text-transform:uppercase;display:block}
 .tier span{font-size:.88rem;color:var(--muted)}
 
+.tips{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:10px;align-content:start}
+.tip h3{font-size:1.55rem;font-weight:900}
+.tip ol,.tip ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:.95rem}
+.tip .drill{background:var(--soft);border-left:4px solid var(--club);padding:10px 12px;font-size:.9rem;border-radius:0 var(--r) var(--r) 0}
+.tip .drill b{display:block;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--club);margin-bottom:2px}
+.feature{display:grid;grid-template-columns:240px 1fr;gap:28px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.feature .pcard{border-radius:0;height:100%}
+.feature>div{padding:24px 24px 24px 0;display:grid;gap:12px;min-width:0}
+.feature h3{font-size:clamp(2rem,4vw,3rem);font-weight:900}
+.feature blockquote{margin:0;border-left:4px solid var(--club);padding-left:12px;font-size:1.1rem;font-style:italic}
+.dokopna{background:#0b0d0c;color:#f2eee4;border-radius:var(--r);padding:24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;position:relative;overflow:hidden}
+.dokopna::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(196,149,43,.08) 0 2px,transparent 2px 18px);pointer-events:none}
+.dokopna h3{font-size:clamp(2rem,4.5vw,3rem);font-weight:900;color:var(--gold)}
+.dokopna p{opacity:.85;max-width:56ch;margin-top:6px}
+.dokopna .btn{position:relative;z-index:1}
+@media (max-width:620px){.feature{grid-template-columns:1fr}.feature .pcard{aspect-ratio:4/3}.feature>div{padding:0 18px 20px}.dokopna{grid-template-columns:1fr}}
 /* ---------- hra ---------- */
 .gamegrid{display:grid;grid-template-columns:380px 1fr;gap:24px}
 .gamegrid>*{min-width:0}
 .rate{display:grid;grid-template-columns:22px minmax(0,1fr) 100px 30px;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:.9rem}
 .rate label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .rate input[type=range]{width:100%;accent-color:var(--club)}
+.rate .rbar{display:block;height:8px;background:linear-gradient(90deg,var(--club) var(--w),var(--soft) var(--w));border-radius:1px;text-decoration:none}
 .rate em{font-style:normal;font-family:var(--f-mono);text-align:right;font-weight:700}
 .rate input[type=checkbox]{accent-color:var(--club);width:18px;height:18px}
 .simboard{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;background:#0b0d0c;color:#f1ede3;padding:14px 16px;border-radius:var(--r);font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:1.2rem;position:relative}
@@ -391,8 +411,11 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   .pnum{font-size:3.2rem}
   .mgrid{grid-template-columns:1fr 1fr}.mgrid .wide{grid-column:span 2}
   .brand small{display:none}
-  .mc-t b{font-size:1.05rem}
-  .mc-s{font-size:1.6rem}
+  .mc-t{gap:8px}
+  .mc-t b{font-size:.98rem}
+  .mc-t .crestmini{display:none}
+  .mc-s{font-size:1.5rem}
+  .ticker a{display:none}
   .bar{grid-template-columns:20px minmax(0,1fr) 48px 24px}
   .rate{grid-template-columns:22px minmax(0,1fr) 84px 28px}
   footer .wrap{grid-template-columns:1fr}
@@ -435,6 +458,9 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
     <div id="matchCentre"></div>
   </div></div>
 
+  <div class="wrap" style="padding-top:28px" id="dokopnaWrap">
+    <div class="dokopna"><div><span class="stag" style="color:var(--gold)">Sezona končí</span><h3>Dokopná 2026</h3><p>Podzim je za námi. Hlasujte v kabině o hráče roku, kabiňáka a nejcennější gól a nahrajte fotky z večera.</p></div><a class="btn light" href="#kabina">Do kabiny</a></div>
+  </div>
   <div class="wrap band">
     <div class="sechead"><h2 class="sec">Aktuality</h2><a class="more" href="#aktuality">Všechny</a></div>
     <div class="news" id="newsGrid"></div>
@@ -450,6 +476,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   </div>
 
   <div class="wrap band" style="padding-top:0">
+    <div class="sechead"><h2 class="sec">Medailonek</h2><a class="more" href="#tym">Další hráči</a></div>
+    <div id="featurePlayer"></div>
+  </div>
+  <div class="wrap band" style="padding-top:0">
     <div class="sechead"><h2 class="sec">A-tým</h2><a class="more" href="#tym">Celá soupiska</a></div>
     <div class="strip" id="homeSquad"></div>
   </div>
@@ -462,7 +492,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   <div class="wrap band" style="padding-top:0">
     <div class="banners">
       <a class="banner" href="#hra"><span class="stag" style="color:var(--gold)">Hra</span><h3>Virtuální 9. liga</h3><p>Ohodnoťte hráče, postavte jedenáctku a nasimulujte jaro.</p></a>
-      <a class="banner red" href="#akademie"><span class="stag" style="color:var(--gold)">Mládež</span><h3>Akademie Sokola</h3><p>Hledáme děti, rodiče i trenéry. Přihlaste se.</p></a>
+      <a class="banner red" href="#akademie"><span class="stag" style="color:var(--gold)">Akademie</span><h3>Tipy a triky</h3><p>Střelba, kondice, regenerace a pravidla. Plus tréninkový plán na míru.</p></a>
     </div>
   </div>
 
@@ -507,7 +537,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   </div>
   <div class="wrap band" style="padding-top:0">
     <div class="two">
-      <div><h2 class="sec">Kanonýři 25/26</h2><div class="scorers" id="scorers2526"></div></div>
+      <div><h2 class="sec">Kanonýři <small id="scorersSeason"></small></h2><div class="scorers" id="scorers2526"></div></div>
       <div><h2 class="sec">Kde nás sledovat</h2><p class="muted">Výsledky okresních soutěží publikuje každé pondělí Táborský deník a týdeník Táborsko (JcTed.cz). Fotky z jarního zápasu na Červeném koni najdete v <a href="https://www.jcted.cz/favorite-na-okresnich-travnicich-neklopytli-fotbaliste-kosic-jdou-v-nejnizsi-soutezi-do-trhaku/" target="_blank" rel="noopener">galerii JcTed.cz</a>.</p></div>
     </div>
   </div>
@@ -558,25 +588,20 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <!-- ============ AKADEMIE ============ -->
 <section class="view" id="v-akademie">
   <div class="wrap band">
-    <h2 class="sec">Akademie Sokola <small>připravujeme</small></h2>
-    <p class="muted" style="max-width:66ch;margin-bottom:26px">Chceme, aby si děti z Košic, Doubí a okolí mohly kopat doma a jednou dorostly do áčka. Hledáme rodiče, trenéry i děti.</p>
-    <div class="tiers">
-      <div class="tier"><b>Školička</b><span>4–6 let · hry s míčem, koordinace, radost z pohybu</span></div>
-      <div class="tier"><b>Mladší přípravka</b><span>U7–U9 · malé formy 4+1, hodně doteků s míčem</span></div>
-      <div class="tier"><b>Starší přípravka</b><span>U10–U11 · 5+1, první taktika, turnaje OFS Tábor</span></div>
-      <div class="tier"><b>Žáci</b><span>U12–U15 · ve spolupráci s okolními kluby</span></div>
-    </div>
+    <h2 class="sec">Akademie <small>tipy a triky pro áčko</small></h2>
+    <p class="muted" style="max-width:68ch;margin:-8px 0 22px">Krátké rady, cvičení a pravidla, která se hodí na okresních trávnících. Každý tip zvládnete sami, s míčem a pár kužely.</p>
+    <div class="seg" role="group" aria-label="Téma" id="tipFilter" style="flex-wrap:wrap;margin-bottom:20px"></div>
+    <div class="tips" id="tips"></div>
   </div>
   <div class="wrap band" style="padding-top:0">
+    <h2 class="sec">Plán na týden</h2>
     <div class="two">
-      <div><h3 style="font-size:2rem;margin-bottom:12px">Jak trénujeme</h3>
-        <ul style="padding-left:18px;display:grid;gap:8px;margin:0"><li>Míč u každého dítěte, žádné stání ve frontě.</li><li>Malá hřiště a malé týmy, aby se každý dotkl míče co nejvíckrát.</li><li>Hráči áčka chodí na tréninky pomáhat jako asistenti.</li><li>Jednou za sezonu turnaj přípravek na našem hřišti.</li></ul>
-        <p class="muted" style="margin-top:14px">Časy tréninků zveřejníme, jakmile se přihlásí první parta.</p></div>
-      <form class="card f" id="acadForm"><h3 style="font-size:1.8rem">Zájem o akademii</h3>
-        <label class="l" for="a-name">Jméno dítěte<input type="text" id="a-name" required></label>
-        <label class="l" for="a-year">Rok narození<input type="text" id="a-year" inputmode="numeric" placeholder="např. 2019"></label>
-        <label class="l" for="a-contact">Kontakt na rodiče<input type="text" id="a-contact" required placeholder="telefon nebo e-mail"></label>
-        <button class="btn" type="submit">Odeslat zájem</button><p class="muted" id="acadMsg" style="font-size:.85rem">Přihlášky vidí jen správci klubu.</p></form>
+      <form class="card f" id="planForm"><h3 style="font-size:1.8rem">Individuální tréninkový plán</h3>
+        <label class="l" for="p-pos">Post<select id="p-pos"><option value="gk">Brankář</option><option value="df">Obránce</option><option value="mf" selected>Záložník</option><option value="fw">Útočník</option></select></label>
+        <label class="l" for="p-goal">Na čem chci zapracovat<select id="p-goal"><option value="kond">Kondice</option><option value="rych">Rychlost a výbušnost</option><option value="tech">Technika a střelba</option><option value="sila">Síla a prevence zranění</option><option value="zima">Zimní příprava</option></select></label>
+        <label class="l" for="p-days">Kolik dní navíc k týmovému tréninku<select id="p-days"><option>1</option><option selected>2</option><option>3</option></select></label>
+        <button class="btn" type="submit">Sestavit plán</button></form>
+      <div class="card"><div class="plan" id="planOut"></div></div>
     </div>
   </div>
 </section>
@@ -584,14 +609,14 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <!-- ============ HRA ============ -->
 <section class="view" id="v-hra"><div class="wrap band">
   <h2 class="sec">Virtuální 9. liga</h2>
-  <p class="muted" style="max-width:70ch;margin:-8px 0 26px">Ohodnoťte hráče, vyberte jedenáctku a nechte odehrát zápas nebo celé jaro. Soupeři mají sílu podle skutečné tabulky. Výchozí hodnocení vychází z gólů, upravte si ho podle sebe. Ukládá se jen ve vašem prohlížeči.</p>
+  <p class="muted" style="max-width:70ch;margin:-8px 0 26px">Ohodnoťte hráče, vyberte jedenáctku a nechte odehrát zápas nebo celé jaro. Soupeři mají sílu podle skutečné tabulky. Sílu hráčů nastavuje vedení týmu, vy si jen skládáte jedenáctku.</p>
   <div class="gamegrid">
     <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px"><h3 style="font-size:1.7rem">Sestava <span class="muted" style="font-size:1rem"><span id="xiCount"></span>/11</span></h3><span class="muted" style="font-size:.85rem">síla <b id="teamPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
-      <div id="rateList"></div></div>
+      <p class="muted" id="rateNote" style="font-size:.82rem;margin-bottom:6px"></p><div id="rateList"></div><button class="btn sm" type="button" id="saveRatings" hidden style="margin-top:12px">Uložit hodnocení pro všechny</button></div>
     <div style="display:grid;gap:16px;align-content:start">
       <div class="card"><h3 style="font-size:1.7rem">Jeden zápas</h3>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px"><select id="oppSel" aria-label="Soupeř" style="flex:1;min-width:160px"></select><select id="venueSel" aria-label="Kde se hraje" style="width:auto"><option value="h">doma</option><option value="a">venku</option></select><button class="btn" id="simOne" type="button">Výkop</button></div>
-        <div id="oneResult"><p class="muted">Vyberte soupeře a dejte Výkop.</p></div></div>
+        <div id="oneResult"><p class="muted">Vyberte soupeře a spusťte zápas.</p></div></div>
       <div class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:1.7rem">Zbytek sezony</h3><button class="btn dark" id="simSeason" type="button">Simulovat</button></div>
         <p class="muted" style="font-size:.88rem;margin-top:6px">Dohraje zbývající kola od aktuální tabulky.</p><div id="seasonResult" style="margin-top:12px"></div></div>
     </div>
@@ -601,12 +626,12 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <!-- ============ KABINA ============ -->
 <section class="view" id="v-kabina"><div class="wrap band">
   <div id="gate" class="gate"><span class="stag">Jen pro spoluhráče</span><h1>Kabina</h1>
-    <p class="muted">Služby, lajnování, dresy, docházka, anketa, fotky a tréninkové plány. Heslo dostanete od kapitána.</p>
+    <p class="muted">Služby, lajnování, dresy, docházka, anketa a fotky. Heslo dostanete od kapitána.</p>
     <form id="gateForm" style="display:grid;gap:10px"><label for="pin" class="stag" style="color:var(--muted)">Heslo do kabiny</label><input type="password" id="pin" autocomplete="off"><button class="btn" type="submit">Vstoupit</button><p class="muted" id="gateMsg"></p></form></div>
   <div id="kabina" hidden>
     <div class="sechead"><h2 class="sec">Kabina</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><div class="seg" role="group" aria-label="Sekce kabiny">
-        <button type="button" data-k="sluzby" aria-pressed="true">Služby</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button><button type="button" data-k="plany" aria-pressed="false">Trénink</button></div>
+        <button type="button" data-k="sluzby" aria-pressed="true">Služby</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
         <button class="btn ghost sm" id="logout" type="button">Zamknout</button></div></div>
     <p class="muted" id="storeNote" style="margin:-8px 0 18px;font-size:.88rem"></p>
     <div data-kpane="sluzby"><div class="kgrid" id="dutyMatches"></div>
@@ -625,13 +650,6 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
       <div class="card" style="display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:16px"><label class="l" for="photoCap" style="flex:1;min-width:200px">Popisek (nepovinný)<input type="text" id="photoCap" placeholder="např. Dokopná 2026"></label>
         <label class="btn" for="photoIn" id="photoBtn">Nahrát fotky</label><input type="file" id="photoIn" accept="image/*" multiple hidden></div>
       <div class="photos" id="photos"></div></div>
-    <div data-kpane="plany" hidden><div class="two">
-      <form class="card f" id="planForm"><h3 style="font-size:1.8rem">Individuální plán na týden</h3>
-        <label class="l" for="p-pos">Post<select id="p-pos"><option value="gk">Brankář</option><option value="df">Obránce</option><option value="mf" selected>Záložník</option><option value="fw">Útočník</option></select></label>
-        <label class="l" for="p-goal">Na čem chci zapracovat<select id="p-goal"><option value="kond">Kondice</option><option value="rych">Rychlost a výbušnost</option><option value="tech">Technika a střelba</option><option value="sila">Síla a prevence zranění</option><option value="zima">Zimní příprava</option></select></label>
-        <label class="l" for="p-days">Kolik dní navíc k týmovému tréninku<select id="p-days"><option>1</option><option selected>2</option><option>3</option></select></label>
-        <button class="btn" type="submit">Sestavit plán</button></form>
-      <div class="card"><div class="plan" id="planOut"></div></div></div></div>
   </div>
 </div></section>
 </main>
@@ -664,7 +682,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <footer>
   <div class="wrap">
     <div><h4>TJ Sokol Košice</h4><p>391 17 Košice, okres Tábor.<br>Fixi Coffee 9. liga OFS Tábor.</p><p style="margin-top:10px">Mistr KAVAS ELEKTRO 10. ligy 2025/26.</p></div>
-    <div><h4>Web</h4><ul><li><a href="#aktuality">Aktuality</a></li><li><a href="#zapasy">Zápasy a tabulka</a></li><li><a href="#tym">A-tým</a></li><li><a href="#akademie">Akademie</a></li><li><a href="#kabina">Kabina</a></li></ul></div>
+    <div><h4>Web</h4><ul><li><a href="#aktuality">Aktuality</a></li><li><a href="#zapasy">Zápasy a tabulka</a></li><li><a href="#tym">A-tým</a></li><li><a href="#akademie">Akademie: tipy a triky</a></li><li><a href="#kabina">Kabina</a></li></ul></div>
     <div><h4>Výsledky</h4><ul><li><a href="https://taborsky.denik.cz/sport/fotbal-vysledky/tymy/2026/sokol-kosice-201410/" target="_blank" rel="noopener">Táborský deník</a></li><li><a href="https://www.jcted.cz/sport/" target="_blank" rel="noopener">JcTed.cz</a></li><li><a href="https://www.fotbal.cz/" target="_blank" rel="noopener">fotbal.cz</a></li></ul></div>
     <div class="legal"><span>Data o zápasech: Táborský deník, JcTed.cz · stav k <span class="asOf">31. 10. 2026</span></span><span>www.sokolkosice.online</span></div>
   </div>
@@ -766,13 +784,14 @@ function silhouette(){return `<svg class="sil" viewBox="0 0 120 150" aria-hidden
 function playerPhoto(p){return p.photo?`<img src="${esc(p.photo)}" alt="${esc(p.name)}" loading="lazy">`:silhouette();}
 function playerCard(p){
  const st=playerStats(p.name),num=p.num?esc(p.num):"";
- const meta=p.pos==="T"?"Trenér":(st.g26+st.g27)?`${st.g27} ${plural(st.g27,"gól","góly","gólů")} letos · ${st.g26} loni`:(POS_NAME[p.pos]||"Hráč");
- return `<a class="pcard" href="#hrac-${p.id}"><span class="pnum" aria-hidden="true">${num||(p.pos==="T"?"T":"")}</span>${p.cap?'<span class="pcap" title="Kapitán">C</span>':""}<span class="pimg">${playerPhoto(p)}</span>
+ const parts=[];if(st.g27)parts.push(`${st.g27} ${plural(st.g27,"gól","góly","gólů")} letos`);if(st.g26)parts.push(`${st.g26} loni`);
+ const meta=p.pos==="T"?"Trenér":parts.length?parts.join(" · "):(POS_NAME[p.pos]||"Hráč");
+ return `<a class="pcard" href="#hrac-${p.id}"><span class="pnum" aria-hidden="true">${num||(p.pos==="T"?"T":"")}</span>${p.cap?'<span class="pcap" title="Kapitán" aria-label="Kapitán">C</span>':""}${!p.photo&&!num?`<span class="pini" aria-hidden="true">${esc(initials(p.name))}</span>`:""}<span class="pimg">${playerPhoto(p)}</span>
   <span class="pname"><small>${esc(firstName(p.name))}</small><b>${esc(lastName(p.name))}</b><em>${esc(meta)}</em></span></a>`;}
 function renderSquad(){
  const ps=players();
  $("#squadGroups").innerHTML=POS_PLURAL.map(([k,l])=>{const g=ps.filter(p=>(p.pos||"")===k);if(!g.length)return"";
-  if(k==="")g.sort((a,b)=>((G27[b.name]||0)*2+(G26[b.name]||0))-((G27[a.name]||0)*2+(G26[a.name]||0)));
+  g.sort((a,b)=>(+a.num||999)-(+b.num||999)||lastName(a.name).localeCompare(lastName(b.name),"cs"));
   return `<section class="sgroup"><h3 class="shead"><span>${l}</span><i>${g.length}</i></h3><div class="pgrid">${g.map(playerCard).join("")}</div></section>`;}).join("");
  const strip=[...ps].filter(p=>p.pos!=="T").sort((a,b)=>((G27[b.name]||0)*2+(G26[b.name]||0))-((G27[a.name]||0)*2+(G26[a.name]||0))).slice(0,10);
  $("#homeSquad").innerHTML=strip.map(playerCard).join("");
@@ -885,7 +904,7 @@ function stories(){
   const title=`${lead}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}`;
   const body=[`${m[0]}. kolo Fixi Coffee 9. ligy, ${fmtDL(m[1])}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}.`,
    sc.length?`Za Košice ${sc.length===1&&sc[0][1]===1?"skóroval":"skórovali"} ${sc.map(([n,c])=>n+(c>1?` (${c}×)`:"")).join(", ")}.`:"Gól jsme tentokrát nedali."];
-  if(m[0]===6)body.push("Šest gólů na hřišti soupeře je náš nejvyšší letošní počet. Dva přidali Dominik Petr Tuček a Tomáš Holota.");
+  if(m[0]===6)body.push("Šest vstřelených gólů je náš nejvyšší letošní počet v jednom zápase.");
   if(m[0]===10)body.push("Brankář Slunéčko a spol. drželi bod, Božejovice srovnaly v 72. minutě. Diváků bylo 88.");
   out.push({id:"zapas-"+m[0],tag:"Zápas",res:r,date:m[1],title,body});});
  out.push({id:"mistri-2026",tag:"Klub",date:"2026-06-06",title:"Mistři 10. ligy! Sezonu jsme zavřeli výhrou 8:0",
@@ -923,12 +942,12 @@ function renderStats(){const L=(season==="2627"?S2627:S2526).filter(m=>m[3]!=nul
  const home=L.filter(m=>isUs(m[2])),away=L.filter(m=>!isUs(m[2]));
  const p=x=>x.reduce((a,m)=>{const r=res(m);return a+(r==="V"?3:r==="R"?1:0);},0);
  const diff=m=>(isUs(m[2])?m[3]-m[5]:m[5]-m[3]);const best=[...L].sort((a,b)=>diff(b)-diff(a))[0];
- let streak=0,cur=0;L.forEach(m=>{if(res(m)!=="P"){cur++;streak=Math.max(streak,cur);}else cur=0;});
- const G=goals(L),top=Object.entries(G).sort((a,b)=>b[1]-a[1])[0];
+  const G=goals(L),top=Object.entries(G).sort((a,b)=>b[1]-a[1])[0];
  $("#statTiles").innerHTML=[["Skóre",`${gf}:${ga}`,`${(gf/L.length).toFixed(1).replace(".",",")} gólu na zápas`],["Body doma / venku",`${p(home)} / ${p(away)}`,`${home.length} doma, ${away.length} venku`],
   ["Nejvyšší výhra",best&&diff(best)>0?`${best[3]}:${best[5]}`:"–",best&&diff(best)>0?`${best[0]}. kolo, ${isUs(best[2])?"doma s "+best[4]:"v "+best[2]}`:""],
-  ["Série bez porážky",`${streak}`,top?`nejlepší střelec ${top[0]} (${top[1]})`:""]].map(([a,b,c])=>`<div class="tile"><span>${a}</span><b>${esc(b)}</b><em>${esc(c)}</em></div>`).join("");}
+  (()=>{const t=Object.entries(G).sort((a,b)=>b[1]-a[1]),lead=t.filter(x=>x[1]===t[0][1]);return ["Nejlepší střelec",t.length?`${t[0][1]} ${plural(t[0][1],"gól","góly","gólů")}`:"–",lead.map(x=>x[0]).join(", ")];})()].map(([a,b,c])=>`<div class="tile"><span>${a}</span><b>${esc(b)}</b><em>${esc(c)}</em></div>`).join("");}
 function renderSeason(){renderStats();const L=season==="2627"?S2627:S2526;
+ scorers($("#scorers2526"),goals(L),8);$("#scorersSeason").textContent=season==="2627"?"2026/27":"2025/26";
  $("#matchList").innerHTML=[...L].reverse().map(m=>mRow(m)).join("");table($("#tblSeason"),season==="2627"?T2627:T2526);
  $("#seasonName").textContent=season==="2627"?"Fixi Coffee 9. liga 2026/27":"KAVAS ELEKTRO 10. liga 2025/26";
  $$("[data-season]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.season===season));}
@@ -945,18 +964,54 @@ function applySeason(d){
  if(d.asOf)$$(".asOf").forEach(e=>e.textContent=d.asOf);
  renderAll();
 }
+/* ================= AKADEMIE: TIPY A TRIKY ================= */
+const TIPS=[
+ {t:"Střelba",h:"Placírka k tyči místo rány",p:["Na menší vzdálenost (do 11 m) bývá přesnost cennější než síla.","Stojná noha vedle míče, špička kopající nohy ven, kotník zpevněný.","Míř k vzdálenější tyči: když gólman vyrazí, je tam dorážka."],d:"10× zpracování do strany a placírka k tyči, každou nohou."},
+ {t:"Střelba",h:"První dotek rozhoduje",p:["Před přihrávkou se rozhlédni a věz, kam si míč zpracuješ.","Zpracuj do strany od obránce, ne pod sebe.","Ve vápně zpracování a střela do dvou doteků."],d:"Přihrávky o zeď: převzetí do strany vnitřní částí, 3× 2 minuty každou nohou."},
+ {t:"Brankář",h:"Základní postoj a výběh",p:["Váha na přední části chodidel, kolena pokrčená, ruce před tělem.","Při střelbě z dálky drž úhel mezi míčem a středem branky.","Na centry křič včas a jasně: „mám“, nebo „pryč“."],d:"Spoluhráč střílí z různých úhlů, ty se před každou střelou posuneš do úhlu. 20 opakování."},
+ {t:"Brankář",h:"Výkop, který něco přinese",p:["Dlouhý výkop na hlavu útočníka je padesát na padesát.","Když je obránce volný, rozehraj krátce a rychle.","Rychlé vyhození rukou na křídlo bývá nejlepší start brejku."],d:"Vyhazování rukou na cíl (kužel) ze 20 m, 15× každou rukou."},
+ {t:"Obrana",h:"Bránění jeden na jednoho",p:["Nejdi hned do skluzu, zpomal útočníka a tlač ho k postranní čáře.","Stůj bokem, ne čelem, ať se rychle otočíš.","Do míče jdi, až když útočník míč odkryje."],d:"Hra 1 na 1 v koridoru 10 × 20 m: útočník se snaží projít, obránce ho tlačí ven. 6× 30 s."},
+ {t:"Obrana",h:"Mluvení na hřišti",p:["Krátké a jasné pokyny: „hraj“, „otoč“, „čas“, „hlídej“.","Kdo vidí víc, mluví víc. Obvykle brankář a stoper.","Po ztrátě míče hned řekni, kdo jde do presinku."],d:"V tréninkové hře smí přihrávat jen ten, kdo byl před přihrávkou zavolán jménem."},
+ {t:"Kondice",h:"Jak vydržet 90 minut",p:["Dvakrát týdně intervaly víc pomůžou než dlouhé pomalé běhání.","Fotbal je o opakovaných sprintech: krátký úsek naplno, pak klus.","Hydratace začíná den před zápasem, ne v poločase."],d:"6× 30 m sprint, návrat chůzí. Pauza 2 min. 2 série."},
+ {t:"Kondice",h:"Prevence zranění: třísla a hamstringy",p:["Copenhagen a nordic hamstring snižují riziko natažených svalů.","Před zápasem dynamická rozcvička, ne dlouhé výdrže v protažení.","Bolest, která neustupuje, je důvod vynechat, ne hrát přes ni."],d:"Copenhagen plank 3× 8 na stranu, nordic hamstring 3× 5. Dvakrát týdně."},
+ {t:"Regenerace",h:"Den po zápase",p:["Lehká procházka nebo kolo 20–30 minut rozproudí krev.","Válec na stehna a lýtka 10 minut.","Jídlo s bílkovinami do dvou hodin po zápase a dost spánku."],d:"Neděle: 25 min chůze, 10 min válec, 10 min protažení."},
+ {t:"Regenerace",h:"Po dokopné",p:["Voda mezi pivy, ne až ráno.","Dobrá snídaně a procházka dělají víc než prášek.","Na první zimní trénink přijď, i když nejsi ve formě. Forma se vrátí rychleji, když nevypadneš z tempa."],d:"V pondělí 30 min klusu. Nic víc, nic míň."},
+ {t:"Taktika",h:"Standardky rozhodují zápasy",p:["V okresních soutěžích padá velká část gólů ze standardních situací.","Mějte domluvené dva tři rohy: na první tyč, na velké vápno, krátce.","Kdo bere míč na roh, ví to předem, žádné dohadování."],d:"Konec každého tréninku: 10 rohů, 5 přímých kopů, s bránícím týmem."},
+ {t:"Taktika",h:"Po ztrátě míče prvních pět sekund",p:["Nejbližší hráč okamžitě tlačí na míč.","Ostatní zavřou nejbližší přihrávky.","Když se míč nepodaří získat, všichni zpátky za míč."],d:"Hra 5 na 5: po ztrátě má tým 5 sekund na zisk, jinak bod soupeři."},
+ {t:"Pravidla",h:"Ofsajd v kostce",p:["Ofsajd se posuzuje v okamžiku přihrávky spoluhráče.","Nejde o ofsajd z autu, z kopu od branky ani z rohového kopu.","Na vlastní polovině hřiště ofsajd není."],d:"Před zápasem si s obranou domluvte, kdo řídí vysunutí."},
+ {t:"Pravidla",h:"Kdy je ruka",p:["Trestná je ruka, kterou si hráč zvětšuje objem těla nebo jde rukou k míči.","Gól přímo z ruky útočníka neplatí, ani když je náhodná.","Rozhodčí rozhoduje podle toho, co viděl. Diskuse kartu neruší, spíš přidá."],d:"Při bránění střely dej ruce za záda nebo k tělu."}
+];
+let tipTopic="Vše";
+function renderTips(){const topics=["Vše",...new Set(TIPS.map(t=>t.t))];
+ $("#tipFilter").innerHTML=topics.map(t=>`<button type="button" aria-pressed="${t===tipTopic}" data-tip="${esc(t)}">${esc(t)}</button>`).join("");
+ $$("[data-tip]").forEach(b=>b.onclick=()=>{tipTopic=b.dataset.tip;renderTips();});
+ $("#tips").innerHTML=TIPS.filter(t=>tipTopic==="Vše"||t.t===tipTopic).map(t=>`<article class="tip"><span class="stag">${esc(t.t)}</span><h3>${esc(t.h)}</h3><ul>${t.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="drill"><b>Cvičení</b>${esc(t.d)}</div></article>`).join("");}
+
+/* ================= MEDAILONEK NA ÚVODU ================= */
+function renderFeature(){const ps=players().filter(p=>p.pos!=="T");if(!ps.length)return;
+ const withStory=ps.filter(p=>p.quote||p.bio);
+ const day=Math.floor(Date.now()/864e5);
+ const p=withStory.length?withStory[day%withStory.length]:[...ps].sort((a,b)=>((G27[b.name]||0)+(G26[b.name]||0))-((G27[a.name]||0)+(G26[a.name]||0)))[0];
+ const st=playerStats(p.name);
+ $("#featurePlayer").innerHTML=`<div class="feature">${playerCard(p)}<div><span class="stag">${withStory.length?"Medailonek":"Nejlepší střelec klubu"}</span><h3>${esc(p.name)}</h3>
+  ${p.quote?`<blockquote>${esc(p.quote)}</blockquote>`:`<p class="muted">${st.g26+st.g27} ${plural(st.g26+st.g27,"gól","góly","gólů")} za poslední dvě sezony${st.g26?`, z toho ${st.g26} v mistrovském ročníku 2025/26`:""}. Medailonek s rozhovorem se připravuje.</p>`}
+  <a class="btn" href="#hrac-${p.id}" style="justify-self:start">Celý medailonek</a></div></div>`;}
 /* ================= VIRTUÁLNÍ LIGA ================= */
 const oppList=()=>T2627.filter(r=>!isUs(r[0])).map(r=>({n:r[0],s:Math.round(52+(r[7]/r[1])*11+((r[5]-r[6])/r[1])*3)}));
 let OPP=oppList();
 const field=()=>players().filter(p=>p.pos!=="T");
-let ratings=store.get("ratings",{}),xi=store.get("xi",null);
+let ratings={},ratingsSaved=null,xi=store.get("xi",null);
 function defaultRating(p){return p.pos==="B"?72:Math.min(88,58+Math.round(((G26[p.name]||0)+(G27[p.name]||0)*2)*1.1));}
-function ensureRatings(){field().forEach(p=>{if(ratings[p.name]==null)ratings[p.name]=defaultRating(p);});
- if(!xi){xi=field().sort((a,b)=>ratings[b.name]-ratings[a.name]).slice(0,10).map(p=>p.name).filter(n=>n!=="Slunéčko");xi=xi.slice(0,10);xi.push("Slunéčko");}}
+function ensureRatings(){const F=field();F.forEach(p=>{ratings[p.name]=(ratingsSaved&&ratingsSaved[p.name]!=null)?ratingsSaved[p.name]:(canEdit&&ratings[p.name]!=null?ratings[p.name]:defaultRating(p));});
+ const gk=(F.find(p=>p.pos==="B")||F[0]||{}).name;
+ xi=(xi||[]).filter(n=>F.some(p=>p.name===n));
+ if(xi.length<11){const pick=F.filter(p=>p.name!==gk&&!xi.includes(p.name)).sort((a,b)=>ratings[b.name]-ratings[a.name]);if(gk&&!xi.includes(gk))xi.push(gk);while(xi.length<11&&pick.length)xi.push(pick.shift().name);}}
 const power=()=>{const v=xi.map(n=>ratings[n]||50);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length*(v.length<11?v.length/11:1)):0;};
 function renderRates(){ensureRatings();const F=field();
- $("#rateList").innerHTML=F.map((p,i)=>`<div class="rate"><input type="checkbox" id="xi${i}" ${xi.includes(p.name)?"checked":""} aria-label="${esc(p.name)} v sestavě"><label for="r${i}">${esc(p.name)}</label><input type="range" id="r${i}" min="40" max="99" value="${ratings[p.name]}"><em id="rv${i}">${ratings[p.name]}</em></div>`).join("");
- F.forEach((p,i)=>{const n=p.name;$("#r"+i).oninput=e=>{ratings[n]=+e.target.value;$("#rv"+i).textContent=e.target.value;store.set("ratings",ratings);$("#teamPower").textContent=power();};
+ $("#rateNote").textContent=canEdit?"Jako vedení týmu nastavujete sílu hráčů pro všechny. Nezapomeňte uložit.":"Sílu hráčů nastavuje vedení týmu.";
+ $("#saveRatings").hidden=!(canEdit&&db);
+ $("#rateList").innerHTML=F.map((p,i)=>`<div class="rate"><input type="checkbox" id="xi${i}" ${xi.includes(p.name)?"checked":""} aria-label="${esc(p.name)} v sestavě"><label for="xi${i}">${esc(p.name)}</label>${canEdit?`<input type="range" id="r${i}" min="40" max="99" value="${ratings[p.name]}" aria-label="Síla: ${esc(p.name)}">`:`<s class="rbar" style="--w:${(ratings[p.name]-40)/59*100}%"></s>`}<em id="rv${i}">${ratings[p.name]}</em></div>`).join("");
+ F.forEach((p,i)=>{const n=p.name;if(canEdit)$("#r"+i).oninput=e=>{ratings[n]=+e.target.value;$("#rv"+i).textContent=e.target.value;$("#teamPower").textContent=power();};
   $("#xi"+i).onchange=e=>{if(e.target.checked){if(xi.length>=11){e.target.checked=false;toast("Sestava už má 11 hráčů");return;}xi.push(n);}else xi=xi.filter(x=>x!==n);store.set("xi",xi);$("#teamPower").textContent=power();$("#xiCount").textContent=xi.length;};});
  $("#teamPower").textContent=power();$("#xiCount").textContent=xi.length;
  $("#oppSel").innerHTML=OPP.map(o=>`<option>${esc(o.n)}</option>`).join("");if(OPP.find(o=>o.n==="Sokol Vlkov"))$("#oppSel").value="Sokol Vlkov";}
@@ -968,6 +1023,7 @@ function playKosice(opp,home){const us=power();const gU=pois(lam(us,opp.s,home))
  const r={};xi.forEach(n=>{let v=6+(ratings[n]-65)/25+(Math.random()-.5)*1.2+(gU>gT?.4:gU<gT?-.4:0);if(n==="Slunéčko")v+=gT===0?1:-gT*.25;ev.forEach(e=>{if(e.who===n)v+=.9;});r[n]=Math.max(3,Math.min(10,Math.round(v*10)/10));});
  return{gU,gT,ev,r};}
 const chip=v=>`<span class="rt ${v>=7.5?"hi":v<5.5?"lo":""}">${v.toFixed(1).replace(".",",")}</span>`;
+$("#saveRatings").onclick=async()=>{if(!db||!canEdit)return;try{await db.collection("game").doc("ratings").set({r:{...ratings},updated:new Date().toISOString()});toast("Hodnocení uloženo pro všechny");}catch(e){toast("Uložit se nepovedlo");}};
 $("#simOne").onclick=async()=>{if(xi.length<11){toast("Vyberte 11 hráčů");return;}
  const opp=OPP.find(o=>o.n===$("#oppSel").value),home=$("#venueSel").value==="h",g=playKosice(opp,home),btn=$("#simOne");
  const H=home?"Košice":opp.n,A=home?opp.n:"Košice";btn.disabled=true;
@@ -1006,7 +1062,7 @@ $("#simSeason").onclick=()=>{if(xi.length<11){toast("Vyberte 11 hráčů");retur
 
 /* ================= KABINA ================= */
 const KABINA_URL="https://claude.ai/artifact/2cmL6bE96fzL4rhpFmXLEg#kabina";
-const PIN_HASH="dc8624f9"; // heslo: dokopna2026 (měkký zámek, skutečné soukromí řeší sdílení odkazu)
+const PIN_HASH="dc8624f9";
 const hsh=s=>{let x=0x811c9dc5;for(const c of s){x^=c.charCodeAt(0);x=Math.imul(x,16777619)>>>0;}return x.toString(16).padStart(8,"0");};
 let unlocked=false;try{unlocked=sessionStorage.getItem("kab")==="1";}catch(e){}
 function showKabina(){$("#gate").hidden=unlocked;$("#kabina").hidden=!unlocked;}
@@ -1067,12 +1123,6 @@ $("#planForm").addEventListener("submit",e=>{e.preventDefault();const p=$("#p-po
  const free=[0,2,4].slice(0,n);let k=0;
  $("#planOut").innerHTML=`<h3>Plán na týden</h3><p class="muted">Týmové tréninky upravte podle skutečných dnů.</p>`+days.map(([d,t],i)=>{let items=t?[t]:[];if(free.includes(i)){items=[PLAN[g][k%3],POSX[p][k%2]];k++;}if(!items.length)items=["Volno"];
   return `<div class="day"><b>${d}</b><ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;}).join("");});
-/* akademie */
-$("#acadForm").addEventListener("submit",async e=>{e.preventDefault();const d={child:$("#a-name").value.trim(),year:$("#a-year").value.trim(),contact:$("#a-contact").value.trim(),at:new Date().toISOString()};if(!d.child||!d.contact)return;
- try{if(db){const id=user&&await user.id();if(!id)throw 0;await db.collection("academy").doc(id).set(d);$("#acadMsg").textContent="Díky, ozveme se vám.";e.target.reset();}
-  else $("#acadMsg").textContent="Díky. Na této verzi webu se přihláška nikam neodesílá, ozvěte se prosím přímo trenérovi.";}
- catch(err){$("#acadMsg").textContent="Uložení se nepovedlo. Zkuste to znovu, nebo napište trenérovi.";}});
-
 /* ================= ROUTING ================= */
 const VIEWS=["domu","aktuality","zapasy","tym","klub","akademie","hra","kabina"];
 function route(){let h=location.hash.slice(1);let v=VIEWS.includes(h)?h:"domu";
@@ -1091,8 +1141,8 @@ function renderAll(){
  matchCentre();renderNews();table($("#tblHome"),T2627,{compact:true});
  $("#homeForm").innerHTML=S2627.filter(m=>m[3]!=null).slice(-5).map(m=>{const r=res(m);return `<span class="pill ${r}" title="${esc(m[2])} ${m[3]}:${m[5]} ${esc(m[4])}">${r}</span>`;}).join("");
  const us=T2627.findIndex(r=>isUs(r[0]));$("#homePos").textContent=(us+1)+".";
- scorers($("#homeScorers"),G27,5);scorers($("#scorers2526"),G26,8);
- renderSeason();renderSquad();renderRates();fillVoteSelects();renderDuties();
+ scorers($("#homeScorers"),G27,5);
+ renderSeason();renderSquad();renderFeature();renderRates();fillVoteSelects();renderDuties();
  const h=location.hash.slice(1);if(h.startsWith("hrac-"))renderPlayer(h.slice(5));if(h.startsWith("zprava-"))renderStory(h.slice(7));
 }
 async function initCaps(){
@@ -1100,6 +1150,7 @@ async function initCaps(){
  try{db=await C.use("db");}catch(e){db=null;}
  try{user=await C.use("user");canEdit=user?await user.canEdit():false;}catch(e){user=null;}
  $("#storeNote").textContent=db?"Zápisy vidí všichni spoluhráči v reálném čase.":"Sdílené ukládání teď není dostupné (asi nejste přihlášení). Zápisy se uloží jen ve vašem prohlížeči.";
+ renderRates();
  if(!db){localFallback();renderSquad();return;}
  C.use("assets").then(a=>{assets=a;$("#photoBtn").hidden=!a;}).catch(()=>{$("#photoBtn").hidden=true;});
  const sub=(c,fn)=>db.collection(c).onSnapshot(fn,()=>{});
@@ -1107,6 +1158,7 @@ async function initCaps(){
  sub("duties",s=>{duties={};s.docs.forEach(d=>duties[d.id]=d.data());renderDuties();});
  sub("matches",s=>{extraMatches=s.docs.map(d=>({id:d.id,...d.data()}));renderDuties();});
  sub("attendance",s=>{attRaw={};s.docs.forEach(d=>attRaw[d.id]=d.data());buildAtt();renderDuties();});
+ db.collection("game").doc("ratings").onSnapshot(d=>{ratingsSaved=d&&d.exists?(d.data().r||null):null;renderRates();},()=>{});
  sub("votes",s=>{votes=s.docs.map(d=>d.data());renderVotes();});
  db.collection("photos").orderBy("at","desc").onSnapshot(s=>renderPhotos(s.docs.map(d=>d.data())),()=>renderPhotos([]));
  db.collection("season").doc("current").onSnapshot(d=>{const x=d&&d.exists?d.data():null;if(x)applySeason(x);},()=>{});
@@ -1114,7 +1166,7 @@ async function initCaps(){
 }
 function localFallback(){duties=store.get("duties",{});extraMatches=store.get("matches",[]);attRaw=store.get("att",{});buildAtt();const mv=store.get("vote",null);votes=mv?[mv]:[];renderVotes();renderDuties();renderPhotos([]);$("#photoBtn").hidden=true;}
 
-renderAll();renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+renderTips();renderAll();renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
 
 })();
 </script>
