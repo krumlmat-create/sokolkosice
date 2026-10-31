@@ -814,8 +814,8 @@ const LINEUPS={
 /* Hráči: celé jméno (soupiska fotbalunas.cz 2026/27), výchozí post (B/O/Z/U, "" = neuvedeno, T = trenér) */
 const SQUAD=[
  ["Jiří Slunečko","B"],["Jakub Petržilka","O"],["David Nohava","O"],["Pavel Mazouch","O"],["David Maršík","O"],["Josef Daněk",""],["Michal Pufr",""],["Michal Přívozník",""],["Tomáš Fučík",""],["Roman Pokorný",""],
- ["Dominik Petr Tuček","Z"],["Stanislav Kadlec","Z"],["Matěj Kruml","Z"],["Jan Boháč",""],["Tomáš Fiala",""],["Petr Himl",""],["Tomáš Holota",""],["David Čížek","U"],["Adam Čížek",""],["Petr Pícha",""],
- ["Jan Kovář",""],["Vít Bárta",""],["Patrik Pauš",""],["Jan Škoda",""],["Stanislav Schlehofer",""],["Tomáš Kratoška",""],["Štěpán Novotný",""],["Ivan Pokhyla","O"],["Petr Kandler",""],["Marek Nývlt",""],
+ ["Dominik Petr Tuček","Z"],["Stanislav Kadlec","Z"],["Matěj Kruml","Z"],["Jan Boháč",""],["Petr Himl",""],["Tomáš Holota",""],["David Čížek","U"],["Adam Čížek",""],["Petr Pícha",""],
+ ["Jan Kovář",""],["Vít Bárta",""],["Patrik Pauš",""],["Jan Škoda",""],["Stanislav Schlehofer",""],["Tomáš Kratoška",""],["Štěpán Novotný",""],["Ivan Pokhyla","O"],["Petr Kandler",""],
  ["Zdeněk Radosta","T"]
 ];
 const FU="fotbalunas.cz";
@@ -1076,7 +1076,8 @@ function renderSeason(){renderStats();const L=season==="2627"?S2627:S2526;
  $$("[data-season]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.season===season));}
 $$("[data-season]").forEach(b=>b.onclick=()=>{season=b.dataset.season;renderSeason();});
 function scorers(el,G,limit=8){const e=Object.entries(G).sort((a,b)=>b[1]-a[1]).slice(0,limit),max=e.length?e[0][1]:1;
- el.innerHTML=e.map(([n,c],i)=>`<a class="bar" href="#hrac-${slug(n)}"><i class="rk">${i+1}</i><span>${esc(n)}</span><s style="--w:${c/max*100}%"></s><em>${c}</em></a>`).join("");}
+ const ids=new Set(players().map(p=>p.id));
+ el.innerHTML=e.map(([n,c],i)=>{const inner=`<i class="rk">${i+1}</i><span>${esc(n)}</span><s style="--w:${c/max*100}%"></s><em>${c}</em>`;return ids.has(slug(n))?`<a class="bar" href="#hrac-${slug(n)}">${inner}</a>`:`<div class="bar">${inner}</div>`;}).join("");}
 
 /* ================= SEASON FROM DB ================= */
 function applySeason(d){
