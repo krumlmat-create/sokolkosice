@@ -7,8 +7,8 @@
 /* Layout: klubový web. Tenký ticker zápasu, nízká sticky hlavička, červené plochy s diagonálním řezem,
    velká čísla dresů, soupiska podle postů, detail hráče s medailonkem a rozhovorem. */
 :root{
-  --club:#b3161f; --club-dk:#7c0e14; --ink:#121614; --paper:#f4f3ef; --card:#ffffff; --line:#dfdcd3;
-  --muted:#5e625d; --gold:#c4952b; --pitch:#1e4a37; --on-club:#fbf7f2; --soft:#ebe9e2;
+  --club:#1559b3; --club-dk:#0b3a7a; --sky:#3a9be6; --ink:#121614; --paper:#f4f3ef; --card:#ffffff; --line:#dfdcd3;
+  --muted:#5e625d; --gold:#e0b030; --pitch:#1e4a37; --on-club:#fbf7f2; --soft:#ebe9e2;
   --good:#2d7a4b; --bad:#b3332a; --draw:#8c7a37;
   --f-display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
   --f-body:"Libre Franklin",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -16,11 +16,11 @@
   --r:4px;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --club:#d0333b; --club-dk:#8f1a20; --ink:#ecebe6; --paper:#0f1211; --card:#171b19; --line:#29302c;
+  --club:#4f95ea; --club-dk:#123f80; --sky:#5fb0f0; --ink:#ecebe6; --paper:#0f1211; --card:#171b19; --line:#29302c;
   --muted:#9ca39e; --gold:#ddb256; --pitch:#2b6a50; --on-club:#fff8f2; --soft:#1d2320;
   --good:#5cbf84; --bad:#e8695e; --draw:#cdb46a; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --club:#d0333b; --club-dk:#8f1a20; --ink:#ecebe6; --paper:#0f1211; --card:#171b19; --line:#29302c;
+  --club:#4f95ea; --club-dk:#123f80; --sky:#5fb0f0; --ink:#ecebe6; --paper:#0f1211; --card:#171b19; --line:#29302c;
   --muted:#9ca39e; --gold:#ddb256; --pitch:#2b6a50; --on-club:#fff8f2; --soft:#1d2320;
   --good:#5cbf84; --bad:#e8695e; --draw:#cdb46a; color-scheme:dark}
 *{box-sizing:border-box}
@@ -104,9 +104,9 @@ form.f{display:grid;gap:14px}
 .article .back{display:block}
 
 /* ---------- hero (home) ---------- */
-.hero{background:var(--club);color:var(--on-club);position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),0 100%);padding-bottom:44px}
+.hero{background:var(--club-dk) var(--bg-img,none) center 40%/cover no-repeat;color:var(--on-club);position:relative;overflow:hidden;clip-path:polygon(0 0,100% 0,100% calc(100% - 44px),0 100%);padding-bottom:44px}
 .hero::before{content:"SOKOL";position:absolute;right:-2vw;bottom:-4vw;font-family:var(--f-display);font-weight:900;font-size:min(30vw,380px);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.14);pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 80px,transparent 80px 160px);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,40,90,.94) 0%,rgba(16,80,170,.78) 48%,rgba(16,80,170,.35) 100%);pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;padding-block:52px 40px;align-items:center}
 .hero .wrap>*{min-width:0}
 #lead .stag{color:var(--on-club);background:rgba(0,0,0,.22);padding:3px 8px}
@@ -173,8 +173,8 @@ a.bar:hover span{color:var(--club)}
 .strip{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(170px,200px);gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
 .strip .pcard{scroll-snap-align:start}
 .strip{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
-.pcard{position:relative;display:block;aspect-ratio:3/4;max-width:100%;border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--on-club);background:linear-gradient(160deg,var(--club) 0%,var(--club-dk) 70%);isolation:isolate}
-.pcard::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 14px,transparent 14px 28px);z-index:-1}
+.pcard{position:relative;display:block;aspect-ratio:3/4;max-width:100%;border-radius:var(--r);overflow:hidden;text-decoration:none;color:var(--on-club);background:repeating-linear-gradient(90deg,#1e6fcc 0 22px,#2a82df 22px 44px);isolation:isolate}
+.pcard::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(8,30,70,.35));z-index:-1}
 .pnum{position:absolute;top:6px;left:10px;font-family:var(--f-display);font-weight:900;font-size:4.2rem;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.55);z-index:1}
 .pcap{position:absolute;top:12px;right:12px;width:26px;height:26px;border-radius:50%;background:var(--gold);color:#111;font-family:var(--f-display);font-weight:900;display:grid;place-items:center;z-index:2}
 .pimg{position:absolute;inset:14% 0 0 0;display:flex;align-items:flex-end;justify-content:center;color:rgba(0,0,0,.28)}
@@ -192,8 +192,10 @@ a.bar:hover span{color:var(--club)}
 .shead i{font-style:normal;font-family:var(--f-mono);font-size:.85rem;color:var(--muted)}
 
 /* ---------- player detail ---------- */
-.phero{background:#0b0d0c;color:#f3efe6;position:relative;overflow:hidden}
-.phero::before{content:"";position:absolute;right:0;top:0;bottom:0;width:48%;background:var(--club);clip-path:polygon(22% 0,100% 0,100% 100%,0 100%)}
+.phero{background:#0b0d0c var(--bg-img,none) center/cover no-repeat;color:#f3efe6;position:relative;overflow:hidden}
+.phero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,14,24,.95) 0%,rgba(8,14,24,.82) 45%,rgba(8,14,24,.35) 100%)}
+.phero::before{content:"";position:absolute;right:0;top:0;bottom:0;width:44%;background:var(--club);opacity:.85;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);z-index:1}
+.phero-in{z-index:2}
 .phero-in{position:relative;display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:end;padding-block:36px 0;min-height:380px}
 .phero-in>*{min-width:0}
 .phero .back{color:#c9c3b4}
@@ -279,9 +281,11 @@ a.bar:hover span{color:var(--club)}
 .photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
 .photos img{aspect-ratio:4/3}
 .photos figcaption{font-size:.75rem;padding:5px 8px;color:var(--muted)}
-.partners{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
+.partners{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px}
 .partners h3{font-size:2rem;font-weight:900;margin-bottom:8px}
-.pslots{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.pslots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pslots div.sp{border-style:solid;background:var(--paper);color:var(--ink);font-family:var(--f-display);font-weight:800;font-size:1rem;letter-spacing:.02em}
+@media (max-width:620px){.pslots{grid-template-columns:repeat(2,1fr)}}
 .pslots div{aspect-ratio:3/2;border:1px dashed var(--line);border-radius:var(--r);display:grid;place-items:center;color:var(--muted);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;text-align:center;padding:6px}
 
 /* ---------- klub / akademie ---------- */
@@ -315,7 +319,9 @@ a.bar:hover span{color:var(--club)}
 .dokopna p{opacity:.85;max-width:56ch;margin-top:6px}
 .dokopna .btn{position:relative;z-index:1}
 @media (max-width:620px){.feature{grid-template-columns:1fr}.feature .pcard{aspect-ratio:4/3}.feature>div{padding:0 18px 20px}.dokopna{grid-template-columns:1fr}}
-.recap-hero{background:#0b0d0c;color:#f2eee4;border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.recap-hero{background:#0b0d0c var(--bg-img,none) center/cover no-repeat;color:#f2eee4;border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.recap-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,20,.94),rgba(8,12,20,.7))}
+.recap-hero>*{position:relative;z-index:1}
 .recap-hero::after{content:"2026";position:absolute;right:-10px;bottom:-40px;font-family:var(--f-display);font-weight:900;font-size:11rem;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(196,149,43,.35)}
 .recap-hero h3{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:var(--gold);position:relative}
 .recap-hero p{max-width:60ch;opacity:.88;margin-top:8px;position:relative}
@@ -359,7 +365,9 @@ summary{cursor:pointer;font-weight:600;font-size:.9rem}
 details .mlist{margin-top:10px}
 
 /* ---------- kabina ---------- */
-.gate{max-width:440px;margin:0 auto;text-align:center;display:grid;gap:14px;padding-block:40px}
+.gate{max-width:480px;margin:0 auto;text-align:center;display:grid;gap:14px;padding:40px 24px;border-radius:var(--r);background:linear-gradient(rgba(244,243,239,.9),rgba(244,243,239,.94)),var(--bg-img,none) center/cover no-repeat}
+:root[data-theme="dark"] .gate{background:linear-gradient(rgba(15,18,17,.88),rgba(15,18,17,.92)),var(--bg-img,none) center/cover no-repeat}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .gate{background:linear-gradient(rgba(15,18,17,.88),rgba(15,18,17,.92)),var(--bg-img,none) center/cover no-repeat}}
 .gate h1{font-size:4rem;font-weight:900}
 .gate input{text-align:center;font-family:var(--f-mono);font-size:1.1rem}
 .kgrid{display:grid;gap:16px}
@@ -407,6 +415,11 @@ details .mlist{margin-top:10px}
 .chk{display:flex;gap:8px;align-items:center;font-size:.9rem;font-weight:600}
 .chk input{width:18px;height:18px;accent-color:var(--club)}
 
+.lightbox{position:fixed;inset:0;z-index:45;background:rgba(5,8,12,.92);display:grid;place-items:center;gap:10px;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));grid-template-rows:auto 1fr auto}
+.lightbox img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:var(--r)}
+.lightbox p{color:#eee;font-size:.95rem}
+.lightbox button{justify-self:end;color:#fff;border-color:rgba(255,255,255,.4)}
+.gallery img,.photos img{cursor:zoom-in}
 /* ---------- footer ---------- */
 footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem;margin-top:40px}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:44px calc(28px + env(safe-area-inset-bottom,0px))}
@@ -461,7 +474,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <header class="hdr">
   <div class="wrap">
     <a class="brand" href="#domu" aria-label="TJ Sokol Košice, úvod">
-      <svg viewBox="0 0 36 42" aria-hidden="true"><path d="M18 1 34 7v13c0 10-7 16-16 21C9 36 2 30 2 20V7z" fill="#b3161f" stroke="#c4952b" stroke-width="2"/><path d="M9 18c4-5 9-6 17-5-5 1-7 4-8 7l5 1-7 2-3 7-1-7-5-1z" fill="#fbf7f2"/></svg>
+      <svg viewBox="0 0 36 42" aria-hidden="true"><path d="M2 3h32v17c0 10-7 16-16 20C9 36 2 30 2 20z" fill="#fff" stroke="#0b3a7a" stroke-width="2"/><path d="M3 4h15v36C10 36 3 30 3 20z" fill="#1d6fd0"/><path d="M3 22c3-2 5 2 8 0s5 2 7 0M3 27c3-2 5 2 8 0s5 2 7 0M4 32c3-2 5 2 7 0s5 2 7 0" stroke="#fff" stroke-width="2" fill="none"/><path d="M18 4h15v16c0 9-6 15-15 19z" fill="#2f8a3e"/><g fill="#f2c230"><ellipse cx="26" cy="12" rx="2.6" ry="4.2" transform="rotate(25 26 12)"/><ellipse cx="25" cy="21" rx="2.6" ry="4.2" transform="rotate(25 25 21)"/><ellipse cx="24" cy="30" rx="2.4" ry="3.8" transform="rotate(25 24 30)"/></g></svg>
       <span><b>Sokol Košice</b><small>Fotbal · Košice u Tábora</small></span>
     </a>
     <button id="menuBtn" type="button" aria-expanded="false" aria-controls="mainnav">Menu</button>
@@ -525,8 +538,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 
   <div class="wrap band" style="padding-top:0">
     <div class="partners">
-      <div><span class="stag">Partneři</span><h3>Podpořte Sokol</h3><p class="muted">Hledáme partnery klubu i sponzory jednotlivých hráčů. Logo na webu, dresu nebo u hřiště. Stačí se ozvat trenérovi nebo komukoli z výboru.</p></div>
-      <div class="pslots"><div>Místo pro partnera</div><div>Místo pro partnera</div><div>Sponzor hráče</div></div>
+      <div><span class="stag">Partneři klubu</span><h3>Děkujeme sponzorům</h3><p class="muted">Bez nich by se v Košicích fotbal nehrál. Chcete se přidat, nebo sponzorovat konkrétního hráče? Ozvěte se komukoli z výboru.</p></div>
+      <div class="pslots" id="sponsors"></div>
     </div>
   </div>
 </section>
@@ -718,6 +731,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   </form>
 </div>
 
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Fotka"><button class="btn ghost sm" type="button" id="lbClose">Zavřít</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
 <footer>
   <div class="wrap">
     <div><h4>TJ Sokol Košice</h4><p>391 17 Košice, okres Tábor.<br>Fixi Coffee 9. liga OFS Tábor.</p><p style="margin-top:10px">Mistr KAVAS ELEKTRO 10. ligy 2025/26.</p></div>
@@ -795,6 +809,19 @@ const PROFILES={
  "adam-cizek":{since:"2025",bio:"Druhý Čížek v kádru. V mistrovské sezoně odehrál 6 zápasů a v posledním kole proti Červenému koni se trefil.",career:[{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"6",goals:"1"}],careerSrc:FU}
 };
 const QUESTIONS=["Jak ses dostal k fotbalu a do Košic?","Na který zápas za Sokol nikdy nezapomeneš?","Máš před zápasem nějaký rituál nebo pověru?","Kdo je největší bavič kabiny?","Fotbalový vzor?","Co Košicím přeješ do jara?"];
+/* Fotky ze zápasu Košice – Sokol Vlkov, 31. 10. 2026. pub:false = jen v Kabině */
+const PHOTOS=[
+ ["kosice-vlkov-13.jpg","Útok Košic po křídle"],["kosice-vlkov-06.jpg","Hřiště v Košicích během zápasu s Vlkovem"],["kosice-vlkov-03.jpg","Hráč Košic v modrobílém"],
+ ["kosice-vlkov-08.jpg","Souboj u rohového praporku"],["kosice-vlkov-02.jpg","Diváci u kabin"],["kosice-vlkov-10.jpg","S míčem u lajny"],
+ ["kosice-vlkov-12.jpg","Střídačka domácích"],["kosice-vlkov-20.jpg","Rozcvička před zápasem"],["kosice-vlkov-01.jpg","Gril pod stanem s výhledem na hřiště"],
+ ["kosice-vlkov-19.jpg","Bufet: gril a pivo"],["kosice-vlkov-17.jpg","Pod tabulí sponzorů"],["kosice-vlkov-07.jpg","Podél postranní čáry"],
+ ["kosice-vlkov-11.jpg","V novém dresu"],["kosice-vlkov-14.jpg","Ve vápně"],["kosice-vlkov-15.jpg","Pokec u kabin"],["kosice-vlkov-16.jpg","Před kabinou"],
+ ["kosice-vlkov-04.jpg","U plotu"],["kosice-vlkov-05.jpg","Před výkopem"],["kosice-vlkov-09.jpg","Na kraji hřiště"],
+ ["kosice-vlkov-18.jpg","Fanoušci s bubnem",false]
+].map(([f,c,pub])=>({f,caption:c,pub:pub!==false,at:"2026-10-31T11:00:00"}));
+const photoUrl=f=>(typeof PHOTO_MAP!=="undefined"&&PHOTO_MAP[f])||("foto/"+f);
+const BG={hero:"kosice-vlkov-13.jpg",player:"kosice-vlkov-06.jpg",kabina:"kosice-vlkov-02.jpg",recap:"kosice-vlkov-19.jpg",club:"kosice-vlkov-17.jpg",partners:"kosice-vlkov-17.jpg"};
+const SPONSORS=["Amvili s.r.o.","Autodoprava JASPO","Domy Procházka","Procházka Aleš","HABO dřevostavby s.r.o.","Restaurace U Tří kytar","Restaurace96","BROŽ"];
 /* ================= HELPERS ================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -815,7 +842,7 @@ const toast=t=>{const el=document.createElement("div");el.className="toast";el.s
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const C=window.claude&&window.claude.use?window.claude:null;
 let db=null,user=null,assets=null,canEdit=false;
-const CREST=`<svg viewBox="0 0 36 42" aria-hidden="true"><path d="M18 1 34 7v13c0 10-7 16-16 21C9 36 2 30 2 20V7z" fill="#b3161f" stroke="#c4952b" stroke-width="2"/><path d="M9 18c4-5 9-6 17-5-5 1-7 4-8 7l5 1-7 2-3 7-1-7-5-1z" fill="#fbf7f2"/></svg>`;
+const CREST=`<svg viewBox="0 0 36 42" aria-hidden="true"><path d="M2 3h32v17c0 10-7 16-16 20C9 36 2 30 2 20z" fill="#fff" stroke="#0b3a7a" stroke-width="2"/><path d="M3 4h15v36C10 36 3 30 3 20z" fill="#1d6fd0"/><path d="M3 22c3-2 5 2 8 0s5 2 7 0M3 27c3-2 5 2 8 0s5 2 7 0M4 32c3-2 5 2 7 0s5 2 7 0" stroke="#fff" stroke-width="2" fill="none"/><path d="M18 4h15v16c0 9-6 15-15 19z" fill="#2f8a3e"/><g fill="#f2c230"><ellipse cx="26" cy="12" rx="2.6" ry="4.2" transform="rotate(25 26 12)"/><ellipse cx="25" cy="21" rx="2.6" ry="4.2" transform="rotate(25 25 21)"/><ellipse cx="24" cy="30" rx="2.4" ry="3.8" transform="rotate(25 24 30)"/></g></svg>`;
 let G26=goals(S2526),G27=goals(S2627);
 
 /* ================= PLAYERS ================= */
@@ -857,7 +884,7 @@ function renderPlayer(id){
  const st=playerStats(p.name);
  const facts=[["Post",POS_NAME[p.pos]||(canEdit?"–":"")],["Číslo",p.num],["Ročník",p.born],["V Sokole od",p.since],["Přezdívka",p.nick],["Profese",p.job]].filter(f=>f[1]||canEdit).map(([a,b])=>[a,b||"–"]);if(p.cap)facts.unshift(["Role","Kapitán"]);
  const iv=(p.interview||[]).filter(x=>x&&x.a);
- el.innerHTML=`<div class="phero"><div class="wrap phero-in">
+ el.innerHTML=`<div class="phero" style="--bg-img:url('${photoUrl(BG.player)}')"><div class="wrap phero-in">
    <div class="phero-txt"><a class="back" href="#tym">Soupiska</a>
     <div class="phero-num" aria-hidden="true">${esc(p.num||initials(p.name))}</div>
     <h1><small>${esc(firstName(p.name))}</small>${esc(lastName(p.name))}</h1>
@@ -1092,7 +1119,7 @@ function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)r
   [`${leader[7]-us[7]}`,"Bodů na čelo",`Letos vede ${leader[0]} s ${leader[7]} body. Loni jsme naopak my měli náskok 12 bodů. Karma je kulatá jako míč.`],
   [`~${projOld}`,"Jarní věštba",`Kdybychom na jaře hráli jako loni (${f2(A.ppg)} bodu na zápas), skončíme se zhruba ${projOld} body. Když jako letos na podzim, bude to kolem ${projNew}. Volba je jasná.`]
  ];
- $("#recap").innerHTML=`<div class="recap-hero"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
+ $("#recap").innerHTML=`<div class="recap-hero" style="--bg-img:url('${photoUrl(BG.recap)}')"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
   <p>Mistrovský ročník 2025/26 v 10. lize proti podzimu 2026 v 9. lize. ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, ${B.pts} ${plural(B.pts,"bod","body","bodů")}, ${B.gf}:${B.ga}. Čísla nelžou, jen občas trochu bolí.</p></div>
   <div class="scroll"><table class="vs"><thead><tr><th>Statistika</th><th>2025/26</th><th>Podzim 2026</th></tr></thead><tbody>${rows.map(([l,a,b,c])=>`<tr><td><b>${esc(l)}</b>${c?`<small>${esc(c)}</small>`:""}</td><td class="n old">${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
   <div class="facts-fun">${fun.map(([b,h,p])=>`<div class="fun"><b>${esc(b)}</b><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("")}</div>
@@ -1235,9 +1262,9 @@ $("#voteForm").addEventListener("submit",async e=>{e.preventDefault();
  try{if(db){const id=user&&await user.id();if(!id)throw 0;await db.collection("votes").doc(id).set(v);}else{votes=[v];store.set("vote",v);renderVotes();}
   $("#voteMsg").textContent="Hlas uložen. Můžete ho kdykoli změnit.";}catch(err){$("#voteMsg").textContent="Hlas se neuložil. Zkuste to znovu.";}});
 /* fotky */
-function renderPhotos(list){const html=list.length?list.map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"><figcaption>${esc(p.caption||"")}</figcaption></figure>`).join(""):"";
+function renderPhotos(dbList){const stat=PHOTOS.map(p=>({...p,url:photoUrl(p.f)}));const list=[...(dbList||[]),...stat];const html=list.length?list.map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"><figcaption>${esc(p.caption||"")}</figcaption></figure>`).join(""):"";
  $("#photos").innerHTML=html||`<div class="empty">Zatím tu nejsou žádné fotky. Nahrajte první, třeba z dnešní dokopné.</div>`;
- $("#homeGallery").innerHTML=list.length?list.slice(0,6).map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"></figure>`).join(""):`<div class="empty">Fotky ze zápasů a z dokopné sem přidávají hráči v Kabině.</div>`;}
+ const pubList=[...(dbList||[]),...stat.filter(p=>p.pub)];$("#homeGallery").innerHTML=pubList.length?pubList.slice(0,12).map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"></figure>`).join(""):`<div class="empty">Fotky ze zápasů a z dokopné sem přidávají hráči v Kabině.</div>`;}
 $("#photoIn").addEventListener("change",async e=>{const files=[...e.target.files];if(!files.length)return;if(!assets||!db){toast("Nahrávání fotek teď není dostupné");return;}
  for(const f of files){try{const a=await assets.upload(f);await db.collection("photos").doc("p"+Date.now()+Math.random().toString(36).slice(2,6)).set({assetId:a.id,url:a.url,caption:$("#photoCap").value.trim().slice(0,60),at:new Date().toISOString()});}catch(err){toast("Fotku "+f.name+" se nepodařilo nahrát");}}
  e.target.value="";toast("Nahráno");});
@@ -1299,7 +1326,13 @@ async function initCaps(){
 }
 function localFallback(){kit=store.get("kit",{});kitLog=store.get("kitlog",[]);renderKit();duties=store.get("duties",{});extraMatches=store.get("matches",[]);attRaw=store.get("att",{});buildAtt();const mv=store.get("vote",null);votes=mv?[mv]:[];renderVotes();renderDuties();renderPhotos([]);$("#photoBtn").hidden=true;}
 
-renderTips();renderAll();renderKit();renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+renderTips();renderAll();renderKit();
+document.addEventListener("click",e=>{const img=e.target.closest(".gallery img,.photos img");if(!img)return;$("#lbImg").src=img.src;$("#lbImg").alt=img.alt;$("#lbCap").textContent=img.alt;$("#lightbox").hidden=false;document.body.classList.add("modal-open");});
+const lbClose=()=>{$("#lightbox").hidden=true;document.body.classList.remove("modal-open");};
+$("#lbClose").onclick=lbClose;$("#lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")lbClose();});addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#lightbox").hidden)lbClose();});
+const setBg=(sel,f)=>{const el=$(sel);if(el)el.style.setProperty("--bg-img",`url("${photoUrl(f)}")`);};
+setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
+$("#sponsors").innerHTML=SPONSORS.map(n=>`<div class="sp">${esc(n)}</div>`).join("")+`<div>Sponzor hráče</div>`;renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
 
 })();
 </script>
