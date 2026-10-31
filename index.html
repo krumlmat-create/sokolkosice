@@ -428,8 +428,21 @@ details .mlist{margin-top:10px}
 .lightbox p{color:#eee;font-size:.95rem}
 .lightbox button{justify-self:end;color:#fff;border-color:rgba(255,255,255,.4)}
 .gallery img,.photos img{cursor:zoom-in}
+.sponsorbelt{position:relative;overflow:hidden;background:#fff;border-block:1px solid var(--line);padding-block:12px;display:flex;align-items:center}
+.beltlbl{position:relative;z-index:2;flex:none;align-self:stretch;display:grid;place-items:center;padding:0 16px 0 max(16px,env(safe-area-inset-left,0px));background:var(--club);color:#fff;font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:1.05rem;margin-block:-12px;clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);padding-right:26px}
+.sponsorbelt .track{display:flex;width:max-content;animation:belt 38s linear infinite}
+.sponsorbelt:hover .track{animation-play-state:paused}
+.sponsorbelt .set{display:flex;flex:none;gap:18px;padding-right:18px;align-items:center}
+.sponsorbelt img{height:58px;width:auto;max-width:none;flex:none;border-radius:6px;display:block}
+@keyframes belt{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.sponsorbelt .track{animation:none}.sponsorbelt{overflow-x:auto}}
+.splogos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.splogos .spl{margin:0;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.splogos img{display:block;width:100%;height:auto}
+@media (max-width:620px){.splogos{grid-template-columns:repeat(2,1fr)}.sponsorbelt img{height:46px}}
 /* ---------- footer ---------- */
-footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem;margin-top:40px}
+footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem}
+.sponsorbelt.foot{margin-top:40px}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:44px calc(28px + env(safe-area-inset-bottom,0px))}
 footer h4{font-family:var(--f-display);text-transform:uppercase;color:#fff;font-size:1.3rem;margin:0 0 10px}
 footer a{color:#e8e3d8}
@@ -506,6 +519,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
     <div id="matchCentre"></div>
   </div></div>
 
+  <div class="sponsorbelt" aria-label="Sponzoři klubu"><span class="beltlbl">Sponzoři</span><div class="track"></div></div>
   <div class="wrap" style="padding-top:28px" id="dokopnaWrap">
     <div class="dokopna"><div><span class="stag" style="color:var(--gold)">Sezona končí</span><h3>Dokopná 2026</h3><p>Podzim je za námi. Hlasujte v kabině o hráče roku, kabiňáka a nejcennější gól a nahrajte fotky z večera.</p></div><a class="btn light" href="#kabina">Do kabiny</a></div>
   </div>
@@ -547,7 +561,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   <div class="wrap band" style="padding-top:0">
     <div class="partners">
       <div><span class="stag">Partneři klubu</span><h3>Děkujeme sponzorům</h3><p class="muted">Bez nich by se v Košicích fotbal nehrál. Chcete se přidat, nebo sponzorovat konkrétního hráče? Ozvěte se komukoli z výboru.</p></div>
-      <div class="pslots" id="sponsors"></div>
+      <div class="splogos" id="sponsors"></div>
     </div>
   </div>
 </section>
@@ -740,6 +754,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 </div>
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Fotka"><button class="btn ghost sm" type="button" id="lbClose">Zavřít</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
+<div class="sponsorbelt foot" aria-label="Sponzoři klubu"><span class="beltlbl">Partneři</span><div class="track"></div></div>
 <footer>
   <div class="wrap">
     <div><h4>TJ Sokol Košice</h4><p>391 17 Košice, okres Tábor.<br>Fixi Coffee 9. liga OFS Tábor.</p><p style="margin-top:10px">Mistr KAVAS ELEKTRO 10. ligy 2025/26.</p></div>
@@ -830,7 +845,7 @@ const PHOTOS=[
  ["kosice-vlkov-18.jpg","Fanoušci s bubnem",false]
 ].map(([f,c,pub])=>({f,caption:c,pub:pub!==false,at:"2026-10-31T11:00:00"}));
 const BG={hero:"kosice-vlkov-22.jpg",player:"kosice-vlkov-06.jpg",kabina:"kosice-vlkov-02.jpg",recap:"kosice-vlkov-21.jpg",club:"kosice-vlkov-17.jpg",partners:"kosice-vlkov-17.jpg"};
-const SPONSORS=["Amvili s.r.o.","Autodoprava JASPO","Domy Procházka","Procházka Aleš","HABO dřevostavby s.r.o.","Restaurace U Tří kytar","Restaurace96","BROŽ"];
+const SPONSORS=[["Amvili s.r.o.","amvili"],["Autodoprava JASPO","jaspo"],["Domy Procházka","domy-prochazka"],["Procházka Aleš","prochazka-ales"],["HABO dřevostavby s.r.o.","habo"],["premio – Pneu Kazda s.r.o.","premio"],["SK+ Zdravotní péče pro sportovce","sk-plus"],["Restaurace U Třech kytar","u-trech-kytar"],["Restaurace96","restaurace96"],["BROŽ","broz"]].map(([n,f])=>({n,img:photoUrl("sponzori/"+f+".jpg")}));
 /* Hráč zápasu podle klubu: kolo -> jméno a popis */
 const MOTM={"2627-11":{name:"Michal Přívozník",text:"Michal Přívozník byl proti Vlkovu skvělý. Dal gól, makal od první do poslední minuty a zaslouženě je hráčem zápasu. První pivo na dokopné jde za ním."}};
 const motmFor=m=>MOTM[(S2627.includes(m)?"2627-":"2526-")+m[0]];
@@ -1350,7 +1365,9 @@ const lbClose=()=>{$("#lightbox").hidden=true;document.body.classList.remove("mo
 $("#lbClose").onclick=lbClose;$("#lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")lbClose();});addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#lightbox").hidden)lbClose();});
 const setBg=(sel,f)=>{const el=$(sel);if(el)el.style.setProperty("--bg-img",`url("${photoUrl(f)}")`);};
 setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
-$("#sponsors").innerHTML=SPONSORS.map(n=>`<div class="sp">${esc(n)}</div>`).join("")+`<div>Sponzor hráče</div>`;renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+$("#sponsors").innerHTML=SPONSORS.map(s=>`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
+const band=SPONSORS.map(s=>`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
+$$(".sponsorbelt .track").forEach(t=>t.innerHTML=`<div class="set">${band}</div><div class="set" aria-hidden="true">${band}</div>`);renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
 
 })();
 </script>
