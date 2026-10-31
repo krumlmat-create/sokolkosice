@@ -331,6 +331,7 @@ a.bar:hover span{color:var(--club)}
 .recap-hero{background:#0b0d0c var(--bg-img,none) center/cover no-repeat;color:#f2eee4;border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
 .recap-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,20,.94),rgba(8,12,20,.7))}
 .recap-hero>*{position:relative;z-index:1}
+.frajeri{margin:0 0 20px;border-radius:var(--r);overflow:hidden;background:#0b0d0c;color:#f2eee4}.frajeri img{display:block;width:100%;height:auto}.frajeri figcaption{padding:14px 18px 18px;line-height:1.5}.frajeri b{display:block;font-family:var(--f-display);font-size:1.6rem;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
 .recap-hero::after{content:"2026";position:absolute;right:-10px;bottom:-40px;font-family:var(--f-display);font-weight:900;font-size:11rem;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(196,149,43,.35)}
 .recap-hero h3{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:var(--gold);position:relative}
 .recap-hero p{max-width:60ch;opacity:.88;margin-top:8px;position:relative}
@@ -1164,7 +1165,8 @@ function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)r
   [`${leader[7]-us[7]}`,"Bodů na čelo",`Letos vede ${leader[0]} s ${leader[7]} body. Loni jsme naopak my měli náskok 12 bodů. Karma je kulatá jako míč.`],
   [`~${projOld}`,"Jarní věštba",`Kdybychom na jaře hráli jako loni (${f2(A.ppg)} bodu na zápas), skončíme se zhruba ${projOld} body. Když jako letos na podzim, bude to kolem ${projNew}. Volba je jasná.`]
  ];
- $("#recap").innerHTML=`<div class="recap-hero" style="--bg-img:url('${photoUrl(BG.recap)}')"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
+ const frajeri=`<figure class="frajeri"><img src="${photoUrl("dokopna-2026-frajeri.jpg")}" alt="Dokopná 2026: tým do půl těla" loading="lazy" onerror="this.closest('figure').remove()"><figcaption><b>I tak jsme pořád frajeři.</b> Dokopná 2026, kabina, písnička. Body nám na podzim chyběly, svaly ani sebevědomí ne. V tabulce sedmí, v kategorii „Do půl těla“ bez konkurence. Trenér o letní přípravě: „Uvidíme.“ Na jaře hrajeme v dresech. Asi.</figcaption></figure>`;
+ $("#recap").innerHTML=frajeri+`<div class="recap-hero" style="--bg-img:url('${photoUrl(BG.recap)}')"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
   <p>Mistrovský ročník 2025/26 v 10. lize proti podzimu 2026 v 9. lize. ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, ${B.pts} ${plural(B.pts,"bod","body","bodů")}, ${B.gf}:${B.ga}. Čísla nelžou, jen občas trochu bolí.</p></div>
   <div class="scroll"><table class="vs"><thead><tr><th>Statistika</th><th>2025/26</th><th>Podzim 2026</th></tr></thead><tbody>${rows.map(([l,a,b,c])=>`<tr><td><b>${esc(l)}</b>${c?`<small>${esc(c)}</small>`:""}</td><td class="n old">${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
   <div class="facts-fun">${fun.map(([b,h,p])=>`<div class="fun"><b>${esc(b)}</b><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("")}</div>
