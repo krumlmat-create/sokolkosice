@@ -148,6 +148,7 @@ form.f{display:grid;gap:14px}
 .artscore span:last-child{text-align:right}
 .artscore b{font-family:var(--f-mono);font-size:2.2rem;color:var(--gold)}
 .prose{display:grid;gap:14px;font-size:1.06rem;max-width:66ch}
+.artimg{width:100%;border-radius:var(--r);margin-bottom:20px;aspect-ratio:4/3;object-fit:cover}
 .src{margin-top:24px;font-size:.85rem}
 
 /* ---------- home grid ---------- */
@@ -754,7 +755,7 @@ let S2627=[ // [kolo, datum, domácí, góly D, hosté, góly H, střelci Košic
  [8,"2026-10-11","FC Bechyně",1,"Košice",0,[]],
  [9,"2026-10-18","Košice",1,"Sokol Želeč",3,["Jan Boháč"]],
  [10,"2026-10-25","Božejovice",2,"Košice",2,["Stanislav Kadlec","Dominik Petr Tuček"]],
- [11,"2026-10-31T10:30","Košice",null,"Sokol Vlkov",null,[]]
+ [11,"2026-10-31T10:30","Košice",3,"Sokol Vlkov",0,[]]
 ];
 const S2526=[
  [1,"2025-08-24","Tučapy B",3,"Košice",4,["Petr Himl","Tomáš Holota","Jan Boháč","Tomáš Fiala"]],
@@ -779,7 +780,7 @@ const S2526=[
  [20,"2026-05-31","Chotoviny B",2,"Košice",2,["Jan Boháč","Tomáš Holota"]],
  [21,"2026-06-06","Košice",8,"Červený kůň",0,["Jan Boháč","Adam Čížek","Jan Kovář","Jan Škoda","Jan Boháč","Tomáš Fiala","Jan Boháč","Petr Pícha"]]
 ];
-let T2627=[["TJ Dražice",10,9,0,1,33,11,27],["Radenín Kozmice",10,8,0,2,32,15,24],["FC HD2D",10,7,0,3,28,13,21],["FC Bechyně",10,5,1,4,11,9,16],["Veselí n. L. B",10,5,0,5,23,26,15],["Božejovice",10,3,3,4,13,19,12],["Planá n. L. B",10,3,2,5,23,29,11],["Sokol Vlkov",10,3,2,5,14,21,11],["Sokol Želeč",10,2,4,4,21,29,10],["ZD Vlastiboř",10,3,0,7,21,30,9],["Košice",10,2,2,6,16,24,8],["Sokol Stádlec",10,2,2,6,15,24,8]];
+let T2627=[["TJ Dražice",10,9,0,1,33,11,27],["Radenín Kozmice",10,8,0,2,32,15,24],["FC HD2D",10,7,0,3,28,13,21],["FC Bechyně",10,5,1,4,11,9,16],["Veselí n. L. B",10,5,0,5,23,26,15],["Božejovice",10,3,3,4,13,19,12],["Košice",11,3,2,6,19,24,11],["Planá n. L. B",10,3,2,5,23,29,11],["Sokol Vlkov",11,3,2,6,14,24,11],["Sokol Želeč",10,2,4,4,21,29,10],["ZD Vlastiboř",10,3,0,7,21,30,9],["Sokol Stádlec",10,2,2,6,15,24,8]];
 const T2526=[["Košice",21,16,2,3,71,26,50],["Makov Hůrka",21,12,2,7,60,31,38],["Tučapy B",21,12,1,8,50,47,37],["Veselí n. L. B",21,10,3,8,62,52,33],["Chotoviny B",21,10,1,10,54,41,31],["ZD Pojbuky",21,10,1,10,46,39,31],["Červený kůň",21,7,2,12,41,51,23],["Mažice",21,1,0,20,13,110,3]];
 /* Sestavy, které známe ze zápisů v novinách */
 const LINEUPS={
@@ -811,7 +812,7 @@ const PROFILES={
 const QUESTIONS=["Jak ses dostal k fotbalu a do Košic?","Na který zápas za Sokol nikdy nezapomeneš?","Máš před zápasem nějaký rituál nebo pověru?","Kdo je největší bavič kabiny?","Fotbalový vzor?","Co Košicím přeješ do jara?"];
 /* Fotky ze zápasu Košice – Sokol Vlkov, 31. 10. 2026. pub:false = jen v Kabině */
 const PHOTOS=[
- ["kosice-vlkov-13.jpg","Útok Košic po křídle"],["kosice-vlkov-06.jpg","Hřiště v Košicích během zápasu s Vlkovem"],["kosice-vlkov-03.jpg","Hráč Košic v modrobílém"],
+ ["kosice-vlkov-22.jpg","Společná fotka po výhře 3:0 nad Vlkovem"],["kosice-vlkov-21.jpg","Děkovačka s fanoušky"],["kosice-vlkov-24.jpg","Po zápase: z hřiště ke kabinám"],["kosice-vlkov-23.jpg","Plácnutí s trenérem"],["kosice-vlkov-13.jpg","Útok Košic po křídle"],["kosice-vlkov-06.jpg","Hřiště v Košicích během zápasu s Vlkovem"],["kosice-vlkov-03.jpg","Hráč Košic v modrobílém"],
  ["kosice-vlkov-08.jpg","Souboj u rohového praporku"],["kosice-vlkov-02.jpg","Diváci u kabin"],["kosice-vlkov-10.jpg","S míčem u lajny"],
  ["kosice-vlkov-12.jpg","Střídačka domácích"],["kosice-vlkov-20.jpg","Rozcvička před zápasem"],["kosice-vlkov-01.jpg","Gril pod stanem s výhledem na hřiště"],
  ["kosice-vlkov-19.jpg","Bufet: gril a pivo"],["kosice-vlkov-17.jpg","Pod tabulí sponzorů"],["kosice-vlkov-07.jpg","Podél postranní čáry"],
@@ -820,7 +821,7 @@ const PHOTOS=[
  ["kosice-vlkov-18.jpg","Fanoušci s bubnem",false]
 ].map(([f,c,pub])=>({f,caption:c,pub:pub!==false,at:"2026-10-31T11:00:00"}));
 const photoUrl=f=>(typeof PHOTO_MAP!=="undefined"&&PHOTO_MAP[f])||("foto/"+f);
-const BG={hero:"kosice-vlkov-13.jpg",player:"kosice-vlkov-06.jpg",kabina:"kosice-vlkov-02.jpg",recap:"kosice-vlkov-19.jpg",club:"kosice-vlkov-17.jpg",partners:"kosice-vlkov-17.jpg"};
+const BG={hero:"kosice-vlkov-22.jpg",player:"kosice-vlkov-06.jpg",kabina:"kosice-vlkov-02.jpg",recap:"kosice-vlkov-21.jpg",club:"kosice-vlkov-17.jpg",partners:"kosice-vlkov-17.jpg"};
 const SPONSORS=["Amvili s.r.o.","Autodoprava JASPO","Domy Procházka","Procházka Aleš","HABO dřevostavby s.r.o.","Restaurace U Tří kytar","Restaurace96","BROŽ"];
 /* ================= HELPERS ================= */
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
@@ -986,7 +987,8 @@ function stories(){
   const lead=r==="V"?(home?"Tři body doma":"Výhra venku"):r==="R"?(home?"Bod doma":"Bod z venku"):(home?"Porážka doma":"Porážka venku");
   const title=`${lead}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}`;
   const body=[`${m[0]}. kolo Fixi Coffee 9. ligy, ${fmtDL(m[1])}: ${m[2]} – ${m[4]} ${m[3]}:${m[5]}.`,
-   sc.length?`Za Košice ${sc.length===1&&sc[0][1]===1?"skóroval":"skórovali"} ${sc.map(([n,c])=>n+(c>1?` (${c}×)`:"")).join(", ")}.`:"Gól jsme tentokrát nedali."];
+   sc.length?`Za Košice ${sc.length===1&&sc[0][1]===1?"skóroval":"skórovali"} ${sc.map(([n,c])=>n+(c>1?` (${c}×)`:"")).join(", ")}.`:us>0?"Střelce doplníme podle zápisu o utkání.":"Gól jsme tentokrát nedali."];
+  if(m[0]===11)body.push("Výhra 3:0 na dokopnou a navíc první čisté konto sezony. Košice tím poskočily v tabulce nad Vlkov i Planou a podzim uzavírají vítězně. Po zápase následovala společná fotka, děkovačka s fanoušky a bubnem a pak už jen gril a dokopná.");
   if(m[0]===6)body.push("Šest vstřelených gólů je náš nejvyšší letošní počet v jednom zápase.");
   if(m[0]===10)body.push("Brankář Slunéčko a spol. drželi bod, Božejovice srovnaly v 72. minutě. Diváků bylo 88.");
   out.push({id:"zapas-"+m[0],tag:"Zápas",res:r,date:m[1],title,body});});
@@ -1005,6 +1007,7 @@ function renderStory(id){const s=stories().find(x=>x.id===id);const el=$("#story
  if(!s){el.innerHTML=`<div class="wrap band"><h2>Článek nenalezen</h2><p><a href="#aktuality">Všechny aktuality</a></p></div>`;return;}
  const m=s.id.startsWith("zapas-")?S2627.find(x=>"zapas-"+x[0]===s.id):null;
  el.innerHTML=`<article class="wrap band article"><a class="back" href="#aktuality">Aktuality</a><span class="stag">${esc(s.tag)} · ${fmtDL(s.date)}</span><h1>${esc(s.title)}</h1>
+  ${m&&m[0]===11?`<img class="artimg" src="${photoUrl("kosice-vlkov-22.jpg")}" alt="Společná fotka Košic po výhře nad Vlkovem">`:""}
   ${m?`<div class="artscore"><span>${esc(m[2])}</span><b>${m[3]}:${m[5]}</b><span>${esc(m[4])}</span></div>`:""}
   <div class="prose">${s.body.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
   <p class="muted src">Zdroj údajů: <a href="https://taborsky.denik.cz/sport/fotbal-vysledky/tymy/2026/sokol-kosice-201410/" target="_blank" rel="noopener">Táborský deník</a></p></article>`;}
@@ -1099,7 +1102,7 @@ function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)r
   ["Body na zápas",f2(A.ppg),f2(B.ppg),B.ppg<A.ppg?"Vyšší soutěž je opravdu vyšší. Kdo by to byl řekl.":"Nováček, který se nebojí."],
   ["Vstřelené góly na zápas",f1(A.gpg),f1(B.gpg),`Loni padaly góly jako hrušky. Letos ${B.gf} za ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, takže hrušky dozrávají pomaleji.`],
   ["Obdržené góly na zápas",f1(A.apg),f1(B.apg),"Obrana zjistila, že v 9. lize se taky střílí."],
-  ["Čistá konta",A.cs,B.cs,B.cs?"":`Loni ${A.cs}× nula vzadu. Letos ji pořád hledáme, prý se zakutálela za brankovou čáru.`],
+  ["Čistá konta",A.cs,B.cs,B.cs?`Nulu jsme hledali celý podzim a našli ji v posledním zápase. Na dokopnou jako na zavolanou.`:`Loni ${A.cs}× nula vzadu. Letos ji pořád hledáme, prý se zakutálela za brankovou čáru.`],
   ["Zápasy bez vstřeleného gólu",A.nog,B.nog,A.nog===0?`Loni jsme dali gól v každém z ${A.n} zápasů. Letos jsme ${B.nog}× zapomněli kopačky ve skříňce.`:""],
   ["Nejvyšší výhra",`${A.big.f}:${A.big.a}`,`${B.big.f}:${B.big.a}`,`Loni ${isUs(A.big.m[2])?"doma":"venku"} (${isUs(A.big.m[2])?A.big.m[4]:A.big.m[2]}), letos ${isUs(B.big.m[2])?"doma":"venku"} (${isUs(B.big.m[2])?B.big.m[4]:B.big.m[2]}).`],
   ["Nejdelší vítězná série",A.streak,B.streak,A.streak>B.streak?`Loni ${A.streak} výher v řadě. Letos se série zatím drží na jedné, ale zato poctivě.`:""],
