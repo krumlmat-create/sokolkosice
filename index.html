@@ -331,6 +331,8 @@ a.bar:hover span{color:var(--club)}
 .recap-hero{background:#0b0d0c var(--bg-img,none) center/cover no-repeat;color:#f2eee4;border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
 .recap-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,12,20,.94),rgba(8,12,20,.7))}
 .recap-hero>*{position:relative;z-index:1}
+.dokgate{background:var(--club-dk);color:#fff;border-radius:var(--r);padding:20px;margin:0 0 20px}.dokgate b{font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;color:var(--gold)}.dokgate p{margin:6px 0 12px;opacity:.9}.dokgate form{display:flex;gap:8px;flex-wrap:wrap}.dokgate input{flex:1;min-width:0;padding:10px 12px;border-radius:8px;border:0;font:inherit}.dokmsg{color:#ffd27a;min-height:1em}
+.dokh{font-family:var(--f-display);text-transform:uppercase;margin:0 0 10px}.gallery.dokgrid{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:24px}.dokgrid figcaption{padding:8px 10px;font-size:.85rem;line-height:1.35}@media(max-width:640px){.gallery.dokgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .frajeri{margin:0 0 20px;border-radius:var(--r);overflow:hidden;background:#0b0d0c;color:#f2eee4}.frajeri img{display:block;width:100%;height:auto}.frajeri figcaption{padding:14px 18px 18px;line-height:1.5}.frajeri b{display:block;font-family:var(--f-display);font-size:1.6rem;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
 .recap-hero::after{content:"2026";position:absolute;right:-10px;bottom:-40px;font-family:var(--f-display);font-weight:900;font-size:11rem;line-height:1;color:transparent;-webkit-text-stroke:2px rgba(196,149,43,.35)}
 .recap-hero h3{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;color:var(--gold);position:relative}
@@ -1136,6 +1138,12 @@ function seasonStats(L){L=L.filter(m=>m[3]!=null);const o={n:L.length,w:0,d:0,l:
  o.pts=o.w*3+o.d;o.ppg=o.n?o.pts/o.n:0;o.gpg=o.n?o.gf/o.n:0;o.apg=o.n?o.ga/o.n:0;
  o.sc=goals(L);o.top=Object.entries(o.sc).sort((a,b)=>b[1]-a[1]);return o;}
 const f1=x=>x.toFixed(1).replace(".",","),f2=x=>x.toFixed(2).replace(".",",");
+const DOKOPNA_PICS=[["dokopna-2026-01.jpg", "Rozbor zápasu probíhá v horizontální poloze."], ["dokopna-2026-02.jpg", "Lékařská prohlídka: pacient se směje, diagnóza pozitivní."], ["dokopna-2026-03.jpg", "Míč zabaven jako důkaz. VAR rozhodne z podlahy."], ["dokopna-2026-04.jpg", "Kapitán přichází s první pomocí. Nebo s čepicí."], ["dokopna-2026-05.jpg", "Taktická porada pod linkou. Detaily jsou tajné."], ["dokopna-2026-06.jpg", "Zápasová intenzita i dlouho po zápase."], ["dokopna-2026-07.jpg", "Palec nahoru: hráč je v pořádku. Tak nějak."], ["dokopna-2026-08.jpg", "Výčep, kluci, selfie. Zaostřeno na pocity."], ["dokopna-2026-09.jpg", "Dva se smějí, jeden se mračí. Jako po každém zápase."], ["dokopna-2026-10.jpg", "Tři prsty = tři góly s Vlkovem."], ["dokopna-2026-11.jpg", "Boušan a fotograf. Oba ve vrcholné formě."], ["dokopna-2026-12.jpg", "Fotka vznikla po x-tém pivu. Fotograf taky."], ["dokopna-2026-13.jpg", "Pusa za tři body. Zasloužená."]];
+const DOK_HASH="2a96e4ab";
+function renderDokGallery(){const box=$("#dokGal");if(!box)return;let ok=false;try{ok=sessionStorage.getItem("dok2")==="1"}catch(e){}
+ if(!ok){box.innerHTML=`<div class="dokgate"><b>Dokopná 2026 · zakázané fotky</b><p>Co se stalo na dokopné, zůstává na dokopné. Na tuhle galerii je potřeba druhé heslo.</p><form id="dokForm"><input id="dokPin" type="password" placeholder="Heslo" autocomplete="off" aria-label="Heslo ke galerii"><button class="btn">Odemknout</button></form><p class="dokmsg" id="dokMsg"></p></div>`;
+  $("#dokForm").addEventListener("submit",e=>{e.preventDefault();if(hsh($("#dokPin").value.trim().toLowerCase())===DOK_HASH){try{sessionStorage.setItem("dok2","1")}catch(e){}renderDokGallery();}else{$("#dokMsg").textContent="Špatně. Zkus to po dalším pivu.";}});return;}
+ box.innerHTML=`<h3 class="dokh">Dokopná 2026 · zakázané fotky</h3><div class="gallery dokgrid">${DOKOPNA_PICS.map(([f,c])=>`<figure><img src="${photoUrl(f)}" alt="${esc(c)}" loading="lazy" onerror="this.closest('figure').remove()"><figcaption>${esc(c)}</figcaption></figure>`).join("")}</div>`;}
 function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)return;
  const pos=T2627.findIndex(r=>isUs(r[0]))+1,leader=T2627[0],us=T2627[pos-1],left=Math.max(0,22-B.n);
  const projOld=Math.round(B.pts+left*A.ppg),projNew=Math.round(B.pts+left*B.ppg);
@@ -1167,7 +1175,7 @@ function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)r
   [`~${projOld}`,"Jarní věštba",`Kdybychom na jaře hráli jako loni (${f2(A.ppg)} bodu na zápas), skončíme se zhruba ${projOld} body. Když jako letos na podzim, bude to kolem ${projNew}. Volba je jasná.`]
  ];
  const frajeri=`<figure class="frajeri"><img src="${photoUrl("dokopna-2026-frajeri.jpg")}" alt="Dokopná 2026: tým do půl těla" loading="lazy" onerror="this.closest('figure').remove()"><figcaption><b>I tak jsme pořád frajeři.</b> Dokopná 2026, kabina, písnička. Body nám na podzim chyběly, svaly ani sebevědomí ne. V tabulce sedmí, v kategorii „Do půl těla“ bez konkurence. Trenér o letní přípravě: „Uvidíme.“ Na jaře hrajeme v dresech. Asi.</figcaption></figure>`;
- $("#recap").innerHTML=frajeri+`<div class="recap-hero" style="--bg-img:url('${photoUrl(BG.recap)}')"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
+ $("#recap").innerHTML=frajeri+`<div id="dokGal"></div>`+`<div class="recap-hero" style="--bg-img:url('${photoUrl(BG.recap)}')"><span class="stag" style="color:var(--gold)">Dokopná 2026</span><h3>Sezona v číslech</h3>
   <p>Mistrovský ročník 2025/26 v 10. lize proti podzimu 2026 v 9. lize. ${B.n} ${plural(B.n,"zápas","zápasy","zápasů")}, ${B.pts} ${plural(B.pts,"bod","body","bodů")}, ${B.gf}:${B.ga}. Čísla nelžou, jen občas trochu bolí.</p></div>
   <div class="scroll"><table class="vs"><thead><tr><th>Statistika</th><th>2025/26</th><th>Podzim 2026</th></tr></thead><tbody>${rows.map(([l,a,b,c])=>`<tr><td><b>${esc(l)}</b>${c?`<small>${esc(c)}</small>`:""}</td><td class="n old">${esc(a)}</td><td class="n">${esc(b)}</td></tr>`).join("")}</tbody></table></div>
   <div class="facts-fun">${fun.map(([b,h,p])=>`<div class="fun"><b>${esc(b)}</b><h4>${esc(h)}</h4><p>${esc(p)}</p></div>`).join("")}</div>
@@ -1348,7 +1356,7 @@ function renderAll(){
  $("#homeForm").innerHTML=S2627.filter(m=>m[3]!=null).slice(-5).map(m=>{const r=res(m);return `<span class="pill ${r}" title="${esc(m[2])} ${m[3]}:${m[5]} ${esc(m[4])}">${r}</span>`;}).join("");
  const us=T2627.findIndex(r=>isUs(r[0]));$("#homePos").textContent=(us+1)+".";
  scorers($("#homeScorers"),G27,5);
- renderSeason();renderSquad();renderFeature();renderRates();fillVoteSelects();renderDuties();renderRecap();
+ renderSeason();renderSquad();renderFeature();renderRates();fillVoteSelects();renderDuties();renderRecap();renderDokGallery();
  const h=location.hash.slice(1);if(h.startsWith("hrac-"))renderPlayer(h.slice(5));if(h.startsWith("zprava-"))renderStory(h.slice(7));
 }
 async function initCaps(){
