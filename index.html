@@ -491,6 +491,98 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   .mlist.compact .msc{grid-column:2/-1;order:0}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* zápasové centrum */
+.mc-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.mc-ctrl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0 18px}
+.mc-ctrl select{width:auto;flex:1 1 130px;min-width:0}
+.mc-grid{display:grid;grid-template-columns:minmax(0,430px) minmax(0,1fr);gap:24px;align-items:start}
+.mc-grid>*{min-width:0}
+.pitch{position:relative;aspect-ratio:7/9;border-radius:var(--r);background:repeating-linear-gradient(180deg,#2f7d3a 0 11.11%,#29702f 11.11% 22.22%);overflow:hidden;box-shadow:inset 0 0 0 3px rgba(255,255,255,.6);transition:box-shadow .2s}
+.mc.is-paused .pitch{box-shadow:inset 0 0 0 3px rgba(255,255,255,.6),0 0 0 3px var(--gold)}
+.pl{position:absolute;border:2px solid rgba(255,255,255,.5);pointer-events:none}
+.pl-half{left:0;right:0;top:50%;border-width:2px 0 0}
+.pl-c{left:50%;top:50%;width:24%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%)}
+.pl-box{left:21%;right:21%;height:15%}.pl-box.t{top:-2px}.pl-box.b{bottom:-2px}
+.pl-six{left:37%;right:37%;height:6%}.pl-six.t{top:-2px}.pl-six.b{bottom:-2px}
+.tok{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:2px;color:#fff;cursor:pointer;width:78px;font:inherit;z-index:1}
+.tok .av,.btok .av,.ev .av,.grades .av{border-radius:50%;object-fit:cover;background:var(--club);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.tok .av{width:42px;height:42px;border:2px solid #fff;font-size:.8rem;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.tok b{font-size:.72rem;line-height:1.15;background:rgba(6,18,38,.82);padding:1px 5px;border-radius:3px;max-width:78px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tok i{font-style:normal;font-size:.62rem;font-family:var(--f-mono);text-shadow:0 1px 2px #000}
+.tok.sel .av{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold)}
+.tok.off .av{border-color:#ff9e86;border-style:dashed}
+.tok.empty{opacity:.6;cursor:default}.tok.empty .av{width:42px;height:42px;background:rgba(0,0,0,.35);border:2px dashed #fff}
+.stam{display:block;width:42px;height:4px;background:rgba(0,0,0,.45);border-radius:2px;position:relative;overflow:hidden;text-decoration:none}
+.stam::after{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:#5fd16b}
+.stam.md::after{background:#e0b030}.stam.lo::after{background:#e8553c}
+.tg{position:absolute;top:-6px;right:8px;font-style:normal;font-size:.68rem}
+.ty{position:absolute;top:2px;left:14px;width:9px;height:12px;background:#f2c200;border-radius:1px;box-shadow:0 1px 2px rgba(0,0,0,.5)}.ty.r{background:#d8261c}
+.benchhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:14px 0 8px;font-size:.9rem}
+.linkbtn{background:none;border:0;color:var(--club);font:inherit;font-size:.85rem;text-decoration:underline;cursor:pointer;padding:4px 0}
+.bench{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.btok{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;width:72px;background:var(--soft);border:2px solid transparent;border-radius:var(--r);padding:6px 2px;cursor:pointer;font:inherit;color:var(--ink)}
+.btok .av{width:38px;height:38px;font-size:.75rem}
+.btok b{font-size:.7rem;max-width:66px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.btok i{font-style:normal;font-size:.62rem;font-family:var(--f-mono);color:var(--muted)}
+.btok.sel{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 18%,var(--soft))}
+.mchelp{font-size:.8rem;margin-top:8px}
+.mcidle{border:2px dashed var(--line);border-radius:var(--r);padding:24px;text-align:center}.mcidle b{font-family:var(--f-display);font-size:1.6rem;text-transform:uppercase}.mcidle p{color:var(--muted);margin-top:6px}
+.mcboard{position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;background:#0b0d0c;color:#f1ede3;padding:16px 16px 24px;border-radius:var(--r);font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:1.05rem;line-height:1.1;overflow:hidden}
+.mcboard span:nth-of-type(2){text-align:right}
+.mcboard b{font-family:var(--f-mono);font-size:2.3rem;color:var(--gold)}
+.mcboard i{position:absolute;left:50%;bottom:9px;transform:translateX(-50%);font-style:normal;font-family:var(--f-mono);font-size:.75rem;background:var(--club);color:#fff;padding:1px 8px;border-radius:3px}
+.mcboard s{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.12);text-decoration:none}
+.mcboard u{display:block;height:100%;background:var(--gold);width:0;transition:width .3s;text-decoration:none}
+.mcboard.fl-us{animation:flus 1.3s}.mcboard.fl-them{animation:flth 1.3s}
+@keyframes flus{0%{background:var(--club)}100%{background:#0b0d0c}}
+@keyframes flth{0%{background:#7a1f16}100%{background:#0b0d0c}}
+.mcbtns{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.mchint{font-size:.86rem;color:var(--club);font-weight:600;min-height:1.2em;margin:8px 0}
+.mcstats{display:grid;gap:5px;margin:4px 0 14px}
+.srow{display:grid;grid-template-columns:30px 1fr minmax(92px,auto) 1fr 30px;gap:8px;align-items:center;font-family:var(--f-mono);font-size:.78rem}
+.srow span:last-child{text-align:right}.srow em{font-style:normal;text-align:center;color:var(--muted);font-size:.72rem}
+.srow div{height:6px;background:var(--soft);border-radius:3px;overflow:hidden;display:flex}
+.srow div:first-of-type{justify-content:flex-end}
+.srow i{display:block;height:100%;background:var(--club)}.srow div:last-of-type i{background:#8b9099}
+.mcfeed{max-height:440px;overflow:auto;display:grid;gap:6px;align-content:start;padding-right:2px}
+.ev{display:grid;grid-template-columns:46px 30px minmax(0,1fr);gap:8px;align-items:start;padding:7px 9px;border-radius:8px;background:var(--soft);font-size:.88rem;line-height:1.4;animation:evin .35s ease-out}
+@keyframes evin{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+.ev .em{font-family:var(--f-mono);font-size:.78rem;padding-top:6px;white-space:nowrap}
+.ev .av{width:30px;height:30px;font-size:.62rem}.ev .av.opp{background:#6b6f76}.ev .av.club{background:var(--club-dk)}
+.ev p{margin:0;padding-top:4px}
+.evtag{display:inline-block;font-family:var(--f-mono);font-size:.62rem;font-weight:700;letter-spacing:.04em;padding:1px 5px;border-radius:3px;background:#3b4048;color:#fff;margin-right:6px;vertical-align:1px}
+.ev-goal{background:var(--club);color:#fff}.ev-goal .evtag{background:var(--gold);color:#111}
+.ev-tgoal{background:#4a2420;color:#fff}.ev-tgoal .evtag{background:#d8261c}
+.ev-yel .evtag,.ev-tyel .evtag{background:#f2c200;color:#111}.ev-red .evtag,.ev-tred .evtag{background:#d8261c;color:#fff}
+.ev-sub .evtag{background:var(--good)}.ev-save .evtag,.ev-tsave .evtag{background:var(--club-dk)}
+.ev-ht,.ev-ft,.ev-ko{background:#0b0d0c;color:#f1ede3}.ev-ht .evtag,.ev-ft .evtag,.ev-ko .evtag{background:var(--gold);color:#111}
+.ev-flav p{font-style:italic;color:var(--muted)}
+.motm-card{display:flex;gap:14px;align-items:center;background:#0b0d0c;color:#f1ede3;border-radius:var(--r);padding:14px;margin-top:16px}
+.motm-card .stag{color:var(--gold)}
+.av.big{width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);background:var(--club);color:#fff;display:grid;place-items:center;font-weight:800;font-size:1.3rem;flex:none}
+.motm-card b{display:block;font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;line-height:1.1;margin:2px 0 4px}
+.mch{font-family:var(--f-display);text-transform:uppercase;font-size:1.25rem;margin:18px 0 8px}
+.grades{display:grid;grid-template-columns:repeat(auto-fill,minmax(176px,1fr));gap:6px}
+.grades>div{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:8px;align-items:center;background:var(--soft);border-radius:8px;padding:5px 8px;font-size:.85rem}
+.grades .av{width:30px;height:30px;font-size:.62rem}
+.grades small{display:block;color:var(--muted);font-size:.7rem;font-family:var(--f-mono)}
+.hrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:.86rem}
+.hrow b{font-family:var(--f-mono)}.hrow small{grid-column:2/4;color:var(--muted)}
+.prev{border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:left}
+.prev-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:12px}.prev-h b{font-family:var(--f-display);font-size:1.5rem;text-transform:uppercase;line-height:1.1}
+.prev-fav{font-size:.8rem;font-weight:700;background:var(--club);color:#fff;padding:2px 8px;border-radius:3px}
+.prev-g{display:grid;gap:14px}.prev-g h5{font-family:var(--f-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}.prev-g p{margin:2px 0;font-size:.9rem}
+.formrow{display:flex;gap:4px;margin-bottom:4px}
+.h2h{display:grid;gap:4px;margin-top:6px;font-size:.85rem}.h2h>span{display:flex;align-items:center;gap:6px}
+.mod{font-style:normal;font-family:var(--f-mono);font-size:.78rem;font-weight:700;padding:0 5px;border-radius:3px;margin-left:4px}.mod.up{background:color-mix(in srgb,var(--good) 20%,transparent);color:var(--good)}.mod.dn{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.prev-note{font-size:.78rem;color:var(--muted);margin-top:12px}
+.mcidle:has(.prev){border:0;padding:0}
+#tacSeg,#mcSpeed{flex-wrap:nowrap}
+.prev-g p b{font:inherit;font-weight:700}
+@media(max-width:640px){.mc-ctrl{display:grid;grid-template-columns:1fr 1fr}.mc-ctrl #oppSel,.mc-ctrl #tacSeg,.mc-ctrl #simOne{grid-column:1/-1}#tacSeg{display:flex}#tacSeg button{flex:1;padding:8px 4px;font-size:.88rem}}
+@media(max-width:900px){.mc-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.tok{width:66px}.tok .av,.tok.empty .av{width:36px;height:36px}.tok b{max-width:66px;font-size:.66rem}.tok i{display:none}.stam{width:36px}.mcboard{font-size:.85rem}.mcboard b{font-size:1.9rem}.srow{grid-template-columns:24px 1fr minmax(78px,auto) 1fr 24px}}
 </style>
 
 </head><body>
@@ -673,17 +765,42 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 <!-- ============ HRA ============ -->
 <section class="view" id="v-hra"><div class="wrap band">
   <h2 class="sec">Virtuální 9. liga</h2>
-  <p class="muted" style="max-width:70ch;margin:-8px 0 26px">Ohodnoťte hráče, vyberte jedenáctku a nechte odehrát zápas nebo celé jaro. Soupeři mají sílu podle skutečné tabulky. Sílu hráčů nastavuje vedení týmu, vy si jen skládáte jedenáctku.</p>
-  <div class="gamegrid">
-    <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px"><h3 style="font-size:1.7rem">Sestava <span class="muted" style="font-size:1rem"><span id="xiCount"></span>/11</span></h3><span class="muted" style="font-size:.85rem">síla <b id="teamPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
-      <p class="muted" id="rateNote" style="font-size:.82rem;margin-bottom:6px"></p><div id="rateList"></div><button class="btn sm" type="button" id="saveRatings" hidden style="margin-top:12px">Uložit hodnocení pro všechny</button></div>
-    <div style="display:grid;gap:16px;align-content:start">
-      <div class="card"><h3 style="font-size:1.7rem">Jeden zápas</h3>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px"><select id="oppSel" aria-label="Soupeř" style="flex:1;min-width:160px"></select><select id="venueSel" aria-label="Kde se hraje" style="width:auto"><option value="h">doma</option><option value="a">venku</option></select><button class="btn" id="simOne" type="button">Výkop</button></div>
-        <div id="oneResult"><p class="muted">Vyberte soupeře a spusťte zápas.</p></div></div>
-      <div class="card"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:1.7rem">Zbytek sezony</h3><button class="btn dark" id="simSeason" type="button">Simulovat</button></div>
-        <p class="muted" style="font-size:.88rem;margin-top:6px">Dohraje zbývající kola od aktuální tabulky.</p><div id="seasonResult" style="margin-top:12px"></div></div>
+  <p class="muted" style="max-width:72ch;margin:-8px 0 26px">Postavte jedenáctku, zvolte rozestavení a taktiku a odehrajte zápas minutu po minutě. Během pauzy můžete střídat a měnit posty. Soupeři mají sílu podle skutečné tabulky. Sílu hráčů nastavuje vedení týmu.</p>
+  <div class="card mc" id="mc">
+    <div class="mc-head"><h3 style="font-size:1.8rem">Zápasové centrum</h3><span class="muted" style="font-size:.88rem">síla sestavy <b id="mcPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
+    <div class="mc-ctrl">
+      <select id="oppSel" aria-label="Soupeř"></select>
+      <select id="venueSel" aria-label="Kde se hraje"><option value="h">doma</option><option value="a">venku</option></select>
+      <select id="formSel" aria-label="Rozestavení"></select>
+      <div class="seg" id="tacSeg" role="group" aria-label="Taktika"><button type="button" data-t="def">Obranná</button><button type="button" data-t="bal">Vyvážená</button><button type="button" data-t="att">Útočná</button></div>
+      <button class="btn" id="simOne" type="button">Výkop</button>
     </div>
+    <div class="mc-grid">
+      <div class="mc-pitchcol">
+        <div class="pitch" id="pitch"></div>
+        <div class="benchhead"><b id="subsInfo"></b><button type="button" class="linkbtn" id="pitchAuto">Rozestavit podle postů</button></div>
+        <div class="bench" id="bench"></div>
+        <p class="muted mchelp">Klepněte na hráče na hřišti a pak na hráče z lavičky: vymění se. Dva hráči na hřišti si prohodí posty. Během zápasu nejdřív dejte pauzu. Střídat se dá nejvýš 5×.</p>
+      </div>
+      <div class="mc-livecol">
+        <div id="mcIdle" class="mcidle"></div>
+        <div id="mcLive" hidden>
+          <div class="mcboard" id="mcBoard"><span id="mcH"></span><b id="mcScore">0:0</b><span id="mcA"></span><i id="mcMin">0′</i><s><u id="mcBar"></u></s></div>
+          <div class="mcbtns"><button class="btn sm dark" id="mcPause" type="button">Pauza</button><div class="seg" id="mcSpeed" role="group" aria-label="Rychlost"></div><button class="btn sm ghost" id="mcEnd" type="button">Do konce</button></div>
+          <p class="mchint" id="mcHint" aria-live="polite"></p>
+          <div class="mcstats" id="mcStats"></div>
+          <div class="mcfeed" id="mcFeed" aria-live="polite"></div>
+        </div>
+        <div id="mcAfter"></div>
+        <div id="mcHist"></div>
+      </div>
+    </div>
+  </div>
+  <div class="gamegrid" style="margin-top:24px">
+    <div class="card"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px"><h3 style="font-size:1.7rem">Hráči a síla <span class="muted" style="font-size:1rem"><span id="xiCount"></span>/11</span></h3><span class="muted" style="font-size:.85rem">průměr <b id="teamPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
+      <p class="muted" id="rateNote" style="font-size:.82rem;margin-bottom:6px"></p><div id="rateList"></div><button class="btn sm" type="button" id="saveRatings" hidden style="margin-top:12px">Uložit hodnocení pro všechny</button></div>
+    <div class="card" style="align-self:start"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:1.7rem">Zbytek sezony</h3><button class="btn dark" id="simSeason" type="button">Simulovat</button></div>
+      <p class="muted" style="font-size:.88rem;margin-top:6px">Dohraje zbývající kola od aktuální tabulky.</p><div id="seasonResult" style="margin-top:12px"></div></div>
   </div>
 </div></section>
 
@@ -1393,6 +1510,217 @@ setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
 $("#sponsors").innerHTML=SPONSORS.map(s=>`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
 const band=SPONSORS.map(s=>`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
 $$(".sponsorbelt .track").forEach(t=>t.innerHTML=`<div class="set">${band}</div><div class="set" aria-hidden="true">${band}</div>`);renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+/* ================= ZÁPASOVÉ CENTRUM (virtuální liga) ================= */
+const FORMS={
+ "4-4-2":[["B","BR",50,90],["O","LO",13,69],["O","SO",37,75],["O","SO",63,75],["O","PO",87,69],["Z","LZ",13,45],["Z","SZ",37,50],["Z","SZ",63,50],["Z","PZ",87,45],["U","ÚT",37,21],["U","ÚT",63,21]],
+ "4-3-3":[["B","BR",50,90],["O","LO",13,69],["O","SO",37,75],["O","SO",63,75],["O","PO",87,69],["Z","SZ",26,49],["Z","DZ",50,56],["Z","SZ",74,49],["U","LK",16,24],["U","HÚ",50,18],["U","PK",84,24]],
+ "4-2-3-1":[["B","BR",50,90],["O","LO",13,70],["O","SO",37,76],["O","SO",63,76],["O","PO",87,70],["Z","DZ",36,57],["Z","DZ",64,57],["Z","LZ",14,36],["Z","OZ",50,38],["Z","PZ",86,36],["U","HÚ",50,16]],
+ "3-5-2":[["B","BR",50,90],["O","SO",25,73],["O","SO",50,77],["O","SO",75,73],["Z","LZ",9,46],["Z","SZ",31,52],["Z","DZ",50,58],["Z","SZ",69,52],["Z","PZ",91,46],["U","ÚT",37,21],["U","ÚT",63,21]],
+ "5-3-2":[["B","BR",50,90],["O","LB",9,62],["O","SO",29,73],["O","SO",50,77],["O","SO",71,73],["O","PB",91,62],["Z","SZ",27,48],["Z","SZ",50,52],["Z","SZ",73,48],["U","ÚT",37,21],["U","ÚT",63,21]]};
+const FIT={B:{B:1,O:.45,Z:.4,U:.4},O:{B:.35,O:1,Z:.88,U:.75},Z:{B:.35,O:.88,Z:1,U:.9},U:{B:.35,O:.72,Z:.9,U:1},"":{B:.5,O:.94,Z:.94,U:.94}};
+const TAC={def:{l:"Obranná",us:.82,them:.84,drain:.9},bal:{l:"Vyvážená",us:1,them:1,drain:1},att:{l:"Útočná",us:1.16,them:1.13,drain:1.18}};
+const SPEEDS=[["1×",330],["2×",140],["4×",45]];
+const MAX_SUBS=5;
+let form=FORMS[store.get("form","")]?store.get("form",""):"4-4-2",tactic=TAC[store.get("tactic","")]?store.get("tactic",""):"bal",speedI=Math.min(2,Math.max(0,+store.get("mcSpeed",0)||0));
+let lineup=[],sel=null,M=null;
+const pl=n=>players().find(p=>p.name===n)||{name:n,pos:""};
+const posOf=n=>{const p=pl(n).pos;return FIT[p]?p:"";};
+const fitOf=(n,role)=>FIT[posOf(n)][role];
+const disp=n=>{if(!n)return"";const st=/ st\.$/.test(n),base=n.replace(/ (st|ml)\.$/,""),ln=lastName(base);const dup=field().some(p=>p.name!==n&&lastName(p.name.replace(/ (st|ml)\.$/,""))===ln&&/ st\.$/.test(p.name)===st);return(dup?short(base):ln)+(st?" st.":"");};
+const av=(n,cls="av")=>{const p=pl(n);return p.photo?`<img class="${cls}" src="${esc(p.photo)}" alt="" loading="lazy">`:`<span class="${cls}">${esc(initials(n.replace(/ (st|ml)\.$/,"")))}</span>`;};
+const oppShort=n=>n.replace(/^(TJ|Sokol|SK|FC|ZD|Radenín)\s+/,"");
+const rnd=a=>a[Math.floor(Math.random()*a.length)];
+const pickW=(list,wf)=>{const w=list.map(wf),t=w.reduce((a,b)=>a+b,0);let r=Math.random()*t;for(let i=0;i<list.length;i++){r-=w[i];if(r<=0)return list[i];}return list[list.length-1];};
+const ageOf=n=>{const b=+pl(n).born;return b?2026-b:28;};
+
+function assign(names,f){const S=FORMS[f],out=Array(S.length).fill(null),left=names.filter(Boolean);
+ const order=[...S.keys()].sort((a,b)=>"BUOZ".indexOf(S[a][0])-"BUOZ".indexOf(S[b][0]));
+ order.forEach(i=>{const role=S[i][0];let bi=-1,bv=-1;left.forEach((n,j)=>{const v=fitOf(n,role)*100+(ratings[n]||60)/100;if(v>bv){bv=v;bi=j;}});if(bi>=0)out[i]=left.splice(bi,1)[0];});
+ return out;}
+function syncLineup(){if(M&&!M.done)return;const set=[...xi].sort().join("|");
+ if(lineup.length===FORMS[form].length&&[...lineup].filter(Boolean).sort().join("|")===set)return;
+ const saved=store.get("lineup",null);
+ if(saved&&saved.f===form&&saved.l&&[...saved.l].filter(Boolean).sort().join("|")===set){lineup=saved.l;return;}
+ lineup=assign(xi,form);saveLineup();}
+const saveLineup=()=>store.set("lineup",{f:form,l:lineup});
+
+/* síla po řadách */
+function eff(n){const r=ratings[n]||55,st=M&&M.st[n]!=null?M.st[n]:100;return r*(.72+.28*st/100);}
+function sectors(){const S=FORMS[form];let gk=40;const D=[],Z=[],U=[];
+ lineup.forEach((n,i)=>{if(!n)return;const role=S[i][0],v=eff(n)*fitOf(n,role);if(role==="B")gk=v;else(role==="O"?D:role==="Z"?Z:U).push(v);});
+ const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:40,on=lineup.filter(Boolean).length,man=on<11?Math.pow(.91,11-on):1,md=M&&!M.done?M.mod:0;
+ return{gk:gk+md*.5,def:avg(D)*(.86+.035*D.length)*man+md,mid:avg(Z)*(.84+.04*Z.length)*man+md,att:(avg(U)*(.84+.08*U.length)*.7+avg(Z)*.3)*man+md};}
+const lineupPower=()=>{const s=sectors();return Math.round((s.def+s.mid+s.att+s.gk)/4);};
+
+/* ---------- vykreslení hřiště ---------- */
+function tokHTML(n,i,role,label){const p=M&&!M.done,st=p&&M.st[n]!=null?M.st[n]:null,g=M?M.goals[n]||0:0,y=M?M.yel[n]||0:0,f=fitOf(n,role);
+ return `<button type="button" class="tok${sel&&sel.w==="p"&&sel.i===i?" sel":""}${f<.8?" off":""}" style="left:${FORMS[form][i][2]}%;top:${FORMS[form][i][3]}%" data-i="${i}" aria-label="${esc(n)}, ${label}${f<.8?", mimo svůj post":""}">${av(n)}<b>${esc(disp(n))}</b><i>${label} · ${Math.round(ratings[n]||0)}</i>${st!=null?`<s class="stam${st<40?" lo":st<65?" md":""}" style="--w:${Math.max(0,st)}%" title="Kondice ${Math.round(st)} %"></s>`:""}${g?`<em class="tg">${"⚽".repeat(Math.min(g,3))}</em>`:""}${y?`<em class="ty${y>1?" r":""}"></em>`:""}</button>`;}
+function benchList(){return field().filter(p=>!lineup.includes(p.name)&&!(M&&!M.done&&M.off.has(p.name))).sort((a,b)=>(ratings[b.name]||0)-(ratings[a.name]||0)).map(p=>p.name);}
+function renderPitch(){const pitch=$("#pitch");if(!pitch)return;const S=FORMS[form];
+ pitch.innerHTML=`<div class="pl pl-half"></div><div class="pl pl-c"></div><div class="pl pl-box t"></div><div class="pl pl-box b"></div><div class="pl pl-six t"></div><div class="pl pl-six b"></div>`+lineup.map((n,i)=>n?tokHTML(n,i,S[i][0],S[i][1]):`<span class="tok empty" style="left:${S[i][2]}%;top:${S[i][3]}%"><span class="av">–</span><b>vyloučen</b></span>`).join("");
+ const live=M&&!M.done,B=benchList();
+ $("#bench").innerHTML=B.length?B.map(n=>`<button type="button" class="btok${sel&&sel.w==="b"&&sel.n===n?" sel":""}" data-n="${esc(n)}">${av(n)}<b>${esc(disp(n))}</b><i>${({B:"BR",O:"O",Z:"Z",U:"Ú"})[posOf(n)]||"–"} · ${Math.round(ratings[n]||0)}</i></button>`).join(""):`<p class="muted">Na lavičce nikdo není.</p>`;
+ $("#subsInfo").textContent=live?`Střídání ${M.subs}/${MAX_SUBS}`:`Lavička (${B.length})`;
+ $("#mcPower").textContent=lineupPower();
+ $("#formSel").value=form;document.querySelectorAll("#tacSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===tactic));
+ pitch.querySelectorAll(".tok[data-i]").forEach(b=>b.onclick=()=>tapPitch(+b.dataset.i));
+ $("#bench").querySelectorAll(".btok").forEach(b=>b.onclick=()=>tapBench(b.dataset.n));}
+function canEditLineup(){if(M&&!M.done&&!M.paused){toast("Nejdřív dejte pauzu");return false;}return true;}
+function tapPitch(i){if(!canEditLineup())return;
+ if(sel&&sel.w==="p"){if(sel.i!==i){[lineup[sel.i],lineup[i]]=[lineup[i],lineup[sel.i]];saveLineup();if(M&&!M.done)feed(M.lbl(),"info","",`Změna postů: ${disp(lineup[i])} a ${disp(lineup[sel.i])} si prohodili místa.`);}sel=null;}
+ else if(sel&&sel.w==="b"){doSwap(i,sel.n);sel=null;}
+ else sel={w:"p",i};renderPitch();}
+function tapBench(n){if(!canEditLineup())return;
+ if(sel&&sel.w==="p"){doSwap(sel.i,n);sel=null;}else sel=sel&&sel.w==="b"&&sel.n===n?null:{w:"b",n};renderPitch();}
+function doSwap(i,inN){const outN=lineup[i];if(!outN)return;
+ if(M&&!M.done){if(M.subs>=MAX_SUBS){toast(`Už jste vystřídali ${MAX_SUBS}×`);return;}
+  M.subs++;M.off.add(outN);M.st[inN]=100;M.played[inN]=M.played[inN]||0;M.inAt[inN]=M.minAbs;lineup[i]=inN;
+  feed(M.lbl(),"sub",inN,`Střídání Košic: ${disp(inN)} jde na hřiště, ${disp(outN)} odchází${M.inj===outN?" ošetřit":""}.`);if(M.inj===outN)M.inj=null;}
+ else{lineup[i]=inN;xi=xi.map(x=>x===outN?inN:x);store.set("xi",xi);saveLineup();renderRates();}
+}
+
+/* ---------- komentář ---------- */
+const T={
+ goal:["GÓÓÓL! {p} se nemýlí a Košice slaví!","{p} to tam napálil! Síť se ještě chvíli třese.","Gól! {p} zakončuje k tyči, brankář soupeře jen kouká.","{p} si naběhl za obranu a placírkou skóruje. Paráda!","Gól jak z učebnice. {p} se trefil do šibenice!"],
+ goalBig:["{p} sám před brankářem nezaváhal. Gól!","Gól! {p} uklidil míč do prázdné branky."],
+ miss:["{p} pálí z dálky, těsně nad.","{p} zkouší střelu, ale trefuje jen obránce.","{p} hlavičkuje po centru, mimo.","{p} se uvolnil, zakončení ale nemá sílu.","{p} kličkuje, střílí, a míč letí do řepky za brankou."],
+ missBig:["Velká šance! {p} sám před brankářem… a vedle! To se nedá.","{p} má prázdnou branku a trefí tyč! Lavička se drží za hlavu.","Obrovská příležitost, {p} to ale z pěti metrů přestřelil."],
+ save:["{p} míří na branku, brankář soupeře je na místě.","Brankář soupeře vyráží na roh, zakončoval {p}.","{p} střílí k tyči, gólman soupeře se natáhl a chytá."],
+ tMiss:["{o}: střela těsně vedle. Košice si oddechly.","{o}: hlavička nad břevno.","{o}: pokus z dálky, mimo.","{o}: centr, nikdo z útočníků nedosáhl."],
+ tSave:["Zákrok! {k} vytáhl míč z šibenice.","{k} je na místě a střelu chytá do rukou.","{k} se natahuje a vyráží na roh. Výborně!","Skvělý reflex, {k} drží Košice ve hře!"],
+ tGoal:["{o}: gól. Tentokrát obrana nestihla zavřít.","{o}: gól. {k} neměl šanci.","{o}: gól po rohu, v šestnáctce nikdo nikoho nehlídal."],
+ yel:["Žlutá karta: {p}. Za zbytečný faul ve středu hřiště.","{p} vidí žlutou, rozhodčí byl přísný.","{p} si za komentáře k rozhodčímu vysloužil žlutou."],
+ red:["{p} dostává druhou žlutou a jde do sprch! Košice dohrávají v deseti."],
+ tYel:["{o}: žlutá karta za faul. Na zemi zůstal {p}.","{o}: žlutá za zdržování hry."],
+ tRed:["{o}: červená karta! Soupeř dohrává v deseti."],
+ corner:["Roh pro Košice. K míči jde {p}.","Rohový kop Košic, {p} centruje, obrana odvrací."],
+ inj:["{p} zůstává ležet a drží se za koleno. Bude potřeba střídat."],
+ tired:["{p} už sotva lapá po dechu. Možná je čas na střídání."],
+ flav:["Diváci u stánku hlásí, že klobásy došly.","Trenér Radosta důrazně něco vysvětluje na lavičce.","Míč skončil v řepce, chvíli se hledá.","Pomalé tempo, oba týmy si hlídají střed.","Z tribuny se ozývá buben. Košice, do toho!","Rozhodčí napomíná lavičku. Nic vážného.","Kdosi u zábradlí radí rozhodčímu, kde má brýle."]};
+const fill=(s,o)=>s.replace(/\{(\w)\}/g,(m,k)=>o[k]!=null?o[k]:"");
+function feed(min,type,who,text){if(!M)return;M.log.push({min,type,who,text});const box=$("#mcFeed");if(!box)return;
+ const tag={tyel:"ŽK",tred:"ČK",goal:"GÓL",tgoal:"GÓL",miss:"ŠANCE",tmiss:"ŠANCE",save:"ZÁKROK",tsave:"ZÁKROK",yel:"ŽK",red:"ČK",sub:"STŘÍDÁNÍ",inj:"ZRANĚNÍ",corner:"ROH",info:"",flav:"",ko:"VÝKOP",ht:"POLOČAS",ft:"KONEC"}[type]||"";
+ const a=who?av(who):type.startsWith("t")?`<span class="av opp">${esc(initials(oppShort(M.opp.n)))}</span>`:`<span class="av club">SK</span>`;
+ box.insertAdjacentHTML("afterbegin",`<div class="ev ev-${type}"><b class="em">${min}</b>${a}<p>${tag?`<span class="evtag">${tag}</span>`:""}${esc(text)}</p></div>`);}
+
+/* ---------- forma a vzájemné zápasy ---------- */
+const PTS={V:3,R:1,P:0};
+const ALLM=()=>[...S2526,...S2627].filter(m=>m[3]!=null).sort((a,b)=>a[1]<b[1]?-1:a[1]>b[1]?1:0);
+const resOf=m=>{const h=isUs(m[2]),f=h?m[3]:m[5],a=h?m[5]:m[3];return f>a?"V":f<a?"P":"R";};
+const scoreOf=m=>isUs(m[2])?`${m[3]}:${m[5]}`:`${m[5]}:${m[3]}`;
+const oppOf=m=>isUs(m[2])?m[4]:m[2];
+function preMods(opp,home){
+ const f=ALLM().slice(-5),pts=f.reduce((a,m)=>a+PTS[resOf(m)],0),ppg=f.length?pts/f.length:1.4;
+ const formMod=Math.round(Math.max(-3,Math.min(3.5,(ppg-1.35)*2.2))*10)/10;
+ const H=ALLM().filter(m=>oppOf(m)===opp.n),hp=H.reduce((a,m)=>a+PTS[resOf(m)],0);
+ const h2hMod=H.length?Math.round(Math.max(-2.5,Math.min(2.5,(hp/H.length-1.4)*1.6*Math.min(1,H.length/2)))*10)/10:0;
+ const row=T2627.find(r=>r[0]===opp.n),pos=row?T2627.indexOf(row)+1:0;
+ return{f,ppg,formMod,H,h2hMod,row,pos,mod:formMod+h2hMod};}
+const fmt=v=>(v>0?"+":v<0?"−":"±")+Math.abs(v).toFixed(1).replace(".",",");
+function renderPreview(){const el=$("#mcIdle");if(!el||!OPP.length)return;const opp=OPP.find(o=>o.n===$("#oppSel").value)||OPP[0],home=$("#venueSel").value==="h",P=preMods(opp,home);
+ const us=lineupPower()+P.mod+(home?2:-2),them=opp.s,d=us-them,fav=d>4?"Košice jsou favorit":d<-4?"Favoritem je soupeř":"Vyrovnaný zápas";
+ const bil=["V","R","P"].map(k=>P.H.filter(m=>resOf(m)===k).length);
+ el.innerHTML=`<div class="prev"><div class="prev-h"><span class="stag">Před zápasem</span><b>${home?"Košice":esc(opp.n)} – ${home?esc(opp.n):"Košice"}</b><span class="prev-fav">${fav}</span></div>
+ <div class="prev-g">
+  <div><h5>Forma Košic</h5><div class="formrow">${P.f.map(m=>`<span class="pill ${resOf(m)}" title="${esc(oppOf(m))} ${scoreOf(m)}">${resOf(m)}</span>`).join("")}</div><p>${P.f.reduce((a,m)=>a+PTS[resOf(m)],0)} b. z posledních ${P.f.length} zápasů <em class="mod ${P.formMod>=0?"up":"dn"}">${fmt(P.formMod)}</em></p></div>
+  <div><h5>Soupeř podle tabulky</h5>${P.row?`<p><b>${P.pos}. místo</b>, ${P.row[7]} b. z ${P.row[1]} zápasů (${(P.row[7]/P.row[1]).toFixed(2).replace(".",",")} b./z.), skóre ${P.row[5]}:${P.row[6]}</p>`:"<p>Bez údajů</p>"}<p>síla soupeře <b>${them}</b> · síla Košic <b>${Math.round(us)}</b></p></div>
+  <div><h5>Vzájemné zápasy</h5>${P.H.length?`<p>${bil[0]} V · ${bil[1]} R · ${bil[2]} P <em class="mod ${P.h2hMod>=0?"up":"dn"}">${fmt(P.h2hMod)}</em></p><div class="h2h">${P.H.slice(-4).reverse().map(m=>`<span><span class="pill ${resOf(m)}">${resOf(m)}</span> ${m[1].slice(0,10).split("-").reverse().map(Number).join(". ")} · ${isUs(m[2])?"doma":"venku"} <b>${scoreOf(m)}</b></span>`).join("")}</div>`:`<p>Zatím jsme spolu nehráli. Bez bonusu.</p>`}</div>
+ </div><p class="prev-note">Forma a vzájemné zápasy se promítají do síly Košic v zápase (${fmt(P.mod)}). Domácí prostředí pomáhá.</p></div>`;}
+/* ---------- zápas ---------- */
+function newMatch(opp,home){const s=66+(opp.s-66)*.8,j=()=>(Math.random()-.5)*6;
+ const P=preMods(opp,home);M={P,mod:P.mod,opp,home,o:{def:s+j(),mid:s+j(),att:s+j(),gk:s-3+j()},minAbs:0,half:1,hm:0,add:[1+Math.floor(Math.random()*3),2+Math.floor(Math.random()*4)],
+  us:0,them:0,st:{},played:{},inAt:{},off:new Set(),subs:0,goals:{},ast:{},yel:{},adj:{},log:[],tired:new Set(),inj:null,oppRed:false,
+  stat:{pos:0,posN:0,shU:0,shT:0,onU:0,onT:0,coU:0,coT:0,fU:0,fT:0,yU:0,yT:0},paused:false,done:false,toEnd:false};
+ lineup.forEach(n=>{if(n){M.st[n]=100;M.played[n]=0;M.inAt[n]=0;}});
+ M.pre=lineup.slice();M.lbl=()=>M.half===1?(M.hm>45?`45+${M.hm-45}′`:`${M.hm}′`):(M.hm>45?`90+${M.hm-45}′`:`${45+M.hm}′`);}
+const onPitch=()=>lineup.filter(Boolean);
+const gkName=()=>{const i=FORMS[form].findIndex(s=>s[0]==="B");return lineup[i];};
+const roleOf=n=>{const i=lineup.indexOf(n);return i<0?"":FORMS[form][i][0];};
+const adj=(n,v)=>{if(n)M.adj[n]=(M.adj[n]||0)+v;};
+function chanceUs(){const S=sectors(),pool=onPitch().filter(n=>roleOf(n)!=="B");if(!pool.length)return;
+ const w={U:3,Z:1.5,O:.45};const p=pickW(pool,n=>w[roleOf(n)]*Math.pow(eff(n),2)*(1+(G26[n]||0)*.04+(G27[n]||0)*.12));
+ const big=Math.random()<.27,q=Math.min(.75,(big?.36:.085)*Math.exp((eff(p)*fitOf(p,roleOf(p))-M.o.gk)/100));M.stat.shU++;
+ if(Math.random()<q){M.stat.onU++;M.us++;M.goals[p]=(M.goals[p]||0)+1;adj(p,1);let at="";
+  if(Math.random()<.62){const ap=pool.filter(n=>n!==p);if(ap.length){const a=pickW(ap,n=>({U:1.3,Z:2,O:.8})[roleOf(n)]*eff(n));M.ast[a]=(M.ast[a]||0)+1;adj(a,.6);at=` Přihrával ${disp(a)}.`;}}
+  feed(M.lbl(),"goal",p,fill(rnd(big?T.goalBig:T.goal),{p:disp(p)})+at);flash("us");}
+ else if(Math.random()<.45){M.stat.onU++;feed(M.lbl(),"save",p,fill(rnd(T.save),{p:disp(p)}));}
+ else{if(big)adj(p,-.25);if(big||Math.random()<.55)feed(M.lbl(),"miss",p,fill(rnd(big?T.missBig:T.miss),{p:disp(p)}));}}
+function chanceThem(){const S=sectors(),k=gkName(),o=oppShort(M.opp.n),big=Math.random()<.25;
+ const q=Math.min(.75,(big?.36:.085)*Math.exp((M.o.att-S.gk)/100));M.stat.shT++;
+ if(Math.random()<q){M.stat.onT++;M.them++;adj(k,-.35);onPitch().filter(n=>roleOf(n)==="O").forEach(n=>adj(n,-.12));feed(M.lbl(),"tgoal","",fill(rnd(T.tGoal),{o,k:k?disp(k):"brankář"}));flash("them");}
+ else if(Math.random()<.45){M.stat.onT++;if(k){adj(k,big?.45:.25);feed(M.lbl(),"tsave",k,fill(rnd(T.tSave),{k:disp(k)}));}}
+ else if(big||Math.random()<.45)feed(M.lbl(),"tmiss","",fill(rnd(T.tMiss),{o}));}
+function misc(pU){const o=oppShort(M.opp.n),r=Math.random(),pool=onPitch().filter(n=>roleOf(n)!=="B");
+ if(r<.045*pU*2){M.stat.coU++;if(Math.random()<.35&&pool.length){const c=pickW(pool,n=>({O:.4,Z:2,U:.6})[roleOf(n)]);feed(M.lbl(),"corner",c,fill(rnd(T.corner),{p:disp(c)}));}return;}
+ if(r<.09){M.stat.coT++;return;}
+ if(r<.2){if(Math.random()<.5){M.stat.fU++;if(Math.random()<.2&&pool.length){const p=pickW(pool,n=>({O:1.6,Z:1.3,U:.7})[roleOf(n)]);M.yel[p]=(M.yel[p]||0)+1;M.stat.yU++;adj(p,-.3);
+   if(M.yel[p]>=2){adj(p,-1.2);feed(M.lbl(),"red",p,fill(rnd(T.red),{p:disp(p)}));lineup[lineup.indexOf(p)]=null;M.off.add(p);}else feed(M.lbl(),"yel",p,fill(rnd(T.yel),{p:disp(p)}));}}
+  else{M.stat.fT++;if(Math.random()<.2){M.stat.yT++;const v=pool.length?rnd(pool):"";feed(M.lbl(),"tyel",v,fill(rnd(T.tYel),{o,p:v?disp(v):"náš hráč"}));}}return;}
+ if(r<.2012&&!M.oppRed){M.oppRed=true;feed(M.lbl(),"tred","",fill(rnd(T.tRed),{o}));return;}
+ if(r<.2037&&!M.inj&&pool.length){const p=rnd(pool);M.inj=p;M.st[p]=Math.min(M.st[p],15);adj(p,-.2);feed(M.lbl(),"inj",p,fill(rnd(T.inj),{p:disp(p)}));if(!M.toEnd)pause(true,`${disp(p)} je zraněný. Vyberte ho na hřišti a pak náhradu z lavičky.`);return;}
+ if(r<.225)feed(M.lbl(),"flav","",rnd(T.flav));}
+function step(){M.hm++;M.minAbs++;const S=sectors(),home=M.home?1:-1,Tc=TAC[tactic];
+ const pU=1/(1+Math.exp(-((S.mid-M.o.mid)/22+home*.12+(M.oppRed?.35:0)-(onPitch().length<11?.3:0))));M.stat.pos+=pU;M.stat.posN++;
+ let cu=.105*Math.pow(pU/.5,.9)*Math.exp((S.att-M.o.def)/60)*Tc.us*(M.home?1.06:.95)*(M.oppRed?1.15:1),ct=.105*Math.pow((1-pU)/.5,.9)*Math.exp((M.o.att-S.def)/60)*Tc.them*(M.home?.95:1.06)*(M.oppRed?.82:1);
+ const r=Math.random();if(r<cu)chanceUs();else if(r<cu+ct)chanceThem();else misc(pU);
+ onPitch().forEach(n=>{M.played[n]=(M.played[n]||0)+1;const d=(.5+Math.max(0,ageOf(n)-28)*.012)*Tc.drain*(.8+Math.random()*.4)*(roleOf(n)==="B"?.35:1);M.st[n]=Math.max(0,M.st[n]-d);
+  if(M.st[n]<32&&!M.tired.has(n)&&roleOf(n)!=="B"){M.tired.add(n);feed(M.lbl(),"info",n,fill(rnd(T.tired),{p:disp(n)}));}});
+ const end=45+M.add[M.half-1];
+ if(M.hm>=end){if(M.half===1){feed(M.lbl(),"ht","",`Poločas. ${score()}. Čas na čaj a úpravy sestavy.`);M.half=2;M.hm=0;if(!M.toEnd)pause(true,"Poločas. Můžete střídat, měnit rozestavení i taktiku.");}
+  else finish();}}
+const score=()=>M.home?`${M.us}:${M.them}`:`${M.them}:${M.us}`;
+function flash(w){const b=$("#mcBoard");if(!b||M.toEnd)return;b.classList.remove("fl-us","fl-them");void b.offsetWidth;b.classList.add(w==="us"?"fl-us":"fl-them");}
+function renderBoard(){if(!M)return;$("#mcScore").textContent=score();$("#mcMin").textContent=M.done?"konec":M.lbl();
+ const tot=90+M.add[0]+M.add[1],pct=Math.min(100,M.minAbs/tot*100);$("#mcBar").style.width=pct+"%";
+ const s=M.stat,pos=s.posN?Math.round(s.pos/s.posN*100):50,H=M.home,row=(l,u,t)=>{const a=H?u:t,b=H?t:u,sum=a+b||1;return`<div class="srow"><span>${a}</span><div><i style="width:${a/sum*100}%"></i></div><em>${l}</em><div><i style="width:${b/sum*100}%"></i></div><span>${b}</span></div>`;};
+ $("#mcStats").innerHTML=row("Držení míče %",pos,100-pos)+row("Střely",s.shU,s.shT)+row("Na branku",s.onU,s.onT)+row("Rohy",s.coU,s.coT)+row("Fauly",s.fU,s.fT)+row("Žluté karty",s.yU,s.yT);}
+function pause(on,msg){M.paused=on;$("#mcPause").textContent=on?"Pokračovat":"Pauza";$("#mcHint").textContent=on?(msg||"Pauza. Klepněte na hráče na hřišti a pak na náhradníka. Dva hráči na hřišti si prohodí posty."):"";
+ document.querySelector(".mc").classList.toggle("is-paused",on);renderPitch();if(!on)loop();}
+let timer=null;
+function loop(){clearTimeout(timer);if(!M||M.done||M.paused)return;step();renderBoard();renderPitch();if(!M.done&&!M.paused)timer=setTimeout(loop,M.toEnd?0:SPEEDS[speedI][1]);}
+function kickoff(){if(xi.length<11){toast("Vyberte 11 hráčů");return;}if(lineup.filter(Boolean).length<11)syncLineup();
+ const opp=OPP.find(o=>o.n===$("#oppSel").value)||OPP[0],home=$("#venueSel").value==="h";sel=null;newMatch(opp,home);
+ $("#mcLive").hidden=false;$("#mcIdle").hidden=true;$("#mcAfter").innerHTML="";$("#mcFeed").innerHTML="";
+ const H=home?"Košice":opp.n,A=home?opp.n:"Košice";$("#mcH").textContent=H;$("#mcA").textContent=A;
+ ["#oppSel","#venueSel","#simOne"].forEach(s=>$(s).disabled=true);$("#mcPause").disabled=false;$("#mcEnd").disabled=false;
+ feed("0′","ko","",`Výkop! ${H} – ${A}. Rozestavení ${form}, taktika ${TAC[tactic].l.toLowerCase()}.`);
+ const P=M.P;feed("0′","info","",`Košice jdou do zápasu s formou ${P.f.map(resOf).join(" ")||"–"}${P.H.length?`, ve vzájemných zápasech ${["V","R","P"].map(k=>P.H.filter(m=>resOf(m)===k).length).join("-")}`:", se soupeřem se potkávají poprvé"}. Bonus k síle ${fmt(P.mod)}.`);
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches)speedI=2;
+ renderBoard();pause(false);$("#mcLive").scrollIntoView({behavior:"smooth",block:"nearest"});}
+function finish(){M.done=true;clearTimeout(timer);const win=M.us>M.them,draw=M.us===M.them;
+ feed(M.lbl(),"ft","",`Konec zápasu! ${M.home?"Košice":M.opp.n} – ${M.home?M.opp.n:"Košice"} ${score()}. ${win?"Tři body jedou do Košic!":draw?"Dělba bodů.":"Tentokrát to nevyšlo."}`);
+ const res={};Object.keys(M.played).forEach(n=>{if(M.played[n]<12&&!M.goals[n]&&!M.yel[n])return;let v=6+((ratings[n]||60)-65)/30+(M.adj[n]||0)+(win?.35:draw?0:-.35)+(Math.random()-.5)*.6;
+  if(roleOf(n)==="B"&&M.them===0&&M.played[n]>60)v+=.8;res[n]=Math.max(3,Math.min(10,Math.round(v*10)/10));});
+ const sorted=Object.entries(res).sort((a,b)=>b[1]-a[1]),best=sorted[0];
+ const scorers=Object.entries(M.goals).map(([n,c])=>disp(n)+(c>1?` ${c}×`:"")).join(", ");
+ $("#mcAfter").innerHTML=`${best?`<div class="motm-card">${av(best[0],"av big")}<div><span class="stag">Hráč zápasu</span><b>${esc(best[0])}</b><span>${chip(best[1])}${M.goals[best[0]]?` · ${M.goals[best[0]]} ${plural(M.goals[best[0]],"gól","góly","gólů")}`:""}${M.ast[best[0]]?` · ${M.ast[best[0]]} ${plural(M.ast[best[0]],"asistence","asistence","asistencí")}`:""}</span></div></div>`:""}
+ ${scorers?`<p class="muted" style="margin:10px 0 0">Góly Košic: ${esc(scorers)}</p>`:""}
+ <h4 class="mch">Známky</h4><div class="grades">${sorted.map(([n,v])=>`<div>${av(n)}<span>${esc(disp(n))}<small>${M.played[n]}′${M.goals[n]?" · ⚽"+(M.goals[n]>1?M.goals[n]:""):""}${M.ast[n]?" · A":""}${M.yel[n]?" · ŽK":""}</small></span>${chip(v)}</div>`).join("")}</div>
+ <button class="btn sm" type="button" id="mcAgain" style="margin-top:14px">Nový zápas</button>`;
+ const hist=store.get("mcHist",[]);hist.unshift({d:new Date().toISOString().slice(0,10),o:M.opp.n,h:M.home,s:score(),r:win?"V":draw?"R":"P",best:best?best[0]:""});store.set("mcHist",hist.slice(0,8));
+ $("#mcAgain").onclick=resetMatch;renderHist();renderBoard();
+ $("#mcPause").disabled=true;$("#mcEnd").disabled=true;$("#mcHint").textContent="";document.querySelector(".mc").classList.remove("is-paused");
+ ["#oppSel","#venueSel","#simOne"].forEach(s=>$(s).disabled=false);
+ /* vystřídaní/vyloučení se vrací do sestavy na příští zápas */
+ lineup=M.pre.length===FORMS[form].length?M.pre.slice():assign(xi,form);saveLineup();renderPitch();}
+function resetMatch(){M=null;renderPreview();$("#mcLive").hidden=true;$("#mcIdle").hidden=false;$("#mcAfter").innerHTML="";renderPitch();$("#mc").scrollIntoView({behavior:"smooth",block:"start"});}
+function renderHist(){const h=store.get("mcHist",[]),el=$("#mcHist");if(!el)return;el.innerHTML=h.length?`<h4 class="mch">Vaše poslední zápasy</h4>`+h.map(m=>`<div class="hrow"><span class="pill ${m.r}">${m.r}</span><span>${m.h?"doma":"venku"} · ${esc(m.o)}</span><b>${esc(m.s)}</b>${m.best?`<small>★ ${esc(disp(m.best))}</small>`:""}</div>`).join(""):"";}
+
+/* ---------- ovládání ---------- */
+$("#formSel").innerHTML=Object.keys(FORMS).map(f=>`<option>${f}</option>`).join("");
+$("#formSel").onchange=e=>{if(M&&!M.done&&!M.paused){toast("Nejdřív dejte pauzu");e.target.value=form;return;}form=e.target.value;store.set("form",form);
+ lineup=assign(lineup.filter(Boolean),form);if(M&&!M.done){const on=onPitch().length;if(on<11){/* po vyloučení zůstává díra na nejméně důležitém postu */}feed(M.lbl(),"info","",`Trenér mění rozestavení na ${form}.`);}saveLineup();sel=null;renderPitch();};
+$("#tacSeg").onclick=e=>{const b=e.target.closest("button");if(!b)return;tactic=b.dataset.t;store.set("tactic",tactic);if(M&&!M.done)feed(M.lbl(),"info","",`Pokyn z lavičky: ${TAC[tactic].l.toLowerCase()} hra.`);renderPitch();};
+$("#mcSpeed").innerHTML=SPEEDS.map((s,i)=>`<button type="button" data-s="${i}" aria-pressed="${i===speedI}">${s[0]}</button>`).join("");
+$("#mcSpeed").onclick=e=>{const b=e.target.closest("button");if(!b)return;speedI=+b.dataset.s;store.set("mcSpeed",speedI);$("#mcSpeed").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b));};
+$("#mcPause").onclick=()=>{if(!M||M.done)return;if(M.paused&&M.inj&&lineup.includes(M.inj)&&M.subs<MAX_SUBS){/* nechá hrát dál, zraněný jen kulhá */}pause(!M.paused);};
+$("#mcEnd").onclick=()=>{if(!M||M.done)return;M.toEnd=true;
+ if(M.inj&&lineup.includes(M.inj)&&M.subs<MAX_SUBS){const i=lineup.indexOf(M.inj),b=benchList().sort((x,y)=>fitOf(y,FORMS[form][i][0])-fitOf(x,FORMS[form][i][0]))[0];if(b){M.paused=true;doSwap(i,b);}}
+ M.paused=false;while(!M.done)step();renderBoard();renderPitch();};
+$("#simOne").onclick=kickoff;$("#oppSel").addEventListener("change",renderPreview);$("#venueSel").addEventListener("change",renderPreview);
+$("#pitchAuto").onclick=()=>{if(!canEditLineup())return;lineup=assign(lineup.filter(Boolean),form);saveLineup();sel=null;renderPitch();toast("Hráči rozestavení podle postů");};
+{const _rr=renderRates;renderRates=function(){_rr();syncLineup();renderPitch();if(!M)renderPreview();};}
+syncLineup();renderPitch();renderHist();renderPreview();
 
 })();
 </script>
