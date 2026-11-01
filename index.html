@@ -752,6 +752,49 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
 @media (max-width:620px){.evgrid{grid-template-columns:1fr 1fr}.evcard header{grid-template-columns:1fr auto}.evtyp{grid-column:1/-1;justify-self:start}
  .prow{grid-template-columns:1fr auto auto;row-gap:2px}.prow span{grid-column:1/-1}.frow{grid-template-columns:minmax(0,1fr) auto}.frow>.muted:nth-child(2){display:none}.fbtn{grid-column:1/-1}}
 .rwhy{flex:0 1 210px;width:auto}.rwhy.need{outline:3px solid var(--gold,#f2c230);outline-offset:1px}
+
+.trseg{margin-bottom:14px;flex-wrap:wrap}
+.trcols{display:grid;grid-template-columns:minmax(280px,380px) minmax(0,1fr);gap:16px;align-items:start}
+.trform{position:sticky;top:80px}.trform .evgrid{grid-template-columns:1fr 1fr}.trform textarea{width:100%}
+.trgoals{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:8px 0 12px;display:flex;flex-wrap:wrap;gap:4px 12px}.trgoals legend{font-size:.8rem;font-weight:600;padding:0 4px}.trgoals label{font-size:.85rem;display:flex;gap:4px;align-items:center}
+.trsum{display:grid;gap:10px;margin-bottom:12px}.trsum h3{font-size:1.5rem;margin:2px 0}
+.trbar{display:flex;gap:2px;height:12px;border-radius:6px;overflow:hidden}.trbar i{display:block}.trbar .L1{background:#7cc38a}.trbar .L2{background:#e0b33a}.trbar .L3{background:#d9573f}
+.trlist{display:grid;gap:10px}
+.drill{background:var(--card,var(--bg));border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.drill header{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.drill h4{font-size:1.15rem;margin:2px 0;font-family:var(--f-display);text-transform:uppercase;line-height:1.1}
+.drmeta{font-size:.8rem;color:var(--muted);margin:2px 0;display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}.draim{margin:6px 0 0;font-size:.92rem}
+.dract{display:flex;gap:6px;flex-wrap:wrap}
+.trdots{display:inline-flex;gap:2px;vertical-align:middle}.trdots i{width:7px;height:7px;border-radius:50%;background:var(--line)}.trdots i.on{background:var(--club)}
+.drbody{border-top:1px solid var(--line);margin-top:10px;padding-top:10px;display:grid;gap:12px}
+.drgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.drbody h5{margin:8px 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.drbody ol,.drbody ul{margin:0;padding-left:20px;display:grid;gap:4px;font-size:.92rem}.drbody p{margin:0 0 6px;font-size:.92rem}
+.drdia{width:100%;height:auto;border-radius:6px;display:block}.drdia .tp,.drdia .tr{stroke:#fff}.drdia .td{stroke:#ffe27a}.drgrid>div:first-child .drdia{max-width:420px}
+.drleg{font-size:.72rem;margin-top:4px}.drleg .lg{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 2px 0 6px;vertical-align:middle}.drleg .lg.a{background:#1d6fd0}.drleg .lg.d{background:#d33a2c}.drleg .lg.c{background:#f08a24;border-radius:2px}
+.trcmp{display:grid;gap:5px;margin:6px 0}.trcmp>div{display:grid;grid-template-columns:76px 28px 1fr 28px;gap:6px;align-items:center;font-size:.85rem}.trcmp b{font-family:var(--f-mono);font-size:.8rem;text-align:center}
+.trcmp s{position:relative;height:14px;display:block;background:var(--soft);border-radius:3px;overflow:hidden}.trcmp s i{position:absolute;left:0;height:6px;width:var(--w)}.trcmp .us{top:1px;background:var(--club)}.trcmp .th{bottom:1px;background:#d33a2c}
+.trtips{display:grid;gap:6px;padding-left:20px}
+.trrate{display:grid;gap:8px}.trr{border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:grid;gap:8px}.trr:not(.on){opacity:.7;padding:6px 12px}.trrh{display:flex;gap:8px;align-items:center;cursor:pointer}
+.trnum{display:flex;gap:10px;align-items:center;font-size:.85rem}.trnum input{flex:1;max-width:260px}.trnum output{font-family:var(--f-display);font-size:1.6rem;min-width:28px}
+.trtags{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.trtags .stag{min-width:80px;color:var(--muted)}
+.trtg{font:inherit;font-size:.78rem;padding:4px 8px;border-radius:14px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer}.trtg.on.p{background:#2f8a3e;border-color:#2f8a3e;color:#fff}.trtg.on.m{background:#c9562f;border-color:#c9562f;color:#fff}
+.trrec{font-size:.88rem;background:var(--soft);border-radius:6px;padding:8px 10px;margin:0}
+.trlibf{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:12px}
+.myr{border-bottom:1px solid var(--line);padding:8px 0}.myr>div{display:flex;justify-content:space-between;align-items:center}.myr p{margin:4px 0;font-size:.9rem}.mrn{font-family:var(--f-display);font-size:1.6rem}
+@media (max-width:860px){.trcols{grid-template-columns:1fr}.trform{position:static}.drgrid{grid-template-columns:1fr}}
+@media (max-width:620px){.trlibf{grid-template-columns:1fr}.drill header{flex-direction:column}}
+@media print{body.print-tr *{visibility:hidden}body.print-tr #trOut,body.print-tr #trOut *{visibility:visible}body.print-tr #trOut{position:absolute;left:0;top:0;width:100%}body.print-tr .dract,body.print-tr [data-swap]{display:none!important}body.print-tr .drill{break-inside:avoid;border-color:#999}}
+
+.trlive{text-align:center;background:var(--card,var(--bg));border:1px solid var(--line);border-radius:10px;padding:18px;margin-bottom:12px;display:grid;gap:10px}.trlive h3{font-size:1.6rem;margin:0}
+.trclock{font-family:var(--f-mono);font-size:clamp(3.5rem,16vw,6rem);font-weight:700;line-height:1}
+.trprog{height:10px;background:var(--soft);border-radius:5px;overflow:hidden}.trprog i{display:block;height:100%;width:var(--w);background:var(--club);transition:width 1s linear}
+.trpitchw{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;align-items:start}
+.trpitch{position:relative;aspect-ratio:68/80;background:repeating-linear-gradient(0deg,#2f7a3a 0 10%,#2b7136 10% 20%);border-radius:10px;border:2px solid rgba(255,255,255,.5)}
+.trtok{position:absolute;transform:translate(-50%,-50%);background:#fff;color:#0b3a7a;border:2px solid #0b3a7a;border-radius:20px;padding:3px 8px;font:inherit;font-size:.78rem;display:grid;line-height:1.1;cursor:pointer;min-width:58px}
+.trtok small{font-size:.62rem;color:#555}.trtok.empty{background:#ffd9d2}.trtok.sel,.trtg.sel{outline:3px solid var(--gold,#f2c230)}
+.trbench{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.trwarn{background:#fff3cd;color:#664d03;border-radius:6px;padding:6px 10px;font-size:.85rem}
+.trweeks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:12px}.trwk{display:grid;gap:6px}
+.trses{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:6px}.trses small{display:block;color:var(--muted);font-size:.78rem}
+.trind{display:grid;gap:6px}
+@media (max-width:760px){.trpitchw{grid-template-columns:1fr}}
 </style>
 
 </head><body>
@@ -998,11 +1041,12 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
   <div id="kabina" hidden>
     <div class="sechead"><h2 class="sec">Kabina</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><div class="seg" role="group" aria-label="Sekce kabiny">
-        <button type="button" data-k="akce" aria-pressed="true">Akce</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="pokladna" aria-pressed="false">Pokladna</button><button type="button" data-k="sluzby" aria-pressed="false">Služby</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dokopna" aria-pressed="false">Dokopná</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
+        <button type="button" data-k="akce" aria-pressed="true">Akce</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="pokladna" aria-pressed="false">Pokladna</button><button type="button" data-k="trener" aria-pressed="false" hidden>Trenér</button><button type="button" data-k="sluzby" aria-pressed="false">Služby</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dokopna" aria-pressed="false">Dokopná</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
         <span class="kme" id="kMe"></span><button class="btn ghost sm" id="logout" type="button">Odhlásit</button></div></div>
     <p class="muted" id="storeNote" style="margin:-8px 0 18px;font-size:.88rem"></p>
     <div data-kpane="akce"><div id="kAkce"></div></div>
     <div data-kpane="pokladna" hidden><div id="kPokl"></div></div>
+    <div data-kpane="trener" hidden><div id="kTrener"></div></div>
     <div data-kpane="dokopna" hidden><div id="recap"></div></div>
     <div data-kpane="sluzby" hidden><div class="kgrid" id="dutyMatches"></div>
       <form class="card f" id="addMatch" style="max-width:560px;margin-top:16px"><h3 style="font-size:1.5rem">Přidat trénink, zápas nebo akci</h3>
@@ -1803,7 +1847,7 @@ renderAtt();
 /* ===== Jádro kabiny: účty, akce, přihlášky, docházka, pokladna. Stejný kód běží v Google Apps Scriptu i v ukázkovém režimu webu. ===== */
 const KCORE_ADMINS=["matej-kruml","zdenek-radosta"];
 const KCORE_HEAD={hraci:["slug","name","pin","salt","tok","role","fails","at"],akce:["id","typ","date","time","place","title","note","by","at"],
- odpovedi:["key","ev","slug","s","prev","note","at","why"],dochazka:["key","ev","slug","p","late","exc","at"],pokuty:["id","slug","date","rule","amount","item","note","paid","key","by","at"],nastaveni:["k","v"]};
+ odpovedi:["key","ev","slug","s","prev","note","at","why"],dochazka:["key","ev","slug","p","late","exc","at"],pokuty:["id","slug","date","rule","amount","item","note","paid","key","by","at"],hodnoceni:["key","m","slug","r","plus","minus","note","rec","title","date","by","at"],nastaveni:["k","v"]};
 function kcore(DB,d){
  const S=v=>String(v==null?"":v),clean=(v,n)=>S(v).replace(/[<>]/g,"").trim().slice(0,n),now=()=>new Date().toISOString();
  const players=()=>DB.rows("hraci"),me=()=>{if(!d.tok)return null;const p=players().find(x=>x.tok&&x.tok===S(d.tok));return p||null;};
@@ -1827,7 +1871,7 @@ function kcore(DB,d){
  if(A==="logout"){DB.upsert("hraci","slug",{...m,tok:""});return{ok:true};}
  if(A==="pin"){if(!/^\d{4,8}$/.test(S(d.pin)))return{ok:false,err:"PIN musí mít 4 až 8 číslic"};const salt=DB.uid().slice(0,12);DB.upsert("hraci","slug",{...m,salt,pin:DB.hash(salt+"|"+S(d.pin))});return{ok:true};}
  if(A==="state"){let rules=null;const r=DB.rows("nastaveni").find(x=>x.k==="rules");if(r)try{rules=JSON.parse(r.v);}catch(e){}
-  return{ok:true,me:pub(m),players:players().map(pub),events:DB.rows("akce"),rsvp:DB.rows("odpovedi"),pres:DB.rows("dochazka"),fines:DB.rows("pokuty"),rules};}
+  return{ok:true,me:pub(m),players:players().map(pub),events:DB.rows("akce"),rsvp:DB.rows("odpovedi"),pres:DB.rows("dochazka"),fines:DB.rows("pokuty"),rules,ratings:DB.rows("hodnoceni").filter(x=>adm||x.slug===m.slug)};}
  if(A==="rsvp"){const ev=DB.rows("akce").find(x=>x.id===S(d.ev));if(!ev)return{ok:false,err:"Akce neexistuje"};
   const who=adm&&d.slug?S(d.slug):m.slug,s=["ano","ne","mozna"].indexOf(S(d.s))>=0?S(d.s):"ano",key=ev.id+"__"+who;
   if(!adm&&S(ev.date)<now().slice(0,10))return{ok:false,err:"Akce už proběhla"};
@@ -1843,6 +1887,7 @@ function kcore(DB,d){
   return{ok:true,added:n};}
  if(A==="fine_paid"){if(need())return need();const f=DB.rows("pokuty").find(x=>x.id===S(d.id));if(!f)return{ok:false,err:"Nenalezeno"};DB.upsert("pokuty","id",{...f,paid:d.paid?1:0});return{ok:true};}
  if(A==="fine_del"){if(need())return need();DB.del("pokuty","id",S(d.id));return{ok:true};}
+ if(A==="rate_save"){if(need())return need();const mid=clean(d.m,40);(d.list||[]).slice(0,40).forEach(x=>DB.upsert("hodnoceni","key",{key:mid+"__"+clean(x.slug,48),m:mid,slug:clean(x.slug,48),r:Math.max(1,Math.min(10,Math.round(+x.r||6))),plus:clean(x.plus,120),minus:clean(x.minus,120),note:clean(x.note,120),rec:clean(x.rec,900),title:clean(x.title,80),date:S(x.date).slice(0,10),by:m.slug,at:now()}));return{ok:true};}
  if(A==="rules_save"){if(need())return need();DB.upsert("nastaveni","k",{k:"rules",v:JSON.stringify(d.rules||[]).slice(0,20000)});return{ok:true};}
  if(A==="pin_reset"){if(need())return need();const p=players().find(x=>x.slug===S(d.slug));if(!p)return{ok:false};DB.upsert("hraci","slug",{...p,pin:"",salt:"",tok:"",fails:0});return{ok:true};}
  if(A==="role"){if(need())return need();const p=players().find(x=>x.slug===S(d.slug));if(!p)return{ok:false};DB.upsert("hraci","slug",{...p,role:d.admin?"admin":""});return{ok:true};}
@@ -1918,7 +1963,7 @@ async function kLoad(){if(!ktok){unlocked=false;showKabina();return;}
 async function kDo(d,msg){try{const r=await kapi({...d,tok:ktok});if(!r.ok){toast(r.err==="auth"?"Přihlas se znovu":(r.err||"Nepovedlo se"));if(r.err==="auth")kLoad();return null;}
   if(msg)toast(msg);await kLoad();return r;}catch(e){toast("Spojení se nepovedlo");return null;}}
 function kRender(){if(!KS)return;$("#kMe").innerHTML=`${esc(KS.me.name)}${kAdm()?' <span class="pill V">správce</span>':""}`;
- renderAkce();renderPokl();if(typeof renderAtt==="function")renderAtt();
+ renderAkce();renderPokl();if(typeof renderAtt==="function")renderAtt();const tb=$('[data-k="trener"]');if(tb)tb.hidden=!kAdm();if(kAdm()&&typeof renderTrener==="function")renderTrener();
  const m=location.hash.match(/akce=([a-z0-9]+)/i);if(m&&!kOpenEv){kOpenEv=m[1];setTimeout(()=>{const el=$("#ev-"+m[1]);if(el){$('[data-k="akce"]').click();el.scrollIntoView({block:"center"});el.classList.add("flash");}},80);}}
 /* -- akce a ankety -- */
 function evRsvp(id){const o={ano:[],mozna:[],ne:[]};KS.rsvp.filter(r=>r.ev===id).forEach(r=>(o[r.s]||o.ano).push(r));return o;}
@@ -1961,6 +2006,7 @@ function renderAkce(){const box=$("#kAkce");if(!box||!KS)return;const t=kToday()
   ${kEditEv?evForm():""}
   ${up.length?`<div class="evlist">${up.map(evCard).join("")}</div>`:`<div class="card"><p class="muted">Žádné naplánované akce.${kAdm()?" Vytvoř první tlačítkem „Nová akce“ a pošli odkaz do WhatsAppu.":" Až trenér vypíše trénink nebo zápas, objeví se tady."}</p></div>`}
   ${past.length?`<details class="evpast"${kPresEv&&past.some(e=>e.id===kPresEv)?" open":""}><summary>Proběhlé akce (${past.length})</summary><div class="evlist">${past.map(evCard).join("")}</div></details>`:""}
+  ${typeof myRatingsHTML==="function"?myRatingsHTML():""}
   <details class="kacc"><summary>Můj účet</summary><form id="pinForm" class="f" style="display:flex;gap:8px;flex-wrap:wrap;align-items:end"><label class="l">Nový PIN<input type="password" id="np" inputmode="numeric" maxlength="8"></label><button class="btn sm" type="submit">Změnit PIN</button></form></details>`;
  const on=(s,f)=>$$(s).forEach(b=>b.onclick=()=>f(b));
  on("[data-rs]",b=>{const id=b.dataset.rs,s=b.dataset.s,w=($("#rw-"+id)||{}).value||"";
@@ -2037,6 +2083,1878 @@ function kabEvents(){if(!KS)return[];return KS.events.map(e=>{const R=evRsvp(e.i
  const names=P.length?{yes:P.filter(x=>+x.p).map(x=>kName(x.slug)),no:P.filter(x=>!+x.p).map(x=>kName(x.slug)),maybe:[]}:{yes:R.ano.map(r=>kName(r.slug)),no:R.ne.map(r=>kName(r.slug)),maybe:R.mozna.map(r=>kName(r.slug))};
  return {id:e.id,d:e.date,t:e.typ,q:e.title,yes:names.yes.length,no:names.no.length,maybe:names.maybe.length,names,src:P.length?"pres":"rsvp"};});}
 kGate("in");kRoster();kLoad();
+const DRILLS=[
+{
+ id:"rozcvicka-fifa-11-plus",
+ cat:"rozcvicka",
+ name:"Rozcvičení FIFA 11+ (zkrácená verze)",
+ goals:["rozcvicka","kondice"],
+ min:15,
+ range:[12,20],
+ players:[6,22],
+ gk:0,
+ diff:1,
+ load:1,
+ area:"30 × 10 m",
+ kit:"12 kuželů",
+ aim:"Systematicky zahřeje celé tělo a posílí stabilizační svaly, což prokazatelně snižuje riziko zranění kolen, kotníků a zadních stehen.",
+ setup:"Postav dvě rovnoběžné řady po 6 kuželech vzdálené 5 m, kužely v řadě 5–6 m od sebe. Hráči ve dvojicích začínají u prvních kuželů, každá dvojice běží ve své dráze.",
+ steps:[
+  "Běhová část (2 série každého cviku): klus k poslednímu kuželu a zpět, kroužení v kyčli ven a dovnitř u každého kuželu, boční poskoky k partnerovi s dotykem ramenem, výběh vpřed a zpět vzad.",
+  "Síla a stabilita: prkno na předloktích 3 × 20–30 s, boční prkno 2 × 20 s na každou stranu, nordické hamstringy ve dvojicích 3–5 opakování.",
+  "Rovnováha: stoj na jedné noze s házením míče partnerovi 30 s na každou nohu, poté 10 dřepů a 10 výpadů na každou nohu.",
+  "Plyometrie: skoky do strany přes pomyslnou čáru 30 s, výskoky z dřepu 2 × 6.",
+  "Závěrečné běhy: 2 × běh přes dráhu na 75–80 %, 2 × odrazový běh (bounding), 2 × běh se změnou směru u kuželu; návrat vždy volným klusem."
+ ],
+ coach:[
+  "Koleno při dřepu, výpadu i dopadu nesmí padat dovnitř – kontroluj osu kyčel–koleno–špička.",
+  "Dopady měkce přes přední část chodidla s pokrčenými koleny.",
+  "V prknech zpevněný trup, boky nepropadají ani netrčí nahoru.",
+  "Intenzita postupně roste, poslední běhy už téměř zápasovou rychlostí.",
+  "Silová část se neodbývá – je to nejcennější část programu."
+ ],
+ easier:"Zkrátit výdrže na 15 s, nordické hamstringy provádět jen s malým rozsahem pohybu nebo je vynechat.",
+ harder:"Použít obtížnější úrovně 2–3 programu 11+ (prkno se zvednutou nohou, skoky přes překážky) a prodloužit výdrže.",
+ mistakes:["Silová část se jen odcvičí bez zpevnění trupu","Doskoky s propnutými koleny a koleny dovnitř","Příliš rychlý start bez postupného zahřátí"],
+ dia:{w:30,h:10,items:[{t:"c",x:2,y:3},{t:"c",x:7,y:3},{t:"c",x:12,y:3},{t:"c",x:17,y:3},{t:"c",x:22,y:3},{t:"c",x:27,y:3},{t:"c",x:2,y:8},{t:"c",x:7,y:8},{t:"c",x:12,y:8},{t:"c",x:17,y:8},{t:"c",x:22,y:8},{t:"c",x:27,y:8},{t:"a",x:1,y:3},{t:"a",x:1,y:8}],lines:[{x1:1,y1:3,x2:27,y2:3,k:"run"},{x1:1,y1:8,x2:27,y2:8,k:"run"}]}
+},
+{
+ id:"rozcvicka-rondo-4-na-1",
+ cat:"rozcvicka",
+ name:"Rondo 4 na 1 na zahřátí",
+ goals:["rozcvicka","prihravky","prvni_dotek"],
+ min:10,
+ range:[8,15],
+ players:[5,20],
+ gk:0,
+ diff:1,
+ load:1,
+ area:"8 × 8 m",
+ kit:"4 kužely na každý čtverec, 1 míč na skupinu, rozlišováky pro obránce",
+ aim:"Zahřeje hráče s míčem a procvičí rychlou kombinaci, zpracování a nabízení se, které rozhodují o udržení míče pod tlakem v zápase.",
+ setup:"Rozděl hráče do skupin po pěti, každá skupina má svůj čtverec 8 × 8 m. Čtyři hráči stojí po stranách čtverce, jeden obránce s rozlišovákem je uprostřed.",
+ steps:[
+  "Hráči na obvodu si přihrávají maximálně na dva doteky, obránce se snaží míč získat nebo vykopnout ze čtverce.",
+  "Kdo ztratí míč nebo ho přihraje mimo čtverec, jde doprostřed a obránce jde na jeho místo; obránce se střídá nejpozději po 60 s.",
+  "Hráči na obvodu se pohybují po své straně čtverce tak, aby nositel míče měl vždy dvě přihrávací možnosti.",
+  "Za 10 přihrávek v řadě bez zisku obránce získává skupina bod, obránce dělá 3 kliky.",
+  "Hraj 3 kola po 3 minutách s 30 s pauzou, v posledním kole pravidlo jednoho doteku."
+ ],
+ coach:[
+  "Hráči na obvodu se posouvají po straně do volného přihrávacího úhlu, nestojí v rozích.",
+  "Zpracování na nohu vzdálenější od obránce, tělo otevřené k další přihrávce.",
+  "Přihrávka po zemi, do správné nohy spoluhráče a s dostatečnou razancí.",
+  "Obránce napadá naplno – tempo ronda určuje on."
+ ],
+ easier:"Zvětšit čtverec na 10 × 10 m a povolit tři doteky.",
+ harder:"Hrát na jeden dotek, zmenšit čtverec nebo hrát 5 na 2 ve čtverci 10 × 10 m.",
+ mistakes:["Hráči stojí v rozích bez pohybu a nevytvářejí úhel","Vysoká nebo pomalá přihrávka, kterou obránce snadno zachytí","Obránce jen chodí a nenapadá"],
+ dia:{w:10,h:10,items:[{t:"c",x:1,y:1},{t:"c",x:9,y:1},{t:"c",x:9,y:9},{t:"c",x:1,y:9},{t:"a",x:5,y:1.5},{t:"a",x:8.5,y:5},{t:"a",x:5,y:8.5},{t:"a",x:1.5,y:5},{t:"d",x:5,y:5},{t:"b",x:5.5,y:2}],lines:[{x1:5,y1:1.5,x2:8.5,y2:5,k:"pass"},{x1:8.5,y1:5,x2:5,y2:8.5,k:"pass"},{x1:1.5,y1:5,x2:1.5,y2:3,k:"run"}]}
+},
+{
+ id:"rozcvicka-prihravkovy-ctverec",
+ cat:"rozcvicka",
+ name:"Přihrávkový čtverec s dynamickým protažením",
+ goals:["rozcvicka","prihravky","prvni_dotek"],
+ min:12,
+ range:[10,15],
+ players:[8,16],
+ gk:0,
+ diff:1,
+ load:1,
+ area:"15 × 15 m",
+ kit:"4 kužely, 2–4 míče",
+ aim:"Postupně zvedá tepovou frekvenci a rozhýbe klouby, zároveň opakuje přesnou přihrávku a zpracování v pohybu.",
+ setup:"Postav čtverec 15 × 15 m a rozděl hráče rovnoměrně ke čtyřem kuželům (2–4 u každého). Míče mají první hráči u dvou protilehlých kuželů.",
+ steps:[
+  "Hráč přihraje na sousední kužel po směru hodinových ručiček a běží za svou přihrávkou na konec řady.",
+  "Cestou k dalšímu kuželu provádí dynamický prvek dle pokynu trenéra: liftink, zakopávání, otevírání a zavírání brány, výpady, boční poskoky.",
+  "Po 2 minutách změň směr přihrávek, po dalších 2 minutách přidej narážečku: hráč u dalšího kuželu vrací jedním dotekem a přihrávající pak hraje dál.",
+  "Ve čtvrté fázi zpracování otevřeným tělem a přihrávka na protější (diagonální) kužel.",
+  "Na závěr po každé přihrávce rychlý výběh na 5 m a pak klus k dalšímu kuželu; celkem 5–6 fází po 2 minutách."
+ ],
+ coach:[
+  "Zpracování směrem od kuželu do strany další přihrávky, ne zastavení míče pod tělem.",
+  "Přihrávka do kroku spoluhráče, který vychází naproti míči.",
+  "Před přijetím oční kontakt a zavolání jména.",
+  "Pohybové prvky provádět v plném rozsahu, ne jen naznačit."
+ ],
+ easier:"Hrát s jedním míčem a bez narážečky, zkrátit strany na 12 m.",
+ harder:"Hrát se třemi míči současně a přihrávat jen jedním dotekem.",
+ mistakes:["Hráči čekají na míč u kuželu místo vyjití naproti","Nepřesné přihrávky do zad spoluhráče","Dynamické prvky prováděné ledabyle"],
+ dia:{w:15,h:15,items:[{t:"c",x:2,y:2},{t:"c",x:13,y:2},{t:"c",x:13,y:13},{t:"c",x:2,y:13},{t:"a",x:2,y:3},{t:"a",x:12,y:2},{t:"a",x:13,y:12},{t:"a",x:3,y:13},{t:"b",x:2.8,y:3}],lines:[{x1:2,y1:3,x2:12,y2:2,k:"pass"},{x1:2,y1:3.5,x2:11.5,y2:3.5,k:"run"},{x1:13,y1:12,x2:3,y2:13,k:"pass"}]}
+},
+{
+ id:"rozcvicka-hazena-s-hlavickou",
+ cat:"rozcvicka",
+ name:"Házená s hlavičkou",
+ goals:["rozcvicka","hlavicky","komunikace","pohyb_bez_mice"],
+ min:10,
+ range:[8,15],
+ players:[8,18],
+ gk:0,
+ diff:1,
+ load:2,
+ area:"30 × 25 m",
+ kit:"2 malé branky (nebo 4 tyče), 4 kužely, 2 sady rozlišováků, 2 míče",
+ aim:"Zábavnou formou zahřeje a naučí hráče nabíhat do volného prostoru a hlavičkovat do branky, což se přímo přenáší do zakončení po centrech.",
+ setup:"Vyznač hřiště 30 × 25 m s malou brankou uprostřed každé kratší strany. Hraje se tým proti týmu 4 na 4 až 9 na 9 v rozlišovácích.",
+ steps:[
+  "Míč se přihrává rukama, s míčem v rukou hráč udělá nejvýše 3 kroky a musí do 3 s přihrát.",
+  "Gól platí jen hlavičkou po nahození spoluhráče rukama; střela rukou ani nohou neplatí.",
+  "Bránící tým může míč zachytit jen při přihrávce, vytrhávat míč z rukou je zakázáno.",
+  "Spadne-li míč na zem, rozehrává soupeř z místa dopadu.",
+  "Hraj 2–3 kola po 4 minutách s krátkou pauzou na protažení."
+ ],
+ coach:[
+  "Nabíhání do volného prostoru mimo krytí obránce – nestát za ním.",
+  "Hlavička čelem, oči otevřené, odraz do míče a směr k zemi.",
+  "Nahrávka v oblouku do prostoru před hlavičkáře, ne přímo do obličeje.",
+  "Hlasitá komunikace – volat jméno, kdo je volný."
+ ],
+ easier:"Povolit gól i hlavičkou po vlastním nadhozu nebo hrát bez omezení kroků.",
+ harder:"Gól platí jen hlavičkou z prvního kontaktu po nahrávce ze strany, hrát na menším hřišti.",
+ mistakes:["Hráči se shlukují u míče a nikdo nenabíhá do prostoru","Hlavička se zavřenýma očima a temenem hlavy","Hrubé vytrhávání míče z rukou"],
+ dia:{w:30,h:25,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:29.5,y:0.5},{t:"c",x:0.5,y:24.5},{t:"c",x:29.5,y:24.5},{t:"s",x:1,y:12.5,r:90},{t:"s",x:29,y:12.5,r:90},{t:"a",x:12,y:8},{t:"a",x:18,y:16},{t:"a",x:24,y:10},{t:"d",x:15,y:12},{t:"d",x:22,y:14},{t:"d",x:26,y:12},{t:"b",x:12.5,y:8.5}],lines:[{x1:12,y1:8,x2:18,y2:16,k:"pass"},{x1:18,y1:16,x2:26,y2:15,k:"pass"},{x1:24,y1:10,x2:27,y2:14,k:"run"}]}
+},
+{
+ id:"rozcvicka-zebrik-a-prihravka",
+ cat:"rozcvicka",
+ name:"Koordinační žebřík s přihrávkou",
+ goals:["rozcvicka","rychlost","prvni_dotek"],
+ min:12,
+ range:[10,15],
+ players:[6,16],
+ gk:0,
+ diff:1,
+ load:2,
+ area:"20 × 10 m",
+ kit:"1–2 koordinační žebříky (nebo 10 talířků), 4 kužely, 4 míče",
+ aim:"Rozvíjí frekvenci a koordinaci nohou a hned je spojuje s přihrávkou a výbušným startem, jako při rychlé reakci v zápase.",
+ setup:"Polož žebřík (nebo řadu talířků po 50 cm), za jeho koncem stojí ve vzdálenosti 5 m stranou nahrávač s míči, 8 m za žebříkem je cílový kužel. Při větším počtu hráčů postav dvě stejná stanoviště.",
+ steps:[
+  "Hráč projde žebříkem zadaným způsobem: jedna noha do každého pole, obě nohy do pole, bokem dovnitř–ven, skipping.",
+  "Hned po výstupu ze žebříku dostane přihrávku od nahrávače a vrátí ji jedním dotekem.",
+  "Po narážečce sprintuje 5–8 m k cílovému kuželu a klusem se vrací na konec řady.",
+  "Každý cvik 2 průchody, celkem 6–8 různých cviků; po každém třetím cviku se vymění nahrávač.",
+  "Mezi sériemi 1 minuta aktivní pauzy (vyklusání, kroužení paží)."
+ ],
+ coach:[
+  "Na špičkách, nízko, s aktivní prací paží.",
+  "Rychlost přidávat až po zvládnutí správného provedení.",
+  "Přechod ze žebříku k přihrávce bez zpomalení, zpevněný kotník při vrácení.",
+  "Sprint vybuchnout prvními třemi kroky."
+ ],
+ easier:"Zjednodušit cviky na žebříku a vynechat sprint.",
+ harder:"Nahrávač určuje vrácení levou či pravou nohou až v okamžiku přihrávky, sprint jde do strany podle signálu.",
+ mistakes:["Šlapání na příčky a hlava sklopená celou dobu","Zpomalení před přihrávkou","Nepřesné vracení míče nezpevněným kotníkem"],
+ dia:{w:20,h:10,items:[{t:"c",x:2,y:5},{t:"c",x:8,y:5},{t:"c",x:17,y:5},{t:"a",x:1,y:5},{t:"a",x:11,y:1.5},{t:"b",x:11.5,y:2}],lines:[{x1:2,y1:5,x2:8,y2:5,k:"run"},{x1:11,y1:1.5,x2:9,y2:5,k:"pass"},{x1:9,y1:5,x2:11,y2:1.5,k:"pass"},{x1:9,y1:5.5,x2:17,y2:5.5,k:"run"}]}
+},
+{
+ id:"rozcvicka-prihravky-tri-barvy",
+ cat:"rozcvicka",
+ name:"Přihrávky ve třech barvách",
+ goals:["rozcvicka","prihravky","komunikace","pohyb_bez_mice"],
+ min:12,
+ range:[10,15],
+ players:[9,18],
+ gk:0,
+ diff:2,
+ load:2,
+ area:"25 × 25 m",
+ kit:"4 kužely, 3 sady rozlišováků, 3 míče",
+ aim:"Učí hráče neustále se rozhlížet, hledat volný prostor a komunikovat, aby se v utkání nabízeli včas a ve správném místě.",
+ setup:"Vyznač čtverec 25 × 25 m a rozděl hráče do tří barev (např. modrá, žlutá, oranžová). Všichni se volně pohybují ve čtverci.",
+ steps:[
+  "Míč koluje v pevném pořadí barev: modrá → žlutá → oranžová → modrá; každý hráč má nejvýše 2 doteky.",
+  "Po přihrávce hráč vždy změní místo – udělá výběh do volného prostoru na 5–10 m.",
+  "Po 2 minutách přidej druhý míč, po dalších 2 minutách obrať pořadí barev.",
+  "Ve čtvrté fázi jedna barva přestane přihrávat a 60 s napadá (presink) zbylé dvě barvy, které si míč drží; vystřídej všechny barvy.",
+  "Celkem 4–5 fází po 2 minutách, krátké pauzy na protažení."
+ ],
+ coach:[
+  "Před přijetím míče se rozhlédnout, komu přihraju dál.",
+  "Volat jméno spoluhráče, kterému přihrávám, a navázat oční kontakt.",
+  "Nabízet se do volného místa a ne za jiného hráče.",
+  "Zpracovat otevřeným tělem směrem k další přihrávce."
+ ],
+ easier:"Jen dvě barvy a jeden míč, povolit volné doteky.",
+ harder:"Hrát na jeden dotek, zmenšit čtverec na 20 × 20 m nebo přidat třetí míč.",
+ mistakes:["Hráči stojí na místě a čekají na přihrávku","Přihrávka bez zavolání, spoluhráč nečeká míč","Hráči se shlukují v jedné části čtverce"],
+ dia:{w:25,h:25,items:[{t:"c",x:1,y:1},{t:"c",x:24,y:1},{t:"c",x:24,y:24},{t:"c",x:1,y:24},{t:"a",x:6,y:6},{t:"a",x:18,y:8},{t:"a",x:12,y:18},{t:"d",x:8,y:15},{t:"d",x:20,y:19},{t:"b",x:6.5,y:6.5}],lines:[{x1:6,y1:6,x2:18,y2:8,k:"pass"},{x1:18,y1:8,x2:12,y2:18,k:"pass"},{x1:6,y1:6,x2:5,y2:13,k:"run"}]}
+},
+{
+ id:"technika-vedeni-mice-a-obraty",
+ cat:"technika",
+ name:"Vedení míče a obraty ve čtverci",
+ goals:["1v1","rychlost","rozcvicka"],
+ min:12,
+ range:[10,15],
+ players:[6,18],
+ gk:0,
+ diff:1,
+ load:2,
+ area:"20 × 20 m",
+ kit:"4 kužely na ohraničení, 12 kuželů na 6 branek, míč pro každého hráče",
+ aim:"Zlepšuje kontrolu míče v pohybu, obraty a změnu tempa, které hráč potřebuje k uvolnění se z tlaku soupeře.",
+ setup:"Vyznač čtverec 20 × 20 m a uvnitř rozestav 6 kuželových branek širokých 1,5 m. Každý hráč má svůj míč a začíná na libovolném místě ve čtverci.",
+ steps:[
+  "Hráči volně vedou míč a projíždějí brankami; cílem je projet co nejvíce branek za 45 s (každý si počítá).",
+  "Druhé kolo jen pravou nohou, třetí jen levou, čtvrté jen vnější částí nártu.",
+  "Na tlesknutí trenéra provede každý zadaný obrat: stažení podrážkou, Cruyffův obrat, obrat za stojnou nohu, obrat vnější stranou.",
+  "Před každou brankou zahrát fintu (přešlapovačka, náznak přihrávky, kličku tělem) a za brankou zrychlit na 3–4 m.",
+  "Celkem 6–8 kol po 45 s, mezi koly 30 s pauza s ukázkou obratu."
+ ],
+ coach:[
+  "Míč blízko u nohy, dotyk každý krok až druhý krok podle prostoru.",
+  "Hlava nahoře – hráč vidí volné branky a ostatní hráče.",
+  "Po obratu výrazná změna rychlosti, jinak obrat nemá smysl.",
+  "Používat obě nohy a různé části chodidla."
+ ],
+ easier:"Zvětšit čtverec, branky rozšířit na 2 m a vynechat soutěž.",
+ harder:"Přidat 2–3 hráče bez míče, kteří se snaží vypíchnout míče ostatním (kdo ztratí, dělá 5 kliků).",
+ mistakes:["Míč daleko od nohy a hráč ho musí dobíhat","Pohled stále do země","Obrat bez následné akcelerace"],
+ dia:{w:20,h:20,items:[{t:"c",x:1,y:1},{t:"c",x:19,y:1},{t:"c",x:19,y:19},{t:"c",x:1,y:19},{t:"c",x:6,y:5},{t:"c",x:6,y:6.5},{t:"c",x:14,y:12},{t:"c",x:14,y:13.5},{t:"c",x:9,y:15},{t:"c",x:10.5,y:15},{t:"a",x:3,y:8},{t:"b",x:3.7,y:8.3}],lines:[{x1:3.7,y1:8.3,x2:6.8,y2:5.8,k:"drib"},{x1:6.8,y1:5.8,x2:14.8,y2:12.8,k:"drib"},{x1:14.8,y1:12.8,x2:9.8,y2:15.8,k:"drib"}]}
+},
+{
+ id:"technika-souboj-1-na-1-dve-branky",
+ cat:"technika",
+ name:"Souboj 1 na 1 na dvě malé branky",
+ goals:["1v1","obrana","rychlost"],
+ min:12,
+ range:[10,15],
+ players:[4,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"15 × 10 m",
+ kit:"2 malé branky nebo 4 tyče na každé hřiště, 4 kužely, 6 míčů",
+ aim:"Učí útočníka odvážně jít do souboje a obránce správně napadat, protože vyhrané osobní souboje rozhodují zápasy na každé úrovni.",
+ setup:"Na každém hřišti 15 × 10 m stojí na jedné kratší straně dvě malé branky (2 m) u rohů. Útočníci čekají na druhé kratší straně, obránci u branek; při 8+ hráčích postav dvě hřiště.",
+ steps:[
+  "Obránce přihraje po zemi útočníkovi a okamžitě vybíhá napadat.",
+  "Útočník se snaží vstřelit gól do jedné ze dvou malých branek, na akci má 6 s.",
+  "Získá-li obránce míč, může skórovat přes čáru útočníka vedením míče.",
+  "Po akci si hráči vymění role a zařadí se na konec opačné řady.",
+  "Každý hráč absolvuje 6–8 soubojů v útoku i v obraně, po 4 soubojích 1 minuta pauza."
+ ],
+ coach:[
+  "Útočník jde na obránce s rychlostí a fintou ho vychýlí, pak akceleruje do strany.",
+  "Útočník využívá dvě branky – změnou směru přetíží obránce na jednu stranu.",
+  "Obránce zkracuje rychle, poslední metry zpomalí a postaví se bokem.",
+  "Obránce nenaskakuje do skluzu, čeká na chybu a pak útočí na míč."
+ ],
+ easier:"Obránce startuje až po prvním doteku útočníka, nebo jen pasivně stíní.",
+ harder:"Zkrátit limit na 4 s a zmenšit hřiště na 12 × 8 m.",
+ mistakes:["Útočník zastaví a otočí se zády místo útoku na obránce","Obránce běží do útočníka plnou rychlostí a nechá se obejít","Obránce stojí čelně a rozkročmo"],
+ dia:{w:15,h:10,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:0.5,y:9.5},{t:"s",x:14,y:2,r:90},{t:"s",x:14,y:8,r:90},{t:"a",x:1.5,y:5},{t:"d",x:13,y:5},{t:"b",x:12.5,y:5.5}],lines:[{x1:12.5,y1:5.5,x2:2,y2:5,k:"pass"},{x1:13,y1:5,x2:8,y2:5,k:"run"},{x1:2,y1:5,x2:13,y2:2.5,k:"drib"}]}
+},
+{
+ id:"technika-zpracovani-otevrenym-telem",
+ cat:"technika",
+ name:"Zpracování otevřeným tělem v trojúhelníku",
+ goals:["prvni_dotek","prihravky"],
+ min:12,
+ range:[10,15],
+ players:[6,15],
+ gk:0,
+ diff:2,
+ load:1,
+ area:"15 × 15 m",
+ kit:"9 kuželů na každý trojúhelník, 1–2 míče na skupinu",
+ aim:"Učí první dotek do směru další akce, který šetří čas a umožňuje hrát dopředu i pod tlakem soupeře.",
+ setup:"Postav trojúhelník se stranami 12 m, u každého vrcholu vytvoř ze dvou kuželů malou bránu šířky 1 m. Skupina 3–5 hráčů, u jednoho vrcholu stojí dva hráči.",
+ steps:[
+  "Hráč A přihraje B, B zpracuje prvním dotekem skrz svou kuželovou bránu směrem k C a druhým dotekem přihraje C.",
+  "Hráč po přihrávce běží na místo, kam přihrával.",
+  "Po 2 minutách změň směr; zpracování střídat vnitřní částí vzdálenější nohy a vnější částí bližší nohy.",
+  "Přidej pasivního obránce za zády přijímajícího – před přijetím musí hráč zkontrolovat ramenem, odkud jde tlak.",
+  "4–5 kol po 2 minutách, pak výměna skupin nebo zápis nejlepší série bez chyby."
+ ],
+ coach:[
+  "Před přijetím pohled přes rameno – vím, kam míč zpracuji.",
+  "Boky a ramena otevřené ve směru další přihrávky, ne čelem k přihrávajícímu.",
+  "Přijímat vzdálenější nohou, dotek měkký a do kroku.",
+  "Vyjít naproti míči jedním až dvěma kroky."
+ ],
+ easier:"Zrušit kuželové brány, povolit tři doteky.",
+ harder:"Hrát na dva doteky povinně a přidat aktivního obránce, který smí míč vypíchnout.",
+ mistakes:["Míč se zastaví pod tělem a hráč se pak otáčí","Hráč stojí čelem k přihrávce se zavřeným tělem","Hráč čeká na míč a nevychází naproti"],
+ dia:{w:15,h:15,items:[{t:"c",x:2,y:13},{t:"c",x:13,y:13},{t:"c",x:7.5,y:2},{t:"a",x:2,y:12},{t:"a",x:13,y:12},{t:"a",x:7.5,y:3},{t:"b",x:2.7,y:12}],lines:[{x1:2,y1:12,x2:7.5,y2:3,k:"pass"},{x1:7.5,y1:3,x2:13,y2:12,k:"pass"},{x1:2,y1:12.5,x2:7,y2:3.5,k:"run"}]}
+},
+{
+ id:"technika-dlouhe-prihravky",
+ cat:"technika",
+ name:"Dlouhé přihrávky a přenesení hry",
+ goals:["prihravky","prvni_dotek","vystavba"],
+ min:12,
+ range:[10,15],
+ players:[6,16],
+ gk:0,
+ diff:2,
+ load:1,
+ area:"40 × 30 m",
+ kit:"8 kuželů, 1 míč na dvojici",
+ aim:"Zlepšuje přesnou dlouhou přihrávku a zpracování vysokého míče, které jsou potřeba pro přenesení hry na slabou stranu soupeře.",
+ setup:"Na protilehlých koncích prostoru vyznač dva čtverce 5 × 5 m vzdálené 30 m. Hráči ve dvojicích, každý stojí v jednom čtverci, při více hráčích více řad vedle sebe.",
+ steps:[
+  "Hráč si zpracuje míč do strany a dlouhou přihrávkou vzduchem posílá míč do čtverce partnera.",
+  "Partner zpracuje míč ve čtverci nejvýše dvěma doteky a vrací stejným způsobem.",
+  "Série 10 přihrávek pravou a 10 levou nohou, za každý míč dopadlý do čtverce bod.",
+  "Varianta: dlouhá přihrávka po zemi napnutým nártem na 25 m a zpracování prvním dotekem do strany.",
+  "Varianta s třetím hráčem: krátká přihrávka spoluhráči, ten přihrává zpět do kroku a teprve pak přenesení hry."
+ ],
+ coach:[
+  "Rozběh šikmo, stojná noha vedle míče, kop vnitřní částí nártu do spodní poloviny míče.",
+  "Zpevněný kotník a dokončený švih nohy směrem k cíli.",
+  "Zpracování vysokého míče – vyjít k míči, tlumit stehnem, nártem nebo hrudí.",
+  "Přesnost před silou – míč má dopadnout do nohy spoluhráče, ne přes něj."
+ ],
+ easier:"Zkrátit vzdálenost na 20 m a zvětšit čtverce na 8 × 8 m.",
+ harder:"Prodloužit na 35–40 m, zpracování jen jedním dotekem nebo přidat pasivního obránce před přijímajícího.",
+ mistakes:["Kop špičkou nebo zakloněným trupem, míč letí příliš vysoko a krátce","Stojná noha daleko za míčem","Zpracování odraženým míčem daleko od těla"],
+ dia:{w:40,h:30,items:[{t:"c",x:3,y:12},{t:"c",x:8,y:12},{t:"c",x:3,y:17},{t:"c",x:8,y:17},{t:"c",x:32,y:12},{t:"c",x:37,y:12},{t:"c",x:32,y:17},{t:"c",x:37,y:17},{t:"a",x:5.5,y:14.5},{t:"a",x:34.5,y:14.5},{t:"b",x:6.2,y:15}],lines:[{x1:6.2,y1:15,x2:34.5,y2:14.5,k:"pass"}]}
+},
+{
+ id:"prihravky-drzeni-4-na-4-plus-3",
+ cat:"prihravky",
+ name:"Držení míče 4 na 4 + 3 žolíci",
+ goals:["prihravky","kombinace","komunikace","pohyb_bez_mice"],
+ min:16,
+ range:[12,20],
+ players:[11,15],
+ gk:0,
+ diff:2,
+ load:2,
+ area:"30 × 25 m",
+ kit:"4 kužely, 3 sady rozlišováků, 8 míčů kolem hřiště",
+ aim:"Učí udržet míč v přečíslení pomocí šířky, hloubky a pohybu bez míče, což je základ klidné hry na míči v zápase.",
+ setup:"Vyznač hřiště 30 × 25 m, dva týmy po čtyřech v rozlišovácích a tři žolíci jinou barvou. Dva žolíci stojí na delších postranních čarách, jeden se pohybuje uvnitř.",
+ steps:[
+  "Tým v držení hraje se žolíky 7 na 4, žolíci hrají maximálně na dva doteky.",
+  "Bod získá tým za 6 přihrávek v řadě bez přerušení; žolík nesmí vrátit míč hráči, od kterého ho dostal.",
+  "Při ztrátě míče se role okamžitě otočí, nový míč vhazuje trenér z kraje.",
+  "Hraj 4 kola po 3 minutách s 90 s pauzou, žolíky střídej po každém kole.",
+  "V posledním kole hrají hráči týmů na tři doteky, žolíci na jeden."
+ ],
+ coach:[
+  "Vytvořit šířku i hloubku – hráči se nestaví do jedné linie.",
+  "Nabízet se do přihrávací linie mezi dvěma soupeři, ne za zády soupeře.",
+  "Rychle přenést hru na stranu, kde je volno, přes vnitřního žolíka.",
+  "Po ztrátě okamžitě napadat, ne litovat chyby."
+ ],
+ easier:"Povolit žolíkům tři doteky a zvětšit hřiště na 35 × 30 m.",
+ harder:"Bod až za 8 přihrávek, týmy na dva doteky, žolíci na jeden dotek.",
+ mistakes:["Všichni hráči se stahují k míči a chybí šířka","Zbytečné vedení míče místo přihrávky","Po ztrátě míče hráči zůstanou stát"],
+ dia:{w:30,h:25,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:29.5,y:0.5},{t:"c",x:0.5,y:24.5},{t:"c",x:29.5,y:24.5},{t:"a",x:8,y:8},{t:"a",x:20,y:6},{t:"a",x:22,y:18},{t:"a",x:15,y:1},{t:"a",x:15,y:24},{t:"d",x:12,y:10},{t:"d",x:18,y:12},{t:"d",x:9,y:16},{t:"b",x:8.5,y:8.5}],lines:[{x1:8,y1:8,x2:15,y2:1,k:"pass"},{x1:15,y1:1,x2:20,y2:6,k:"pass"},{x1:22,y1:18,x2:25,y2:12,k:"run"}]}
+},
+{
+ id:"prihravky-kosoctverec-zed-treti-hrac",
+ cat:"prihravky",
+ name:"Přihrávkový kosočtverec – zeď a třetí hráč",
+ goals:["prihravky","kombinace","pohyb_bez_mice","prvni_dotek"],
+ min:15,
+ range:[12,18],
+ players:[6,12],
+ gk:0,
+ diff:2,
+ load:2,
+ area:"25 × 20 m",
+ kit:"4 kužely na kosočtverec, 6 míčů",
+ aim:"Automatizuje kombinaci přes zeď a třetího hráče s načasovaným nabíháním, tedy způsob, jak se v zápase dostat za linii soupeře.",
+ setup:"Postav kosočtverec: kužel A dole, B vlevo, C vpravo (oba 10 m do stran) a D nahoře 16 m od A. U kuželu A stojí 2–4 hráči s míči, u ostatních kuželů po jednom až dvou.",
+ steps:[
+  "Varianta 1 (zeď): A přihraje B, který si naběhne naproti míči; B vrací jedním dotekem do běhu A a A přihraje na D.",
+  "D zpracuje otevřeným tělem a vede míč zpět ke kuželu A; hráči rotují po směru přihrávky (A→B→D→A).",
+  "Varianta 2 (třetí hráč): A přihraje na D, D jedním dotekem odráží na B nabíhajícího do středu, B posílá míč do běhu C za pomyslnou obranu.",
+  "Každou variantu hraj 4 minuty, po 2 minutách změň stranu (přes C místo B).",
+  "Na závěr 2 minuty volná kombinace, kdy si hráči sami volí zeď nebo třetího hráče podle volání."
+ ],
+ coach:[
+  "Nabíhání načasovat – nejdřív odstoupit od kuželu, pak vyjít k míči (uvolňovací pohyb).",
+  "Přihrávka do přední nohy spoluhráče, s takovou razancí, aby mohl hrát jedním dotekem.",
+  "Třetí hráč startuje už ve chvíli, kdy je míč na cestě k odrážejícímu.",
+  "Komunikace – volat jméno a pokyn (zeď, otoč se, sám)."
+ ],
+ easier:"Povolit dva doteky všem hráčům a zkrátit vzdálenosti.",
+ harder:"Hrát jen jedním dotekem a postavit k D a B pasivní obránce.",
+ mistakes:["Hráč stojí u kuželu a nevyjde naproti","Přihrávka do zad nabíhajícího hráče","Třetí hráč startuje pozdě a kombinace se zastaví"],
+ dia:{w:25,h:20,items:[{t:"c",x:12.5,y:19},{t:"c",x:2.5,y:10},{t:"c",x:22.5,y:10},{t:"c",x:12.5,y:2},{t:"a",x:12.5,y:18},{t:"a",x:3.5,y:10},{t:"a",x:21.5,y:10},{t:"a",x:12.5,y:3},{t:"b",x:13.2,y:18}],lines:[{x1:12.5,y1:18,x2:3.5,y2:10,k:"pass"},{x1:3.5,y1:10,x2:10,y2:14,k:"pass"},{x1:12.5,y1:18,x2:10,y2:14,k:"run"},{x1:10,y1:14,x2:12.5,y2:3,k:"pass"}]}
+},
+{
+ id:"prihravky-dve-ronda-prenaseni",
+ cat:"prihravky",
+ name:"Dvě ronda s přenesením hry",
+ goals:["prihravky","vystavba","komunikace","prvni_dotek"],
+ min:15,
+ range:[12,18],
+ players:[10,12],
+ gk:0,
+ diff:2,
+ load:2,
+ area:"35 × 12 m (2 čtverce 12 × 12 m, mezera 11 m)",
+ kit:"8 kuželů, 2 sady rozlišováků, 8 míčů",
+ aim:"Spojuje bezpečné držení míče s dlouhým přenesením hry na volnou stranu, kde má tým přečíslení – stejný princip jako změna strany v utkání.",
+ setup:"Vyznač dva čtverce 12 × 12 m s mezerou 11 m. V každém čtverci jsou čtyři modří, dva červení obránci začínají v levém čtverci; zbylí hráči jsou další dvojice obránců čekající na střídání.",
+ steps:[
+  "Modří v levém čtverci hrají rondo 4 na 2 na dva doteky.",
+  "Po nejméně 5 přihrávkách smí modrý přenést hru dlouhou přihrávkou do druhého čtverce; úspěšné přenesení = bod.",
+  "Oba obránci okamžitě sprintují do druhého čtverce a napadají tam.",
+  "Získá-li obránce míč, střídá se s hráčem, který chybu udělal; při 12 hráčích se dvojice obránců střídají po 90 s.",
+  "Hraj 4 kola po 3 minutách, mezi koly 1 minuta pauza."
+ ],
+ coach:[
+  "Přenesení hrát ve správný moment – když obránci zavřeli jednu stranu a jsou daleko od druhého čtverce.",
+  "Hráči ve druhém čtverci jsou připraveni, roztaženi a jeden se nabízí k dlouhé přihrávce.",
+  "Zpracování dlouhého míče prvním dotekem od obránce, který přibíhá.",
+  "Obránci napadají ve dvojici – jeden tlačí na míč, druhý zavírá středovou přihrávku."
+ ],
+ easier:"Povolit tři doteky a zmenšit mezeru mezi čtverci na 6 m.",
+ harder:"Přenesení jen po zemi nebo jen jedním dotekem, přidat třetího obránce do mezery.",
+ mistakes:["Přenesení hned bez trpělivé přípravy","Hráči ve druhém čtverci stojí a nesledují hru","Dlouhá přihrávka bez síly, kterou obránci zachytí v mezeře"],
+ dia:{w:35,h:12,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:12,y:0.5},{t:"c",x:23,y:0.5},{t:"c",x:34.5,y:0.5},{t:"a",x:2,y:6},{t:"a",x:6,y:2},{t:"a",x:10.5,y:7},{t:"a",x:6,y:11},{t:"d",x:6,y:6},{t:"d",x:8,y:8},{t:"a",x:25,y:6},{t:"a",x:30,y:3},{t:"a",x:30,y:9},{t:"b",x:11,y:7.5}],lines:[{x1:10.5,y1:7,x2:25,y2:6,k:"pass"},{x1:8,y1:8,x2:24,y2:8,k:"run"},{x1:2,y1:6,x2:6,y2:2,k:"pass"}]}
+},
+{
+ id:"prihravky-vystavba-6-b-na-4",
+ cat:"prihravky",
+ name:"Výstavba hry zezadu 6 + B na 4",
+ goals:["vystavba","prihravky","kombinace","komunikace"],
+ min:18,
+ range:[15,25],
+ players:[10,14],
+ gk:1,
+ diff:3,
+ load:2,
+ area:"45 × 50 m (polovina hřiště)",
+ kit:"1 velká branka, 4 kužely na 2 branky na půlce, 2 sady rozlišováků, 12 míčů v brance",
+ aim:"Učí obranu a záložníky založit útok od brankáře pod tlakem, aby tým nemusel jen nakopávat a zbytečně ztrácet míč.",
+ setup:"Na polovině hřiště hraje brankář s modrými (4 obránci + 2 střední záložníci) proti 4 červeným (2 útočníci + 2 záložníci). Na půlicí čáře postav dvě kuželové branky široké 5 m v polovičních prostorech (asi 12 m od středu).",
+ steps:[
+  "Každá akce začíná rozehrávkou brankáře (rukou nebo nohou krátce), červení startují napadat od hranice vápna.",
+  "Modří skórují vedením míče přes jednu z branek na půlicí čáře nebo přihrávkou na spoluhráče, který ji projde.",
+  "Červení po zisku míče zakončují na velkou branku, na akci mají 8 s.",
+  "Po každé akci nový míč od brankáře; série 6 minut, pak 2 minuty pauza s krátkým rozborem, celkem 3 série.",
+  "Ve třetí sérii smí červení napadat i brankáře a modří musí aspoň jednou zapojit brankáře do kombinace."
+ ],
+ coach:[
+  "Stopeři se při rozehrávce rozestoupí do šířky vápna, krajní obránci vysoko a široko u postranní čáry.",
+  "Střední záložník se nabízí mezi útočníky soupeře, otevřeným tělem, aby mohl hrát dopředu.",
+  "Brankář je hráč navíc – nabízí se pro zpětnou přihrávku do strany od branky.",
+  "Pod velkým tlakem je dlouhý míč do volného prostoru správné řešení, ne chyba.",
+  "Přihrávky po zemi do nohy vzdálenější od soupeře, žádné riskantní přihrávky přes střed vápna."
+ ],
+ easier:"Hrát 6 + B na 3, nebo červení smí napadat až po první přihrávce brankáře.",
+ harder:"Hrát 6 + B na 5, omezit modré na dva doteky nebo zrušit jednu bránu na půlce.",
+ mistakes:["Stopeři zůstanou blízko u sebe a brankář nemá komu přihrát","Přihrávka napříč přes střed před vlastním vápnem","Záložník stojí zády ke hře v krytí útočníka"],
+ dia:{w:45,h:50,items:[{t:"G",x:22.5,y:49.5},{t:"g",x:22.5,y:47},{t:"a",x:15,y:42},{t:"a",x:30,y:42},{t:"a",x:4,y:34},{t:"a",x:41,y:34},{t:"a",x:18,y:28},{t:"a",x:27,y:28},{t:"d",x:18,y:38},{t:"d",x:27,y:38},{t:"d",x:15,y:24},{t:"d",x:30,y:24},{t:"s",x:10,y:1},{t:"s",x:35,y:1}],lines:[{x1:22.5,y1:47,x2:15,y2:42,k:"pass"},{x1:15,y1:42,x2:4,y2:34,k:"pass"},{x1:4,y1:34,x2:18,y2:28,k:"pass"},{x1:18,y1:28,x2:12,y2:3,k:"drib"}]}
+},
+{
+ id:"prihravky-hra-na-koncova-pasma",
+ cat:"prihravky",
+ name:"Hra na koncová pásma – přihrávka do hloubky",
+ goals:["kombinace","pohyb_bez_mice","prihravky","presink"],
+ min:16,
+ range:[12,20],
+ players:[10,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"46 × 30 m (koncová pásma 8 m)",
+ kit:"8 kuželů, 2 sady rozlišováků, 1 rozlišovák pro žolíka, 8 míčů",
+ aim:"Učí hráče hledat průnikovou přihrávku a načasovat náběh za obranu, což je nejčastější cesta ke gólové šanci.",
+ setup:"Vyznač hřiště 46 × 30 m a na obou koncích pásmo hloubky 8 m. Dva týmy 5 na 5 až 7 na 7, případně jeden žolík hrající vždy s týmem v držení.",
+ steps:[
+  "Týmy hrají ve středním prostoru volnou hru na tři doteky.",
+  "Bod získá tým, když hráč naběhne do soupeřova koncového pásma a zpracuje tam přihrávku od spoluhráče.",
+  "Do koncového pásma se smí vstoupit až v okamžiku přihrávky (jako ofsajd); kdo tam stojí dřív, bod neplatí.",
+  "Po bodu tým okamžitě útočí na opačné pásmo – míč zůstává ve hře.",
+  "Hraj 4 kola po 4 minutách, 2 minuty pauza."
+ ],
+ coach:[
+  "Náběh začít až ve chvíli, kdy má nositel míče hlavu nahoře a čas přihrát.",
+  "Nabíhat šikmo od obránce, ne rovně do něj, a nebýt v ofsajdu.",
+  "Přihrávka do prostoru před nabíhajícího, ne do nohou.",
+  "Pokud hloubka není, trpělivě kombinovat a přenést hru – nehrát naslepo dlouhé míče."
+ ],
+ easier:"Přidat dva žolíky, nebo povolit čekání v pásmu jednomu hráči.",
+ harder:"Bod platí jen po zpracování jedním dotekem a navazující přihrávce zpět; omezit na dva doteky.",
+ mistakes:["Útočníci stojí v pásmu a čekají – jsou v ofsajdu","Přihrávka příliš silná, míč projde pásmem","Nikdo nenabíhá a míč se jen přihrává do stran"],
+ dia:{w:46,h:30,items:[{t:"c",x:8,y:0.5},{t:"c",x:8,y:29.5},{t:"c",x:38,y:0.5},{t:"c",x:38,y:29.5},{t:"a",x:20,y:15},{t:"a",x:30,y:8},{t:"a",x:30,y:22},{t:"d",x:34,y:12},{t:"d",x:34,y:20},{t:"d",x:24,y:18},{t:"b",x:20.5,y:15.5}],lines:[{x1:20,y1:15,x2:41,y2:12,k:"pass"},{x1:30,y1:8,x2:41,y2:12,k:"run"},{x1:30,y1:22,x2:36,y2:25,k:"run"}]}
+},
+{
+ id:"zakonceni-strelba-po-zdi",
+ cat:"zakonceni",
+ name:"Střelba po zdi z hranice vápna",
+ goals:["zakonceni","kombinace","prihravky"],
+ min:15,
+ range:[12,20],
+ players:[6,16],
+ gk:1,
+ diff:2,
+ load:2,
+ area:"40 × 35 m (vápno a 18 m před ním)",
+ kit:"1 velká branka, 4 kužely, 1–2 tyče nebo figuríny, 15 míčů",
+ aim:"Nacvičuje rychlé zakončení po krátké kombinaci ze vzdálenosti 14–18 m, odkud padá velká část gólů v amatérském fotbale.",
+ setup:"Hráči stojí ve dvou řadách 28 m od branky vlevo a vpravo od středu, každý s míčem. Na hranici vápna stojí zády k brance nahrávač (zeď), před ním tyč jako obránce.",
+ steps:[
+  "První hráč z levé řady přihraje po zemi nahrávači a nabíhá šikmo k vápnu.",
+  "Nahrávač jedním dotekem odráží míč do běhu střelce, ten zakončuje prvním nebo druhým dotekem z 14–18 m.",
+  "Střelec jde na místo nahrávače, nahrávač po dobíhání doskoku do pravé řady; řady se střídají.",
+  "Série 2 × 8 střel na hráče (polovina pravou, polovina levou nohou), mezi sériemi 2 minuty.",
+  "Varianta: dvojitá zeď – nahrávač odráží do strany druhému nahrávači a ten teprve do běhu střelce."
+ ],
+ coach:[
+  "Přesnost před silou – střela po zemi do dolních rohů.",
+  "Tělo nad míčem, stojná noha vedle míče, zpevněný nárt – míč nesmí letět nad branku.",
+  "Náběh načasovat tak, aby střelec hrál míč v běhu, ne zastavený.",
+  "Po každé střele dobíhat k brance na případnou dorážku."
+ ],
+ easier:"Povolit zpracování a střelu na více doteků, zkrátit vzdálenost na 12–14 m.",
+ harder:"Přidat aktivního obránce, který startuje s přihrávkou na zeď, a omezit střelu na první dotek.",
+ mistakes:["Zakloněný trup a střela vysoko nad branku","Střela silou do brankáře místo umístění","Střelec zastaví a čeká na míč"],
+ dia:{w:40,h:35,items:[{t:"G",x:20,y:34.5},{t:"g",x:20,y:32.5},{t:"c",x:2,y:18},{t:"c",x:38,y:18},{t:"a",x:14,y:6},{t:"a",x:26,y:6},{t:"a",x:20,y:17},{t:"c",x:20,y:14},{t:"b",x:14.6,y:6.5}],lines:[{x1:14.6,y1:6.5,x2:20,y2:16.5,k:"pass"},{x1:14,y1:6,x2:16,y2:19,k:"run"},{x1:20,y1:17,x2:16,y2:19.5,k:"pass"},{x1:16,y1:19.5,x2:23,y2:33,k:"pass"}]}
+},
+{
+ id:"zakonceni-centry-z-kridla",
+ cat:"zakonceni",
+ name:"Centry z křídla a zakončení ve vápně",
+ goals:["zakonceni","krajni_hra","hlavicky","pohyb_bez_mice"],
+ min:18,
+ range:[15,25],
+ players:[8,16],
+ gk:1,
+ diff:2,
+ load:2,
+ area:"60 × 35 m (vápno a obě křídla)",
+ kit:"1 velká branka, 6 kuželů, 2 tyče, 15 míčů",
+ aim:"Nacvičuje centr z křídla a správně načasované náběhy na přední a zadní tyč, ze kterých vzniká většina gólů po hře přes kraj.",
+ setup:"Křídelní hráči stojí na obou stranách u postranní čáry 35 m od branky, dva útočníci ve středu 30 m od branky, záložník s míči na středu 35 m. Na hranici vápna označ kuželem místo, odkud křídlo centruje.",
+ steps:[
+  "Záložník přihraje do běhu křídla, křídlo vede míč podél lajny do prostoru u hranice vápna a centruje.",
+  "Útočníci se překříží: jeden nabíhá na přední tyč, druhý na zadní tyč; záložník dobíhá na penaltu na odražený míč.",
+  "Střídej strany, centry vysoké i po zemi zpětně na penaltu (cutback) z koncové čáry.",
+  "Rotace: křídlo jde do středu útoku, útočník na záložníka, záložník na křídlo; 10–12 akcí na každou stranu.",
+  "Ve druhé části přidej 1–2 obránce ve vápně (zpočátku polovičním tempem)."
+ ],
+ coach:[
+  "Útočníci nenabíhají předčasně – start ve chvíli, kdy křídlo zvedá hlavu před centrem.",
+  "Nájezd do míče z pohybu, hlavička čelem dolů k zemi, střela z voleje bokem pro kontrolu.",
+  "Křídlo se před centrem podívá a centruje do prostoru mezi brankáře a obránce (malé vápno až penalta).",
+  "Přední tyč napadá prostor rychle, zadní tyč přichází později a zůstává za obráncem."
+ ],
+ easier:"Centr z místa po přihrávce, bez vedení míče, a útočníci bez obránců.",
+ harder:"Hrát 3 na 2 ve vápně a křídlo musí obejít krajního obránce před centrem.",
+ mistakes:["Útočníci stojí ve vápně a čekají na míč","Oba útočníci nabíhají na stejné místo","Centr bez pohledu přímo do náruče brankáře"],
+ dia:{w:60,h:35,items:[{t:"G",x:30,y:34.5},{t:"g",x:30,y:32.5},{t:"c",x:10,y:18},{t:"c",x:50,y:18},{t:"a",x:4,y:8},{t:"a",x:25,y:10},{t:"a",x:35,y:10},{t:"a",x:30,y:4},{t:"b",x:30.5,y:4.5}],lines:[{x1:30.5,y1:4.5,x2:4,y2:8,k:"pass"},{x1:4,y1:8,x2:6,y2:25,k:"drib"},{x1:6,y1:25,x2:27,y2:29,k:"pass"},{x1:35,y1:10,x2:27,y2:28,k:"run"},{x1:25,y1:10,x2:35,y2:29,k:"run"},{x1:30,y1:4,x2:30,y2:22,k:"run"}]}
+},
+{
+ id:"zakonceni-unik-1-na-1",
+ cat:"zakonceni",
+ name:"Únik 1 na 1 proti brankáři s dobíhajícím obráncem",
+ goals:["zakonceni","1v1","rychlost"],
+ min:14,
+ range:[10,18],
+ players:[6,16],
+ gk:1,
+ diff:2,
+ load:3,
+ area:"35 × 40 m",
+ kit:"1 velká branka, 4 kužely, 15 míčů",
+ aim:"Učí útočníka zakončit sólo pod časovým tlakem dobíhajícího obránce – šance, které se v zápase často zahazují.",
+ setup:"Útočníci stojí v řadě u kuželu 32 m od branky ve středu, obránci v řadě 3 m vedle a 2 m za nimi. Nahrávač s míči stojí 35 m od branky za oběma řadami.",
+ steps:[
+  "Nahrávač přihraje míč do prostoru před útočníka směrem k brance; obránce startuje ve stejném okamžiku.",
+  "Útočník převezme míč v běhu a zakončuje dříve, než ho obránce dostihne.",
+  "Obránce se snaží útočníka dohnat a zabránit střele; souboj končí gólem, zákrokem brankáře nebo ztrátou.",
+  "Po akci si hráči vymění řady, nahrávač se střídá po 6 akcích.",
+  "Každý hráč 6–8 opakování v roli útočníka, mezi opakováními minimálně 45 s pauza."
+ ],
+ coach:[
+  "První dotek dlouhý dopředu do prostoru, další doteky kratší při přiblížení k brankáři.",
+  "Útočník se dívá na brankáře: když vyběhne a zmenší úhel, obejít ho nebo přeloupnout; když zůstane na čáře, přízemně k tyči.",
+  "Útočník se postaví do dráhy obránce, aby ho blokoval tělem.",
+  "Brankář vybíhá ve chvíli, kdy si útočník pustí míč daleko od nohy."
+ ],
+ easier:"Obránce startuje se zpožděním 2 m nebo až po prvním doteku útočníka.",
+ harder:"Obránce startuje vedle útočníka, nebo dva útočníci a jeden obránce startují současně (2 na 1 s dobíháním).",
+ mistakes:["Střela z dálky příliš brzy, aniž by útočník využil čas","Útočník se dívá jen na míč a nevidí brankáře","Útočník zpomalí a nechá se obránci dohnat"],
+ dia:{w:35,h:40,items:[{t:"G",x:17.5,y:39.5},{t:"g",x:17.5,y:37},{t:"c",x:14,y:5},{t:"c",x:20,y:5},{t:"a",x:15,y:5},{t:"d",x:20,y:3},{t:"a",x:17.5,y:1},{t:"b",x:18,y:1.5}],lines:[{x1:18,y1:1.5,x2:17,y2:14,k:"pass"},{x1:15,y1:5,x2:17,y2:14,k:"run"},{x1:17,y1:14,x2:17,y2:30,k:"drib"},{x1:20,y1:3,x2:19,y2:28,k:"run"}]}
+},
+{
+ id:"zakonceni-precisleni-2-na-1",
+ cat:"zakonceni",
+ name:"Přečíslení 2 na 1 do zakončení",
+ goals:["zakonceni","kombinace","prechod","1v1"],
+ min:15,
+ range:[12,20],
+ players:[6,15],
+ gk:1,
+ diff:2,
+ load:3,
+ area:"40 × 35 m",
+ kit:"1 velká branka, 6 kuželů, 15 míčů",
+ aim:"Učí správně rozehrát přečíslení – vázat obránce a přihrát ve správný moment, aby se výhoda proměnila v gól.",
+ setup:"Útočníci stojí ve dvou řadách 30 m od branky, 12 m od sebe. Obránci stojí v řadě u tyče na hranici vápna s míči.",
+ steps:[
+  "Obránce přihraje dlouhou přihrávkou jednomu z útočníků a vybíhá napadat.",
+  "Oba útočníci útočí 2 na 1 a musí zakončit do 8 s od převzetí míče.",
+  "Nositel míče jde přímo na obránce, druhý útočník drží šířku a nabízí se mírně za linií míče; přihrávka nebo vlastní zakončení podle reakce obránce.",
+  "Po akci útočníci sbírají míč a jdou do obrany, obránce do řady útočníků; série 10–12 akcí.",
+  "Ve druhé části hraj 3 na 2 (třetí útočník ze středu, druhý obránce startuje z vápna)."
+ ],
+ coach:[
+  "Nositel míče jde na obránce a nutí ho rozhodnout se; když obránce vystoupí, přihrávka.",
+  "Spoluhráč nesmí být těsně vedle, ani v ofsajdu – 8–10 m do strany.",
+  "Přihrávka po zemi do kroku, ne za záda spoluhráče.",
+  "Hráč, který nestřílí, dobíhá k brance na dorážku."
+ ],
+ easier:"Obránce startuje se zpožděním nebo brání jen pasivně.",
+ harder:"Zkrátit limit na 6 s, obránce startuje bližší cestou nebo přidat dobíhajícího druhého obránce.",
+ mistakes:["Nositel míče přihraje příliš brzy a obránce stihne přeběhnout","Oba útočníci běží vedle sebe a obránce kryje oba","Pomalá přihrávka, kterou obránce zachytí"],
+ dia:{w:40,h:35,items:[{t:"G",x:20,y:34.5},{t:"g",x:20,y:32.5},{t:"c",x:2,y:18},{t:"c",x:38,y:18},{t:"a",x:14,y:5},{t:"a",x:26,y:5},{t:"d",x:20,y:20},{t:"b",x:14.5,y:5.5}],lines:[{x1:14.5,y1:5.5,x2:18,y2:14,k:"drib"},{x1:26,y1:5,x2:27,y2:20,k:"run"},{x1:18,y1:14,x2:27,y2:21,k:"pass"},{x1:20,y1:20,x2:18,y2:16,k:"run"},{x1:27,y1:21,x2:22,y2:33,k:"pass"}]}
+},
+{
+ id:"zakonceni-otocka-zady-k-brance",
+ cat:"zakonceni",
+ name:"Zpracování zády k brance, otočka a střela",
+ goals:["zakonceni","prvni_dotek","1v1"],
+ min:14,
+ range:[10,18],
+ players:[4,12],
+ gk:1,
+ diff:2,
+ load:2,
+ area:"30 × 30 m",
+ kit:"1 velká branka, 4 kužely, 15 míčů, rozlišovák pro obránce",
+ aim:"Učí útočníka převzít míč zády k brance, otočit se prvním dotekem a rychle zakončit, protože ve vápně je času nejméně.",
+ setup:"Útočník stojí u kuželu 20 m od branky zády k ní, nahrávači s míči v řadě 30 m od branky. Ve druhé fázi stojí v zádech útočníka obránce.",
+ steps:[
+  "Útočník udělá uvolňovací pohyb od kuželu a vychází naproti přihrávce.",
+  "Před přijetím zkontroluje přes rameno prostor a prvním dotekem se otočí do strany k brance (vnitřní nebo vnější částí nohy).",
+  "Druhým nebo třetím dotekem zakončuje z 16–18 m.",
+  "Fáze 1 bez obránce, fáze 2 s pasivním obráncem (dotyk na záda), fáze 3 s aktivním obráncem; každá fáze 6–8 opakování.",
+  "Rotace: nahrávač → útočník → obránce → sběr míčů → nahrávač."
+ ],
+ coach:[
+  "Kontrola ramenem před přijetím – vím, kde je obránce.",
+  "Otočka do strany od obránce, ne zpět přes něj; první dotek už posouvá míč k brance.",
+  "Proti tvrdému obránci si míč krýt tělem a otočit se až po jeho kontaktu (využít jeho tlak).",
+  "Střela rychle, bez zbytečného doteku navíc, na zem do rohu."
+ ],
+ easier:"Nahrávač stojí blíž a přihrávka je pomalejší, bez obránce celou dobu.",
+ harder:"Otočka a střela jen na dva doteky, obránce startuje aktivně od začátku.",
+ mistakes:["Útočník se otáčí bez rozhlédnutí přímo do obránce","Zpracování pod tělo a pak pomalá otočka","Útočník čeká na kuželu bez uvolňovacího pohybu"],
+ dia:{w:30,h:30,items:[{t:"G",x:15,y:29.5},{t:"g",x:15,y:27.5},{t:"c",x:15,y:12},{t:"a",x:15,y:11},{t:"d",x:15,y:13.5},{t:"a",x:15,y:1},{t:"b",x:15.6,y:1.5}],lines:[{x1:15,y1:11,x2:14,y2:8,k:"run"},{x1:15.6,y1:1.5,x2:14,y2:8,k:"pass"},{x1:14,y1:8,x2:19,y2:13,k:"drib"},{x1:19,y1:13,x2:12,y2:28,k:"pass"}]}
+},
+{
+ id:"zakonceni-strelba-a-dorazky",
+ cat:"zakonceni",
+ name:"Střelba z dálky a dorážky",
+ goals:["zakonceni","rychlost","pohyb_bez_mice"],
+ min:12,
+ range:[10,15],
+ players:[6,14],
+ gk:1,
+ diff:1,
+ load:2,
+ area:"40 × 30 m (vápno a 14 m před ním)",
+ kit:"1 velká branka, 4 kužely, 15 míčů",
+ aim:"Vytváří návyk dobíhat každou střelu, protože dorážky po vyraženém míči jsou v nižších soutěžích častým zdrojem gólů.",
+ setup:"Dvě řady střelců s míči 22 m od branky vlevo a vpravo od středu. Dva dorážející hráči stojí na hranici vápna na úrovni tyčí.",
+ steps:[
+  "Střelec si míč posune a střílí z 18–20 m.",
+  "S okamžikem střely oba dorážející startují k brance (k bližší a vzdálenější tyči).",
+  "Vyrazí-li brankář míč, dorážející zakončují; míč, který zůstane ve hře, se dohrává do 5 s.",
+  "Střelec se stává dorážejícím, dorážející jdou do řad; celkem 3 série po 8 střelách.",
+  "Soutěž dvojic: gól střelou 1 bod, gól z dorážky 2 body."
+ ],
+ coach:[
+  "Střela nízko a k tyči – brankář musí vyrážet, ne chytat.",
+  "Dorážející startují v momentě střely, ne až po zákroku brankáře.",
+  "Dorážet rychle a jednoduše, nejlépe přízemně, ne silou nad branku.",
+  "Brankář vyráží do strany od branky, ne doprostřed před sebe."
+ ],
+ easier:"Střelba z 16 m a nahrávač podává míč dorážejícím, pokud brankář míč chytí.",
+ harder:"Přidat obránce, který se snaží doskok odvrátit, nebo střílet z voleje po nadhozu.",
+ mistakes:["Dorážející stojí a sledují střelu","Dorážka vysoko nad branku z malé vzdálenosti","Střelec po střele zůstane stát"],
+ dia:{w:40,h:30,items:[{t:"G",x:20,y:29.5},{t:"g",x:20,y:27.5},{t:"c",x:2,y:13},{t:"c",x:38,y:13},{t:"a",x:14,y:7},{t:"a",x:26,y:7},{t:"a",x:16,y:13},{t:"a",x:24,y:13},{t:"b",x:14.6,y:7.6}],lines:[{x1:14.6,y1:7.6,x2:23,y2:28,k:"pass"},{x1:16,y1:13,x2:17,y2:25,k:"run"},{x1:24,y1:13,x2:23,y2:25,k:"run"}]}
+},
+{
+ id:"obrana-1-na-1-v-koridoru",
+ cat:"obrana",
+ name:"Obrana 1 na 1 v koridoru",
+ goals:["obrana","1v1"],
+ min:12,
+ range:[10,15],
+ players:[4,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"10 × 20 m",
+ kit:"4 kužely na každý koridor, 6 míčů",
+ aim:"Učí správné napadání nositele míče – zkrátit, zpomalit, postavit se bokem a navádět – aby obránce neprohrával souboje jedinou fintou.",
+ setup:"Vyznač koridory 10 m široké a 20 m dlouhé (podle počtu hráčů 1–4 koridory). Obránci stojí s míči na jedné koncové čáře, útočníci na druhé.",
+ steps:[
+  "Obránce přihraje útočníkovi po zemi a okamžitě vybíhá napadat.",
+  "Útočník se snaží přejít s míčem přes koncovou čáru obránce (zastavit míč na čáře), má na to 6 s.",
+  "Obránce rychle zkrátí vzdálenost, posledních 3–4 m malými kroky přibrzdí a navádí útočníka k jedné postranní čáře.",
+  "Získá-li obránce míč, může protiútokem přejít přes čáru útočníka.",
+  "Role se mění po každé akci, každý hráč 6–8 soubojů v obraně, po 4 soubojích 1 minuta pauza."
+ ],
+ coach:[
+  "Postoj bokem, nízké těžiště, váha na přední části chodidel – ne čelně a rozkročmo.",
+  "Vzdálenost 1–1,5 m, oči na míči, ne na nohou a fintách útočníka.",
+  "Navádět na slabší nohu útočníka nebo k lajně, kde má méně prostoru.",
+  "Zaútočit na míč, když si ho útočník pustí od nohy, ne dřív.",
+  "Nenaskakovat do skluzu – na zemi je obránce vyřazen ze hry."
+ ],
+ easier:"Zúžit koridor na 7 m, nebo útočník smí jen vést míč bez prudkých změn směru.",
+ harder:"Rozšířit koridor na 15 m a prodloužit limit, aby se obránce musel déle udržet.",
+ mistakes:["Obránce běží do útočníka plnou rychlostí a přeběhne ho","Skluz nebo výpad po první fintě","Obránce stojí čelně a útočník ho obejde oběma stranami"],
+ dia:{w:10,h:20,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:9.5,y:0.5},{t:"c",x:0.5,y:19.5},{t:"c",x:9.5,y:19.5},{t:"a",x:5,y:18.5},{t:"d",x:5,y:1.5},{t:"b",x:5.5,y:2}],lines:[{x1:5.5,y1:2,x2:5,y2:18,k:"pass"},{x1:5,y1:1.5,x2:5,y2:11,k:"run"},{x1:5,y1:18.5,x2:3,y2:13,k:"drib"}]}
+},
+{
+ id:"obrana-napadani-a-zajisteni-2-na-2",
+ cat:"obrana",
+ name:"Napadání a zajištění 2 na 2",
+ goals:["obrana","komunikace"],
+ min:15,
+ range:[12,18],
+ players:[8,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"20 × 25 m",
+ kit:"4 kužely, 2 malé branky na každé hřiště, 2 sady rozlišováků, 8 míčů",
+ aim:"Učí spolupráci dvou obránců – jeden napadá, druhý zajišťuje – což je základ každé zónové obrany.",
+ setup:"Vyznač hřiště 20 × 25 m, na jedné kratší straně dvě malé branky (bránící dvojice), na druhé start útočníků. Hráči jsou ve dvojicích, čekající dvojice stojí za čarami.",
+ steps:[
+  "Obránci přihrají míč jednomu z útočníků a vybíhají; útočníci útočí 2 na 2 na dvě malé branky.",
+  "První obránce napadá nositele míče, druhý zajišťuje diagonálně 3–5 m za ním a kryje prostor i druhého útočníka.",
+  "Při přihrávce mezi útočníky si obránci role vymění (přenesení napadání a zajištění).",
+  "Získají-li obránci míč, skórují vedením míče přes startovní čáru útočníků.",
+  "Akce max. 10 s, po akci se střídají dvojice; série 6 minut, 2 minuty pauza, celkem 2–3 série."
+ ],
+ coach:[
+  "Komunikace nahlas: já napadám, jistím, tlač ho ven.",
+  "Úhel zajištění – zajišťující vidí míč i svého útočníka a je připraven zasáhnout při průniku.",
+  "Obránci se posouvají jako celek, vzdálenost mezi nimi se mění podle polohy míče.",
+  "Nikdy neútočí oba na míč současně, pokud nejde o jasné zdvojení."
+ ],
+ easier:"Útočníci smí přihrávat jen jednou, nebo jeden útočník hraje jen jako podpora ze startovní čáry.",
+ harder:"Hrát 3 na 2 (přidat žolíka útočníkům) a obránci musí vydržet 10 s bez obdrženého gólu.",
+ mistakes:["Oba obránci napadají nositele a druhý útočník zůstane volný","Zajišťující stojí v jedné linii vedle napadajícího","Obránci spolu nemluví a nikdo neví, kdo napadá"],
+ dia:{w:20,h:25,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:19.5,y:0.5},{t:"s",x:5,y:24},{t:"s",x:15,y:24},{t:"a",x:6,y:5},{t:"a",x:14,y:6},{t:"d",x:8,y:11},{t:"d",x:12,y:15},{t:"b",x:6.5,y:5.5}],lines:[{x1:8,y1:11,x2:7,y2:7,k:"run"},{x1:12,y1:15,x2:10,y2:12,k:"run"},{x1:6,y1:5,x2:14,y2:6,k:"pass"}]}
+},
+{
+ id:"obrana-posun-obranne-ctyrky",
+ cat:"obrana",
+ name:"Posun obranné čtyřky proti kombinaci",
+ goals:["obrana","komunikace"],
+ min:18,
+ range:[15,22],
+ players:[10,12],
+ gk:1,
+ diff:3,
+ load:2,
+ area:"50 × 35 m (vápno a 18 m před ním)",
+ kit:"1 velká branka, 4 kužely, 2 sady rozlišováků, 12 míčů",
+ aim:"Učí obranu posouvat se jako jedna linie podle míče, zužovat prostor a držet stejnou výšku, aby soupeř nenašel prostor za obranou ani mezi obránci.",
+ setup:"Čtyři obránci a brankář brání velkou branku, šest útočníků se rozestaví do oblouku kolem vápna (dva na křídlech, tři na 25 m, jeden hrot). Útočníci si míč přihrávají, obránci se posouvají.",
+ steps:[
+  "Fáze 1 (stínová): útočníci si pomalu přihrávají po obvodu a nesmí útočit, obránci se při každé přihrávce posouvají k míči.",
+  "Na tlesknutí trenéra smí útočník s míčem zahrát průnikovou přihrávku nebo zakončit; obránci řeší situaci naplno.",
+  "Fáze 2: útočníci hrají volně, na akci mají 15 s a 3 doteky na hráče.",
+  "Získají-li obránci míč, skórují přihrávkou na trenéra na půlce nebo vedením přes čáru 30 m.",
+  "Série 4 minuty, 2 minuty pauza s opravou postavení, celkem 3–4 série."
+ ],
+ coach:[
+  "Vzdálenosti mezi obránci 8–12 m; obránce nejblíž míči napadá, ostatní zajišťují a zužují.",
+  "Při míči na kraji se vzdálenější krajní obránce stahuje dovnitř, linie se nakloní.",
+  "Když nositel míče nemá tlak a může hrát za obranu, linie ustupuje; když je pod tlakem, linie vystupuje.",
+  "Neustálá komunikace – stoper řídí výšku linie a ofsajd.",
+  "Brankář hraje za obranou a pokrývá prostor za linií."
+ ],
+ easier:"Hrát s 5 útočníky a zpomalit tempo přihrávek, fázi 2 vynechat.",
+ harder:"Přidat šestého útočníka do hry a omezit útočníky na dva doteky pro rychlejší oběh míče.",
+ mistakes:["Obránci se posouvají každý sám a linie se roztrhá","Krajní obránce na slabé straně zůstane vysoko a ruší ofsajd","Všichni ustupují až do vápna bez tlaku na míč"],
+ dia:{w:50,h:35,items:[{t:"G",x:25,y:34.5},{t:"g",x:25,y:32.5},{t:"d",x:12,y:22},{t:"d",x:20,y:23},{t:"d",x:30,y:23},{t:"d",x:38,y:22},{t:"a",x:4,y:12},{t:"a",x:46,y:12},{t:"a",x:15,y:6},{t:"a",x:25,y:4},{t:"a",x:35,y:6},{t:"b",x:15.5,y:6.5}],lines:[{x1:15.5,y1:6.5,x2:4,y2:12,k:"pass"},{x1:12,y1:22,x2:8,y2:19,k:"run"},{x1:20,y1:23,x2:16,y2:22,k:"run"},{x1:30,y1:23,x2:25,y2:23,k:"run"},{x1:38,y1:22,x2:33,y2:24,k:"run"}]}
+},
+{
+ id:"obrana-zdvojovani-na-kraji",
+ cat:"obrana",
+ name:"Zdvojování na kraji hřiště",
+ goals:["obrana","krajni_hra","komunikace"],
+ min:14,
+ range:[12,18],
+ players:[6,12],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"30 × 20 m (krajní pásmo)",
+ kit:"6 kuželů, 1 malá branka, 2 sady rozlišováků, 8 míčů",
+ aim:"Učí krajního obránce a záložníka společně zdvojit křídelního hráče u postranní čáry a získat míč dřív, než může centrovat.",
+ setup:"Podél postranní čáry vyznač pásmo 30 × 20 m. Na konci pásma je kuželová cílová zóna (centrovací prostor) a malá branka uvnitř. Útočník (křídlo) začíná na druhém konci, krajní obránce 12 m před ním, zdvojující hráč 10 m uvnitř pásma.",
+ steps:[
+  "Trenér nebo nahrávač přihraje křídlu, krajní obránce vybíhá napadat a navádí křídlo k lajně.",
+  "Zdvojující hráč přichází z vnitřní strany a zavírá cestu dovnitř i zpětnou přihrávku.",
+  "Křídlo se snaží vést míč do cílové zóny (= centr) nebo dát gól do malé branky; obránci po zisku přihrají na kužel na startu.",
+  "Po 6 akcích přidej útočníkovi podporujícího hráče (2 na 2) – obránci musí rozhodnout, kdy zdvojit a kdy krýt.",
+  "Rotace po každé akci, 2 série po 6 minutách."
+ ],
+ coach:[
+  "První obránce zastaví průnik a tlačí ven, nespěchá se zákrokem.",
+  "Zdvojení načasovat – když křídlo zpracovává, sklopí hlavu nebo je u lajny.",
+  "Zdvojující přichází z vnitřní strany, nikdy ne za záda prvnímu obránci.",
+  "Signál nahlas (mám tě, jdu), aby první obránce věděl, že může zaútočit na míč."
+ ],
+ easier:"Křídlo smí jen vést míč podél lajny, bez kliček dovnitř.",
+ harder:"Hrát 2 na 2 od začátku a přidat třetího útočníka jako podporu zezadu.",
+ mistakes:["Oba obránci přijdou ze stejné strany a křídlo projde dovnitř","Zdvojení příliš pozdě, až po centru","První obránce se nechá obejít ještě před příchodem zdvojení"],
+ dia:{w:30,h:20,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:29.5,y:0.5},{t:"c",x:24,y:19.5},{t:"s",x:28,y:12,r:90},{t:"a",x:3,y:3},{t:"d",x:15,y:3},{t:"d",x:14,y:13},{t:"b",x:3.6,y:3.6}],lines:[{x1:3.6,y1:3.6,x2:12,y2:3,k:"drib"},{x1:15,y1:3,x2:13,y2:3.5,k:"run"},{x1:14,y1:13,x2:13,y2:6,k:"run"}]}
+},
+{
+ id:"obrana-braneni-vapna-proti-centrum",
+ cat:"obrana",
+ name:"Bránění vápna proti centrům",
+ goals:["obrana","hlavicky","komunikace","brankar"],
+ min:16,
+ range:[12,20],
+ players:[8,14],
+ gk:1,
+ diff:2,
+ load:2,
+ area:"50 × 30 m (vápno a obě křídla)",
+ kit:"1 velká branka, 6 kuželů, 2 sady rozlišováků, 15 míčů",
+ aim:"Učí obránce správně postavit se proti centrům, vidět míč i soupeře a odvrátit míč daleko, protože po centrech padá velká část obdržených gólů.",
+ setup:"Ve vápně brání čtyři obránci a brankář proti třem útočníkům. Na obou křídlech u hranice vápna stojí centrující hráči s míči, další útočníci čekají na střídání.",
+ steps:[
+  "Centr střídavě z levé a pravé strany (vysoký, polovysoký i přízemní zpětný míč).",
+  "Útočníci nabíhají na přední tyč, zadní tyč a penaltu; obránci kryjí prostor i hráče.",
+  "Po odvrácení míče obranná linie okamžitě společně vystoupí k hranici vápna.",
+  "Doskok na hranici vápna dohrává záložník útočníků, akce končí gólem, chycením nebo odvrácením mimo vápno.",
+  "10 centrů na sérii, 3 série, mezi sériemi výměna útočníků a krátký rozbor."
+ ],
+ coach:[
+  "Otevřený postoj – obránce vidí míč i útočníka, nestojí zády k míči.",
+  "Postavení mezi útočníkem a brankou, přední tyč kryje vždy obránce.",
+  "Útočit na míč, hlavičkovat vysoko, daleko a do strany od branky.",
+  "Brankář řídí obranu a jasně volá, když jde do míče.",
+  "Po odvrácení společné vystoupení – kdo zůstane vzadu, ruší ofsajd."
+ ],
+ easier:"Hrát 4 na 2 a centry pomalejší, vysoké z místa.",
+ harder:"Hrát 4 na 4, centrující může míč nejprve vést a měnit úhel centru.",
+ mistakes:["Obránce sleduje jen míč a útočník mu nabíhá za záda","Odvrácení doprostřed před vápno přímo soupeři","Po odvrácení obrana zůstane stát ve vápně"],
+ dia:{w:50,h:30,items:[{t:"G",x:25,y:29.5},{t:"g",x:25,y:27.5},{t:"c",x:5,y:13},{t:"c",x:45,y:13},{t:"d",x:20,y:24},{t:"d",x:24,y:23},{t:"d",x:29,y:23},{t:"d",x:33,y:22},{t:"a",x:21,y:17},{t:"a",x:28,y:16},{t:"a",x:25,y:12},{t:"a",x:3,y:16},{t:"b",x:3.6,y:16.6}],lines:[{x1:3.6,y1:16.6,x2:22,y2:24,k:"pass"},{x1:21,y1:17,x2:22,y2:23,k:"run"},{x1:28,y1:16,x2:31,y2:24,k:"run"}]}
+},
+{
+ id:"presink-pravidlo-5-sekund",
+ cat:"presink",
+ name:"Okamžitý presink po ztrátě – pravidlo 5 sekund",
+ goals:["presink","prechod","komunikace","kondice"],
+ min:16,
+ range:[12,20],
+ players:[10,14],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"30 × 25 m",
+ kit:"4 kužely, 3 sady rozlišováků, 10 míčů kolem hřiště",
+ aim:"Vytváří návyk okamžitě napadat po ztrátě míče, kdy je soupeř neuspořádaný a míč se dá nejsnáze získat zpět.",
+ setup:"Vyznač hřiště 30 × 25 m, dva týmy 5 na 5 (6 na 6) a dva žolíci, kteří hrají s týmem v držení míče. Trenér stojí u hřiště s míči a stopkami (nahlas počítá).",
+ steps:[
+  "Týmy hrají na držení míče na tři doteky, za 6 přihrávek v řadě bod.",
+  "Po ztrátě míče má tým 5 s na jeho získání zpět; úspěšný presink = 2 body.",
+  "Nepodaří-li se míč do 5 s získat, tým se stáhne do kompaktního postavení a brání normálně.",
+  "Míč mimo hřiště – trenér okamžitě vhazuje nový míč týmu, který neporušil hru.",
+  "Hraj 4 kola po 3 minutách, 90 s pauza."
+ ],
+ coach:[
+  "Nejbližší hráč okamžitě napadá nositele míče, nejlépe z jeho slabší strany.",
+  "Druhý a třetí hráč zavírají nejbližší přihrávací možnosti – presink je práce celé skupiny.",
+  "Zmenšit prostor kolem míče, ne běhat za míčem všichni.",
+  "Po 5 s bez zisku přepnout do zóny a nefaulovat zbytečně."
+ ],
+ easier:"Prodloužit limit na 7 s a zvětšit hřiště.",
+ harder:"Zkrátit limit na 4 s, žolíky zrušit nebo zmenšit hřiště na 25 × 20 m.",
+ mistakes:["Hráči po ztrátě litují chyby a nereagují","Napadá jen jeden hráč a ostatní stojí","Zbytečné fauly ze zpoždění"],
+ dia:{w:30,h:25,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:29.5,y:0.5},{t:"c",x:0.5,y:24.5},{t:"c",x:29.5,y:24.5},{t:"d",x:14,y:12},{t:"d",x:20,y:8},{t:"d",x:9,y:17},{t:"a",x:16,y:10},{t:"a",x:12,y:15},{t:"a",x:19,y:15},{t:"b",x:14.5,y:12.5}],lines:[{x1:16,y1:10,x2:14.5,y2:11.5,k:"run"},{x1:12,y1:15,x2:11,y2:16,k:"run"},{x1:19,y1:15,x2:18,y2:10,k:"run"},{x1:14,y1:12,x2:20,y2:8,k:"pass"}]}
+},
+{
+ id:"presink-vysoke-napadani-rozehravky",
+ cat:"presink",
+ name:"Vysoké napadání proti rozehrávce brankáře",
+ goals:["presink","obrana","komunikace"],
+ min:18,
+ range:[15,22],
+ players:[8,12],
+ gk:1,
+ diff:3,
+ load:3,
+ area:"45 × 40 m (od branky po 40 m)",
+ kit:"1 velká branka, 4 kužely na 2 branky, 2 sady rozlišováků, 12 míčů",
+ aim:"Učí útočníky a záložníky napadat společně podle signálů (triggerů) a navádět soupeře na kraj, kde se dá míč získat blízko jeho branky.",
+ setup:"Soupeř (červení: brankář + 4 obránci) rozehrává od své branky, naši (modří: 2 útočníci + 2 krajní záložníci, při více hráčích + 1 střední záložník) napadají. Na čáře 40 m od branky stojí dvě kuželové branky 5 m široké u postranních čar.",
+ steps:[
+  "Brankář rozehrává krátce na obránce, modří startují z postavení 30 m od branky.",
+  "Červení skórují vedením nebo přihrávkou přes kuželovou branku na 40 m.",
+  "Modří napadají na signál: přihrávka na krajního obránce, zpětná přihrávka, špatné zpracování nebo míč ve vzduchu.",
+  "Po zisku míče mají modří 10 s na gól do velké branky.",
+  "Série 5 minut, 2 minuty pauza, 3 série; poté vyměnit role."
+ ],
+ coach:[
+  "Útočník napadá obloukem tak, aby svým tělem stínil přihrávku zpět nebo na druhou stranu.",
+  "Krajní záložník vystupuje na krajního obránce v okamžiku přihrávky, ne až po zpracování.",
+  "Napadá se společně – jeden hráč sám napadat nemá smysl, ostatní se posunou k míči.",
+  "Na kraji uzavřít i podporu dovnitř, lajna je náš další hráč."
+ ],
+ easier:"Červení hrají bez brankáře (4 obránci) a modří mají přečíslení 5 na 4.",
+ harder:"Přidat červeným defenzivního záložníka (5 + B na 4) a omezit modré na 8 s po zisku.",
+ mistakes:["Útočník běží přímo na stopera a ten snadno přihraje vedle","Krajní záložník zůstane hluboko a krajní obránce je volný","Napadá jen jeden hráč a ostatní se dívají"],
+ dia:{w:45,h:40,items:[{t:"G",x:22.5,y:39.5},{t:"g",x:22.5,y:37.5},{t:"d",x:15,y:33},{t:"d",x:30,y:33},{t:"d",x:4,y:27},{t:"d",x:41,y:27},{t:"a",x:18,y:22},{t:"a",x:27,y:22},{t:"a",x:8,y:16},{t:"a",x:37,y:16},{t:"s",x:4,y:1},{t:"s",x:41,y:1}],lines:[{x1:15,y1:33,x2:4,y2:27,k:"pass"},{x1:8,y1:16,x2:5,y2:24,k:"run"},{x1:18,y1:22,x2:13,y2:30,k:"run"},{x1:27,y1:22,x2:22,y2:28,k:"run"}]}
+},
+{
+ id:"presink-napadani-ve-trojici",
+ cat:"presink",
+ name:"Napadání ve trojici – navádění na kraj",
+ goals:["presink","obrana","komunikace"],
+ min:15,
+ range:[12,18],
+ players:[7,12],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"40 × 30 m",
+ kit:"10 kuželů (3 malé branky + zóny u lajn), 2 sady rozlišováků, 10 míčů",
+ aim:"Učí tři hráče první linie napadat jako celek, uzavírat střed a vytlačit soupeře k lajně, kde ho lze získat.",
+ setup:"Vyznač hřiště 40 × 30 m. Na jedné kratší straně stojí 4 červení (rozehrávka), na druhé tři kuželové branky 3 m široké (vlevo, uprostřed, vpravo). Podél obou delších stran označ pás 5 m jako zónu zisku.",
+ steps:[
+  "Trenér přihraje červeným, kteří se snaží v přečíslení 4 na 3 dostat míč přes jednu z branek.",
+  "Modrá trojice napadá: hrot zavírá střed, krajní hráči navádějí na kraj.",
+  "Zisk míče v krajní zóně = 2 body, jinde = 1 bod; gól červených přes prostřední branku = 2 body, přes krajní = 1 bod.",
+  "Po zisku přihrají modří na trenéra (konec akce); akce trvá maximálně 15 s.",
+  "Série 6 akcí, pak výměna trojice; každá trojice 3 série."
+ ],
+ coach:[
+  "Prostřední hráč napadá tak, aby uzavřel přihrávku přes střed.",
+  "Vzdálenosti v trojici 8–10 m, trojice se posouvá jako jeden celek.",
+  "Když jde míč na kraj, nejbližší hráč napadá, ostatní dva zavírají přihrávky zpět a dovnitř.",
+  "Napadat rychle při přihrávce, zpomalit těsně u soupeře, nenaskakovat."
+ ],
+ easier:"Červení hrají 3 na 3 nebo jen na dva doteky.",
+ harder:"Přidat červeným pátého hráče jako záložníka uprostřed hřiště.",
+ mistakes:["Trojice se roztrhne a středem projde jednoduchá přihrávka","Všichni tři běží na míč","Napadání bez navádění – soupeř si vybírá stranu"],
+ dia:{w:40,h:30,items:[{t:"c",x:20,y:5},{t:"c",x:20,y:25},{t:"s",x:0.5,y:6,r:90},{t:"s",x:0.5,y:15,r:90},{t:"s",x:0.5,y:24,r:90},{t:"d",x:36,y:6},{t:"d",x:36,y:24},{t:"d",x:38,y:12},{t:"d",x:38,y:18},{t:"a",x:28,y:15},{t:"a",x:30,y:7},{t:"a",x:30,y:23},{t:"b",x:37.5,y:12.5}],lines:[{x1:37.5,y1:12.5,x2:36,y2:6,k:"pass"},{x1:30,y1:7,x2:34,y2:5,k:"run"},{x1:28,y1:15,x2:33,y2:11,k:"run"}]}
+},
+{
+ id:"presink-4-na-4-na-4",
+ cat:"presink",
+ name:"Hra 4 na 4 na 4 – kdo ztratí, napadá",
+ goals:["presink","prihravky","prechod","kondice"],
+ min:15,
+ range:[12,18],
+ players:[12,15],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"30 × 30 m",
+ kit:"4 kužely, 3 sady rozlišováků, 10 míčů",
+ aim:"Spojuje držení míče v přečíslení s okamžitým přepnutím do presinku po ztrátě, tedy rychlou reakci na změnu držení míče.",
+ setup:"Vyznač čtverec 30 × 30 m a rozděl hráče do tří týmů po čtyřech (při 13–15 hráčích jsou zbylí žolíky). Dva týmy drží míč spolu (8 na 4), třetí tým brání.",
+ steps:[
+  "Dva týmy si přihrávají na tři doteky, bránící tým se snaží míč získat.",
+  "Tým, jehož hráč míč ztratí, se okamžitě stává bránícím týmem a bránící tým jde do držení.",
+  "Za 10 přihrávek v řadě získají držící týmy bod.",
+  "Bránící tým, který získá míč do 5 s, si odečítá trestný bod (týmy počítají trestné body – kdo jich má nejméně, vyhrává).",
+  "Hraj 3 kola po 4 minutách, 2 minuty pauza."
+ ],
+ coach:[
+  "Přepnutí okamžitě – tým, který ztratil, napadá hned, ne až po vysvětlování chyby.",
+  "Ve čtyřech napadat v blocích: jeden na míč, ostatní zavírají nejbližší přihrávky.",
+  "Držící týmy roztažení do šířky a hloubky, rychlý oběh míče.",
+  "Po zisku míče první přihrávka bezpečně ven z tlaku."
+ ],
+ easier:"Zvětšit čtverec na 35 × 35 m a povolit volné doteky.",
+ harder:"Hrát na dva doteky, zmenšit čtverec na 25 × 25 m.",
+ mistakes:["Tým, který ztratil, se pomalu přeorientuje","Bránící hráči napadají jednotlivě bez spolupráce","Držící hráči se shlukují kolem míče"],
+ dia:{w:30,h:30,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:29.5,y:0.5},{t:"c",x:0.5,y:29.5},{t:"c",x:29.5,y:29.5},{t:"a",x:5,y:5},{t:"a",x:25,y:6},{t:"a",x:24,y:24},{t:"a",x:6,y:25},{t:"d",x:13,y:12},{t:"d",x:17,y:16},{t:"d",x:12,y:19},{t:"b",x:5.6,y:5.6}],lines:[{x1:5,y1:5,x2:25,y2:6,k:"pass"},{x1:13,y1:12,x2:20,y2:8,k:"run"},{x1:17,y1:16,x2:22,y2:19,k:"run"}]}
+},
+{
+ id:"prechod-vlny-3-na-2",
+ cat:"prechod",
+ name:"Vlny 3 na 2 a zpětný přechod 2 na 1",
+ goals:["prechod","kombinace","zakonceni","rychlost"],
+ min:18,
+ range:[15,22],
+ players:[9,18],
+ gk:2,
+ diff:2,
+ load:3,
+ area:"60 × 45 m (2 velké branky)",
+ kit:"2 velké branky, 6 kuželů, 2 sady rozlišováků, 15 míčů",
+ aim:"Nacvičuje rychlé využití přečíslení v útoku i okamžitý přechod do protiútoku po zisku, tedy obě přechodové fáze v jednom cvičení.",
+ setup:"Hřiště 60 × 45 m se dvěma velkými brankami a brankáři. U jedné branky čekají trojice útočníků, u druhé dvojice obránců; obránci hrají v jedné polovině.",
+ steps:[
+  "Trojice útočí 3 na 2 na protější branku, na zakončení má 10 s.",
+  "Po gólu, zákroku brankáře nebo zisku míče oba obránci okamžitě útočí na opačnou branku proti jednomu útočníkovi, který střílel nebo ztratil míč (2 na 1).",
+  "Zbylí dva útočníci se stávají novými obránci a zůstávají na této straně; nová trojice startuje z druhé strany.",
+  "Celé cvičení probíhá plynule, každý hráč 6–8 akcí.",
+  "Po 8 minutách 2 minuty pauza a výměna rolí, celkem 2 série."
+ ],
+ coach:[
+  "Při 3 na 2 držet šířku – krajní útočníci široko, nositel míče jde středem na obránce.",
+  "Rozhodnout rychle – po 2–3 přihrávkách zakončit, nečekat na návrat obránců.",
+  "Obránci po zisku hrají okamžitě dopředu, první přihrávka do hloubky.",
+  "Útočník, který přechází do obrany, se okamžitě vrací a zdržuje 2 na 1."
+ ],
+ easier:"Hrát 3 na 1 a zpětný přechod 1 na 1, zkrátit hřiště na 50 m.",
+ harder:"Hrát 4 na 3 a zpětně 3 na 2 se zkráceným časovým limitem.",
+ mistakes:["Útočníci se stáhnou k sobě a obránci kryjí všechny","Po zisku obránci zdržují a ztratí výhodu","Útočník po ztrátě zůstane stát a nebrání"],
+ dia:{w:60,h:45,items:[{t:"G",x:0.5,y:22.5,r:90},{t:"G",x:59.5,y:22.5,r:90},{t:"g",x:2.5,y:22.5},{t:"g",x:57.5,y:22.5},{t:"a",x:28,y:22.5},{t:"a",x:30,y:8},{t:"a",x:30,y:37},{t:"d",x:45,y:17},{t:"d",x:45,y:28},{t:"b",x:28.6,y:23}],lines:[{x1:28.6,y1:23,x2:38,y2:22.5,k:"drib"},{x1:30,y1:8,x2:48,y2:10,k:"run"},{x1:30,y1:37,x2:48,y2:35,k:"run"},{x1:45,y1:28,x2:20,y2:30,k:"run"}]}
+},
+{
+ id:"prechod-protiutok-po-zisku",
+ cat:"prechod",
+ name:"Rychlý protiútok po zisku míče",
+ goals:["prechod","rychlost","obrana","pohyb_bez_mice"],
+ min:18,
+ range:[15,22],
+ players:[11,16],
+ gk:1,
+ diff:3,
+ load:3,
+ area:"50 × 60 m (polovina hřiště + 10 m)",
+ kit:"1 velká branka, 2 malé branky, 6 kuželů, 2 sady rozlišováků, 12 míčů",
+ aim:"Učí tým po zisku míče ve vlastní polovině rychle a přímo přejít do útoku, než se soupeř stihne vrátit.",
+ setup:"Červení (5–6) útočí na velkou branku proti našim čtyřem obráncům, záložníkovi a brankáři. Dva naši útočníci čekají nad půlicí čarou, kde 10 m za ní stojí dvě malé branky u kraje.",
+ steps:[
+  "Trenér přihraje červeným, ti útočí na velkou branku, na akci mají 15 s.",
+  "Po zisku míče hrají modří co nejrychleji na útočníky a skórují do jedné z malých branek; na protiútok mají 10 s.",
+  "Červení po ztrátě okamžitě napadají (presink), mohou míč získat a znovu zakončit.",
+  "Po každé akci nový míč od trenéra červeným, série 6 minut, 2 minuty pauza, celkem 3 série.",
+  "Gól z protiútoku za 2 body, gól červených 1 bod."
+ ],
+ coach:[
+  "První přihrávka po zisku dopředu nebo do strany ven z tlaku, ne zpět do středu.",
+  "Útočníci se v okamžiku zisku nabízejí do hloubky a do šířky, ne k míči.",
+  "Nejbližší záložníci podpoří protiútok sprintem – nejméně tři hráči v útoku.",
+  "Když přímá cesta není, bezpečně udržet míč – ne každý zisk musí být protiútok."
+ ],
+ easier:"Červení po ztrátě nenapadají a protiútok má 15 s.",
+ harder:"Zkrátit limit na 8 s a přidat jednoho červeného obránce u malých branek.",
+ mistakes:["Po zisku zbytečné zpracování a otočky zpět","Útočníci stojí a čekají na míč do nohy","Do protiútoku nikdo nepřibíhá"],
+ dia:{w:50,h:60,items:[{t:"G",x:25,y:59.5},{t:"g",x:25,y:57.5},{t:"d",x:15,y:40},{t:"d",x:25,y:38},{t:"d",x:35,y:40},{t:"a",x:15,y:48},{t:"a",x:25,y:50},{t:"a",x:35,y:48},{t:"a",x:10,y:15},{t:"a",x:40,y:15},{t:"s",x:8,y:1},{t:"s",x:42,y:1},{t:"b",x:25.6,y:49.5}],lines:[{x1:25.6,y1:49.5,x2:12,y2:18,k:"pass"},{x1:10,y1:15,x2:12,y2:18,k:"run"},{x1:40,y1:15,x2:35,y2:8,k:"run"},{x1:15,y1:48,x2:18,y2:30,k:"run"}]}
+},
+{
+ id:"prechod-nepretrzite-vlny-4-na-4",
+ cat:"prechod",
+ name:"Nepřetržité vlny 4 na 4 (tři týmy)",
+ goals:["prechod","presink","zakonceni","kondice"],
+ min:18,
+ range:[15,24],
+ players:[12,15],
+ gk:2,
+ diff:2,
+ load:3,
+ area:"40 × 30 m",
+ kit:"2 velké branky (nebo přenosné), 4 kužely, 3 sady rozlišováků, 15 míčů v brankách",
+ aim:"Neustále střídá útok a obranu s okamžitým nástupem nového soupeře, takže hráči trénují rychlé přepínání v obou směrech.",
+ setup:"Hřiště 40 × 30 m s brankáři v obou brankách. Tři týmy po čtyřech: dva hrají, třetí čeká za koncovou čarou u jedné branky.",
+ steps:[
+  "Tým A útočí proti týmu B na branku, za kterou čeká tým C.",
+  "Jakmile A skóruje nebo ztratí míč, tým B okamžitě útočí na opačnou branku a z koncové čáry nastupuje tým C jako nový obránce.",
+  "Tým A se přesune za koncovou čáru na místo týmu C a čeká.",
+  "Brankář po gólu nebo chycení ihned rozehrává na tým, který přechází do útoku.",
+  "Hraj 2 kola po 7–8 minutách, 3 minuty pauza; počítej góly týmů."
+ ],
+ coach:[
+  "Tým, který ztratil míč, okamžitě napadá a zdržuje, dokud nový tým nenastoupí.",
+  "Nastupující tým vstupuje do hry rychle a organizovaně, ne každý zvlášť.",
+  "Útočící tým využívá chvíli, kdy soupeř není zorganizovaný – rychlé zakončení.",
+  "Brankáři rozehrávají rychle do strany, ne do středu."
+ ],
+ easier:"Hrát 3 na 3 se žolíkem a na větším hřišti.",
+ harder:"Gól platí jen do 10 s od zahájení útoku, nebo hrát na dva doteky.",
+ mistakes:["Tým po ztrátě odchází ze hřiště místo napadání","Nastupující tým čeká, až se hra uklidní","Brankář zdržuje rozehrávku"],
+ dia:{w:40,h:30,items:[{t:"G",x:0.5,y:15,r:90},{t:"G",x:39.5,y:15,r:90},{t:"g",x:2,y:15},{t:"g",x:38,y:15},{t:"a",x:28,y:10},{t:"a",x:30,y:20},{t:"d",x:33,y:13},{t:"d",x:32,y:18},{t:"d",x:22,y:15},{t:"a",x:38,y:3},{t:"a",x:38,y:27},{t:"b",x:28.6,y:10.5}],lines:[{x1:28.6,y1:10.5,x2:30,y2:20,k:"pass"},{x1:33,y1:13,x2:15,y2:12,k:"run"},{x1:38,y1:3,x2:30,y2:8,k:"run"}]}
+},
+{
+ id:"prechod-navrat-po-ztrate",
+ cat:"prechod",
+ name:"Obranný přechod – návrat po ztrátě",
+ goals:["prechod","obrana","rychlost","komunikace"],
+ min:15,
+ range:[12,18],
+ players:[7,14],
+ gk:1,
+ diff:2,
+ load:3,
+ area:"45 × 40 m",
+ kit:"1 velká branka, 6 kuželů, 2 sady rozlišováků, 12 míčů",
+ aim:"Učí hráče po ztrátě okamžitě sprintovat zpět mezi míč a branku, protože včasný návrat zabrání většině gólů z protiútoků.",
+ setup:"Tři červení útočníci startují 35 m od branky, jeden modrý obránce čeká na hranici vápna. Dva modří (vracející se hráči) startují 5 m za červenými.",
+ steps:[
+  "Trenér přihraje míč červeným; ve stejném okamžiku startují oba vracející se modří.",
+  "Červení útočí na branku 3 na 1 a snaží se zakončit dřív, než se modří vrátí (limit 10 s).",
+  "Modrý obránce zdržuje, ustupuje a navádí na kraj, dokud mu nepřiběhnou spoluhráči na pomoc.",
+  "Vracející hráči běží nejkratší cestou na úroveň míče (do prostoru mezi míč a branku), ne za míčem.",
+  "Rotace rolí po každé akci, každý hráč 6 návratů; mezi akcemi 45 s pauza."
+ ],
+ coach:[
+  "Sprint zpět okamžitě, první 3 kroky rozhodují.",
+  "Vracet se do středu před branku, ne k míči na kraj.",
+  "Obránce ve vápně nevyskakuje naslepo, zdržuje a ustupuje.",
+  "Komunikace: kdo jde na míč, kdo kryje střed a zadní tyč."
+ ],
+ easier:"Vracející se hráči startují blíž, nebo červení musí přihrát nejméně dvakrát.",
+ harder:"Vracející hráči startují vleže nebo zády, nebo přidat čtvrtého útočníka.",
+ mistakes:["Hráči se vracejí klusem a za míčem","Obránce vystoupí na míč a nechá přihrávku za záda","Vracející se hráči se nedorozumí, kdo kryje koho"],
+ dia:{w:45,h:40,items:[{t:"G",x:22.5,y:39.5},{t:"g",x:22.5,y:37.5},{t:"c",x:5,y:24},{t:"c",x:40,y:24},{t:"d",x:15,y:6},{t:"d",x:22.5,y:5},{t:"d",x:30,y:6},{t:"a",x:22.5,y:24},{t:"a",x:18,y:1},{t:"a",x:27,y:1},{t:"b",x:23,y:5.6}],lines:[{x1:23,y1:5.6,x2:30,y2:6,k:"pass"},{x1:18,y1:1,x2:20,y2:28,k:"run"},{x1:27,y1:1,x2:25,y2:28,k:"run"},{x1:30,y1:6,x2:30,y2:18,k:"drib"}]}
+},
+{
+ id:"kondice-intervaly-15-15",
+ cat:"kondice",
+ name:"Intervalový běh 15/15",
+ goals:["kondice","rychlost"],
+ min:15,
+ range:[12,20],
+ players:[1,22],
+ gk:0,
+ diff:1,
+ load:3,
+ area:"celé hřiště (šířka 60–68 m)",
+ kit:"8 kuželů, stopky nebo píšťalka",
+ aim:"Rozvíjí aerobní výkonnost a schopnost opakovaných úsilí, aby hráči vydrželi tempo i v posledních 20 minutách utkání.",
+ setup:"Hráči se rozdělí podle výkonnosti do 2–3 skupin. Každá skupina má na šířku hřiště svou cílovou vzdálenost vyznačenou kuželem (např. 55, 60 a 65 m).",
+ steps:[
+  "Hráči běží 15 s ke svému kuželu (asi na 85–90 % maxima), pak 15 s chůze nebo klus zpět na startovní čáru.",
+  "Opakuj 12 × (6 minut) jako jednu sérii.",
+  "Mezi sériemi 3 minuty aktivní pauzy (vyklusání, pití).",
+  "Proveď 2 série, v dobré formě (střed sezóny) 3 série.",
+  "Kdo nestihne kužel dvakrát po sobě, posune se do skupiny s kratší vzdáleností."
+ ],
+ coach:[
+  "Rovnoměrné tempo – každý úsek má být stejně rychlý jako první.",
+  "Uvolněná ramena, aktivní práce paží, běh přes přední část chodidla.",
+  "Pauza je opravdu 15 s – start přesně na signál.",
+  "Cvičit nejdříve 48 hodin po utkání a ne den před zápasem."
+ ],
+ easier:"Poměr 15/20 s, nebo jen 2 × 8 opakování.",
+ harder:"Poměr 15/15 se 3 sériemi po 7 minutách, nebo 20/20 s s delší vzdáleností.",
+ mistakes:["Příliš rychlý start a pak výrazné zpomalení","Pauza delší, než má být","Úseky se zkracují otočkou před kuželem"],
+ dia:{w:68,h:30,items:[{t:"c",x:2,y:5},{t:"c",x:2,y:15},{t:"c",x:2,y:25},{t:"c",x:57,y:5},{t:"c",x:62,y:15},{t:"c",x:66,y:25},{t:"a",x:3,y:5},{t:"a",x:3,y:15},{t:"a",x:3,y:25}],lines:[{x1:3,y1:5,x2:57,y2:5,k:"run"},{x1:3,y1:15,x2:62,y2:15,k:"run"},{x1:3,y1:25,x2:66,y2:25,k:"run"}]}
+},
+{
+ id:"kondice-reakcni-sprinty",
+ cat:"kondice",
+ name:"Reakční sprinty na 5–20 m",
+ goals:["rychlost","kondice"],
+ min:12,
+ range:[10,15],
+ players:[4,22],
+ gk:0,
+ diff:1,
+ load:3,
+ area:"25 × 15 m",
+ kit:"10 kuželů, 4 míče",
+ aim:"Zlepšuje reakci a startovní rychlost na prvních metrech, které rozhodují o tom, kdo je u míče první.",
+ setup:"Hráči ve dvojicích stojí na startovní čáře, před nimi kužely na 5, 10 a 20 m. Trenér stojí čelem k hráčům a dává signály.",
+ steps:[
+  "Start z různých poloh: stoj, sed, leh na břiše, leh na zádech, zády ke směru běhu.",
+  "Trenér dává signál zvukem nebo rukou (zvednutá ruka = sprint, ukazuje směr doleva nebo doprava) a hráči sprintují na zadanou vzdálenost.",
+  "Varianta Chyť partnera: partner startuje 2 m před hráčem, oba na signál, zadní ho musí dohnat do 15 m.",
+  "Varianta s míčem: trenér kopne míč dopředu, kdo z dvojice je první u míče, zakončí do malé branky.",
+  "2 série po 6 sprintech, mezi sprinty plná pauza 45–60 s, mezi sériemi 3 minuty."
+ ],
+ coach:[
+  "Plné úsilí každý sprint – pokud hráč zpomaluje, pauza je krátká.",
+  "Start nízko, první kroky krátké a rychlé, předklon trupu.",
+  "Aktivní práce paží, nekrčit ramena.",
+  "Sprinty zařazovat na začátek hlavní části, když jsou hráči odpočatí."
+ ],
+ easier:"Jen starty ze stoje na 5–10 m s delší pauzou.",
+ harder:"Přidat změnu směru po 5 m a vizuální signály (barva kuželu).",
+ mistakes:["Sprinty bez plného úsilí a s krátkou pauzou (z rychlosti se stane vytrvalost)","Pomalá reakce, hráč čeká na ostatní","Sprint zařazený až na konec tréninku po únavě"],
+ dia:{w:25,h:15,items:[{t:"c",x:1,y:4},{t:"c",x:1,y:11},{t:"c",x:6,y:4},{t:"c",x:11,y:11},{t:"c",x:21,y:4},{t:"a",x:2,y:4},{t:"a",x:2,y:11},{t:"a",x:24,y:7.5}],lines:[{x1:2,y1:4,x2:21,y2:4,k:"run"},{x1:2,y1:11,x2:11,y2:11,k:"run"}]}
+},
+{
+ id:"kondice-intervalova-hra-2-na-2",
+ cat:"kondice",
+ name:"Intervalová malá hra 2 na 2",
+ goals:["kondice","1v1","presink","rychlost"],
+ min:15,
+ range:[12,18],
+ players:[8,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"20 × 15 m",
+ kit:"4 malé branky na hřiště, 4 kužely, 12 míčů kolem hřiště",
+ aim:"Rozvíjí specifickou fotbalovou vytrvalost a opakované souboje ve vysoké intenzitě, jak je hráč zažívá v zápase.",
+ setup:"Na hřišti 20 × 15 m stojí na každé kratší straně malá branka. Hrají dvě dvojice, další dvojice čekají u hřiště s míči a doplňují je okamžitě, když míč opustí hřiště.",
+ steps:[
+  "Dvojice hrají 2 na 2 na malé branky naplno 90 s.",
+  "Po 90 s se dvojice vystřídají, odpočinek je stejně dlouhý (90 s, poměr 1 : 1).",
+  "Každá dvojice odehraje 5–6 intervalů.",
+  "Míč mimo hřiště – čekající hráč ihned vhazuje nový míč, hra se nezastavuje.",
+  "Veď tabulku výsledků dvojic, poražení ve finále sbírají míče."
+ ],
+ coach:[
+  "Intenzita musí zůstat maximální – proto krátké intervaly a dost míčů okolo.",
+  "Po ztrátě míče okamžitě napadat, nezůstávat stát.",
+  "Hledat 1 na 1 a odvážné zakončení z jakékoli vzdálenosti.",
+  "Obránci napadají ve dvojici – jeden na míč, druhý zajišťuje."
+ ],
+ easier:"Interval 60 s s pauzou 2 minuty, nebo hrát 3 na 3 na větším hřišti.",
+ harder:"Prodloužit interval na 2 minuty, nebo zmenšit hřiště na 18 × 12 m.",
+ mistakes:["Hráči zpomalí a začnou šetřit síly","Málo míčů u hřiště, dlouhé pauzy při sběru","Příliš dlouhé intervaly, intenzita klesá"],
+ dia:{w:20,h:15,items:[{t:"c",x:0.5,y:0.5},{t:"c",x:19.5,y:0.5},{t:"c",x:0.5,y:14.5},{t:"c",x:19.5,y:14.5},{t:"s",x:1,y:7.5,r:90},{t:"s",x:19,y:7.5,r:90},{t:"a",x:8,y:6},{t:"a",x:12,y:11},{t:"d",x:11,y:6},{t:"d",x:15,y:8},{t:"b",x:8.6,y:6.5}],lines:[{x1:8.6,y1:6.5,x2:12,y2:11,k:"pass"},{x1:12,y1:11,x2:18,y2:9,k:"drib"},{x1:11,y1:6,x2:12,y2:10,k:"run"}]}
+},
+{
+ id:"kondice-behy-box-to-box",
+ cat:"kondice",
+ name:"Běhy mezi vápny (box to box)",
+ goals:["kondice"],
+ min:15,
+ range:[12,20],
+ players:[1,22],
+ gk:0,
+ diff:1,
+ load:3,
+ area:"celé hřiště (mezi vápny cca 70 m)",
+ kit:"6 kuželů, stopky",
+ aim:"Rozvíjí schopnost opakovaných dlouhých běhů s krátkým zotavením, které odpovídají přechodům mezi obranou a útokem v utkání.",
+ setup:"Na hranicích obou pokutových území postav kužely (cca 70 m od sebe). Hráči startují v jedné linii na hranici vápna.",
+ steps:[
+  "Běh z vápna do vápna za 15–17 s (podle výkonnosti hráče).",
+  "Návrat klusem nebo chůzí po vnějším okruhu, start dalšího běhu přesně za 60 s od startu předchozího.",
+  "Série 6 běhů, mezi sériemi 3 minuty pauza.",
+  "Začátek sezóny 2 série, v přípravném období 3 série.",
+  "Zapisuj, kolik běhů hráč stihl v limitu – sleduj zlepšení během sezóny."
+ ],
+ coach:[
+  "Běžet uvolněně a rovnoměrně, ne sprint na začátku a chůze na konci.",
+  "Limit je pevný – kdo nestíhá, má menší počet opakování, ne delší čas.",
+  "Hlídat hráče po zranění a starší hráče, upravit jim limit.",
+  "Nezařazovat den před zápasem."
+ ],
+ easier:"Limit 18–20 s, nebo kratší vzdálenost (hranice vápna – půlicí čára a zpět).",
+ harder:"Limit 14–15 s, start každých 50 s, nebo běh s míčem.",
+ mistakes:["Příliš rychlý první běh a pak nesplněné limity","Zkracování dráhy","Vynechání vyklusání po běhu"],
+ dia:{w:70,h:30,items:[{t:"c",x:2,y:8},{t:"c",x:2,y:22},{t:"c",x:68,y:8},{t:"c",x:68,y:22},{t:"a",x:3,y:12},{t:"a",x:3,y:18}],lines:[{x1:3,y1:12,x2:67,y2:12,k:"run"},{x1:3,y1:18,x2:67,y2:18,k:"run"}]}
+},
+{
+ id:"standardky-rohy-utocne-varianty",
+ cat:"standardky",
+ name:"Útočný rohový kop – tři varianty",
+ goals:["standardky","hlavicky","zakonceni"],
+ min:15,
+ range:[10,20],
+ players:[8,16],
+ gk:1,
+ diff:2,
+ load:1,
+ area:"vápno a roh hřiště (70 × 25 m)",
+ kit:"1 velká branka, 2 tyče nebo figuríny, 2 sady rozlišováků, 15 míčů",
+ aim:"Zavede tři jednoduché, nacvičené varianty rohového kopu, protože standardní situace rozhodují v nižších soutěžích velké množství zápasů.",
+ setup:"Exekutor stojí v rohu hřiště, ve vápně 5 útočníků, jeden hráč na doskok na hranici vápna a dva hráči jistí vzadu proti protiútoku. Zpočátku brání brankář a 2–3 pasivní obránci, později plný počet.",
+ steps:[
+  "Varianta 1 – přední tyč: dva hráči nabíhají z penalty na přední tyč, první prodlužuje hlavou na zadní tyč, kam dobíhá třetí hráč.",
+  "Varianta 2 – zadní tyč a penalta: hráči startují ze shluku na hranici malého vápna, rozbíhají se do stran, centr míří na penaltu nebo zadní tyč.",
+  "Varianta 3 – krátký roh: druhý hráč přiběhne k exekutorovi, 2 na 1 na kraji vápna, centr z lepšího úhlu nebo zpětná přihrávka na doskok.",
+  "Každou variantu nejprve 4× bez obránců, potom 4× s obránci; varianty se označují signálem (zvednutá ruka, číslo).",
+  "Střídej exekutory z levé i pravé strany, celkem 20–25 rohů."
+ ],
+ coach:[
+  "Náběh startuje až v okamžiku rozběhu exekutora, ne dřív.",
+  "Útok na míč z rozběhu, výskok z jedné nohy, hlavička dolů k brance.",
+  "Exekutor kope rychlý míč s rotací od branky do prostoru, ne vysoký balon na brankáře.",
+  "Hráč na doskoku a dva jistící nesmí vběhnout do vápna – chrání proti protiútoku."
+ ],
+ easier:"Jen jedna varianta a bez obránců.",
+ harder:"Plný počet obránců a brankář může vybíhat, obránci po odvrácení zakládají protiútok.",
+ mistakes:["Všichni stojí ve vápně na místě a čekají na míč","Exekutor kope pokaždé jinam, než je signál","Nikdo nezajišťuje proti protiútoku"],
+ dia:{w:70,h:25,items:[{t:"G",x:35,y:0.5},{t:"g",x:35,y:2},{t:"c",x:15,y:16.5},{t:"c",x:55,y:16.5},{t:"a",x:1,y:1},{t:"b",x:1.8,y:1.5},{t:"a",x:32,y:11},{t:"a",x:35,y:12},{t:"a",x:38,y:11},{t:"a",x:35,y:19},{t:"d",x:31,y:5},{t:"d",x:38,y:6}],lines:[{x1:1.8,y1:1.5,x2:30,y2:5,k:"pass"},{x1:32,y1:11,x2:30,y2:5,k:"run"},{x1:35,y1:12,x2:33,y2:6,k:"run"},{x1:38,y1:11,x2:40,y2:4,k:"run"}]}
+},
+{
+ id:"standardky-braneni-rohu",
+ cat:"standardky",
+ name:"Bránění rohového kopu – zóna a osobní krytí",
+ goals:["standardky","obrana","hlavicky","komunikace"],
+ min:15,
+ range:[10,18],
+ players:[10,16],
+ gk:1,
+ diff:2,
+ load:1,
+ area:"vápno a roh hřiště (70 × 25 m)",
+ kit:"1 velká branka, 2 sady rozlišováků, 15 míčů",
+ aim:"Nastaví jasné rozdělení úkolů při rohu soupeře, aby každý hráč věděl, kde stojí a koho kryje, a tým neinkasoval laciné góly.",
+ setup:"Obránci se rozestaví v kombinovaném systému: tři hráči zónově (přední tyč, hranice malého vápna uprostřed, prostor před brankářem), čtyři osobně na nejlepší hlavičkáře, jeden na hranici vápna na doskok a jeden nahoře pro protiútok. Útočí 6–7 hráčů a exekutor.",
+ steps:[
+  "Před každým rohem trenér určí, kdo koho kryje (dvojice podle výšky a síly ve vzduchu), hráči si to ohlásí.",
+  "Útočníci zkoušejí různé náběhy a varianty, obránci reagují; po odvrácení všichni obránci vystoupí k hranici vápna.",
+  "Po zisku míče obránci zakládají protiútok přes hráče nahoře (dovedení míče přes půlicí čáru = bod).",
+  "Série 8 rohů z jedné strany, pak 8 z druhé.",
+  "Na konci 5 rohů naplno s počítáním skóre (gól útočníků 1 bod, protiútok 1 bod)."
+ ],
+ coach:[
+  "Zónoví hráči útočí na míč dopředu, nečekají, až míč přiletí k nim.",
+  "Osobní obránce má kontakt se soupeřem, stojí mezi ním a brankou a vidí míč.",
+  "Brankář velí a jasně ohlásí, když jde do míče; ostatní mu uvolní cestu.",
+  "Odvracet vysoko, daleko a do strany, nikdy doprostřed před vápno.",
+  "Po odvrácení společně vystoupit – kdo zůstane, ruší ofsajd."
+ ],
+ easier:"Útočníci jen nabíhají bez soubojů a exekutor kope do předem určeného prostoru.",
+ harder:"Útočníci používají bloky a překvapivé krátké rohy, obránci se musí přizpůsobit.",
+ mistakes:["Osobní obránce se dívá jen na míč a ztratí hráče","Zónový hráč stojí na místě a nechá se přeskočit","Po odvrácení obrana zůstane ve vápně"],
+ dia:{w:70,h:25,items:[{t:"G",x:35,y:0.5},{t:"g",x:35,y:2},{t:"c",x:15,y:16.5},{t:"c",x:55,y:16.5},{t:"a",x:1,y:1},{t:"b",x:1.8,y:1.5},{t:"d",x:31,y:3},{t:"d",x:35,y:5.5},{t:"d",x:38,y:4},{t:"d",x:33,y:10},{t:"d",x:39,y:10},{t:"a",x:32,y:12},{t:"a",x:40,y:12},{t:"d",x:35,y:18}],lines:[{x1:1.8,y1:1.5,x2:34,y2:6,k:"pass"},{x1:35,y1:5.5,x2:34,y2:6,k:"run"},{x1:32,y1:12,x2:33,y2:7,k:"run"}]}
+},
+{
+ id:"standardky-volne-kopy-a-zed",
+ cat:"standardky",
+ name:"Přímé volné kopy a stavění zdi",
+ goals:["standardky","zakonceni","brankar"],
+ min:15,
+ range:[10,20],
+ players:[4,12],
+ gk:1,
+ diff:2,
+ load:1,
+ area:"35 × 30 m (vápno a 15 m před ním)",
+ kit:"1 velká branka, 3–4 figuríny (nebo hráči jako zeď), 15 míčů, kužely na označení míst",
+ aim:"Zdokonalí exekutory přímých volných kopů a zároveň naučí brankáře a hráče rychle a správně postavit zeď.",
+ setup:"Označ kuželem tři místa volného kopu 18–22 m od branky (vlevo, střed, vpravo). Zeď z figurín nebo hráčů stojí 9,15 m od míče.",
+ steps:[
+  "Brankář určí počet hráčů ve zdi (2–3 z boku, 4–5 ze středu) a jeden hráč zeď nastaví tak, aby krajní hráč kryl bližší tyč.",
+  "Exekutor zkouší kop přes zeď s rotací, tvrdý kop napnutým nártem k bližší tyči a kop po zemi pod výskokem zdi.",
+  "Druhý hráč zkouší variantu – krátká přihrávka do strany a okamžitá střela spoluhráče.",
+  "Každý exekutor 5 kopů z každého místa, rotace exekutorů a hráčů ve zdi.",
+  "Na závěr soutěž: 10 kopů, brankář proti exekutorům."
+ ],
+ coach:[
+  "Rozběh vždy stejný (počet kroků a úhel), stojná noha vedle míče.",
+  "Kontakt vnitřní částí nártu pod středem míče pro rotaci přes zeď.",
+  "Zeď: neotáčet se zády, výskok společně, ruce u těla; v případě potřeby jeden hráč leží za zdí proti kopu po zemi.",
+  "Brankář stojí tak, aby viděl míč, a pokrývá stranu, kterou zeď nekryje."
+ ],
+ easier:"Kopy bez zdi na přesnost do rohů branky z 16–18 m.",
+ harder:"Kopy z 25 m a ostrých úhlů, zeď z hráčů, kteří skutečně vyskakují.",
+ mistakes:["Každý kop jiným rozběhem a technikou","Zeď se otáčí zády a míč projde mezi hráči","Brankář stojí za zdí a nevidí míč"],
+ dia:{w:35,h:30,items:[{t:"G",x:17.5,y:0.5},{t:"g",x:17.5,y:2},{t:"c",x:8,y:22},{t:"c",x:17.5,y:24},{t:"c",x:27,y:22},{t:"d",x:15,y:15},{t:"d",x:16.2,y:15},{t:"d",x:17.4,y:15},{t:"d",x:18.6,y:15},{t:"a",x:17.5,y:25},{t:"b",x:17.5,y:23.5}],lines:[{x1:17.5,y1:23.5,x2:21,y2:1.5,k:"pass"}]}
+},
+{
+ id:"mala-hra-4-na-4-ctyri-branky",
+ cat:"mala_hra",
+ name:"4 na 4 na čtyři malé branky",
+ goals:["kombinace","1v1","presink","prechod"],
+ min:16,
+ range:[12,20],
+ players:[8,16],
+ gk:0,
+ diff:2,
+ load:3,
+ area:"35 × 25 m",
+ kit:"4 malé branky na hřiště (nebo 8 kuželů), 2 sady rozlišováků, 10 míčů kolem hřiště",
+ aim:"Herní forma s velkým množstvím kontaktů s míčem, soubojů a změn držení, která učí hledat volnou stranu a rychle přepínat.",
+ setup:"Hřiště 35 × 25 m, na každé kratší straně dvě malé branky u rohů. Hraje 4 na 4; při více hráčích dvě hřiště vedle sebe nebo turnaj s čekajícími.",
+ steps:[
+  "Týmy hrají volnou hru, každý tým útočí na dvě branky na protější straně.",
+  "Gól platí jen z poloviny útočícího týmu, nebo libovolně (podle zaměření).",
+  "Míč mimo hřiště – trenér okamžitě vhazuje nový, aby hra neustala.",
+  "Hraj 4 kola po 4 minutách, 2 minuty pauza.",
+  "Podmínka pro poslední kolo: gól po přenesení hry ze strany na stranu za 2 body."
+ ],
+ coach:[
+  "Když soupeř zavře jednu branku, rychle přenést hru na druhou.",
+  "Šířka – dva hráči roztažení k oběma brankám.",
+  "Po ztrátě okamžitý presink, nejbližší napadá.",
+  "Odvaha jít do 1 na 1, když je před hráčem volný prostor."
+ ],
+ easier:"Přidat žolíka hrajícího s týmem v držení (5 na 4).",
+ harder:"Hrát na dva doteky nebo zúžit hřiště na 30 × 20 m.",
+ mistakes:["Všichni útočí jen na jednu branku","Hráči stojí po přihrávce","Pomalé přepnutí po ztrátě"],
+ dia:{w:35,h:25,items:[{t:"s",x:1,y:4,r:90},{t:"s",x:1,y:21,r:90},{t:"s",x:34,y:4,r:90},{t:"s",x:34,y:21,r:90},{t:"a",x:12,y:8},{t:"a",x:18,y:16},{t:"a",x:24,y:6},{t:"d",x:20,y:10},{t:"d",x:25,y:17},{t:"d",x:15,y:13},{t:"b",x:12.6,y:8.5}],lines:[{x1:12.6,y1:8.5,x2:18,y2:16,k:"pass"},{x1:18,y1:16,x2:30,y2:20,k:"drib"},{x1:24,y1:6,x2:31,y2:5,k:"run"}]}
+},
+{
+ id:"mala-hra-7-na-7-s-brankari",
+ cat:"mala_hra",
+ name:"Hra 7 na 7 s brankáři na zmenšeném hřišti",
+ goals:["kombinace","vystavba","presink","zakonceni","prechod"],
+ min:20,
+ range:[15,30],
+ players:[10,16],
+ gk:2,
+ diff:2,
+ load:3,
+ area:"55 × 40 m",
+ kit:"2 velké branky, 8 kuželů, 2 sady rozlišováků, 12 míčů v brankách",
+ aim:"Herní závěr tréninku, ve kterém hráči uplatní téma jednotky (výstavba, presink, přechod) v podmínkách blízkých utkání.",
+ setup:"Hřiště 55 × 40 m (od vápna k vápnu na šířku pokutového území a kousek za ním) se dvěma velkými brankami. Týmy 5 na 5 až 8 na 8 + brankáři, rozestavění blízké zápasovému systému.",
+ steps:[
+  "Hraj 2–3 poločasy po 8–10 minutách, mezi nimi 2–3 minuty pauza.",
+  "V prvním poločase volná hra, ve druhém podmínka podle tématu tréninku (např. gól po presinku do 8 s za 2 body, gól po kombinaci přes křídlo za 2 body).",
+  "Brankáři rozehrávají jen nohou nebo rukou do strany (podpora výstavby).",
+  "Trenér zastavuje hru jen výjimečně (koučovací zastavení max. 2–3× za poločas, krátce a jasně).",
+  "Při lichém počtu hráčů použij žolíka, který hraje s týmem v držení."
+ ],
+ coach:[
+  "Hráči drží pozice a systém – šířka v útoku, kompaktnost v obraně.",
+  "Sleduj téma dne a oceňuj správná řešení, ne jen góly.",
+  "Komunikace na hřišti – hráči se navzájem organizují.",
+  "Po ztrátě reakce celého týmu, ne jen nejbližšího hráče."
+ ],
+ easier:"Přidat jednoho až dva žolíky a zvětšit hřiště.",
+ harder:"Omezit na tři doteky nebo zmenšit hřiště na 45 × 35 m.",
+ mistakes:["Hráči se shlukují kolem míče a ztrácí se postavení","Nikdo nekomunikuje, chybí organizace","Hra se pořád přerušuje pomalým nahrazováním míčů"],
+ dia:{w:55,h:40,items:[{t:"G",x:0.5,y:20,r:90},{t:"G",x:54.5,y:20,r:90},{t:"g",x:2,y:20},{t:"g",x:53,y:20},{t:"a",x:12,y:10},{t:"a",x:12,y:30},{t:"a",x:24,y:20},{t:"a",x:36,y:8},{t:"d",x:30,y:15},{t:"d",x:30,y:27},{t:"d",x:42,y:20},{t:"b",x:24.6,y:20.5}],lines:[{x1:24.6,y1:20.5,x2:36,y2:8,k:"pass"},{x1:12,y1:30,x2:34,y2:32,k:"run"},{x1:36,y1:8,x2:46,y2:14,k:"drib"}]}
+},
+{
+ id:"mala-hra-krajni-zony",
+ cat:"mala_hra",
+ name:"Hra se zónami na křídlech",
+ goals:["krajni_hra","zakonceni","hlavicky","kombinace"],
+ min:20,
+ range:[15,25],
+ players:[10,16],
+ gk:2,
+ diff:2,
+ load:2,
+ area:"50 × 40 m (krajní pásma 8 m)",
+ kit:"2 velké branky, 10 kuželů, 3 sady rozlišováků, 12 míčů",
+ aim:"Podporuje hru přes křídla a zakončení po centrech, protože útok přes kraj je proti zhuštěnému středu nejúčinnější cesta.",
+ setup:"Hřiště 50 × 40 m se dvěma brankami a brankáři; podél obou delších stran vyznač pásma 8 m. Ve středu hraje 4 na 4 až 5 na 5, v každém krajním pásmu je jeden žolík, který hraje s týmem v držení.",
+ steps:[
+  "Do krajního pásma smí jen žolík, obránci tam nevstupují.",
+  "Žolík dostane míč, vede ho a centruje; útočníci nabíhají na přední tyč, zadní tyč a penaltu.",
+  "Gól po centru z pásma nebo zpětné přihrávce z pásma platí dvojnásob.",
+  "Po 5 minutách mohou do pásma nabíhat i hráči týmů (přeběh krajního obránce) a jeden obránce smí bránit (1 na 1).",
+  "Hraj 3 kola po 6 minutách, žolíky měň po každém kole."
+ ],
+ coach:[
+  "Rychlé přenesení hry na kraj, kde je volno.",
+  "Ve vápně minimálně dva útočníci na centr, každý do jiného prostoru.",
+  "Žolík centruje ve chvíli, kdy útočníci nabíhají – nečekat na ideální situaci.",
+  "Obrana: postavení proti centrům, vidět míč i hráče."
+ ],
+ easier:"Dva žolíci v každém pásmu nebo širší pásma.",
+ harder:"Do pásma smí obránce kdykoli, centr jen z prvního nebo druhého doteku.",
+ mistakes:["Hra jen středem, krajní pásma se nevyužívají","Ve vápně nikdo, když přijde centr","Centry bez pohledu na nabíhající hráče"],
+ dia:{w:50,h:40,items:[{t:"G",x:0.5,y:20,r:90},{t:"G",x:49.5,y:20,r:90},{t:"g",x:2,y:20},{t:"g",x:48,y:20},{t:"c",x:10,y:8},{t:"c",x:40,y:8},{t:"c",x:10,y:32},{t:"c",x:40,y:32},{t:"a",x:30,y:4},{t:"a",x:40,y:18},{t:"a",x:36,y:24},{t:"d",x:43,y:21},{t:"b",x:30.6,y:4.5}],lines:[{x1:30.6,y1:4.5,x2:42,y2:5,k:"drib"},{x1:42,y1:5,x2:45,y2:19,k:"pass"},{x1:40,y1:18,x2:45,y2:18,k:"run"},{x1:36,y1:24,x2:44,y2:24,k:"run"}]}
+},
+{
+ id:"brankari-chytani-pady-reakce",
+ cat:"brankari",
+ name:"Brankář: chytání, pády a reakce",
+ goals:["brankar"],
+ min:20,
+ range:[15,25],
+ players:[1,3],
+ gk:1,
+ diff:2,
+ load:2,
+ area:"vápno (16 × 20 m)",
+ kit:"1 velká branka, 6 kuželů, 12 míčů, 2 tyče",
+ aim:"Zdokonaluje základní brankářskou techniku – postoj, chytání, pády a rychlou reakci – na které stojí jistota celé obrany.",
+ setup:"Brankář v brance, nahrávač (hráč nebo asistent trenéra) s míči 8–16 m před brankou. Při dvou brankářích se střídají po každé sérii.",
+ steps:[
+  "Základní postoj a chytání: 2 × 10 míčů do koše (na prsa) a nad hlavu (ruce do tvaru W) z 8 m.",
+  "Pády: z kleku do strany 2 × 6 na každou stranu, pak ze stoje 2 × 6 na každou stranu (přízemní i polovysoké míče).",
+  "Kroky a pád: brankář udělá úkrok k tyči, vrátí se a pad na střelu do opačné strany, 2 × 5 na stranu.",
+  "Reakce: střela přes tyč nebo nahrávač zády, který se otočí a střílí z 10 m, 2 × 8.",
+  "Na závěr 1 na 1: nahrávač vede míč z 16 m, brankář vybíhá a zmenšuje úhel, 6 opakování."
+ ],
+ coach:[
+  "Postoj: nohy na šířku ramen, váha na přední části chodidel, ruce před tělem.",
+  "Chytat do rukou i tělem za míčem, palce k sobě nad hlavou.",
+  "Pád do strany, ne dozadu; ruce jdou k míči první, dopad na bok.",
+  "Po zákroku okamžitě vstát a připravit se na dorážku.",
+  "U 1 na 1 vybíhat ve chvíli, kdy si útočník pustí míč od nohy."
+ ],
+ easier:"Pomalejší a přesné nahrávky z rukou, pády jen z kleku.",
+ harder:"Rychlejší série bez pauzy, střely z voleje a odražené míče od tyčí.",
+ mistakes:["Stoj na patách, brankář nestihne reagovat","Vyrážení míče doprostřed před branku","Pád dozadu místo do strany"],
+ dia:{w:20,h:16,items:[{t:"G",x:10,y:0.5},{t:"g",x:10,y:2},{t:"c",x:3,y:8},{t:"c",x:17,y:8},{t:"a",x:10,y:10},{t:"b",x:10.5,y:9.5}],lines:[{x1:10.5,y1:9.5,x2:7,y2:2,k:"pass"},{x1:10,y1:2,x2:7,y2:2.5,k:"run"}]}
+},
+{
+ id:"brankari-centry-a-rozehravka",
+ cat:"brankari",
+ name:"Brankář: vybíhání na centry a rozehrávka",
+ goals:["brankar","vystavba","komunikace"],
+ min:18,
+ range:[15,22],
+ players:[3,6],
+ gk:1,
+ diff:3,
+ load:2,
+ area:"50 × 35 m",
+ kit:"1 velká branka, 6 kuželů, 15 míčů",
+ aim:"Učí brankáře rozhodnout, kdy vybíhat na centr, a po zachycení rychle a přesně rozehrát, čímž tým získá výhodu v přechodu.",
+ setup:"Brankář v brance, na obou křídlech centrující hráči s míči 25–30 m od branky. Na hranicích hřiště postav dvě kuželové branky 3 m široké (cíle rozehrávky) vlevo a vpravo 30 m od branky.",
+ steps:[
+  "Centr z pravé strany, brankář volá a chytá míč v nejvyšším bodě.",
+  "Po chycení okamžitě rozehrává – hod rukou nebo výkop do jedné z kuželových branek na opačnou stranu, kam se nabízí spoluhráč.",
+  "Centry střídat z obou stran, vysoké i polovysoké, na přední i zadní tyč.",
+  "Ve druhé fázi přidej 1–2 útočníky, kteří pasivně, později aktivně napadají centr.",
+  "Série 10 centrů, 3 série, mezi nimi 2 minuty pauza."
+ ],
+ coach:[
+  "Postavení v brance podle polohy míče – při centru o krok od bližší tyče doprostřed.",
+  "Rozhodnout včas a nahlas zavolat; když vybíhá, musí míč dostat.",
+  "Výskok z jedné nohy, koleno nahoru pro ochranu, chytání v nejvyšším bodě.",
+  "Když míč nelze chytit, vyrazit pěstí vysoko a daleko do strany.",
+  "Rozehrávka rychle a přesně na hráče do strany, ne doprostřed."
+ ],
+ easier:"Centry vysoké a pomalé z rukou, bez útočníků.",
+ harder:"Přidat 2 útočníky a 1 obránce, rozehrávka jen do 4 s po chycení.",
+ mistakes:["Váhání – brankář vybíhá pozdě a nedosáhne na míč","Chytání před tělem bez výskoku a krytí kolenem","Rozehrávka doprostřed na soupeře"],
+ dia:{w:50,h:35,items:[{t:"G",x:25,y:0.5},{t:"g",x:25,y:2},{t:"a",x:46,y:10},{t:"b",x:45.5,y:10.5},{t:"a",x:4,y:10},{t:"c",x:4,y:29},{t:"c",x:46,y:29},{t:"a",x:5,y:31}],lines:[{x1:45.5,y1:10.5,x2:26,y2:6,k:"pass"},{x1:25,y1:2,x2:26,y2:6,k:"run"},{x1:26,y1:6,x2:5,y2:30,k:"pass"}]}
+},
+{
+ id:"protazeni-vyklusani-staticke",
+ cat:"protazeni",
+ name:"Vyklusání a statické protažení",
+ goals:["regenerace"],
+ min:10,
+ range:[8,15],
+ players:[1,22],
+ gk:0,
+ diff:1,
+ load:1,
+ area:"kruh o průměru 15 m",
+ kit:"žádné (případně podložky)",
+ aim:"Zklidní organismus po zátěži a protáhne hlavní svalové skupiny fotbalisty, což pomáhá regeneraci a zachování rozsahu pohybu.",
+ setup:"Hráči nejprve volně vyklusávají po obvodu kruhu, poté se postaví do kruhu čelem dovnitř, trenér nebo kapitán předcvičuje uprostřed.",
+ steps:[
+  "3–5 minut volného vyklusání a chůze, dýchání se zklidní.",
+  "Zadní strana stehen: nohu napnutou na patě vpředu, předklon s rovnými zády, 30 s na každou nohu.",
+  "Přední strana stehen a flexory kyčle: výpad v kleku s podsazením pánve, 30 s na každou stranu.",
+  "Třísla a vnitřní strana stehen: sed s chodidly k sobě (motýlek) a široký stoj s přenášením váhy, 30 s.",
+  "Lýtka, hýžďové svaly (čtyřka vsedě) a záda, 30 s na každou stranu; celou sestavu 1–2 ×."
+ ],
+ coach:[
+  "Držet polohu v mírném tahu, bez bolesti a bez hmitání.",
+  "Klidné a hluboké dýchání, s výdechem uvolnit sval.",
+  "Důraz na zadní stehna a třísla – nejčastější zranění amatérů.",
+  "Připomenout pití a jídlo do hodiny po tréninku."
+ ],
+ easier:"Zkrátit výdrže na 20 s a vybrat jen 4 cviky.",
+ harder:"Prodloužit výdrže na 45 s a přidat protažení ve dvojicích s partnerem.",
+ mistakes:["Hmitání a přetahování do bolesti","Odbytí protažení za 2 minuty","Protahování v mokrém oblečení v chladu – raději v teple kabiny"],
+ dia:{w:15,h:15,items:[{t:"c",x:7.5,y:0.5},{t:"c",x:14.5,y:7.5},{t:"c",x:7.5,y:14.5},{t:"c",x:0.5,y:7.5},{t:"a",x:7.5,y:3},{t:"a",x:12,y:7.5},{t:"a",x:7.5,y:12},{t:"a",x:3,y:7.5},{t:"a",x:7.5,y:7.5}],lines:[{x1:2,y1:2,x2:13,y2:2,k:"run"},{x1:13,y1:2,x2:13,y2:13,k:"run"}]}
+},
+{
+ id:"protazeni-mobilita-dvojice",
+ cat:"protazeni",
+ name:"Mobilita kyčlí a protažení ve dvojicích",
+ goals:["regenerace"],
+ min:12,
+ range:[10,15],
+ players:[2,22],
+ gk:0,
+ diff:1,
+ load:1,
+ area:"20 × 15 m",
+ kit:"podložky, pěnové válce (pokud jsou k dispozici)",
+ aim:"Uvolňuje kyčle, třísla a zadní stehna, které jsou u fotbalistů nejvíce zkrácené, a podporuje regeneraci po náročném tréninku nebo den po zápase.",
+ setup:"Hráči ve dvojicích rozestavení po prostoru, každý s podložkou nebo na suché trávě. Trenér předcvičuje.",
+ steps:[
+  "Mobilita kyčlí: 90/90 sed s přetáčením kolen ze strany na stranu, 10 opakování.",
+  "Otevírání a zavírání brány vestoje, opora o partnera, 10 × každá noha.",
+  "Protažení zadních stehen ve dvojici: hráč leží na zádech, partner pomalu zvedá napnutou nohu do mírného tahu, 3 × 20 s na nohu s krátkým zatlačením proti partnerovi (PNF).",
+  "Válcování (pokud jsou válce): lýtka, zadní a přední stehna, hýžďové svaly, 45–60 s na každou partii.",
+  "Na závěr dechové cvičení v lehu 1 minuta a výměna rolí."
+ ],
+ coach:[
+  "Partner protahuje pomalu a podle signálu protahovaného, nikdy prudce.",
+  "Pohyby v plném rozsahu, ale bez bolesti.",
+  "Pro regeneraci den po zápase stačí 15 minut lehkého pohybu a mobility.",
+  "Hráči s bolestí se hlásí – přetížené svaly se neválcují agresivně."
+ ],
+ easier:"Jen individuální cviky bez partnera, kratší výdrže.",
+ harder:"Prodloužit výdrže, přidat mobilitu hrudní páteře a kotníků.",
+ mistakes:["Partner tlačí příliš rychle a silně","Válcování přímo přes bolestivé místo nebo kloub","Hráči se baví a cviky jen naznačují"],
+ dia:{w:20,h:15,items:[{t:"a",x:4,y:4},{t:"a",x:6,y:4},{t:"a",x:14,y:4},{t:"a",x:16,y:4},{t:"a",x:4,y:11},{t:"a",x:6,y:11},{t:"c",x:1,y:1},{t:"c",x:19,y:14}],lines:[{x1:14,y1:11,x2:18,y2:11,k:"run"}]}
+}
+];
+/* ===== Trenér: příprava tréninku, příprava na zápas, hodnocení hráčů, knihovna cvičení ===== */
+const TR_CAT={rozcvicka:"Rozcvička",technika:"Technika",prihravky:"Přihrávky",zakonceni:"Zakončení",obrana:"Obrana",presink:"Presink",prechod:"Přechodová fáze",kondice:"Kondice",standardky:"Standardní situace",mala_hra:"Malá hra",brankari:"Brankáři",protazeni:"Protažení"};
+const TR_GOALS=[["prihravky","Přihrávky"],["prvni_dotek","První dotek"],["kombinace","Kombinace"],["vystavba","Výstavba hry"],["zakonceni","Zakončení"],["krajni_hra","Hra po křídlech"],["obrana","Obrana"],["1v1","Souboje 1 na 1"],["presink","Presink"],["prechod","Přechody"],["standardky","Standardky"],["hlavicky","Hlavičky"],["kondice","Kondice"],["rychlost","Rychlost"],["komunikace","Komunikace"],["brankar","Brankář"]];
+const TR_GL=k=>({rozcvicka:"Rozcvička",regenerace:"Regenerace",pohyb_bez_mice:"Pohyb bez míče"}[k]||(TR_GOALS.find(x=>x[0]===k)||[0,k.replace(/_/g," ")])[1]);
+const TR_DIFF=["","lehké","střední","náročné"],TR_LOAD=["","nízká","střední","vysoká"];
+const TR_KW=[[/přihr|prihr|pas/,"prihravky"],[/dotek|převzet|prevzet/,"prvni_dotek"],[/kombin/,"kombinace"],[/výstav|vystav|rozehr/,"vystavba"],[/střel|strel|zakon|gól|gol|koncov/,"zakonceni"],[/křídl|kridl|centr|kraj/,"krajni_hra"],[/obran|bránit|branit|defenz|zdvoj/,"obrana"],[/1v1|1 na 1|souboj|osobn/,"1v1"],[/presin|presink|napad|vysok/,"presink"],[/přechod|prechod|brejk|protiút|protiut|otočen/,"prechod"],[/roh|standard|přímák|primak|aut|penalt/,"standardky"],[/hlav/,"hlavicky"],[/kondic|vytrval|běh|beh|fyzič|fyzic/,"kondice"],[/rychl|sprint|start|akcel/,"rychlost"],[/komunik|mluv|koučov/,"komunikace"],[/brankář|brankar|gólman|golman/,"brankar"]];
+const TR_TPL={
+ trenink:[["Rozcvička",["rozcvicka"],.15],["Technika s míčem",["technika","prihravky"],.17],["Hlavní část 1",["F"],.23],["Hlavní část 2",["F","mala_hra"],.2],["Hra",["mala_hra"],.18],["Protažení",["protazeni"],.07]],
+ predzapas:[["Rozcvička",["rozcvicka"],.2],["Rondo a přihrávky",["prihravky","technika"],.2],["Standardní situace",["standardky"],.22],["Zakončení",["zakonceni"],.25],["Protažení",["protazeni"],.13]],
+ regenerace:[["Lehká rozcvička",["rozcvicka"],.25],["Přihrávky v klidu",["prihravky","technika"],.3],["Lehká hra",["mala_hra"],.25],["Protažení a uvolnění",["protazeni"],.2]],
+ kondicni:[["Rozcvička",["rozcvicka"],.15],["Rychlost",["kondice"],.2],["Hlavní část",["F"],.25],["Kondice s míčem",["kondice","mala_hra"],.25],["Protažení",["protazeni"],.15]]};
+const TR_TYPES={trenink:"Běžný trénink",predzapas:"Den před zápasem",regenerace:"Regenerace po zápase",kondicni:"Kondiční trénink"};
+let trPlan=store.get("trPlan",null),trTab="plan",trLibF={cat:"",q:""},trOpen={},trRate={m:"",rows:{}};
+const trD=id=>(typeof DRILLS!=="undefined"?DRILLS:[]).find(d=>d.id===id);
+/* -- nákres cvičení -- */
+function drillSVG(dia){if(!dia||!dia.w)return "";const W=dia.w,H=dia.h,u=Math.max(W,H)/40,pad=3*u;
+ const col={a:"#1d6fd0",d:"#d33a2c",g:"#f2c230"},mk={pass:"tp",run:"tr",drib:"td"};
+ const it=(dia.items||[]).map(o=>{const x=o.x,y=o.y;
+  if(o.t==="c")return `<path d="M${x-1.1*u} ${y+1*u} L${x} ${y-1.2*u} L${x+1.1*u} ${y+1*u}Z" fill="#f08a24"/>`;
+  if(o.t==="b")return `<circle cx="${x}" cy="${y}" r="${.7*u}" fill="#fff" stroke="#222" stroke-width="${.2*u}"/>`;
+  if(o.t==="G"||o.t==="s"){const w=o.t==="G"?7.3:3,h=o.t==="G"?1.6:1.1;return `<rect x="${x-w/2}" y="${y-h/2}" width="${w}" height="${h}" fill="none" stroke="#fff" stroke-width="${.45*u}" transform="rotate(${o.r||0} ${x} ${y})"/>`;}
+  return `<circle cx="${x}" cy="${y}" r="${1.25*u}" fill="${col[o.t]||"#1d6fd0"}" stroke="#fff" stroke-width="${.3*u}"/>`;}).join("");
+ const ln=(dia.lines||[]).map(l=>`<line x1="${l.x1}" y1="${l.y1}" x2="${l.x2}" y2="${l.y2}" class="${mk[l.k]||"tp"}" style="stroke-width:${.4*u}px;stroke-dasharray:${l.k==="run"?1.4*u+" "+u:l.k==="drib"?.4*u+" "+.8*u:"none"}" marker-end="url(#ah)"/>`).join("");
+ return `<svg class="drdia" viewBox="${-pad} ${-pad} ${W+pad*2} ${H+pad*2}" style="aspect-ratio:${(W+pad*2)/(H+pad*2)}" role="img" aria-label="Nákres cvičení"><defs><marker id="ah" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L6 3L0 6z" fill="#fff"/></marker></defs><rect x="${-pad}" y="${-pad}" width="${W+pad*2}" height="${H+pad*2}" fill="#2f7a3a"/><rect x="0" y="0" width="${W}" height="${H}" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="${.3*u}" stroke-dasharray="${u} ${u}"/>${ln}${it}</svg>`;}
+const dots=(n,c)=>`<span class="trdots" aria-label="${c}">${[1,2,3].map(i=>`<i class="${i<=n?"on":""}"></i>`).join("")}</span>`;
+function drillCard(d,min,i,opts={}){if(!d)return "";const open=opts.open||trOpen[d.id+(i==null?"":"_"+i)];
+ return `<article class="drill ${open?"open":""}" data-dk="${esc(d.id)}${i==null?"":"_"+i}"><header><div>${i!=null?`<span class="stag">${esc(opts.slot||"")}${opts.time?" · "+esc(opts.time):""}</span>`:`<span class="stag">${esc(TR_CAT[d.cat]||d.cat)}</span>`}<h4>${esc(d.name)}</h4>
+  <p class="drmeta"><b>${min||d.min} min</b> · ${esc(d.area)} · ${d.players[0]}–${d.players[1]} hráčů${d.gk?` · ${d.gk} brank.`:""} · obtížnost ${dots(d.diff,TR_DIFF[d.diff])} · zátěž ${dots(d.load,TR_LOAD[d.load])}</p></div>
+  <div class="dract">${i!=null?`<button type="button" class="btn sm ghost" data-swap="${i}" title="Vyměnit za jiné cvičení">⇄ Vyměnit</button>`:""}<button type="button" class="btn sm ghost" data-dopen="${esc(d.id)}${i==null?"":"_"+i}" aria-expanded="${!!open}">${open?"Skrýt":"Návod"}</button></div></header>
+  <p class="draim">${esc(d.aim)}</p>
+  ${open?`<div class="drbody"><div class="drgrid"><div>${drillSVG(d.dia)}<p class="muted drleg"><i class="lg a"></i>naši <i class="lg d"></i>soupeř/obránci <i class="lg c"></i>kužel · plná čára přihrávka, čárkovaná běh, tečkovaná vedení míče</p></div>
+   <div><h5>Příprava</h5><p>${esc(d.setup)}</p><p class="muted"><b>Pomůcky:</b> ${esc(d.kit)}</p><h5>Postup</h5><ol>${d.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></div></div>
+   <div class="drgrid"><div><h5>Na co dát pozor (koučování)</h5><ul>${d.coach.map(s=>`<li>${esc(s)}</li>`).join("")}</ul><h5>Časté chyby</h5><ul>${d.mistakes.map(s=>`<li>${esc(s)}</li>`).join("")}</ul></div>
+   <div><h5>Zlehčení</h5><p>${esc(d.easier)}</p><h5>Ztížení</h5><p>${esc(d.harder)}</p><p class="muted">Doporučená délka ${d.range[0]}–${d.range[1]} min · zaměření: ${d.goals.map(g=>esc(TR_GL(g).toLowerCase())).join(", ")}</p></div></div></div>`:""}</article>`;}
+/* -- generátor plánu -- */
+function trParse(txt){const t0=String(txt||"").toLowerCase(),t=t0.replace(/\d\s*(brank|gólm|golm)\S*/g,""),g=[];TR_KW.forEach(([re,k])=>{if(re.test(t)&&!g.includes(k))g.push(k);});
+ const pl=t.match(/(\d{1,2})\s*(hráč|hrac|lid|kluk)/),du=t.match(/(\d{2,3})\s*(min|minut)/),gk=t0.match(/(\d)\s*(brank|gólm|golm)/);
+ return{goals:g,players:pl?+pl[1]:null,dur:du?+du[1]:null,gk:gk?+gk[1]:null,int:/lehk|volněj|volnej|regener/.test(t)?1:/těžk|tezk|náročn|narocn|makačk|makack|dřin|drin/.test(t)?3:null,
+  type:/před zápas|pred zapas|den před|den pred/.test(t)?"predzapas":/regener|po zápas|po zapas/.test(t)?"regenerace":/kondi/.test(t)&&!/míč|mic/.test(t)?"kondicni":null};}
+function trScore(d,slotCats,o,used,seed){if(!slotCats.includes(d.cat)&&!(slotCats.includes("F")&&o.goals.some(g=>d.goals.includes(g))&&!["rozcvicka","protazeni"].includes(d.cat)))return -1e9;
+ if(o.players<d.players[0]-1||o.players>d.players[1]+4)return -1e9;if(d.gk>o.gk)return -1e9;if(used.has(d.id))return -1e9;
+ let s=0;o.goals.forEach(g=>{if(d.goals.includes(g))s+=4;});if(slotCats[0]===d.cat)s+=2;
+ s-=Math.abs(d.load-o.int)*(o.int===1&&d.load===3?6:1.5);s-=Math.max(0,d.diff-o.level)*1.5;
+ const h=[...(d.id+seed)].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);return s+(h%100)/60;}
+function trBuild(o){const tpl=TR_TPL[o.type]||TR_TPL.trenink,used=new Set(),items=[];let left=o.dur;
+ tpl.forEach(([slot,cats,fr],i)=>{let min=Math.max(5,Math.round(o.dur*fr/5)*5);
+  const cand=(typeof DRILLS!=="undefined"?DRILLS:[]).map(d=>[d,trScore(d,cats,o,used,o.seed+"_"+i)]).filter(x=>x[1]>-1e8).sort((a,b)=>b[1]-a[1]);
+  if(!cand.length)return;const d=cand[0][0];used.add(d.id);min=Math.max(d.range[0],Math.min(d.range[1]+5,min));items.push({slot,id:d.id,min,cats});});
+ const tot=items.reduce((s,x)=>s+x.min,0),diff=o.dur-tot;if(items.length&&diff){const k=items.findIndex(x=>x.slot.startsWith("Hlavní")||x.slot==="Hra");const j=k>=0?k:Math.floor(items.length/2);items[j].min=Math.max(5,items[j].min+diff);}
+ return{...o,items,at:Date.now()};}
+function trSwap(i){const it=trPlan.items[i],used=new Set(trPlan.items.map(x=>x.id)),o=trPlan;
+ const cand=DRILLS.map(d=>[d,trScore(d,it.cats,o,new Set([...used].filter(x=>x!==it.id)),o.seed+"_s")]).filter(x=>x[1]>-1e8&&x[0].id!==it.id&&!used.has(x[0].id)).sort((a,b)=>b[1]-a[1]);
+ if(!cand.length){toast("Jiné vhodné cvičení pro tuhle část nemám");return;}
+ const pick=cand[Math.floor(Math.random()*Math.min(3,cand.length))][0];it.id=pick.id;store.set("trPlan",trPlan);renderTrener();}
+function trTimes(p){let t=p.time||"17:30",[h,m]=t.split(":").map(Number);return p.items.map(x=>{const a=`${h}:${String(m).padStart(2,"0")}`;m+=x.min;h+=Math.floor(m/60);m%=60;return a+"–"+`${h}:${String(m).padStart(2,"0")}`;});}
+function trPlanText(p){const T=trTimes(p);return `⚽ ${TR_TYPES[p.type]} ${p.date?fmtDL(p.date):""}${p.time?" od "+p.time:""} (${p.dur} min)\n${p.goals.length?"🎯 Zaměření: "+p.goals.map(g=>(TR_GOALS.find(x=>x[0]===g)||[0,g])[1]).join(", ")+"\n":""}\n${p.items.map((x,i)=>{const d=trD(x.id);return `${T[i]} · ${x.slot}: ${d?d.name:""} (${x.min} min)`;}).join("\n")}`;}
+function trPlanHTML(){const p=trPlan;if(!p||!p.items||!p.items.length)return `<p class="muted">Zadej parametry a klikni na „Sestavit trénink“.</p>`;
+ const T=trTimes(p),load=Math.round(p.items.reduce((s,x)=>s+(trD(x.id)||{load:1}).load*x.min,0)/p.dur*10)/10;
+ return `<div class="trsum"><div><span class="stag">${esc(TR_TYPES[p.type])}${p.date?" · "+esc(fmtDL(p.date)):""}</span><h3>${p.dur} minut · ${p.players} hráčů${p.gk?` + ${p.gk} brank.`:""}</h3>
+  <p class="muted">${p.goals.length?"Zaměření: "+p.goals.map(g=>esc((TR_GOALS.find(x=>x[0]===g)||[0,g])[1])).join(", ")+" · ":""}průměrná zátěž ${String(load).replace(".",",")} / 3</p></div>
+  <div class="trbar" aria-hidden="true">${p.items.map(x=>`<i class="L${(trD(x.id)||{load:1}).load}" style="flex:${x.min}" title="${esc(x.slot)} ${x.min} min"></i>`).join("")}</div>
+  <div class="dract"><button class="btn sm" type="button" id="trPrint">Vytisknout</button><a class="btn sm ghost" href="https://wa.me/?text=${encodeURIComponent(trPlanText(p))}" target="_blank" rel="noopener">Do WhatsAppu</a>${typeof kAdm==="function"&&kAdm()?`<button class="btn sm ghost" type="button" id="trEv">Vypsat jako akci</button>`:""}<button class="btn sm ghost" type="button" id="trOpenAll">Rozbalit návody</button></div></div>
+  <div class="trlist">${p.items.map((x,i)=>drillCard(trD(x.id),x.min,i,{slot:x.slot,time:T[i]})).join("")}</div>`;}
+function trForm(){const p=trPlan||{};const g=p.goals||[];
+ return `<form class="card f trform" id="trForm"><h3 style="font-size:1.4rem">Sestavit trénink</h3>
+  <label class="l trwide">Zadání vlastními slovy (nepovinné)<textarea id="tr-txt" rows="2" placeholder="např. 14 hráčů, 90 minut, potřebujeme zlepšit presink a zakončení, ve čtvrtek hrajeme">${esc(p.txt||"")}</textarea></label>
+  <div class="evgrid"><label class="l">Typ<select id="tr-type">${Object.entries(TR_TYPES).map(([k,l])=>`<option value="${k}"${(p.type||"trenink")===k?" selected":""}>${l}</option>`).join("")}</select></label>
+   <label class="l">Datum<input type="date" id="tr-date" value="${esc(p.date||"")}"></label><label class="l">Začátek<input type="time" id="tr-time" value="${esc(p.time||"17:30")}"></label>
+   <label class="l">Délka<select id="tr-dur">${[45,60,75,90,105].map(n=>`<option${(p.dur||75)===n?" selected":""}>${n}</option>`).join("")}</select></label>
+   <label class="l">Hráčů v poli<input type="number" id="tr-pl" min="4" max="30" value="${p.players||14}"></label><label class="l">Brankářů<select id="tr-gk">${[0,1,2].map(n=>`<option${(p.gk??1)===n?" selected":""}>${n}</option>`).join("")}</select></label>
+   <label class="l">Zátěž<select id="tr-int">${[1,2,3].map(n=>`<option value="${n}"${(p.int||2)===n?" selected":""}>${TR_LOAD[n]}</option>`).join("")}</select></label>
+   <label class="l">Úroveň cvičení<select id="tr-lv">${[1,2,3].map(n=>`<option value="${n}"${(p.level||2)===n?" selected":""}>${TR_DIFF[n]}</option>`).join("")}</select></label></div>
+  <fieldset class="trgoals"><legend>Zaměření</legend>${TR_GOALS.map(([k,l])=>`<label><input type="checkbox" value="${k}"${g.includes(k)?" checked":""}> ${l}</label>`).join("")}</fieldset>
+  <button class="btn" type="submit">Sestavit trénink</button></form>`;}
+/* -- příprava na zápas -- */
+const trUsM=()=>[...(typeof S2526!=="undefined"?S2526:[]),...S2627].filter(m=>m[3]!=null&&(isUs(m[2])||isUs(m[4]))).sort((a,b)=>a[1]<b[1]?-1:1);
+const trRes=(m,us)=>{const h=us?isUs(m[2]):m[2]===us,f=h?m[3]:m[5],a=h?m[5]:m[3];return f>a?"V":f<a?"P":"R";};
+function trOppForm(t){return R2627.filter(m=>m[3]!=null&&(m[2]===t||m[4]===t)).sort((a,b)=>a[1]<b[1]?-1:1).slice(-5).map(m=>{const h=m[2]===t,f=h?m[3]:m[5],a=h?m[5]:m[3];return{r:f>a?"V":f<a?"P":"R",s:`${m[2]} ${m[3]}:${m[5]} ${m[4]}`};});}
+function trAvg(list,keys){const o={};keys.forEach(k=>{const v=list.map(a=>a[k]).filter(x=>x!=null);o[k]=v.length?v.reduce((s,x)=>s+x,0)/v.length:60;});return o;}
+function trPrep(opp){const row=T2627.find(r=>r[0]===opp),pos=T2627.indexOf(row)+1,us=T2627.find(r=>isUs(r[0])),usPos=T2627.indexOf(us)+1;
+ const F=trOppForm(opp),H=trUsM().filter(m=>m[2]===opp||m[4]===opp),fix=S2627.find(m=>m[2]===opp||m[4]===opp),home=fix?!isUs(fix[2]):true;
+ let oa=[];try{oa=(oppSquad(opp)||[]);}catch(e){}
+ let ua=[];try{ua=(oppSquad(KOS)||[]);}catch(e){}
+ const K=["tem","str","pri","kli","obr","fyz"],OA=trAvg(oa.filter(q=>q.role!=="B").map(q=>q.a||{}),K),UA=trAvg(ua.filter(q=>q.role!=="B").map(q=>q.a||{}),K);
+ {let dd=0;try{dd=tgtOf(opp)-tgtOf(KOS);}catch(x){}if(isFinite(dd)){const om=K.reduce((s,k)=>s+OA[k],0)/K.length,um=K.reduce((s,k)=>s+UA[k],0)/K.length;K.forEach(k=>OA[k]=OA[k]-om+um+dd);}}
+ const key=oa.filter(q=>q.role!=="B").slice().sort((a,b)=>(b.g||0)*3+(b.o||0)-((a.g||0)*3+(a.o||0))).slice(0,4);
+ const [z,v,r,p,gf,ga,b]=row?row.slice(1):[0,0,0,0,0,0,0],gpg=z?gf/z:1.5,gapg=z?ga/z:1.5;
+ const tips=[],focus=[];
+ if(gpg>=2.8){tips.push(`Soupeř dává ${String(gpg.toFixed(1)).replace(".",",")} gólu na zápas – prioritou je kompaktní blok, krátké vzdálenosti mezi řadami a zdvojování na křídlech.`);focus.push("obrana","komunikace");}
+ if(gapg>=2.5){tips.push(`Obrana soupeře inkasuje ${String(gapg.toFixed(1)).replace(".",",")} gólu na zápas – choďte do zakončení, střílejte z druhé vlny a dorážejte.`);focus.push("zakonceni");}
+ if(OA.tem>UA.tem+3){tips.push("Soupeř je rychlejší: nehrajte vysoko postavenou obranu, stoperi ať mají jištění a záložníci se rychle vracejí.");focus.push("prechod");}
+ else if(UA.tem>OA.tem+3){tips.push("Jsme rychlejší: hrajte do běhu za obranu a po zisku míče rychle dopředu.");focus.push("prechod","rychlost");}
+ if(UA.pri>OA.pri+2){tips.push("V kombinaci jsme lepší – trpělivá výstavba zezadu, držte míč a unavte je.");focus.push("vystavba","kombinace");}
+ if(OA.obr<UA.obr-2||gapg>=2){tips.push("Napadejte jejich rozehrávku presinkem hned u vápna, chybují pod tlakem.");focus.push("presink");}
+ if(OA.fyz>UA.fyz+3){tips.push("Fyzicky jsou silnější: hrajte na zem, vyhýbejte se dlouhým nákopům do soubojů, standardky bránit zónově.");focus.push("standardky");}
+ if(!tips.length){tips.push("Vyrovnaný soupeř – rozhodne disciplína, standardní situace a kdo méně chybuje v rozehrávce.");focus.push("standardky","prihravky");}
+ tips.push(home?"Hrajeme doma: od začátku tlak, využít znalost hřiště a podporu fanoušků.":"Hrajeme venku: prvních 15 minut zajistit, nepouštět je do tlaku, pak trestat brejky.");
+ const formn=gpg>=2.5&&gapg<1.5?"4-4-2 (kompaktní, dvě řady po čtyřech)":gapg>=2.3?"4-3-3 (víc hráčů do útoku)":OA.tem>UA.tem+3?"4-2-3-1 (dva defenzivní záložníci)":"4-4-2";
+ const fset=[...new Set(focus)];
+ return{opp,row,pos,usPos,F,H,home,key,OA,UA,tips,formn,focus:fset};}
+function trPrepHTML(){const opts=T2627.map(r=>r[0]).filter(t=>!isUs(t));const sel=store.get("trOpp","")||(S2627[0]&&(isUs(S2627[0][2])?S2627[0][4]:S2627[0][2]))||opts[0];
+ const P=trPrep(sel),K=[["tem","Tempo"],["str","Střelba"],["pri","Přihrávky"],["kli","Kličky"],["obr","Obrana"],["fyz","Fyzička"]];
+ const bil=P.H.length?(()=>{const c={V:0,R:0,P:0};P.H.forEach(m=>c[trRes(m,"K")]++);return `${c.V}V ${c.R}R ${c.P}P`;})():"";
+ return `<div class="card f"><label class="l">Soupeř<select id="trOpp">${opts.map(t=>`<option${t===sel?" selected":""}>${esc(t)}</option>`).join("")}</select></label><p class="muted" style="font-size:.85rem;margin-top:6px">Jarní zápas: ${P.home?"doma v Košicích":"venku"} · soupeř je ${P.pos}. (${P.row?P.row[7]:0} b.), my ${P.usPos}.</p></div>
+ <div class="two"><div class="card"><h3 style="font-size:1.4rem">Soupeř v číslech</h3>
+   <p>Skóre ${P.row?P.row[5]+":"+P.row[6]:"–"} · ${P.row?`${P.row[2]} výher, ${P.row[3]} remíz, ${P.row[4]} proher`:""}</p>
+   <p>Forma (od nejstaršího): ${P.F.map(f=>`<span class="pill ${f.r}" title="${esc(f.s)}">${f.r}</span>`).join(" ")||"–"}</p>
+   <p>Vzájemné zápasy: ${P.H.length?`${bil} · `+P.H.slice(-3).map(m=>`${esc(m[2])} ${m[3]}:${m[5]} ${esc(m[4])}`).join(", "):"zatím žádné"}</p>
+   <h5 style="margin-top:12px">Srovnání týmů (průměr hráčů v poli)</h5><div class="trcmp">${K.map(([k,l])=>`<div><span>${l}</span><b>${Math.round(P.UA[k])}</b><s><i class="us" style="--w:${P.UA[k]}%"></i><i class="th" style="--w:${P.OA[k]}%"></i></s><b>${Math.round(P.OA[k])}</b></div>`).join("")}</div><p class="muted" style="font-size:.78rem">Vlevo Košice, vpravo ${esc(P.opp)}. Odhad z kariér hráčů a výsledků.</p></div>
+  <div class="card"><h3 style="font-size:1.4rem">Na koho si dát pozor</h3>${P.key.length?`<div class="flist">${P.key.map(q=>`<div class="frow"><span><b>${esc(q.n)}</b><small>${esc({U:"útočník",Z:"záložník",O:"obránce",B:"brankář"}[q.role]||"")}${q.g?` · ${q.g} ${plural(q.g,"gól","góly","gólů")} v sezoně`:""}</small></span><b class="famt">${Math.round(q.o||0)}</b></div>`).join("")}</div>`:`<p class="muted">Soupisku soupeře neznáme.</p>`}</div></div>
+ <div class="card"><h3 style="font-size:1.4rem">Plán na zápas</h3><p><b>Doporučené rozestavení:</b> ${esc(P.formn)}</p><ul class="trtips">${P.tips.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>
+  <p class="muted" style="font-size:.85rem">Týden před zápasem: první trénink zaměřit na ${P.focus.slice(0,3).map(g=>esc((TR_GOALS.find(x=>x[0]===g)||[0,g])[1].toLowerCase())).join(", ")}; den před zápasem lehce, standardky a zakončení.</p>
+  <div class="dract"><button class="btn sm" type="button" id="trWk1">Sestavit 1. trénink týdne</button><button class="btn sm ghost" type="button" id="trWk2">Sestavit trénink den před zápasem</button></div></div>`;}
+/* -- hodnocení hráčů -- */
+const TR_TAGS=[["prihravky","Přihrávky"],["souboje","Souboje"],["pohyb","Pohyb bez míče"],["zakonceni","Zakončení"],["nasazeni","Nasazení"],["komunikace","Komunikace"],["hlavicky","Hra hlavou"],["postaveni","Postavení"],["kondice","Kondice"],["prvni_dotek","První dotek"]];
+const TR_TAG2GOAL={prihravky:"prihravky",souboje:"1v1",pohyb:"pohyb_bez_mice",zakonceni:"zakonceni",komunikace:"komunikace",hlavicky:"hlavicky",postaveni:"obrana",kondice:"kondice",prvni_dotek:"prvni_dotek",nasazeni:"presink"};
+const TR_TIP={prihravky:"Přihrávky: víc kontaktů s míčem, přihrávat na správnou nohu spoluhráče a před převzetím se rozhlédnout.",souboje:"Souboje: nízké těžiště, tělo mezi soupeřem a míčem, do skluzu jen když je jistota.",pohyb:"Pohyb bez míče: nabíhat do volných prostorů a nabízet se dřív, než míč přijde.",zakonceni:"Zakončení: v šanci klid, placírkou k tyči místo rány, víc střel po zemi.",nasazeni:"Nasazení: první napadení po ztrátě do 5 vteřin, nevzdávat souboje.",komunikace:"Komunikace: víc mluvit – „mám“, „hraj“, „čas“, organizovat řadu před sebou.",hlavicky:"Hra hlavou: odraz z rozběhu, oči otevřené, míč čelem dolů do brány nebo ke spoluhráči.",postaveni:"Postavení: hlídat vzdálenost od spoluhráčů a stát bokem, aby šlo vidět míč i soupeře.",kondice:"Kondice: přidat individuálně 2× týdně intervalový běh (např. 6× 200 m), na trénincích netrápit tempo.",prvni_dotek:"První dotek: převzetí směrem od soupeře, ať je míč připravený na další akci."};
+function trRec(name,r,minus,plus){const parts=[];
+ if(r>=8)parts.push(`${name.split(" ")[0]} odehrál výborný zápas${plus.length?" – hlavně "+plus.map(t=>(TR_TAGS.find(x=>x[0]===t)||[0,t])[1].toLowerCase()).join(", "):""}. Takhle dál, je vzorem pro ostatní.`);
+ else if(r>=6)parts.push(`Solidní výkon${plus.length?", plus za "+plus.map(t=>(TR_TAGS.find(x=>x[0]===t)||[0,t])[1].toLowerCase()).join(", "):""}.`);
+ else parts.push("Tenhle zápas se nepovedl, příště to bude lepší – hlavně se nebát hrát a chtít míč.");
+ minus.forEach(t=>{if(TR_TIP[t])parts.push(TR_TIP[t]);});
+ const gs=minus.map(t=>TR_TAG2GOAL[t]).filter(Boolean);const dr=(typeof DRILLS!=="undefined"?DRILLS:[]).filter(d=>gs.some(g=>d.goals.includes(g))&&!["rozcvicka","protazeni"].includes(d.cat)).slice(0,2);
+ if(dr.length)parts.push("Na tréninku zaměřit: "+dr.map(d=>d.name).join(", ")+".");
+ return parts.join(" ");}
+function trMatchList(){return trUsM().slice().reverse();}
+function trRateHTML(){const ML=trMatchList();if(!trRate.m&&ML[0])trRate.m=ML[0][1]+"|"+ML[0][2];
+ const m=ML.find(x=>x[1]+"|"+x[2]===trRate.m)||ML[0];if(!m)return `<p class="muted">Žádné odehrané zápasy.</p>`;
+ const mid=(m[1]+"-"+slug(isUs(m[2])?m[4]:m[2])).slice(0,40),saved=(KS&&KS.ratings||[]).filter(x=>x.m===mid);
+ const pres=KS?KS.events.filter(e=>e.date===m[1].slice(0,10)&&e.typ==="Z").flatMap(e=>KS.pres.filter(p=>p.ev===e.id&&+p.p).map(p=>p.slug)):[];
+ const sc=(m[6]||[]);const roster=kSquad();
+ const rows=roster.map(p=>{const s=saved.find(x=>x.slug===p.slug),st=trRate.rows[p.slug]||{on:s?1:(pres.includes(p.slug)||sc.some(n=>p.name.includes(String(n).split(" ").slice(-1)[0]))?1:0),r:s?+s.r:6,plus:s?String(s.plus).split(",").filter(Boolean):[],minus:s?String(s.minus).split(",").filter(Boolean):[],note:s?s.note:""};trRate.rows[p.slug]=st;return [p,st,s];});
+ return `<div class="card f"><label class="l">Zápas<select id="trM">${ML.map(x=>`<option value="${esc(x[1]+"|"+x[2])}"${x===m?" selected":""}>${esc(fmtD(x[1].slice(0,10)))} ${x[1].slice(0,4)} · ${esc(x[2])} ${x[3]}:${x[5]} ${esc(x[4])}</option>`).join("")}</select></label>
+  <p class="muted" style="font-size:.85rem;margin-top:6px">${sc.length?"Góly Košic: "+sc.map(esc).join(", ")+" · ":""}Zaškrtni, kdo hrál, dej známku 1–10 a vyber, co se povedlo a co zlepšit. Doporučení se napíše samo a hráč ho uvidí v Kabině.${saved.length?` <b>Uloženo ${saved.length} hodnocení.</b>`:""}</p></div>
+ <div class="trrate">${rows.map(([p,st,s])=>`<div class="trr ${st.on?"on":""}" data-rr="${esc(p.slug)}"><label class="trrh"><input type="checkbox" data-ron ${st.on?"checked":""}> <b>${esc(p.name)}</b></label>
+   ${st.on?`<label class="trnum">Známka <input type="range" min="1" max="10" value="${st.r}" data-rv><output>${st.r}</output></label>
+   <div class="trtags"><span class="stag">Povedlo se</span>${TR_TAGS.map(([k,l])=>`<button type="button" class="trtg ${st.plus.includes(k)?"on p":""}" data-tp="${k}">${l}</button>`).join("")}</div>
+   <div class="trtags"><span class="stag">Zlepšit</span>${TR_TAGS.map(([k,l])=>`<button type="button" class="trtg ${st.minus.includes(k)?"on m":""}" data-tm="${k}">${l}</button>`).join("")}</div>
+   <input type="text" data-rn maxlength="120" placeholder="Poznámka trenéra (nepovinné)" value="${esc(st.note||"")}">
+   <p class="trrec">${esc(trRec(p.name,st.r,st.minus,st.plus))}</p>`:""}</div>`).join("")}</div>
+ <button class="btn" type="button" id="trRSave" style="margin-top:12px">Uložit hodnocení</button>
+ ${trRateStats()}`;}
+function trRateStats(){const R=(KS&&KS.ratings)||[];if(!R.length)return "";const by={};R.forEach(x=>{(by[x.slug]=by[x.slug]||[]).push(+x.r);});
+ const e=Object.entries(by).map(([s,a])=>[s,a.reduce((x,y)=>x+y,0)/a.length,a.length]).sort((a,b)=>b[1]-a[1]);
+ return `<div class="card" style="margin-top:16px"><h3 style="font-size:1.4rem;margin-bottom:10px">Průměrné známky v sezoně</h3><div class="bars">${e.map(([s,v,n],i)=>`<div class="bar"><i class="rk">${i+1}</i><span>${esc(kName(s))} <small class="muted">${n}×</small></span><s style="--w:${v*10}%"></s><em>${v.toFixed(1).replace(".",",")}</em></div>`).join("")}</div></div>`;}
+/* -- knihovna -- */
+function trLibHTML(){const q=slug(trLibF.q||""),L=(typeof DRILLS!=="undefined"?DRILLS:[]).filter(d=>(!trLibF.cat||d.cat===trLibF.cat)&&(!q||slug(d.name+" "+d.aim+" "+d.goals.join(" ")).includes(q)));
+ return `<div class="card f trlibf"><label class="l">Hledat<input type="text" id="trQ" value="${esc(trLibF.q)}" placeholder="např. rondo, presink, centr"></label><label class="l">Kategorie<select id="trC"><option value="">Všechny (${DRILLS.length})</option>${Object.entries(TR_CAT).map(([k,l])=>`<option value="${k}"${trLibF.cat===k?" selected":""}>${l} (${DRILLS.filter(d=>d.cat===k).length})</option>`).join("")}</select></label></div>
+ <div class="trlist">${L.map(d=>drillCard(d,null,null)).join("")||`<p class="muted">Nic nenalezeno.</p>`}</div>`;}
+/* -- vykreslení záložky -- */
+function renderTrener(){const box=$("#kTrener");if(!box)return;
+ const tabs=[["plan","Příprava tréninku"],["zapas","Příprava na zápas"],["hodnoceni","Hodnocení zápasu"],["knihovna","Knihovna cvičení"]];
+ box.innerHTML=`<div class="seg trseg" role="group" aria-label="Trenér">${tabs.map(([k,l])=>`<button type="button" data-tt="${k}" aria-pressed="${trTab===k}">${l}</button>`).join("")}</div>
+  <div class="trpane">${trTab==="plan"?`<div class="trcols">${trForm()}<div id="trOut">${trPlanHTML()}</div></div>`:trTab==="zapas"?trPrepHTML():trTab==="hodnoceni"?trRateHTML():trLibHTML()}</div>`;
+ $$("[data-tt]").forEach(b=>b.onclick=()=>{trTab=b.dataset.tt;renderTrener();});
+ $$("[data-dopen]").forEach(b=>b.onclick=()=>{const k=b.dataset.dopen;trOpen[k]=!trOpen[k];const art=b.closest(".drill"),[id,i]=k.split("_");
+  const p=trPlan&&i!=null&&trPlan.items[+i];const T=p?trTimes(trPlan):[];art.outerHTML=drillCard(trD(id),p?p.min:null,i==null?null:+i,{slot:p?p.slot:"",time:p?T[+i]:""});renderTrenerBind();});
+ renderTrenerBind();}
+function trApply(o){trPlan=trBuild(o);store.set("trPlan",trPlan);trTab="plan";renderTrener();const el=$("#trOut");if(el)el.scrollIntoView({block:"start",behavior:"smooth"});}
+function renderTrenerBind(){$$("[data-dopen]").forEach(b=>{if(b._b)return;b._b=1;b.onclick=()=>{const k=b.dataset.dopen;trOpen[k]=!trOpen[k];const art=b.closest(".drill"),parts=k.split("_"),id=parts[0],i=parts[1];
+  const p=trPlan&&i!=null&&trPlan.items[+i];const T=p?trTimes(trPlan):[];art.outerHTML=drillCard(trD(id),p?p.min:null,i==null?null:+i,{slot:p?p.slot:"",time:p?T[+i]:""});renderTrenerBind();};});
+ $$("[data-swap]").forEach(b=>b.onclick=()=>trSwap(+b.dataset.swap));
+ const f=$("#trForm");if(f)f.onsubmit=e=>{e.preventDefault();const P=trParse($("#tr-txt").value);const goals=$$(".trgoals input:checked").map(x=>x.value);P.goals.forEach(g=>{if(!goals.includes(g))goals.push(g);});
+  const o={txt:$("#tr-txt").value,type:P.type||$("#tr-type").value,date:$("#tr-date").value,time:$("#tr-time").value,dur:P.dur||+$("#tr-dur").value,players:P.players||+$("#tr-pl").value||14,gk:P.gk??+$("#tr-gk").value,int:P.int||+$("#tr-int").value,level:+$("#tr-lv").value,goals,seed:String(Date.now())};
+  if(o.type==="predzapas")o.int=Math.min(o.int,2);if(o.type==="regenerace")o.int=1;trApply(o);toast("Trénink je sestavený");};
+ const pr=$("#trPrint");if(pr)pr.onclick=()=>{trPlan.items.forEach((x,i)=>trOpen[x.id+"_"+i]=true);renderTrener();document.body.classList.add("print-tr");setTimeout(()=>{window.print();document.body.classList.remove("print-tr");},150);};
+ const oa=$("#trOpenAll");if(oa)oa.onclick=()=>{const all=trPlan.items.every((x,i)=>trOpen[x.id+"_"+i]);trPlan.items.forEach((x,i)=>trOpen[x.id+"_"+i]=!all);renderTrener();};
+ const ev=$("#trEv");if(ev)ev.onclick=async()=>{const p=trPlan;if(!p.date){toast("Doplň datum tréninku");return;}const r=await kDo({a:"ev_save",ev:{typ:"T",date:p.date,time:p.time,place:"Hřiště Košice",title:"Trénink",note:(p.goals.length?"Zaměření: "+p.goals.map(g=>(TR_GOALS.find(x=>x[0]===g)||[0,g])[1].toLowerCase()).join(", "):TR_TYPES[p.type])}},"Akce vytvořena, pošli ji do WhatsAppu");};
+ const os=$("#trOpp");if(os)os.onchange=()=>{store.set("trOpp",os.value);renderTrener();};
+ const w1=$("#trWk1"),w2=$("#trWk2");const P=w1?trPrep(store.get("trOpp","")||$("#trOpp").value):null;
+ if(w1)w1.onclick=()=>trApply({txt:"",type:"trenink",date:"",time:"17:30",dur:90,players:14,gk:1,int:3,level:2,goals:P.focus.slice(0,3),seed:String(Date.now())});
+ if(w2)w2.onclick=()=>trApply({txt:"",type:"predzapas",date:"",time:"17:30",dur:60,players:14,gk:1,int:1,level:2,goals:["standardky","zakonceni"],seed:String(Date.now())});
+ const lq=$("#trQ");if(lq){let t;lq.oninput=()=>{clearTimeout(t);t=setTimeout(()=>{trLibF.q=lq.value;renderTrener();const n=$("#trQ");n.focus();n.setSelectionRange(n.value.length,n.value.length);},250);};$("#trC").onchange=()=>{trLibF.cat=$("#trC").value;renderTrener();};}
+ const ms=$("#trM");if(ms)ms.onchange=()=>{trRate={m:ms.value,rows:{}};renderTrener();};
+ $$("[data-rr]").forEach(row=>{const s=row.dataset.rr,st=()=>trRate.rows[s];
+  row.querySelector("[data-ron]").onchange=e=>{st().on=e.target.checked?1:0;renderTrener();};
+  const rv=row.querySelector("[data-rv]");if(rv){rv.oninput=()=>{st().r=+rv.value;rv.nextElementSibling.textContent=rv.value;row.querySelector(".trrec").textContent=trRec(kName(s),st().r,st().minus,st().plus);};}
+  row.querySelectorAll("[data-tp],[data-tm]").forEach(b=>b.onclick=()=>{const k=b.dataset.tp||b.dataset.tm,arr=b.dataset.tp?st().plus:st().minus,i=arr.indexOf(k);if(i>=0)arr.splice(i,1);else arr.push(k);
+   b.classList.toggle("on",i<0);b.classList.toggle(b.dataset.tp?"p":"m",i<0);row.querySelector(".trrec").textContent=trRec(kName(s),st().r,st().minus,st().plus);});
+  const rn=row.querySelector("[data-rn]");if(rn)rn.oninput=()=>{st().note=rn.value;};});
+ const rs=$("#trRSave");if(rs)rs.onclick=()=>{const ML=trMatchList(),m=ML.find(x=>x[1]+"|"+x[2]===trRate.m)||ML[0];if(!m)return;const mid=(m[1]+"-"+slug(isUs(m[2])?m[4]:m[2])).slice(0,40);
+  const title=`${m[2]} ${m[3]}:${m[5]} ${m[4]}`;const list=Object.entries(trRate.rows).filter(([s,x])=>x.on).map(([s,x])=>({slug:s,r:x.r,plus:x.plus.join(","),minus:x.minus.join(","),note:x.note||"",rec:trRec(kName(s),x.r,x.minus,x.plus),title,date:m[1].slice(0,10)}));
+  if(!list.length){toast("Zaškrtni hráče, kteří hráli");return;}kDo({a:"rate_save",m:mid,list},`Uloženo ${list.length} hodnocení`);};}
+/* -- moje hodnocení pro hráče -- */
+function myRatingsHTML(){const R=(KS&&KS.ratings||[]).filter(x=>x.slug===KS.me.slug).sort((a,b)=>String(b.date).localeCompare(a.date));if(!R.length)return "";
+ const avg=R.reduce((s,x)=>s+(+x.r),0)/R.length;
+ return `<details class="card kacc" open><summary><h3 style="font-size:1.3rem;display:inline">Moje hodnocení od trenéra · průměr ${avg.toFixed(1).replace(".",",")}</h3></summary><div class="flist">${R.slice(0,6).map(x=>`<div class="myr"><div><span class="stag">${esc(fmtD(x.date))} · ${esc(x.title)}</span><b class="mrn">${esc(x.r)}</b></div><p>${esc(x.rec)}</p>${x.note?`<p class="muted">💬 ${esc(x.note)}</p>`:""}</div>`).join("")}</div></details>`;}
+/* ===== Trenér – rozšíření: trénink naživo, sestava na zápas, zimní příprava, individuální plány ===== */
+let trLive=null,trLiveT=null,trLineup=store.get("trLineup",{f:"4-4-2",ev:"",xi:[]}),trSeason=store.get("trSeason",null);
+/* -- trénink naživo (stopky na hřišti) -- */
+function trLiveStart(){if(!trPlan||!trPlan.items.length){toast("Nejdřív sestav trénink");return;}trLive={i:0,left:trPlan.items[0].min*60,run:true};trTab="live";renderTrener();trTick();}
+function trTick(){clearTimeout(trLiveT);if(!trLive||!trLive.run)return;trLiveT=setTimeout(()=>{if(!trLive)return;trLive.left--;
+ if(trLive.left===60||trLive.left===0){try{navigator.vibrate&&navigator.vibrate(trLive.left?[200]:[300,150,300]);}catch(e){}}
+ if(trLive.left<=0){if(trLive.i<trPlan.items.length-1){trLive.i++;trLive.left=trPlan.items[trLive.i].min*60;toast("Další cvičení: "+(trD(trPlan.items[trLive.i].id)||{}).name);}else{trLive.run=false;toast("Trénink je u konce 👏");}}
+ const el=$("#trClock");if(el&&trTab==="live")trLiveUpd();else if(trTab==="live")renderTrener();trTick();},1000);}
+const mmss=s=>`${Math.floor(Math.max(0,s)/60)}:${String(Math.max(0,s)%60).padStart(2,"0")}`;
+function trLiveUpd(){const it=trPlan.items[trLive.i];$("#trClock").textContent=mmss(trLive.left);$("#trProg").style.setProperty("--w",(1-trLive.left/(it.min*60))*100+"%");$("#trRun").textContent=trLive.run?"Pauza":"Pokračovat";}
+function trLiveHTML(){if(!trPlan||!trPlan.items.length)return `<div class="card"><p class="muted">Nejdřív sestav trénink v „Příprava tréninku“ a pak tady spusť stopky.</p></div>`;
+ if(!trLive)return `<div class="card trlivei"><h3 style="font-size:1.5rem">Trénink naživo</h3><p class="muted">Na hřišti v mobilu: stopky pro každé cvičení, návod po ruce a upozornění minutu před koncem (vibrace).</p><button class="btn" type="button" id="trLiveGo">Spustit trénink (${trPlan.dur} min)</button></div>`;
+ const it=trPlan.items[trLive.i],d=trD(it.id),nx=trPlan.items[trLive.i+1];
+ return `<div class="trlive"><span class="stag">${trLive.i+1}/${trPlan.items.length} · ${esc(it.slot)}</span><h3>${esc(d?d.name:"")}</h3>
+  <div class="trclock" id="trClock" aria-live="polite">${mmss(trLive.left)}</div><div class="trprog"><i id="trProg" style="--w:${(1-trLive.left/(it.min*60))*100}%"></i></div>
+  <div class="dract" style="justify-content:center"><button class="btn sm ghost" type="button" id="trPrev">◀ Zpět</button><button class="btn" type="button" id="trRun">${trLive.run?"Pauza":"Pokračovat"}</button><button class="btn sm ghost" type="button" id="trNext">Další ▶</button><button class="btn sm ghost" type="button" id="trStop">Ukončit</button></div>
+  ${nx?`<p class="muted" style="text-align:center">Potom: ${esc((trD(nx.id)||{}).name)} (${nx.min} min)</p>`:""}</div>
+  ${drillCard(d,it.min,null,{open:true})}`;}
+/* -- sestava na zápas z přihlášených -- */
+function trAvail(){if(!KS)return{ev:null,yes:[],maybe:[]};const t=kToday(),ev=KS.events.filter(e=>e.typ==="Z"&&e.date>=t).sort((a,b)=>a.date.localeCompare(b.date));
+ const e=ev.find(x=>x.id===trLineup.ev)||ev[0];if(!e)return{ev:null,evs:ev,yes:[],maybe:[]};const R=KS.rsvp.filter(r=>r.ev===e.id);
+ return{ev:e,evs:ev,yes:R.filter(r=>r.s==="ano").map(r=>r.slug),maybe:R.filter(r=>r.s==="mozna").map(r=>r.slug)};}
+function trAutoXI(pool,f){let sq=[];try{sq=oppSquad(KOS)||[];}catch(e){}const byN={};sq.forEach(q=>byN[slug(q.n)]=q);
+ const S=FORMS[f],out=Array(S.length).fill(""),left=pool.slice();
+ const sc=(s,role)=>{const q=byN[s];if(!q)return 40;const a=q.a||{};const base=role==="B"?(q.role==="B"?(q.o||60)+30:10):role==="O"?(a.obr||55)*1.2+(a.fyz||55)*.4:role==="Z"?(a.pri||55)*1.1+(a.tem||55)*.4:(a.str||55)*1.2+(a.tem||55)*.4;return base+(q.role===role?15:0);};
+ S.forEach((s,i)=>{if(!left.length)return;left.sort((a,b)=>sc(b,s[0])-sc(a,s[0]));out[i]=left.shift();});return{xi:out,bench:left};}
+function trLineupHTML(){const A=trAvail(),f=trLineup.f||"4-4-2";
+ if(!A.ev)return `<div class="card"><p class="muted">Žádný vypsaný zápas. Vypiš zápas v záložce Akce (typ Zápas) a kluci se do něj přihlásí – sestava se pak skládá z přihlášených.</p></div>`;
+ const pool=[...A.yes];let L=trLineup.ev===A.ev.id&&trLineup.xi&&trLineup.xi.length===FORMS[f].length&&trLineup.f===f?{xi:trLineup.xi,bench:pool.filter(s=>!trLineup.xi.includes(s))}:trAutoXI(pool,f);
+ const S=FORMS[f],nm=s=>s?kName(s).split(" ").slice(-1)[0]:"?";
+ return `<div class="card f"><div class="evgrid"><label class="l evwide">Zápas<select id="trLev">${A.evs.map(e=>`<option value="${esc(e.id)}"${e.id===A.ev.id?" selected":""}>${esc(fmtD(e.date))} · ${esc(e.title)}</option>`).join("")}</select></label>
+  <label class="l">Rozestavení<select id="trLf">${Object.keys(FORMS).map(k=>`<option${k===f?" selected":""}>${k}</option>`).join("")}</select></label></div>
+  <p class="muted" style="font-size:.85rem">Přihlášeno ${A.yes.length}${A.maybe.length?`, možná ${A.maybe.length} (${A.maybe.map(nm).join(", ")})`:""}. Sestava se navrhne podle parametrů hráčů; klepnutím na dva hráče je prohodíš.</p></div>
+ <div class="trpitchw"><div class="trpitch">${S.map((s,i)=>`<button type="button" class="trtok ${L.xi[i]?"":"empty"}" data-xi="${i}" style="left:${s[2]}%;top:${s[3]}%"><b>${esc(nm(L.xi[i]))}</b><small>${s[1]}</small></button>`).join("")}</div>
+  <div class="card"><h4>Lavička</h4><div class="trbench">${L.bench.map(s=>`<button type="button" class="trtg" data-bn="${esc(s)}">${esc(kName(s))}</button>`).join("")||`<span class="muted">nikdo</span>`}</div>
+   ${A.yes.length<11?`<p class="trwarn">⚠️ Přihlášeno jen ${A.yes.length} hráčů – připomeň anketu ve WhatsAppu.</p>`:""}
+   <div class="dract" style="margin-top:10px"><a class="btn sm" href="https://wa.me/?text=${encodeURIComponent(`⚽ Sestava: ${A.ev.title} (${fmtDL(A.ev.date)})\n${f}\n\n${S.map((s,i)=>`${s[1]}: ${L.xi[i]?kName(L.xi[i]):"–"}`).join("\n")}\n\nLavička: ${L.bench.map(s=>kName(s)).join(", ")||"–"}${A.ev.note?"\n📝 "+A.ev.note:""}`)}" target="_blank" rel="noopener">Poslat sestavu do WhatsAppu</a><button class="btn sm ghost" type="button" id="trLauto">Navrhnout znovu</button></div></div></div>`;}
+/* -- zimní / dlouhodobá příprava -- */
+const TR_PHASES=[["Obecná kondice",3,["kondice","rychlost","prihravky"],"trenink"],["Kondice s míčem",3,["kondice","kombinace","1v1"],"kondicni"],["Herní kvalita",2,["presink","prechod","zakonceni"],"trenink"],["Ladění na zápas",1,["standardky","zakonceni","kombinace"],"predzapas"]];
+function trSeasonBuild(start,weeks,perWeek,dur,players){const out=[];const tot=TR_PHASES.reduce((s,p)=>s+p[1],0);let w=0;
+ TR_PHASES.forEach(([nm,share,goals,type])=>{const n=Math.max(1,Math.round(weeks*share/tot));for(let k=0;k<n&&w<weeks;k++,w++){const sess=[];
+  for(let s=0;s<perWeek;s++){const d=dt(start);d.setDate(d.getDate()+w*7+[1,3,4][s%3]);const iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+   const intn=type==="predzapas"&&s===perWeek-1?1:(k===n-1&&s===0?3:2),g=[goals[s%goals.length],goals[(s+1)%goals.length]];
+   sess.push({date:iso,type:s===perWeek-1&&type==="predzapas"?"predzapas":type,goals:g,int:intn});}
+  out.push({w:w+1,phase:nm,sess});}});
+ return{start,weeks,perWeek,dur,players,list:out};}
+function trSeasonHTML(){const S=trSeason;const nextMon=(()=>{const d=new Date();d.setDate(d.getDate()+((8-d.getDay())%7||7));return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");})();
+ return `<form class="card f" id="trSf"><h3 style="font-size:1.4rem">Plán přípravy na více týdnů</h3><p class="muted" style="font-size:.85rem">Rozdělí přípravu do fází (obecná kondice → kondice s míčem → herní kvalita → ladění) a ke každému tréninku dá zaměření a zátěž. Každý trénink jde jedním klepnutím rozpracovat do detailu.</p>
+  <div class="evgrid"><label class="l">Začátek (pondělí)<input type="date" id="trS1" value="${esc(S?S.start:"2027-01-11")}"></label><label class="l">Týdnů<select id="trS2">${[4,6,8,10].map(n=>`<option${(S?S.weeks:8)===n?" selected":""}>${n}</option>`).join("")}</select></label>
+  <label class="l">Tréninků týdně<select id="trS3">${[1,2,3].map(n=>`<option${(S?S.perWeek:2)===n?" selected":""}>${n}</option>`).join("")}</select></label><label class="l">Délka<select id="trS4">${[60,75,90].map(n=>`<option${(S?S.dur:90)===n?" selected":""}>${n}</option>`).join("")}</select></label></div>
+  <button class="btn" type="submit">Naplánovat přípravu</button></form>
+ ${S?`<div class="trweeks">${S.list.map(w=>`<div class="card trwk"><span class="stag">${w.w}. týden · ${esc(w.phase)}</span>${w.sess.map((s,i)=>`<div class="trses"><div><b>${esc(fmtDL(s.date))}</b><small>${esc(TR_TYPES[s.type])} · ${s.goals.map(g=>esc((TR_GOALS.find(x=>x[0]===g)||[0,g])[1])).join(", ")} · zátěž ${TR_LOAD[s.int]}</small></div><button type="button" class="btn sm ghost" data-sw="${w.w-1}_${i}">Rozpracovat</button></div>`).join("")}</div>`).join("")}</div>
+  ${typeof kAdm==="function"&&kAdm()?`<button class="btn sm ghost" type="button" id="trSev" style="margin-top:10px">Vypsat všechny tréninky jako akce</button>`:""}`:""}`;}
+/* -- individuální plány hráčů -- */
+function trIndivHTML(){const R=(KS&&KS.ratings)||[];if(!R.length)return `<div class="card"><p class="muted">Individuální plány se skládají z hodnocení zápasů. Ohodnoť hráče v „Hodnocení zápasu“ a tady se objeví, na čem má kdo pracovat.</p></div>`;
+ const by={};R.forEach(x=>{const o=by[x.slug]=by[x.slug]||{r:[],minus:{},plus:{}};o.r.push(+x.r);String(x.minus).split(",").filter(Boolean).forEach(t=>o.minus[t]=(o.minus[t]||0)+1);String(x.plus).split(",").filter(Boolean).forEach(t=>o.plus[t]=(o.plus[t]||0)+1);});
+ return `<div class="trlist">${Object.entries(by).sort((a,b)=>kName(a[0]).localeCompare(kName(b[0]),"cs")).map(([s,o])=>{const avg=o.r.reduce((x,y)=>x+y,0)/o.r.length,trend=o.r.length>1?o.r[o.r.length-1]-o.r[0]:0;
+  const mn=Object.entries(o.minus).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0]),pl=Object.entries(o.plus).sort((a,b)=>b[1]-a[1]).slice(0,2).map(x=>x[0]);
+  const gs=mn.map(t=>TR_TAG2GOAL[t]).filter(Boolean),dr=DRILLS.filter(d=>gs.some(g=>d.goals.includes(g))&&!["rozcvicka","protazeni"].includes(d.cat)).slice(0,3);
+  return `<div class="card trind"><div class="myr" style="border:0;padding:0"><div><h4 style="margin:0">${esc(kName(s))}</h4><b class="mrn">${avg.toFixed(1).replace(".",",")}</b></div></div>
+   <p class="muted" style="font-size:.85rem">${o.r.length} ${plural(o.r.length,"hodnocení","hodnocení","hodnocení")}${o.r.length>1?` · trend ${trend>0?"▲ zlepšuje se":trend<0?"▼ zhoršuje se":"stabilní"}`:""}${pl.length?` · silné stránky: ${pl.map(t=>(TR_TAGS.find(x=>x[0]===t)||[0,t])[1].toLowerCase()).join(", ")}`:""}</p>
+   ${mn.length?`<p><b>Pracovat na:</b> ${mn.map(t=>(TR_TAGS.find(x=>x[0]===t)||[0,t])[1].toLowerCase()).join(", ")}</p><ul class="trtips">${mn.map(t=>TR_TIP[t]?`<li>${esc(TR_TIP[t])}</li>`:"").join("")}</ul>${dr.length?`<p class="muted" style="font-size:.85rem">Cvičení: ${dr.map(d=>esc(d.name)).join(" · ")}</p>`:""}`:`<p class="muted">Zatím bez slabin – jen tak dál.</p>`}</div>`;}).join("")}</div>`;}
+/* -- napojení do záložky Trenér -- */
+const _renderTrener=renderTrener;
+renderTrener=function(){const box=$("#kTrener");if(!box)return;
+ if(["live","sestava","sezona","indiv"].includes(trTab)){_renderTrener.call(null);/* vykreslí lištu */}
+ else{_renderTrener();}
+ const seg=$(".trseg");if(seg&&!seg.dataset.ext){seg.dataset.ext=1;[["live","⏱ Naživo"],["sestava","Sestava"],["sezona","Příprava na sezonu"],["indiv","Individuální plány"]].forEach(([k,l],i)=>{const b=document.createElement("button");b.type="button";b.dataset.tt=k;b.textContent=l;b.setAttribute("aria-pressed",trTab===k);b.onclick=()=>{trTab=k;renderTrener();};if(i===0)seg.insertBefore(b,seg.children[1]);else seg.append(b);});}
+ const pane=$(".trpane");if(!pane)return;
+ if(trTab==="live")pane.innerHTML=trLiveHTML();else if(trTab==="sestava")pane.innerHTML=trLineupHTML();else if(trTab==="sezona")pane.innerHTML=trSeasonHTML();else if(trTab==="indiv")pane.innerHTML=trIndivHTML();
+ else if(trTab==="plan"&&trPlan&&trPlan.items&&trPlan.items.length){const s=$(".trsum .dract");if(s&&!$("#trLiveGo2")){const b=document.createElement("button");b.className="btn sm";b.type="button";b.id="trLiveGo2";b.textContent="⏱ Spustit naživo";b.onclick=trLiveStart;s.prepend(b);}}
+ trBind2();renderTrenerBind();};
+function trBind2(){const g=$("#trLiveGo");if(g)g.onclick=trLiveStart;
+ const r=$("#trRun");if(r)r.onclick=()=>{trLive.run=!trLive.run;trLiveUpd();trTick();};
+ const nx=$("#trNext");if(nx)nx.onclick=()=>{if(trLive.i<trPlan.items.length-1){trLive.i++;trLive.left=trPlan.items[trLive.i].min*60;renderTrener();}};
+ const pv=$("#trPrev");if(pv)pv.onclick=()=>{if(trLive.i>0){trLive.i--;trLive.left=trPlan.items[trLive.i].min*60;renderTrener();}};
+ const st=$("#trStop");if(st)st.onclick=()=>{trLive=null;clearTimeout(trLiveT);renderTrener();};
+ const le=$("#trLev");if(le)le.onchange=()=>{trLineup={f:trLineup.f,ev:le.value,xi:[]};store.set("trLineup",trLineup);renderTrener();};
+ const lf=$("#trLf");if(lf)lf.onchange=()=>{trLineup={...trLineup,f:lf.value,xi:[]};store.set("trLineup",trLineup);renderTrener();};
+ const la=$("#trLauto");if(la)la.onclick=()=>{trLineup={...trLineup,xi:[]};store.set("trLineup",trLineup);renderTrener();};
+ let sel=null;$$("[data-xi],[data-bn]").forEach(b=>b.onclick=()=>{const A=trAvail();if(!A.ev)return;const f=trLineup.f||"4-4-2";
+  if(!(trLineup.ev===A.ev.id&&trLineup.xi.length===FORMS[f].length)){const L=trAutoXI(A.yes,f);trLineup={f,ev:A.ev.id,xi:L.xi};}
+  const val=b.dataset.xi!=null?{xi:+b.dataset.xi}:{bn:b.dataset.bn};
+  if(!trBind2.sel){trBind2.sel=val;b.classList.add("sel");return;}const a=trBind2.sel;trBind2.sel=null;
+  if(a.xi!=null&&val.xi!=null){const t=trLineup.xi[a.xi];trLineup.xi[a.xi]=trLineup.xi[val.xi];trLineup.xi[val.xi]=t;}
+  else if(a.xi!=null||val.xi!=null){const i=a.xi!=null?a.xi:val.xi,n=a.bn||val.bn;trLineup.xi[i]=n;}
+  store.set("trLineup",trLineup);renderTrener();});
+ const sf=$("#trSf");if(sf)sf.onsubmit=e=>{e.preventDefault();trSeason=trSeasonBuild($("#trS1").value,+$("#trS2").value,+$("#trS3").value,+$("#trS4").value,14);store.set("trSeason",trSeason);renderTrener();};
+ $$("[data-sw]").forEach(b=>b.onclick=()=>{const [w,i]=b.dataset.sw.split("_").map(Number),s=trSeason.list[w].sess[i];trApply({txt:"",type:s.type,date:s.date,time:"17:30",dur:s.type==="predzapas"?60:trSeason.dur,players:14,gk:1,int:s.int,level:2,goals:s.goals,seed:s.date});});
+ const sv=$("#trSev");if(sv)sv.onclick=async()=>{let n=0;for(const w of trSeason.list)for(const s of w.sess){const r=await kapi({a:"ev_save",tok:ktok,ev:{typ:"T",date:s.date,time:"17:30",place:"Hřiště Košice",title:"Trénink – "+w.phase.toLowerCase(),note:"Zaměření: "+s.goals.map(g=>(TR_GOALS.find(x=>x[0]===g)||[0,g])[1].toLowerCase()).join(", ")}});if(r.ok)n++;}
+  toast(`Vypsáno ${n} tréninků`);kLoad();};}
 /* ================= FIFA KARTY: parametry hráčů ================= */
 const ATTR_F=[["tem","TEM","Tempo"],["str","STŘ","Střelba"],["pri","PŘI","Přihrávky"],["kli","KLI","Kličky"],["obr","OBR","Obrana"],["fyz","FYZ","Fyzička"]];
 const ATTR_G=[["chy","CHY","Chytání"],["ref","REF","Reflexy"],["vyb","VÝB","Výběhy"],["roz","ROZ","Rozehrávka"],["pst","POS","Postavení"],["tem","TEM","Tempo"]];
