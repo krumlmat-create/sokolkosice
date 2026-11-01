@@ -2057,7 +2057,7 @@ function szCompleteRound(myHg,myAg,scorers){const S=SZ,k=S.round,mine=szMyMatch(
  SZ_FIX.filter(f=>f[0]===k).forEach(([kk,h,a])=>{if(mine&&h===mine[1]&&a===mine[2])S.res[szKey(kk,h,a)]=[myHg,myAg];else S.res[szKey(kk,h,a)]=szQuick(h,a);});
  Object.entries(scorers||{}).forEach(([n,c])=>S.goals[n]=(S.goals[n]||0)+c);
  const mh=mine[1]===S.team,f=mh?myHg:myAg,ag=mh?myAg:myHg;S.log.push({k,o:mh?mine[2]:mine[1],h:mh,s:`${myHg}:${myAg}`,r:f>ag?"V":f<ag?"P":"R"});
- S.round++;if(S.round>SZ_ROUNDS)S.done=true;S.at=Date.now();szSave();szRender();szPost();}
+ S.round++;if(S.round>SZ_ROUNDS){S.done=true;const r=szRow();if(r){const mr=store.get("myResults",[]).filter(x=>x.id!==r.id);mr.push({...r,d:new Date().toLocaleDateString("cs-CZ")});store.set("myResults",mr.slice(-30));}}S.at=Date.now();szSave();szRender();szPost();szRenderLeaders();}
 /* uložení: v Claude do účtu hráče, jinak do prohlížeče */
 async function szSave(){store.set("season",SZ);if(szMode==="db"&&szUid){try{await db.collection("data/users/"+szUid).doc("season").set({s:JSON.stringify(SZ),at:Date.now()});}catch(e){}}}
 async function szLoad(){szMode="local";SZ=store.get("season",null);
@@ -2077,13 +2077,15 @@ function szRow(){if(!SZ)return null;const T=szTable(SZ),pos=T.findIndex(r=>r.n==
 async function szPost(){const r=szRow();if(!r||!r.id)return;
  if(LBU){try{await fetch(LBU,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(r)});}catch(e){}setTimeout(szFetchLeaders,1800);return;}
  if(szMode==="db"&&szUid){try{await db.collection("leaders").doc(szUid).set({...r,uid:szUid,at:Date.now()});}catch(e){}}}
-async function szFetchLeaders(){if(!LBU)return;try{const res=await fetch(LBU+(LBU.includes("?")?"&":"?")+"t="+Date.now());const j=await res.json();szLeaders=(j.rows||[]).map(x=>({...x,round:+x.round,pts:+x.pts,pos:+x.pos,gf:+x.gf,ga:+x.ga,over:+x.over,done:+x.done}));lbErr=false;}catch(e){lbErr=true;}szRenderLeaders();}
+/* jakmile žebříček poběží, pošle do něj i dříve dohrané sezony z tohoto prohlížeče */
+function szFlushOld(){if(!LBU||store.get("lbFlushed",false))return;store.get("myResults",[]).forEach(r=>{fetch(LBU,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(r)}).catch(()=>{});});store.set("lbFlushed",true);}
+async function szFetchLeaders(){szFlushOld();if(!LBU)return;try{const res=await fetch(LBU+(LBU.includes("?")?"&":"?")+"t="+Date.now());const j=await res.json();szLeaders=(j.rows||[]).map(x=>({...x,round:+x.round,pts:+x.pts,pos:+x.pos,gf:+x.gf,ga:+x.ga,over:+x.over,done:+x.done}));lbErr=false;}catch(e){lbErr=true;}szRenderLeaders();}
 let szLeadSub=false;
 function szListenLeaders(){if(szLeadSub)return;szLeadSub=true;
  if(LBU){szFetchLeaders();setInterval(()=>{if(hraVisible())szFetchLeaders();},60000);return;}
  if(szMode==="db")db.collection("leaders").orderBy("over","desc").limit(100).onSnapshot(s=>{szLeaders=s.docs.map(d=>d.data());szRenderLeaders();},()=>{});}
 async function szRenderLeaders(){const el=$("#szLeaders");if(!el)return;
- if(!LBU&&szMode!=="db"){el.innerHTML=`<p class="muted">Společný žebříček se teprve zapojuje. Vaše sezona se zatím ukládá v tomto prohlížeči a do žebříčku se zapíše, jakmile bude spuštěný.</p>`;return;}
+ if(!LBU&&szMode!=="db"){const mr=store.get("myResults",[]);el.innerHTML=`<p class="muted" style="margin-bottom:10px">Společný žebříček na tomto webu se teprve zapojuje. Do té doby se vaše dohrané sezony ukládají sem, do osobní síně slávy v tomto prohlížeči, a jakmile žebříček poběží, zapíšou se i do něj.</p>${mr.length?`<div class="scroll"><table class="tbl lead"><thead><tr><th>Datum</th><th>Trenér</th><th>Tým</th><th class="n">Místo</th><th class="n">Body</th><th class="n">Skóre</th><th class="n">+/−</th></tr></thead><tbody>${mr.slice().sort((a,b)=>b.over-a.over||b.pts-a.pts).map(r=>`<tr><td>${esc(r.d)}</td><td>${esc(r.nick)}</td><td>${esc(r.team)}<small class="muted"> · ${r.mode==="full"?"celá":"jaro"}</small></td><td class="n">${r.pos}.</td><td class="n">${r.pts}</td><td class="n">${r.gf}:${r.ga}</td><td class="n"><b class="${r.over>=0?"up":"dn"}">${r.over>0?"+":""}${r.over}</b></td></tr>`).join("")}</tbody></table></div>`:`<p class="muted">Zatím tu není žádná dohraná sezona.</p>`}`;return;}
  if(lbErr&&!szLeaders.length){el.innerHTML=`<p class="muted">Žebříček se teď nepodařilo načíst. Zkuste to za chvíli.</p>`;return;}
  const mine=new Set(myIds());let L=szLeaders.filter(l=>l.team&&l.round>0);
  if(lbFilter==="done")L=L.filter(l=>+l.done);else if(lbFilter==="real")L=L.filter(l=>l.mode==="real");else if(lbFilter==="full")L=L.filter(l=>l.mode==="full");
