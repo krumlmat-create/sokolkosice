@@ -597,6 +597,40 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 @media(max-width:900px){.mc-grid{display:flex;flex-direction:column}.mc-grid>*{width:100%}.mc.live .mc-livecol{order:-1}.mc.live .mcfeed{max-height:300px}}
 @media(max-width:900px){.mc-grid{grid-template-columns:1fr}}
 @media(max-width:480px){.tok{width:66px}.tok .av,.tok.empty .av{width:36px;height:36px}.tok b{max-width:66px;font-size:.66rem}.tok i{display:none}.stam{width:36px}.mcboard{font-size:.85rem}.mcboard b{font-size:1.9rem}.srow{grid-template-columns:24px 1fr minmax(78px,auto) 1fr 24px}}
+
+/* FIFA karty */
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.fcard{--c1:#f7e58c;--c2:#d8ad35;--c3:#8f6a12;--ink2:#2a1d02;container-type:inline-size;position:relative;display:flex;flex-direction:column;align-items:center;aspect-ratio:5/7.2;padding:0;border:0;text-decoration:none;color:var(--ink2);font:inherit;cursor:pointer;
+ background:radial-gradient(120% 60% at 30% 0%,rgba(255,255,255,.55),transparent 55%),linear-gradient(160deg,var(--c1),var(--c2) 48%,var(--c3));
+ clip-path:polygon(9% 0,91% 0,100% 6%,100% 88%,50% 100%,0 88%,0 6%);transition:transform .15s,filter .15s}
+.fcard:hover,.fcard:focus-visible{transform:translateY(-3px) scale(1.02);filter:drop-shadow(0 6px 10px rgba(0,0,0,.25))}
+.fcard.silver{--c1:#f4f6f8;--c2:#bcc3cb;--c3:#76808a;--ink2:#161a1f}
+.fcard.bronze{--c1:#f0c497;--c2:#b8774a;--c3:#6f411d;--ink2:#1f1108}
+.fcard::after{content:"";position:absolute;inset:3.5cqi;clip-path:inherit;border:1px solid rgba(255,255,255,.55);pointer-events:none}
+.fc-top{position:absolute;left:9cqi;top:9cqi;display:flex;flex-direction:column;align-items:center;line-height:.9;z-index:2}
+.fc-top b{font-family:var(--f-display);font-weight:900;font-size:17cqi}
+.fc-top i{font-style:normal;font-family:var(--f-display);font-weight:800;font-size:7.5cqi;margin-top:1cqi}
+.fc-ph{width:66cqi;height:52cqi;margin:7cqi 0 0 18cqi;display:block;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.fc-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.fc-in{display:grid;place-items:center;width:100%;height:100%;font-family:var(--f-display);font-weight:900;font-size:22cqi;opacity:.35}
+.fc-name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:10cqi;line-height:1;padding:2.5cqi 4cqi 2cqi;margin-top:-2cqi;border-bottom:1px solid rgba(0,0,0,.25);max-width:86%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
+.fc-at{display:grid;grid-template-columns:1fr 1fr;gap:1.2cqi 8cqi;margin-top:3cqi;font-size:7.2cqi;font-family:var(--f-display);font-weight:700;text-transform:uppercase}
+.fc-at b{font-weight:900;display:inline-block;min-width:9cqi;text-align:right;margin-right:1.5cqi}
+.fc-club{position:absolute;bottom:13cqi;font-family:var(--f-mono);font-size:5cqi;opacity:.6}
+.fcard.big{width:min(300px,78vw);cursor:default}.fcard.big:hover{transform:none}
+.phero-card{align-self:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:24px}.phero-card .fcard{filter:drop-shadow(0 14px 28px rgba(0,0,0,.45))}.btn.ghost.light{color:#fff;border-color:rgba(255,255,255,.6)}.pc-note{color:rgba(255,255,255,.8);font-size:.8rem;max-width:300px;text-align:center;margin:0}
+.fc-top b,.fc-top i{text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.pgrid .fcard,.strip .fcard{width:100%}
+.strip .fcard{scroll-snap-align:start}
+.fifa-box{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;margin-bottom:14px}.fifa-box p{margin:4px 0 8px}.fifa-box p b{font-family:var(--f-mono);font-size:1.4rem}
+.attrdlg{position:fixed;inset:0;background:rgba(5,10,20,.6);display:grid;place-items:center;z-index:80;padding:16px}
+.attrdlg[hidden]{display:none}
+.ad-body{width:min(520px,100%);max-height:92vh;overflow:auto}
+.ad-head{display:grid;grid-template-columns:110px 1fr;gap:14px;align-items:center;margin-bottom:12px}.ad-head h3{font-size:1.5rem}
+.fcard.mini{width:110px;cursor:default}.fcard.mini:hover{transform:none}
+.ad-rows{display:grid;gap:8px}.ad-row{display:grid;grid-template-columns:minmax(0,1fr) 1.4fr 34px;gap:10px;align-items:center;font-size:.9rem}.ad-row small{font-family:var(--f-mono);color:var(--muted)}.ad-row b{font-family:var(--f-mono);text-align:right}
+.ad-ovr{margin:12px 0}.ad-btns{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:640px){.cardgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.ad-row{grid-template-columns:1fr 1fr 30px}}
 </style>
 
 </head><body>
@@ -817,6 +851,13 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
     <div class="card" style="align-self:start"><div style="display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap"><h3 style="font-size:1.7rem">Zbytek sezony</h3><button class="btn dark" id="simSeason" type="button">Simulovat</button></div>
       <p class="muted" style="font-size:.88rem;margin-top:6px">Dohraje zbývající kola od aktuální tabulky.</p><div id="seasonResult" style="margin-top:12px"></div></div>
   </div>
+  <div class="card" id="fcardsCard" style="margin-top:24px">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3 style="font-size:1.8rem">Karty hráčů</h3>
+      <div class="seg" id="cardSort" role="group" aria-label="Řazení karet"><button type="button" data-s="ovr">Podle síly</button><button type="button" data-s="pos">Podle postu</button></div></div>
+    <p class="muted" id="cardNote" style="font-size:.86rem;margin:6px 0 16px"></p>
+    <div class="cardgrid" id="cardGrid"></div>
+  </div>
+  <div id="attrDlg" class="attrdlg" hidden role="dialog" aria-modal="true" aria-label="Parametry hráče"><div class="ad-body card"></div></div>
 </div></section>
 
 <!-- ============ KABINA ============ -->
@@ -1323,7 +1364,7 @@ function renderRecap(){const A=seasonStats(S2526),B=seasonStats(S2627);if(!B.n)r
 /* ================= VIRTUÁLNÍ LIGA ================= */
 const oppList=()=>T2627.filter(r=>!isUs(r[0])).map(r=>({n:r[0],s:Math.round(52+(r[7]/r[1])*11+((r[5]-r[6])/r[1])*3)}));
 let OPP=oppList();
-const field=()=>players().filter(p=>p.pos!=="T");
+const field=()=>players().filter(p=>p.pos!=="T"||p.num);
 const GKN=()=>(field().find(p=>p.pos==="B")||{}).name;
 let ratings={},ratingsSaved=null,xi=store.get("xi",null);
 function defaultRating(p){return p.pos==="B"?72:Math.min(88,58+Math.round(((G26[p.name]||0)+(G27[p.name]||0)*2)*1.1));}
@@ -1333,10 +1374,10 @@ function ensureRatings(){const F=field();F.forEach(p=>{ratings[p.name]=(ratingsS
  if(xi.length<11){const pick=F.filter(p=>p.name!==gk&&!xi.includes(p.name)).sort((a,b)=>ratings[b.name]-ratings[a.name]);if(gk&&!xi.includes(gk))xi.push(gk);while(xi.length<11&&pick.length)xi.push(pick.shift().name);}}
 const power=()=>{const v=xi.map(n=>ratings[n]||50);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length*(v.length<11?v.length/11:1)):0;};
 function renderRates(){ensureRatings();const F=field();
- $("#rateNote").textContent=canEdit?"Jako vedení týmu nastavujete sílu hráčů pro všechny. Nezapomeňte uložit.":"Sílu hráčů nastavuje vedení týmu.";
+ $("#rateNote").textContent=canEdit?"Zaškrtněte jedenáctku. Parametry hráčů upravíte na jejich kartách, pak uložte pro všechny.":"Zaškrtněte jedenáctku. Sílu hráčů nastavuje vedení týmu.";
  $("#saveRatings").hidden=!(canEdit&&db);
- $("#rateList").innerHTML=F.map((p,i)=>`<div class="rate"><input type="checkbox" id="xi${i}" ${xi.includes(p.name)?"checked":""} aria-label="${esc(p.name)} v sestavě"><label for="xi${i}">${esc(p.name)}</label>${canEdit?`<input type="range" id="r${i}" min="40" max="99" value="${ratings[p.name]}" aria-label="Síla: ${esc(p.name)}">`:`<s class="rbar" style="--w:${(ratings[p.name]-40)/59*100}%"></s>`}<em id="rv${i}">${ratings[p.name]}</em></div>`).join("");
- F.forEach((p,i)=>{const n=p.name;if(canEdit)$("#r"+i).oninput=e=>{ratings[n]=+e.target.value;$("#rv"+i).textContent=e.target.value;$("#teamPower").textContent=power();};
+ $("#rateList").innerHTML=F.map((p,i)=>`<div class="rate"><input type="checkbox" id="xi${i}" ${xi.includes(p.name)?"checked":""} aria-label="${esc(p.name)} v sestavě"><label for="xi${i}">${esc(p.name)}</label>${`<s class="rbar" style="--w:${(ratings[p.name]-40)/59*100}%"></s>`}<em id="rv${i}">${ratings[p.name]}</em></div>`).join("");
+ F.forEach((p,i)=>{const n=p.name;
   $("#xi"+i).onchange=e=>{if(e.target.checked){if(xi.length>=11){e.target.checked=false;toast("Sestava už má 11 hráčů");return;}xi.push(n);}else xi=xi.filter(x=>x!==n);store.set("xi",xi);$("#teamPower").textContent=power();$("#xiCount").textContent=xi.length;};});
  $("#teamPower").textContent=power();$("#xiCount").textContent=xi.length;
  $("#oppSel").innerHTML=OPP.map(o=>`<option>${esc(o.n)}</option>`).join("");if(OPP.find(o=>o.n==="Sokol Vlkov"))$("#oppSel").value="Sokol Vlkov";}
@@ -1509,7 +1550,7 @@ async function initCaps(){
  sub("duties",s=>{duties={};s.docs.forEach(d=>duties[d.id]=d.data());renderDuties();});
  sub("matches",s=>{extraMatches=s.docs.map(d=>({id:d.id,...d.data()}));renderDuties();});
  sub("attendance",s=>{attRaw={};s.docs.forEach(d=>attRaw[d.id]=d.data());buildAtt();renderDuties();});
- db.collection("game").doc("ratings").onSnapshot(d=>{ratingsSaved=d&&d.exists?(d.data().r||null):null;renderRates();},()=>{});
+ db.collection("game").doc("ratings").onSnapshot(d=>{ratingsSaved=d&&d.exists?(d.data().r||null):null;attrsSaved=d&&d.exists?(d.data().a||null):null;renderRates();},()=>{});
  db.collection("kit").doc("current").onSnapshot(d=>{kit=d&&d.exists?d.data():{};renderKit();},()=>{});
  db.collection("kitlog").orderBy("at","desc").onSnapshot(s=>{kitLog=s.docs.map(d=>d.data());renderKit();renderKStats();},()=>{});
  sub("votes",s=>{votes=s.docs.map(d=>d.data());renderVotes();});
@@ -1528,6 +1569,100 @@ setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
 $("#sponsors").innerHTML=SPONSORS.map(s=>`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
 const band=SPONSORS.map(s=>`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
 $$(".sponsorbelt .track").forEach(t=>t.innerHTML=`<div class="set">${band}</div><div class="set" aria-hidden="true">${band}</div>`);renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+/* ================= FIFA KARTY: parametry hráčů ================= */
+const ATTR_F=[["tem","TEM","Tempo"],["str","STŘ","Střelba"],["pri","PŘI","Přihrávky"],["kli","KLI","Kličky"],["obr","OBR","Obrana"],["fyz","FYZ","Fyzička"]];
+const ATTR_G=[["chy","CHY","Chytání"],["ref","REF","Reflexy"],["vyb","VÝB","Výběhy"],["roz","ROZ","Rozehrávka"],["pst","POS","Postavení"],["tem","TEM","Tempo"]];
+const AW={U:{str:.35,tem:.2,kli:.2,pri:.1,fyz:.1,obr:.05},Z:{pri:.3,kli:.2,tem:.15,obr:.15,str:.1,fyz:.1},O:{obr:.4,fyz:.2,tem:.15,pri:.15,kli:.05,str:.05},B:{chy:.25,ref:.25,pst:.2,vyb:.15,roz:.1,tem:.05}};
+const POSN={B:"BR",O:"OBR",Z:"ZÁL",U:"ÚT"};
+/* poznatky z medailonků a statistik: posun parametrů proti šabloně postu */
+const HINTS={
+ "jan-bohac":{str:14,obr:6,fyz:4,pst:0,_o:84,_n:"24 gólů v mistrovské sezoně, 169 zápasů v Divizi A; sám se vidí jako stoper s čtením hry a důrazem"},
+ "david-marsik":{obr:6,pri:4,_o:72,_n:"69 zápasů v Divizi A, 4 góly jako obránce"},
+ "jiri-slunecko":{pst:5,chy:4,_o:72,_n:"90 zápasů v okresním přeboru"},
+ "roman-pokorny":{tem:7,kli:6,_n:"podle sebe: rychlost a kreativita"},
+ "vit-barta":{tem:6,fyz:3,_n:"levá záloha, dravost, ročník 2008"},
+ "josef-danek":{tem:3,str:4,_n:"pravý bek, hattrick proti Božejovicím"},
+ "jakub-petrzilka":{obr:4,fyz:5,_n:"bek s nasazením"},
+ "dominik-petr-tucek":{kli:5,pri:4,str:3,_n:"střední záložník, letos 4 góly"},
+ "pavel-mazouch":{tem:5,fyz:4,_n:"stoper i střed, ročník 2007"},
+ "pavel-mazouch-st":{tem:-6,fyz:-6,pri:3,_o:56,_n:"hraje, když je nás málo"},
+ "zdenek-radosta":{obr:7,pri:4,tem:-8,_o:68,_n:"hrající trenér, stoper a vůdčí typ, 172 zápasů za Sokol"},
+ "ivan-pokhyla":{obr:5,fyz:3,tem:-3,_n:"předstoper a bek"},
+ "tomas-fucik":{obr:4,_n:"bek"},
+ "jan-kovar":{tem:5,str:3,_n:"útočník, dřív krajní záložník"},
+ "david-cizek":{str:4,_o:66,_n:"138 zápasů a 16 gólů za Sokol"},
+ "tomas-holota":{str:5,_n:"střelec, dva góly ve Stádlci za tři minuty"},
+ "michal-pufr":{fyz:3,_n:"zahraje, kam ho trenér postaví"},
+ "matej-kruml":{pri:3,_n:"všestranný, hraje kdekoli"}};
+let attrs={},attrsSaved=null;
+const gamePos=p=>p.pos==="T"?"O":(FIT_POS.includes(p.pos)?p.pos:"");
+const FIT_POS=["B","O","Z","U"];
+function ovrFor(a,role){const w=AW[role];let s=0;for(const k in w)s+=(a[k]||40)*w[k];return Math.round(s);}
+function natRole(p,a){const g=gamePos(p);if(g)return g;return["U","Z","O"].reduce((b,r)=>ovrFor(a,r)>ovrFor(a,b)?r:b,"Z");}
+/* úroveň soutěží z kariéry: čím vyšší soutěž a víc zápasů, tím vyšší základ */
+const LEVELS=[[/divize/i,14],[/krajsk|\bKP\b/i,10],[/I\.?\s*A/,8],[/I\.?\s*B/,6],[/okresní přebor|\bOP\b/i,4],[/pražsk|středočesk/i,5]];
+const lvlOf=lg=>{for(const [r,v] of LEVELS)if(r.test(lg||""))return v;return 0;};
+function careerInfo(car){let boost=0,ga=0,za=0;(car||[]).forEach(c=>{const z=parseInt(c.apps??c.z)||0,g=parseInt(c.goals??c.g)||0,lv=lvlOf(c.league??c.lg);boost=Math.max(boost,lv*(z?Math.min(1,.4+z/60):.6));if(z){za+=z;ga+=g;}});return{boost,gpm:za>=10?ga/za:null};}
+function genAttrs(p){const sl=slug(p.name),h=HINTS[sl]||{},g=gamePos(p),age=p.born?2026-(+p.born):27;
+ const goals=(G26[p.name]||0)+(G27[p.name]||0)*1.6,ci=careerInfo(p.career),base=h._o||Math.min(84,58+Math.round(Math.max(goals*1.05,ci.boost)+Math.min(goals*1.05,ci.boost)*.35));
+ const clamp=v=>Math.max(35,Math.min(95,Math.round(v)));
+ let a;
+ if(g==="B")a={chy:base+2,ref:base+1,vyb:base-3,roz:base-6,pst:base,tem:base-12};
+ else{const t={U:{tem:3,str:6,pri:-4,kli:2,obr:-16,fyz:0},Z:{tem:1,str:-3,pri:5,kli:3,obr:-6,fyz:0},O:{tem:-2,str:-12,pri:-2,kli:-7,obr:7,fyz:4},"":{tem:0,str:0,pri:0,kli:0,obr:-3,fyz:0}}[g];
+  a={};ATTR_F.forEach(([k])=>a[k]=base+t[k]);
+  const sg=Math.min(14,goals*1.2);a.str+=sg-4;if(ci.gpm!=null)a.str+=Math.min(8,ci.gpm*20)-2;}
+ /* věk: mladí rychlejší, zkušení chytřejší */
+ if(age<=21){a.tem+=4;a.fyz+=2;a.pri&&(a.pri-=2);}else if(age>=34){a.tem-=Math.min(10,(age-33)*1.2);a.fyz-=Math.min(8,(age-33));if(a.pri!=null)a.pri+=3;if(a.pst!=null)a.pst+=3;}
+ for(const k in h)if(k[0]!=="_"&&a[k]!=null)a[k]+=h[k];
+ for(const k in a)a[k]=clamp(a[k]);return a;}
+function attrsOf(n){return attrs[n]||{};}
+/* nová logika hodnocení: celkové OVR se počítá z parametrů na přirozeném postu */
+ensureRatings=function(){const F=field();
+ F.forEach(p=>{const n=p.name;attrs[n]=(attrsSaved&&attrsSaved[n])?{...attrsSaved[n]}:(canEdit&&attrs[n]?attrs[n]:genAttrs(p));ratings[n]=ovrFor(attrs[n],natRole(p,attrs[n]));});
+ const gk=(F.find(p=>gamePos(p)==="B")||F[0]||{}).name;
+ xi=(xi||[]).filter(n=>F.some(p=>p.name===n));
+ if(xi.length<11){const pick=F.filter(p=>p.name!==gk&&!xi.includes(p.name)).sort((a,b)=>ratings[b.name]-ratings[a.name]);if(gk&&!xi.includes(gk))xi.push(gk);while(xi.length<11&&pick.length)xi.push(pick.shift().name);}};
+/* karty */
+const cardName=n=>{const st=/ st\.$/.test(n),b=n.replace(/ (st|ml)\.$/,""),ln=lastName(b),dup=players().some(q=>q.name!==n&&lastName(q.name.replace(/ (st|ml)\.$/,""))===ln&&/ st\.$/.test(q.name)===st);return(dup?b.split(" ")[0][0]+". "+ln:ln)+(st?" st.":"");};
+const tier=o=>o>=75?"gold":o>=65?"silver":"bronze";
+function cardHTML(p,i,big){const n=p.name;if(!attrs[n])ensureRatings();const a=attrs[n]||genAttrs(p),role=natRole(p,a),o=ratings[n]||ovrFor(a,role),L=role==="B"?ATTR_G:ATTR_F,id=p.id||slug(n);
+ return `<${big?"div":"a"} class="fcard ${tier(o)}${big?" big":""}" ${big?"":`href="#hrac-${id}"`} aria-label="${esc(n)}, FIFA karta, celkem ${o}">
+ <span class="fc-top"><b>${o}</b><i>${POSN[role]}</i></span>
+ <span class="fc-ph">${p.photo?`<img src="${esc(p.photo)}" alt="" loading="lazy">`:`<span class="fc-in">${esc(initials(n.replace(/ (st|ml)\.$/,"")))}</span>`}</span>
+ <span class="fc-name">${esc(cardName(n))}</span>
+ <span class="fc-at">${L.map(([k,l])=>`<span><b>${a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">SK${p.num?` · ${esc(p.num)}`:""}</span></${big?"div":"a"}>`;}
+let cardSort=store.get("cardSort","ovr");
+function renderCards(){const el=$("#cardGrid");if(!el)return;ensureRatings();
+ const F=field().slice().sort(cardSort==="pos"?(x,y)=>"BOZU".indexOf(natRole(x,attrs[x.name]))-"BOZU".indexOf(natRole(y,attrs[y.name]))||ratings[y.name]-ratings[x.name]:(x,y)=>ratings[y.name]-ratings[x.name]);
+ el.innerHTML=F.map(p=>cardHTML(p)).join("");
+ $("#cardNote").textContent=canEdit?"Klepnutím na kartu otevřete medailonek hráče. Parametry upravíte v medailonku tlačítkem Upravit parametry, celkové hodnocení se dopočítá samo.":"Klepnutím na kartu otevřete medailonek hráče. Parametry nastavuje vedení týmu, výchozí hodnoty vycházejí ze statistik a medailonků.";
+ document.querySelectorAll("#cardSort button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.s===cardSort));
+}
+$("#cardSort").onclick=e=>{const b=e.target.closest("button");if(!b)return;cardSort=b.dataset.s;store.set("cardSort",cardSort);renderCards();};
+function openAttr(n){const p=field().find(x=>x.name===n);if(!p)return;const a={...attrs[n]},role=natRole(p,a),L=role==="B"?ATTR_G:ATTR_F,h=HINTS[slug(n)];
+ const dlg=$("#attrDlg");
+ const draw=()=>{const o=ovrFor(a,role);dlg.querySelector(".ad-body").innerHTML=`<div class="ad-head"><div class="fcard ${tier(o)} mini" aria-hidden="true"><span class="fc-top"><b>${o}</b><i>${POSN[role]}</i></span><span class="fc-ph">${p.photo?`<img src="${esc(p.photo)}" alt="">`:`<span class="fc-in">${esc(initials(n))}</span>`}</span></div><div><h3>${esc(n)}</h3><p class="muted">${h&&h._n?"Podklad: "+esc(h._n):"Výchozí hodnoty podle postu, gólů a věku."}</p></div></div>
+ <div class="ad-rows">${L.map(([k,l,full])=>`<label class="ad-row"><span>${full} <small>${l}</small></span>${canEdit?`<input type="range" min="30" max="99" value="${a[k]}" data-k="${k}" aria-label="${full}">`:`<s class="rbar" style="--w:${(a[k]-30)/69*100}%"></s>`}<b>${a[k]}</b></label>`).join("")}</div>
+ <p class="muted ad-ovr">Celkem na postu ${POSN[role]}: <b>${o}</b>. ${["U","Z","O"].filter(r=>r!==role&&role!=="B").map(r=>`${POSN[r]} ${ovrFor(a,r)}`).join(" · ")}</p>
+ <div class="ad-btns">${canEdit?`<button class="btn sm" type="button" data-act="ok">Použít</button><button class="btn sm ghost" type="button" data-act="reset">Výchozí hodnoty</button>`:""}<button class="btn sm ghost" type="button" data-act="close">Zavřít</button></div>`;
+  dlg.querySelectorAll("input[type=range]").forEach(r=>r.oninput=e=>{a[r.dataset.k]=+e.target.value;r.nextElementSibling.textContent=e.target.value;dlg.querySelector(".ad-ovr b").textContent=ovrFor(a,role);dlg.querySelector(".mini .fc-top b").textContent=ovrFor(a,role);});
+  dlg.querySelectorAll("[data-act]").forEach(b=>b.onclick=()=>{const act=b.dataset.act;if(act==="reset"){Object.assign(a,genAttrs(p));draw();return;}
+   if(act==="ok"){attrs[n]={...a};ratings[n]=ovrFor(a,role);renderRates();renderSquad();if(location.hash.startsWith("#hrac-"))renderPlayer(location.hash.slice(6));toast("Upraveno. Pro všechny uložíte tlačítkem Uložit hodnocení.");}
+   dlg.hidden=true;document.body.classList.remove("modal-open");});};
+ draw();dlg.hidden=false;document.body.classList.add("modal-open");dlg.querySelector("input,button").focus();}
+$("#attrDlg").addEventListener("click",e=>{if(e.target.id==="attrDlg"){e.target.hidden=true;document.body.classList.remove("modal-open");}});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#attrDlg").hidden){$("#attrDlg").hidden=true;document.body.classList.remove("modal-open");}});
+$("#saveRatings").onclick=async()=>{if(!db||!canEdit)return;try{await db.collection("game").doc("ratings").set({r:{...ratings},a:JSON.parse(JSON.stringify(attrs)),updated:new Date().toISOString()});toast("Hodnocení uloženo pro všechny");}catch(e){toast("Uložit se nepovedlo");}};
+{const _rr=renderRates;renderRates=function(){_rr();renderCards();};}
+
+/* soupiska a medailonek ve stylu FIFA */
+{const _pc=playerCard;playerCard=function(p){if(p.pos==="T"&&!p.num)return _pc(p);return cardHTML(p);};}
+{const _rp=renderPlayer;renderPlayer=function(id){_rp(id);const p=players().find(x=>x.id===id);if(!p||!field().some(f=>f.name===p.name))return;ensureRatings();
+ const el=$("#playerView"),box=el.querySelector(".phero-img");if(box){const h=HINTS[slug(p.name)];
+  box.outerHTML=`<div class="phero-card">${cardHTML(p,0,true)}<button class="btn sm ${canEdit?"":"ghost light"}" type="button" id="openAttr">${canEdit?"Upravit parametry":"Parametry podrobně"}</button>${h&&h._n?`<p class="pc-note">Podklad hodnocení: ${esc(h._n)}</p>`:""}</div>`;
+  $("#openAttr").onclick=()=>openAttr(p.name);}}}
+{const _ok=openAttr;}
+ensureRatings();renderRates();renderSquad();if(location.hash.startsWith("#hrac-"))renderPlayer(location.hash.slice(6));
 /* ================= ZÁPASOVÉ CENTRUM (virtuální liga) ================= */
 const FORMS={
  "4-4-2":[["B","BR",50,90],["O","LO",13,69],["O","SO",37,75],["O","SO",63,75],["O","PO",87,69],["Z","LZ",13,45],["Z","SZ",37,50],["Z","SZ",63,50],["Z","PZ",87,45],["U","ÚT",37,21],["U","ÚT",63,21]],
@@ -1542,8 +1677,12 @@ const MAX_SUBS=5,SIMS=150;
 let form=FORMS[store.get("form","")]?store.get("form",""):"4-4-2",tactic=TAC[store.get("tactic","")]?store.get("tactic",""):"bal",speedI=Math.min(2,Math.max(0,+store.get("mcSpeed",0)||0));
 let lineup=[],sel=null,M=null,PLC=null,DSP=null;
 const pl=n=>{if(!PLC)PLC=new Map(players().map(p=>[p.name,p]));return PLC.get(n)||{name:n,pos:""};};
-const posOf=n=>{const p=pl(n).pos;return FIT[p]?p:"";};
+const posOf=n=>{const p=pl(n).pos;return p==="T"?"O":FIT[p]?p:"";};
 const fitOf=(n,role)=>FIT[posOf(n)][role];
+const stamF=n=>{const st=M&&!M.done&&M.st[n]!=null?M.st[n]:100;return .72+.28*st/100;};
+const roleOvr=(n,role)=>{const a=attrs[n],gk=posOf(n)==="B";if(!a)return(ratings[n]||55)*fitOf(n,role);if(role==="B")return gk?ovrFor(a,"B"):28;if(gk)return 30;return ovrFor(a,role)*(posOf(n)&&posOf(n)!==role?.97:1);};
+const effAt=(n,role)=>roleOvr(n,role)*stamF(n);
+const AT=(n,k)=>(((attrs[n]||{})[k])||(ratings[n]||55))*stamF(n);
 const disp=n=>{if(!n)return"";if(!DSP)DSP=new Map();if(DSP.has(n))return DSP.get(n);
  const st=/ st\.$/.test(n),base=n.replace(/ (st|ml)\.$/,""),ln=lastName(base),dup=field().some(p=>p.name!==n&&lastName(p.name.replace(/ (st|ml)\.$/,""))===ln&&/ st\.$/.test(p.name)===st);
  const v=(dup?short(base):ln)+(st?" st.":"");DSP.set(n,v);return v;};
@@ -1556,26 +1695,26 @@ const live=()=>M&&!M.done&&!M.silent;
 
 function assign(names,f){const S=FORMS[f],out=Array(S.length).fill(null),left=names.filter(Boolean);
  const order=[...S.keys()].sort((a,b)=>"BUOZ".indexOf(S[a][0])-"BUOZ".indexOf(S[b][0]));
- order.forEach(i=>{const role=S[i][0];let bi=-1,bv=-1;left.forEach((n,j)=>{const v=fitOf(n,role)*100+(ratings[n]||60)/100;if(v>bv){bv=v;bi=j;}});if(bi>=0)out[i]=left.splice(bi,1)[0];});
+ order.forEach(i=>{const role=S[i][0];let bi=-1,bv=-1;left.forEach((n,j)=>{const v=roleOvr(n,role)*(posOf(n)===role?1.04:1);if(v>bv){bv=v;bi=j;}});if(bi>=0)out[i]=left.splice(bi,1)[0];});
  return out;}
 /* sestava na hřišti drží krok se seznamem zaškrtnutých hráčů (xi) */
 function syncLineup(){if(live())return;const want=new Set(xi);
  if(lineup.length!==FORMS[form].length){const sv=store.get("lineup",null);lineup=sv&&sv.f===form&&Array.isArray(sv.l)&&sv.l.length===FORMS[form].length?sv.l.slice():assign(xi,form);}
  lineup=lineup.map(n=>n&&want.has(n)?n:null);const missing=xi.filter(n=>!lineup.includes(n));
- if(missing.length){const S=FORMS[form];lineup.forEach((n,i)=>{if(n||!missing.length)return;const role=S[i][0];let bj=0,bv=-1;missing.forEach((m,j)=>{const v=fitOf(m,role)*100+(ratings[m]||60)/100;if(v>bv){bv=v;bj=j;}});lineup[i]=missing.splice(bj,1)[0];});}
+ if(missing.length){const S=FORMS[form];lineup.forEach((n,i)=>{if(n||!missing.length)return;const role=S[i][0];let bj=0,bv=-1;missing.forEach((m,j)=>{const v=roleOvr(m,role)*(posOf(m)===role?1.04:1);if(v>bv){bv=v;bj=j;}});lineup[i]=missing.splice(bj,1)[0];});}
  saveLineup();}
 const saveLineup=()=>store.set("lineup",{f:form,l:lineup});
 
 /* síla po řadách */
 function eff(n){const r=ratings[n]||55,st=M&&!M.done&&M.st[n]!=null?M.st[n]:100;return r*(.72+.28*st/100);}
 function sectors(){const S=FORMS[form];let gk=40;const D=[],Z=[],U=[];
- lineup.forEach((n,i)=>{if(!n)return;const role=S[i][0],v=eff(n)*fitOf(n,role);if(role==="B")gk=v;else(role==="O"?D:role==="Z"?Z:U).push(v);});
+ lineup.forEach((n,i)=>{if(!n)return;const role=S[i][0],v=effAt(n,role);if(role==="B")gk=v;else(role==="O"?D:role==="Z"?Z:U).push(v);});
  const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:40,on=lineup.filter(Boolean).length,man=on<11?Math.pow(.91,11-on):1,md=M&&!M.done?M.mod:0;
  return{gk:gk+md*.5,def:avg(D)*(.86+.035*D.length)*man+md,mid:avg(Z)*(.84+.04*Z.length)*man+md,att:(avg(U)*(.84+.08*U.length)*.7+avg(Z)*.3)*man+md};}
 const lineupPower=()=>{const s=sectors();return Math.round((s.def+s.mid+s.att+s.gk)/4);};
 
 /* ---------- vykreslení hřiště ---------- */
-function tokHTML(n,i,role,label){const lv=live(),st=lv&&M.st[n]!=null?M.st[n]:null,g=M?M.goals[n]||0:0,y=M?M.yel[n]||0:0,f=fitOf(n,role);
+function tokHTML(n,i,role,label){const lv=live(),st=lv&&M.st[n]!=null?M.st[n]:null,g=M?M.goals[n]||0:0,y=M?M.yel[n]||0:0,f=roleOvr(n,role)/(ratings[n]||60);
  return `<button type="button" class="tok${sel&&sel.w==="p"&&sel.i===i?" sel":""}${f<.8?" off":""}${M&&M.inj===n&&lv?" inj":""}" style="left:${FORMS[form][i][2]}%;top:${FORMS[form][i][3]}%" data-i="${i}" aria-label="${esc(n)}, ${label}${f<.8?", mimo svůj post":""}">${av(n)}<b>${esc(disp(n))}</b><i>${label} · ${Math.round(ratings[n]||0)}</i>${st!=null?`<s class="stam${st<40?" lo":st<65?" md":""}" style="--w:${Math.max(0,st)}%" title="Kondice ${Math.round(st)} %"></s>`:""}${g?`<em class="tg">${"⚽".repeat(Math.min(g,3))}</em>`:""}${y?`<em class="ty${y>1?" r":""}"></em>`:""}</button>`;}
 function benchList(){return field().filter(p=>!lineup.includes(p.name)&&!(live()&&M.off.has(p.name))).sort((a,b)=>(ratings[b.name]||0)-(ratings[a.name]||0)).map(p=>p.name);}
 function renderPitch(){const pitch=$("#pitch");if(!pitch)return;const S=FORMS[form],lv=live();
@@ -1703,7 +1842,7 @@ function ctxThem(pu,pt){const u=M.us,t=M.them;const wasDown=M.lowT<0;M.lowT=Math
 function scoreUs(p,big,how){const pu=M.us,pt=M.them;
  if(how!=="pen"&&Math.random()<.08){adj(p,-.05);feed(M.lbl(),"offs",p,fill(rnd(T.offs),{p:disp(p)}));return;}
  M.stat.onU++;M.us++;M.goals[p]=(M.goals[p]||0)+1;adj(p,1);M.mom=Math.min(1,M.mom+.35);let at="";
- if(how!=="pen"&&Math.random()<.62){const ap=onPitch().filter(n=>n!==p&&roleOf(n)!=="B");if(ap.length){const a=pickW(ap,n=>({U:1.3,Z:2,O:.8})[roleOf(n)]*eff(n));M.ast[a]=(M.ast[a]||0)+1;adj(a,.6);at=` Přihrával ${disp(a)}.`;}}
+ if(how!=="pen"&&Math.random()<.62){const ap=onPitch().filter(n=>n!==p&&roleOf(n)!=="B");if(ap.length){const a=pickW(ap,n=>({U:1.3,Z:2,O:.8})[roleOf(n)]*AT(n,"pri"));M.ast[a]=(M.ast[a]||0)+1;adj(a,.6);at=` Přihrával ${disp(a)}.`;}}
  const txt=how==="pen"?fill(rnd(T.penIn),{s:disp(p)}):how==="build"?fill(rnd(T.buildIn),{p:disp(p)}):fill(rnd(big?T.goalBig:T.goal),{p:disp(p)});
  feed(M.lbl(),"goal",p,txt+at+ctxUs(pu,pt,p));
  if(drama()){flash("us");try{navigator.vibrate&&navigator.vibrate([120,60,220]);}catch(e){}M.hold=1600;}}
@@ -1711,11 +1850,11 @@ function scoreThem(how){const pu=M.us,pt=M.them,k=gkName();M.stat.onT++;M.them++
  const o=oppShort(M.opp.n),r=rnd(OROLES),kk=k?disp(k):"brankář",base=how==="pen"?fill(rnd(T.tPenIn),{k:kk}):how==="build"?fill(rnd(T.tGoalBig),{r,k:kk}):fill(rnd(T.tGoal),{o,r,k:kk});
  feed(M.lbl(),"tgoal","",base+ctxThem(pu,pt)+(M.home&&Math.random()<.5?" Na tribuně je chvíli ticho.":""));if(drama()){flash("them");M.hold=1200;}}
 function chanceUs(){const pool=onPitch().filter(n=>roleOf(n)!=="B");if(!pool.length)return;M.mom=Math.min(1,M.mom+.12);
- const w={U:3,Z:1.5,O:.45};const p=pickW(pool,n=>w[roleOf(n)]*Math.pow(eff(n),2)*(1+(G26[n]||0)*.04+(G27[n]||0)*.12));
+ const w={U:3,Z:1.5,O:.45};const p=pickW(pool,n=>w[roleOf(n)]*Math.pow((AT(n,"tem")+AT(n,"kli")+AT(n,"str"))/3,2)*(1+(G26[n]||0)*.04+(G27[n]||0)*.12));
  const big=Math.random()<.27;M.stat.shU++;
- if(big&&Math.random()<.06){const s=pickW(pool,n=>Math.pow(ratings[n]||60,3));feed(M.lbl(),"pen",p,fill(rnd(T.pen),{p:disp(p),s:disp(s)}));
+ if(big&&Math.random()<.06){const s=pickW(pool,n=>Math.pow(((attrs[n]||{}).str||ratings[n]||60),3));feed(M.lbl(),"pen",p,fill(rnd(T.pen),{p:disp(p),s:disp(s)}));
   const res=()=>{if(!lineup.includes(s)){feed(M.lbl(),"info","","Penaltu nakonec kope jiný hráč a míří vedle. Škoda.");return;}if(Math.random()<.78)scoreUs(s,true,"pen");else{M.stat.onU++;adj(s,-.5);feed(M.lbl(),"miss",s,fill(rnd(T.penOut),{s:disp(s)}));}};if(drama())M.pend=res;else res();return;}
- const q=Math.min(.75,(big?.36:.085)*Math.exp((eff(p)*fitOf(p,roleOf(p))-M.o.gk)/100));
+ const q=Math.min(.75,(big?.36:.085)*Math.exp(((big?(AT(p,"str")+AT(p,"kli"))/2:AT(p,"str"))-M.o.gk)/100));
  const res=build=>{if(!lineup.includes(p)){feed(M.lbl(),"miss","","…míč nakonec odvrací obrana.");return;}if(Math.random()<q)scoreUs(p,big,build?"build":"");else if(Math.random()<.45){M.stat.onU++;feed(M.lbl(),"save",p,build?`…ale brankář soupeře to vyrazil! ${disp(p)} nevěří.`:fill(rnd(T.save),{p:disp(p)}));}
   else{if(big)adj(p,-.25);if(build)feed(M.lbl(),"miss",p,fill(rnd(T.missBig),{p:disp(p)}));else if(Math.random()<.55)feed(M.lbl(),"miss",p,fill(rnd(T.miss),{p:disp(p)}));}};
  if(big&&drama()){feed(M.lbl(),"build",p,fill(rnd(T.build),{p:disp(p)}));M.pend=()=>res(true);}else res(false);}
@@ -1748,7 +1887,7 @@ function step(){M.hm++;M.minAbs++;
   if(M.half===2&&stoppage()&&M.us===M.them-1){cu*=1.5;ct*=1.3;if(!M.keeperUp){M.keeperUp=true;feed(M.lbl(),"info",gkName()||"","Poslední šance! Jde dopředu i brankář "+(gkName()?disp(gkName()):"")+".");}}
   const r=Math.random();if(r<cu)chanceUs();else if(r<cu+ct)chanceThem();else misc(pU);}
  M.mom*=.93;const Tc=TAC[tactic];
- onPitch().forEach(n=>{M.played[n]=(M.played[n]||0)+1;const d=(.55+Math.max(0,ageOf(n)-28)*.012)*Tc.drain*(.8+Math.random()*.4)*(roleOf(n)==="B"?.35:1);M.st[n]=Math.max(0,M.st[n]-d);
+ onPitch().forEach(n=>{M.played[n]=(M.played[n]||0)+1;const d=(.55+Math.max(0,ageOf(n)-28)*.012)*(1.3-((attrs[n]||{}).fyz||60)/200)*Tc.drain*(.8+Math.random()*.4)*(roleOf(n)==="B"?.35:1);M.st[n]=Math.max(0,M.st[n]-d);
 });
  M.oSt=Math.max(0,M.oSt-.55*(.8+Math.random()*.4));if(M.half===2&&M.hm===20)M.oSt=Math.min(100,M.oSt+14);
  if(M.minAbs-M.tiredT>=8){const cand=onPitch().filter(n=>roleOf(n)!=="B"&&M.st[n]<40&&!M.tired.has(n)).sort((a,b)=>M.st[a]-M.st[b])[0];if(cand){M.tired.add(cand);M.tiredT=M.minAbs;feed(M.lbl(),"info",cand,fill(rnd(T.tired),{p:disp(cand)}));}}
