@@ -620,7 +620,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 .fc-club{position:absolute;bottom:13cqi;font-family:var(--f-mono);font-size:5cqi;opacity:.6}
 .fcard.opp{cursor:default}.fcard.opp:hover{transform:none;filter:none}
 .fcard.big{width:min(300px,78vw);cursor:default}.fcard.big:hover{transform:none}
-.phero-card{align-self:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:24px}.phero-card .fcard{filter:drop-shadow(0 14px 28px rgba(0,0,0,.45))}.btn.ghost.light{color:#fff;border-color:rgba(255,255,255,.6)}.pc-note{color:rgba(255,255,255,.8);font-size:.8rem;max-width:300px;text-align:center;margin:0}
+.phero-card{align-self:center;display:flex;flex-direction:column;align-items:center;gap:12px;padding-bottom:24px}.phero-card .fcard{filter:drop-shadow(0 14px 28px rgba(0,0,0,.45))}.btn.ghost.light{color:#fff;background:transparent;border-color:rgba(255,255,255,.6)}.pc-note{color:rgba(255,255,255,.8);font-size:.8rem;max-width:300px;text-align:center;margin:0}
 .fc-top b,.fc-top i{text-shadow:0 1px 0 rgba(255,255,255,.5)}
 .pgrid .fcard,.strip .fcard{width:100%}
 .strip .fcard{scroll-snap-align:start}
@@ -657,6 +657,38 @@ small.dn{color:var(--bad)}
 .lead tr.me td{background:color-mix(in srgb,var(--gold) 22%,transparent)}
 .card.dim #rateList{opacity:.45;pointer-events:none}
 @media(max-width:760px){.sz-form{grid-template-columns:1fr}.sz-grid{grid-template-columns:1fr}.sz-next .mcbtns{margin:0}}
+
+/* FIFA efekty */
+.fcard{--rx:0deg;--ry:0deg;--mx:50%;--my:30%;transform:perspective(800px) rotateX(var(--rx)) rotateY(var(--ry));transition:transform .25s ease-out,filter .25s}
+.fcard.tilt{transform:perspective(800px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.06);transition:transform .06s linear,filter .2s;filter:drop-shadow(0 10px 16px rgba(0,0,0,.3));z-index:2}
+.fc-glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx) var(--my),rgba(255,255,255,.55),rgba(255,255,255,0) 45%);mix-blend-mode:soft-light;opacity:0;transition:opacity .25s}
+.fcard.tilt .fc-glare,.fflip.tilt .fc-glare{opacity:1}
+.fcard.gold::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.65) 48%,transparent 60%);background-size:250% 100%;animation:shine 4.5s ease-in-out infinite;mix-blend-mode:overlay;z-index:1}
+.fcard.silver::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.45) 50%,transparent 60%);background-size:250% 100%;animation:shine 7s ease-in-out infinite;mix-blend-mode:overlay;z-index:1}
+@keyframes shine{0%,55%{background-position:130% 0}100%{background-position:-60% 0}}
+.fcard.in{animation:fcIn .55s cubic-bezier(.2,.8,.2,1.2) both;animation-delay:calc(var(--i,0)*45ms)}
+@keyframes fcIn{from{opacity:0;transform:perspective(800px) translateY(26px) rotateX(18deg) scale(.9)}to{opacity:1}}
+/* medailonek: otevření balíčku a otočení karty */
+.phero-card{position:relative}
+.fc-rays{position:absolute;left:50%;top:40%;width:620px;height:620px;max-width:160vw;transform:translate(-50%,-50%);pointer-events:none;border-radius:50%;
+ background:conic-gradient(from 0deg,transparent 0 6%,rgba(240,200,80,.22) 8%,transparent 10% 22%,rgba(240,200,80,.18) 24%,transparent 26% 38%,rgba(240,200,80,.22) 40%,transparent 42% 55%,rgba(240,200,80,.18) 57%,transparent 59% 72%,rgba(240,200,80,.22) 74%,transparent 76% 88%,rgba(240,200,80,.18) 90%,transparent 92%);
+ -webkit-mask-image:radial-gradient(circle,#000 20%,transparent 68%);mask-image:radial-gradient(circle,#000 20%,transparent 68%);animation:rays 18s linear infinite,raysIn 1.4s ease-out both}
+@keyframes rays{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes raysIn{from{opacity:0}to{opacity:1}}
+.fflip{position:relative;width:min(300px,78vw);aspect-ratio:5/7.2;perspective:1200px;cursor:pointer;outline:none;--rx:0deg;--ry:0deg;animation:walkout 1.3s cubic-bezier(.15,.85,.25,1.15) both}
+.fflip:focus-visible{box-shadow:0 0 0 3px var(--gold);border-radius:14px}
+@keyframes walkout{0%{opacity:0;transform:scale(.25) rotateY(-540deg)}55%{opacity:1}80%{transform:scale(1.08) rotateY(10deg)}100%{transform:scale(1) rotateY(0)}}
+.fflip-in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.3,.7,.2,1.1);transform:rotateX(var(--rx)) rotateY(var(--ry))}
+.fflip.flipped .fflip-in{transform:rotateY(180deg)}
+.fflip .fcard.big{position:absolute;inset:0;width:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;transform:none;animation:none}
+.fflip .fcard.big.fc-back{transform:rotateY(180deg);display:flex;flex-direction:column;align-items:stretch;padding:8% 10% 15%;gap:9px;cursor:pointer}
+.fc-bk-h{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:8cqi;text-align:center;border-bottom:1px solid rgba(0,0,0,.25);padding-bottom:2cqi}.fc-bk-h b{font-size:12cqi;margin-right:2cqi}
+.fc-bars{display:grid;gap:2.2cqi;font-size:5.2cqi;font-weight:700;text-transform:uppercase}.fc-bars>span{display:grid;grid-template-columns:30cqi 1fr 9cqi;gap:2cqi;align-items:center}
+.fc-bars s{display:block;height:2.4cqi;border-radius:2cqi;background:rgba(0,0,0,.18);position:relative;overflow:hidden;text-decoration:none}.fc-bars s::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:currentColor;opacity:.75}
+.fc-bars b{text-align:right;font-family:var(--f-display);font-size:6cqi}
+.fc-bk-s{font-size:5cqi;text-align:center}.fc-bk-c{display:grid;gap:.5cqi;font-size:4.3cqi;text-align:center;opacity:.85}
+.fc-bk-tip{margin-top:auto;text-align:center;font-family:var(--f-mono);font-size:3.8cqi;opacity:.6}
+@media (prefers-reduced-motion: reduce){.fcard,.fcard.tilt{transform:none!important;transition:none}.fcard::before,.fc-rays,.fcard.in,.fflip{animation:none!important}.fflip-in{transition:none}}
 </style>
 
 </head><body>
@@ -1664,7 +1696,7 @@ function cardHTML(p,i,big){const n=p.name;if(!attrs[n])ensureRatings();const a=a
  <span class="fc-top"><b>${o}</b><i>${POSN[role]}</i></span>
  <span class="fc-ph">${p.photo?`<img src="${esc(p.photo)}" alt="" loading="lazy">`:`<span class="fc-in">${esc(initials(n.replace(/ (st|ml)\.$/,"")))}</span>`}</span>
  <span class="fc-name">${esc(cardName(n))}</span>
- <span class="fc-at">${L.map(([k,l])=>`<span><b>${a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">SK${p.num?` · ${esc(p.num)}`:""}</span></${big?"div":"a"}>`;}
+ <span class="fc-at">${L.map(([k,l])=>`<span><b>${a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">SK${p.num?` · ${esc(p.num)}`:""}</span><span class="fc-glare" aria-hidden="true"></span></${big?"div":"a"}>`;}
 let cardSort=store.get("cardSort","ovr");
 function renderCards(){const el=$("#cardGrid");if(!el)return;ensureRatings();
  const F=field().slice().sort(cardSort==="pos"?(x,y)=>"BOZU".indexOf(natRole(x,attrs[x.name]))-"BOZU".indexOf(natRole(y,attrs[y.name]))||ratings[y.name]-ratings[x.name]:(x,y)=>ratings[y.name]-ratings[x.name]);
@@ -1693,8 +1725,11 @@ $("#saveRatings").onclick=async()=>{if(!db||!canEdit)return;try{await db.collect
 {const _pc=playerCard;playerCard=function(p){if(p.pos==="T"&&!p.num)return _pc(p);return cardHTML(p);};}
 {const _rp=renderPlayer;renderPlayer=function(id){_rp(id);const p=players().find(x=>x.id===id);if(!p||!field().some(f=>f.name===p.name))return;ensureRatings();
  const el=$("#playerView"),box=el.querySelector(".phero-img");if(box){const h=HINTS[slug(p.name)];
-  box.outerHTML=`<div class="phero-card">${cardHTML(p,0,true)}<button class="btn sm ${canEdit?"":"ghost light"}" type="button" id="openAttr">${canEdit?"Upravit parametry":"Parametry podrobně"}</button>${h&&h._n?`<p class="pc-note">Podklad hodnocení: ${esc(h._n)}</p>`:""}</div>`;
-  $("#openAttr").onclick=()=>openAttr(p.name);}}}
+  const a=attrs[p.name],role=natRole(p,a),L=role==="B"?ATTR_G:ATTR_F,o=ratings[p.name],st=playerStats(p.name),car=(p.career||[]).slice(-3);
+  const back=`<div class="fcard ${tier(o)} big fc-back" aria-hidden="true"><span class="fc-bk-h"><b>${o}</b> ${esc(cardName(p.name))}</span><span class="fc-bars">${L.map(([k,l,full])=>`<span><i>${full}</i><s style="--w:${(a[k]-30)/69*100}%"></s><b>${a[k]}</b></span>`).join("")}</span><span class="fc-bk-s">Góly 26/27: <b>${st.g27}</b> · 25/26: <b>${st.g26}</b></span>${car.length?`<span class="fc-bk-c">${car.map(c=>`<span>${esc(c.season)} · ${esc((c.league||"").replace("okresní soutěže","OS"))}</span>`).join("")}</span>`:""}<span class="fc-bk-tip">Klepni a otoč zpět</span></div>`;
+  box.outerHTML=`<div class="phero-card"><div class="fc-rays" aria-hidden="true"></div><div class="fflip" role="button" tabindex="0" aria-label="Otočit kartu a zobrazit parametry"><div class="fflip-in">${cardHTML(p,0,true)}${back}</div></div><button class="btn sm ${canEdit?"":"ghost light"}" type="button" id="openAttr">${canEdit?"Upravit parametry":"Parametry podrobně"}</button>${h&&h._n?`<p class="pc-note">Podklad hodnocení: ${esc(h._n)}</p>`:""}</div>`;
+  $("#openAttr").onclick=()=>openAttr(p.name);
+  const fl=el.querySelector(".fflip");if(fl){const t=()=>fl.classList.toggle("flipped");fl.onclick=t;fl.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();t();}};}}}}
 {const _ok=openAttr;}
 ensureRatings();renderRates();renderSquad();if(location.hash.startsWith("#hrac-"))renderPlayer(location.hash.slice(6));
 
@@ -1707,7 +1742,7 @@ function oppAttrs(team){if(OPPA[team])return OPPA[team];const sq=(typeof OPPSQ!=
   for(const k in a)a[k]=clamp(a[k]);const role=pos||["U","Z","O"].reduce((b,r)=>ovrFor(a,r)>ovrFor(a,b)?r:b,"Z");
   return{n:p.n,a,role,o:ovrFor(a,role),g,c:p.c||[]};}).sort((x,y)=>y.o-x.o);return OPPA[team];}
 function oppCard(q,team){const L=q.role==="B"?ATTR_G:ATTR_F,ln=q.n.split(" ").pop();
- return `<div class="fcard ${tier(q.o)} opp" aria-label="${esc(q.n)}, ${esc(team)}, celkem ${q.o}" title="${esc(q.n)}${q.c.length?" · "+esc(q.c.map(c=>c.s+" "+c.lg).slice(0,3).join(", ")):""}"><span class="fc-top"><b>${q.o}</b><i>${POSN[q.role]}</i></span><span class="fc-ph"><span class="fc-in">${esc(initials(q.n.replace(/\./g,"")))}</span></span><span class="fc-name">${esc(ln)}</span><span class="fc-at">${L.map(([k,l])=>`<span><b>${q.a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">${esc(team.replace(/^(TJ|Sokol|SK|FC|ZD)\s+/,""))}${q.g?` · ${q.g} ⚽`:""}</span></div>`;}
+ return `<div class="fcard ${tier(q.o)} opp" aria-label="${esc(q.n)}, ${esc(team)}, celkem ${q.o}" title="${esc(q.n)}${q.c.length?" · "+esc(q.c.map(c=>c.s+" "+c.lg).slice(0,3).join(", ")):""}"><span class="fc-top"><b>${q.o}</b><i>${POSN[q.role]}</i></span><span class="fc-ph"><span class="fc-in">${esc(initials(q.n.replace(/\./g,"")))}</span></span><span class="fc-name">${esc(ln)}</span><span class="fc-at">${L.map(([k,l])=>`<span><b>${q.a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">${esc(team.replace(/^(TJ|Sokol|SK|FC|ZD)\s+/,""))}${q.g?` · ${q.g} ⚽`:""}</span><span class="fc-glare" aria-hidden="true"></span></div>`;}
 let cardTeam=store.get("cardTeam","Košice");
 {const _rc=renderCards;renderCards=function(){const sel=$("#cardTeam");if(sel&&!sel.options.length){sel.innerHTML=`<option value="Košice">Košice</option>`+Object.keys(typeof OPPSQ!=="undefined"?OPPSQ:{}).map(t=>`<option>${esc(t)}</option>`).join("");}
  if(sel)sel.value=cardTeam;if(cardTeam==="Košice"||typeof OPPSQ==="undefined"||!OPPSQ[cardTeam]){_rc();$("#cardSort").hidden=false;return;}
@@ -1715,6 +1750,18 @@ let cardTeam=store.get("cardTeam","Košice");
  $("#cardNote").textContent=`Hráči soupeře z letošních sestav a statistik (fotbalunas.cz, Táborský deník). Hodnocení vychází z gólů a ze soutěží, které hráli. Najetím na kartu uvidíte kariéru.`;};}
 $("#cardTeam").onchange=e=>{cardTeam=e.target.value;store.set("cardTeam",cardTeam);renderCards();};
 renderCards();
+
+/* ---------- FIFA efekty: náklon s odleskem, postupný nástup karet ---------- */
+const reduceMo=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(!reduceMo){let raf=0,lastEv=null;
+ const apply=()=>{raf=0;const e=lastEv,c=e&&e.target.closest&&e.target.closest(".fflip,.fcard:not(.big)");if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+  c.style.setProperty("--rx",((.5-y)*16).toFixed(2)+"deg");c.style.setProperty("--ry",((x-.5)*20).toFixed(2)+"deg");c.style.setProperty("--mx",(x*100).toFixed(1)+"%");c.style.setProperty("--my",(y*100).toFixed(1)+"%");c.classList.add("tilt");};
+ document.addEventListener("pointermove",e=>{if(e.pointerType==="touch")return;lastEv=e;if(!raf)raf=requestAnimationFrame(apply);},{passive:true});
+ document.addEventListener("pointerout",e=>{const c=e.target.closest&&e.target.closest(".fcard,.fflip");if(c&&!c.contains(e.relatedTarget)){c.classList.remove("tilt");c.style.removeProperty("--rx");c.style.removeProperty("--ry");}},{passive:true});}
+function stagger(root){if(!root)return;root.querySelectorAll(".fcard").forEach((c,i)=>{c.style.setProperty("--i",Math.min(i,24));c.classList.remove("in");void c.offsetWidth;c.classList.add("in");});}
+{const _rs=renderSquad;renderSquad=function(){_rs();stagger($("#squadGroups"));};}
+{const _rc=renderCards;renderCards=function(){_rc();stagger($("#cardGrid"));};}
+stagger($("#squadGroups"));stagger($("#cardGrid"));
 /* ================= ZÁPASOVÉ CENTRUM (virtuální liga) ================= */
 const FORMS={
  "4-4-2":[["B","BR",50,90],["O","LO",13,69],["O","SO",37,75],["O","SO",63,75],["O","PO",87,69],["Z","LZ",13,45],["Z","SZ",37,50],["Z","SZ",63,50],["Z","PZ",87,45],["U","ÚT",37,21],["U","ÚT",63,21]],
