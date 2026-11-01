@@ -795,6 +795,21 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
 .trses{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:6px}.trses small{display:block;color:var(--muted);font-size:.78rem}
 .trind{display:grid;gap:6px}
 @media (max-width:760px){.trpitchw{grid-template-columns:1fr}}
+
+.histbox{display:grid;gap:18px}.hlead{font-size:1.1rem;max-width:760px;line-height:1.55}
+.hchart{width:100%;height:auto;display:block;margin:6px 0 14px}.hchart .hgl{stroke:var(--line);stroke-dasharray:3 4}.hchart .hax{fill:var(--muted);font-size:11px}.hchart .hln{fill:none;stroke:var(--club);stroke-width:2.5;stroke-linejoin:round}
+.hchart .hpt{fill:var(--card,#fff);stroke:var(--club);stroke-width:2.5}.hchart .hpt.uspech{fill:#f2c230;stroke:#b8860b}.hchart .hpt.pad{fill:#d33a2c;stroke:#d33a2c}.hchart .hpt.now{fill:var(--club)}.hchart .hpt.un{stroke-dasharray:2 2}.hchart .hlab{font-size:11px;font-weight:700;fill:var(--ink);text-anchor:middle}
+.htable{display:grid}.hrow{display:grid;grid-template-columns:80px minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.6fr);gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.9rem;align-items:baseline}.hrow small{color:var(--muted)}.hrow.uspech{background:color-mix(in srgb,#f2c230 14%,transparent)}.hrow.pad b{color:#d33a2c}
+.sec2{font-family:var(--f-display);text-transform:uppercase;font-size:1.8rem;line-height:1.08;margin:10px 0 0}
+.htl{list-style:none;margin:0;padding:0;display:grid;gap:0;position:relative}.htl:before{content:"";position:absolute;left:62px;top:6px;bottom:6px;width:3px;background:var(--line)}
+.htl li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:28px;padding:10px 0;position:relative}.htl li:after{content:"";position:absolute;left:56px;top:18px;width:15px;height:15px;border-radius:50%;background:var(--club);border:3px solid var(--bg,#fff)}
+.htl li.uspech:after{background:#f2c230}.htl li.pad:after{background:#d33a2c}.htl li.zalozeni:after{background:var(--muted)}
+.hy{font-family:var(--f-display);font-size:1.4rem;text-align:right;padding-top:8px}.hc{background:var(--card,var(--bg));border:1px solid var(--line);border-radius:8px;padding:12px 14px}.hc h4{font-size:1.25rem;margin:2px 0 4px;font-family:var(--f-display);text-transform:uppercase;line-height:1.08}.hc p{margin:0 0 6px}.hc img{width:100%;max-height:300px;object-fit:cover;border-radius:6px;margin:6px 0}
+.htl li.uspech .hc{border-color:#d9b23a;box-shadow:0 0 0 1px #d9b23a inset}
+.hsrc{font-size:.78rem;color:var(--muted)}.hsrc a,.hp a.hsrc{color:var(--muted)}
+.hpeople{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.hp{display:grid;gap:4px;align-content:start}.hp h4{font-size:1.2rem;margin:0}.hp p{margin:0;font-size:.9rem}
+.hhelp{border:2px dashed var(--club)}.hsrcl{margin:8px 0 0;padding-left:20px;display:grid;gap:4px;font-size:.9rem}
+@media (max-width:620px){.hrow{grid-template-columns:62px minmax(0,1fr) auto}.hrow small{grid-column:2/-1}.htl:before{left:46px}.htl li{grid-template-columns:38px minmax(0,1fr);gap:22px}.htl li:after{left:40px}.hy{font-size:1.1rem}}
 </style>
 
 </head><body>
@@ -812,6 +827,7 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
       <a href="#zapasy">Zápasy</a>
       <a href="#tym">Tým</a>
       <a href="#klub">Klub</a>
+      <a href="#historie">Historie</a>
       <a href="#akademie">Akademie</a>
       <a href="#hra">Virtuální liga</a>
       <a href="#kabina" class="lock">Kabina</a>
@@ -921,6 +937,7 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
 <section class="view" id="v-hrac"><div id="playerView"></div></section>
 
 <!-- ============ KLUB ============ -->
+<section class="view" id="v-historie"><div class="wrap band"><span class="stag">Od přeboru přes krizi až k titulu</span><h2 class="sec">Historie</h2><div id="histBox" class="histbox"></div></div></section>
 <section class="view" id="v-klub">
   <div class="wrap band">
     <h2 class="sec">Klub</h2>
@@ -1697,7 +1714,7 @@ $("#planForm").addEventListener("submit",e=>{e.preventDefault();const p=$("#p-po
  $("#planOut").innerHTML=`<p class="muted">Týmové tréninky upravte podle skutečných dnů.</p>`+days.map(([d,t],i)=>{let items=t?[t]:[];if(free.includes(i)){items=[PLAN[g][k%3],POSX[p][k%2]];k++;}if(!items.length)items=["Volno"];
   return `<div class="day"><b>${d}</b><ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;}).join("");});
 /* ================= ROUTING ================= */
-const VIEWS=["domu","aktuality","zapasy","tym","klub","akademie","hra","kabina"];
+const VIEWS=["domu","aktuality","zapasy","tym","klub","historie","akademie","hra","kabina"];
 function route(){let h=location.hash.slice(1).split("?")[0];let v=VIEWS.includes(h)?h:"domu";
  if(h.startsWith("hrac-")){v="hrac";renderPlayer(h.slice(5));}
  else if(h.startsWith("zprava-")){v="zprava";renderStory(h.slice(7));}
@@ -3955,6 +3972,60 @@ function trBind2(){const g=$("#trLiveGo");if(g)g.onclick=trLiveStart;
  $$("[data-sw]").forEach(b=>b.onclick=()=>{const [w,i]=b.dataset.sw.split("_").map(Number),s=trSeason.list[w].sess[i];trApply({txt:"",type:s.type,date:s.date,time:"17:30",dur:s.type==="predzapas"?60:trSeason.dur,players:14,gk:1,int:s.int,level:2,goals:s.goals,seed:s.date});});
  const sv=$("#trSev");if(sv)sv.onclick=async()=>{let n=0;for(const w of trSeason.list)for(const s of w.sess){const r=await kapi({a:"ev_save",tok:ktok,ev:{typ:"T",date:s.date,time:"17:30",place:"Hřiště Košice",title:"Trénink – "+w.phase.toLowerCase(),note:"Zaměření: "+s.goals.map(g=>(TR_GOALS.find(x=>x[0]===g)||[0,g])[1].toLowerCase()).join(", ")}});if(r.ok)n++;}
   toast(`Vypsáno ${n} tréninků`);kLoad();};}
+/* ===== Historie klubu ===== */
+const HIST_SEASONS=[
+ {s:"2009/10",lg:"Okresní přebor",t:8,note:"nejstarší dohledaná sezona"},
+ {s:"2010/11",lg:"Okresní přebor",t:8,note:"klub má i žáky (7+1)"},
+ {s:"2015–18",lg:"Okresní přebor",t:8,note:"pravděpodobně, nejisté",unsure:1},
+ {s:"2018/19",lg:"III. třída",t:9,pos:"4./11",pts:33,note:"10 výher, skóre 56:45"},
+ {s:"2019/20",lg:"III. třída",t:9,pos:"6./10",pts:12,note:"přerušeno kvůli covidu"},
+ {s:"2020/21",lg:"III. třída",t:9,pos:"8./12",pts:7,note:"přerušeno kvůli covidu"},
+ {s:"2021/22",lg:"III. třída",t:9,pos:"9.",note:""},
+ {s:"2022/23",lg:"III. třída",t:9,pos:"11./12",pts:4,note:"bez výhry, skóre 9:88",k:"pad"},
+ {s:"2023/24",lg:"III. třída",t:9,pos:"10./11",pts:14,note:""},
+ {s:"2024/25",lg:"III. třída",t:9,pos:"sestup",note:"pořadí se ve zdrojích liší (7. nebo 11.)",k:"pad"},
+ {s:"2025/26",lg:"10. liga (IV. třída)",t:10,pos:"1.",pts:50,note:"mistr, skóre 71:26",k:"uspech"},
+ {s:"2026/27",lg:"9. liga (III. třída)",t:9,pos:"8. po podzimu",pts:11,note:"návrat o soutěž výš",k:"now"}];
+const HIST_TL=[
+ {y:"???",k:"zalozeni",t:"Založení jednoty",x:"Rok založení Sokola v Košicích ani začátky fotbalu v obci se zatím dohledat nepodařilo. Víte něco? Pomozte nám to doplnit.",src:[]},
+ {y:"2010",k:"jine",t:"Košice v okresním přeboru",x:"V červnu 2010 hrají Košice okresní přebor Tábor – doma třeba s Březnicí. Nejstarší dohledaný doklad o soutěži, ve které klub hrál.",src:["https://www.e15.cz/magazin/kam-za-sportem-na-taborsku-847741"]},
+ {y:"2011",k:"jine",t:"Přebor a vlastní mládež",x:"A-tým dál hraje okresní přebor (květen 2011: Soběslav B – Košice) a klub má i družstvo žáků v soutěži 7+1 proti Plané nad Lužnicí a Novosedlům.",src:["https://taborsky.denik.cz/fotbal_region/obsazeni-fotbalovych-rozhodcich-taborska20110513.html"]},
+ {y:"2018",k:"jine",t:"III. třída a hned čtvrté místo",x:"Od ročníku 2018/19 hrají Košice III. třídu. V první sezoně skončily čtvrté z jedenácti: 10 výher, 3 remízy, 7 porážek a 33 bodů.",src:["https://www.vysledky.com/soutez2.php?id_soutez=12851"]},
+ {y:"2020",k:"jine",t:"Sezony utnuté covidem",x:"Ročník 2019/20 skončil po 11. kole (Košice šesté), 2020/21 už po 7. kole (osmé).",src:["https://www.vysledky.com/soutez2.php?id_soutez=14186","https://www.vysledky.com/soutez2.php?id_soutez=15458"]},
+ {y:"2023",k:"pad",t:"Nejtěžší rok",x:"Sezona 2022/23 bez jediné výhry: 4 remízy, 18 porážek, skóre 9:88 a předposlední místo. Kabina se ale nerozpadla.",src:["https://www.vysledky.com/soutez2.php?id_soutez=17151"]},
+ {y:"2025",k:"pad",t:"Sestup do 10. ligy",x:"Po ročníku 2024/25 Košice spadly do IV. třídy (10. ligy). Konečné pořadí se ve zdrojích liší – Deník píše o 11. místě, výsledkové servery o sedmém.",src:["https://taborsky.denik.cz/fotbal-okres/fotbal-shrnuti-treti-ctvrta-trida-taborsko-sezimovo-usti/"]},
+ {y:"2025",k:"hriste",t:"Investice do hřiště a návrat Boháče",x:"Na podzim 2025 klub investoval do hřiště a ze Soběslavi se domů vrátil Honza Boháč. Tým trénoval jednou týdně a prvních sedm kol neztratil bod.",src:["https://taborsky.denik.cz/fotbal/osobnost-tydne-opora-v-brance-kosic-petr-kandler-nedostal-gol-uz-ctyri-zapasy-20/"]},
+ {y:"2026",k:"uspech",t:"Mistři 10. ligy!",x:"24. 5. 2026 Košice vyhrály v Mažicích 6:2 a tři kola před koncem slavily titul. Sezonu zakončily 8:0 s Červeným koněm: 16 výher, 2 remízy, 3 porážky, skóre 71:26, 50 bodů.",src:["https://www.jcted.cz/fotbaliste-kosic-vytiskli-na-blatech-stvrzenku-na-sve-prvenstvi-v-10-lize/"],photo:"kosice-vlkov-22.jpg"},
+ {y:"2026",k:"jine",t:"Zpátky v 9. lize",x:"V ročníku 2026/27 hraje Sokol znovu III. třídu (Fixi Coffee 9. ligu). Nejvyšší výhra podzimu: 6:3 ve Stádlci.",src:["https://fotbalunas.cz/klub/451"]}];
+const HIST_PEOPLE=[
+ {n:"Zdeněk Radosta",r:"trenér a hráč",y:"2015–",x:"Vedl Košice k titulu v 10. lize 2025/26 a stále nastupuje s dvojkou na zádech.",src:"https://www.jcted.cz/favorite-na-okresnich-travnicich-neklopytli-fotbaliste-kosic-jdou-v-nejnizsi-soutezi-do-trhaku/"},
+ {n:"Jan Boháč",r:"stoper, lídr",y:"2025–",x:"Před mistrovskou sezonou se vrátil z divizní Soběslavi; spoluhráči o něm mluví jako o skutečném lídrovi týmu.",src:"https://taborsky.denik.cz/fotbal/osobnost-tydne-opora-v-brance-kosic-petr-kandler-nedostal-gol-uz-ctyri-zapasy-20/"},
+ {n:"David Čížek",r:"kapitán",y:"2015–",x:"Kapitán mistrovského týmu, v rozhodujícím zápase v Mažicích skóroval.",src:"https://www.jcted.cz/fotbaliste-kosic-vytiskli-na-blatech-stvrzenku-na-sve-prvenstvi-v-10-lize/"},
+ {n:"Petr Kandler",r:"brankář",y:"2025/26",x:"Osobnost týdne Táborského deníku (říjen 2025): čtyři zápasy v řadě bez inkasovaného gólu. „Letos to šlape,“ řekl tehdy.",src:"https://taborsky.denik.cz/fotbal/osobnost-tydne-opora-v-brance-kosic-petr-kandler-nedostal-gol-uz-ctyri-zapasy-20/"},
+ {n:"Ondřej Petržílka",r:"záložník",y:"2015–",x:"Jeden z nejvěrnějších: za Košice hraje nejméně od sezony 2015/16 – okresní přebor, III. i IV. třídu.",src:"https://fotbalunas.cz/hrac/59686"}];
+const HIST_SRC=[["Hlídač státu – TJ SOKOL KOŠICE","https://www.hlidacstatu.cz/subjekt/70810257"],["Fotbal u nás – klub Košice","https://fotbalunas.cz/klub/451"],["JCTED – titul v 10. lize","https://www.jcted.cz/fotbaliste-kosic-vytiskli-na-blatech-stvrzenku-na-sve-prvenstvi-v-10-lize/"],["Táborský deník – Osobnost týdne P. Kandler","https://taborsky.denik.cz/fotbal/osobnost-tydne-opora-v-brance-kosic-petr-kandler-nedostal-gol-uz-ctyri-zapasy-20/"],["Výsledky.com – III. třída Tábor 2018/19","https://www.vysledky.com/soutez2.php?id_soutez=12851"],["Výsledky.com – III. třída Tábor 2022/23","https://www.vysledky.com/soutez2.php?id_soutez=17151"]];
+const HIST_KIND={zalozeni:"Začátky",uspech:"Úspěch",pad:"Pád",hriste:"Hřiště",jine:"Milník"};
+function histChart(){const L=HIST_SEASONS,W=680,H=190,px=86,py=26,step=(W-px*2)/(L.length-1),y=t=>py+(t-8)*((H-py*2)/2);
+ const pts=L.map((s,i)=>[px+i*step,y(s.t)]);
+ return `<svg class="hchart" viewBox="0 0 ${W} ${H+28}" role="img" aria-label="Cesta Košic soutěžemi od roku 2009">
+  ${[8,9,10].map(t=>`<line x1="${px-16}" x2="${W-px+10}" y1="${y(t)}" y2="${y(t)}" class="hgl"/><text x="4" y="${y(t)+4}" class="hax">${t===8?"přebor":t===9?"III. třída":"IV. třída"}</text>`).join("")}
+  <polyline points="${pts.map(p=>p.join(",")).join(" ")}" class="hln"/>
+  ${L.map((s,i)=>`<g tabindex="0"><title>${esc(s.s)}: ${esc(s.lg)}${s.pos?" · "+esc(s.pos):""}${s.note?" · "+esc(s.note):""}</title><circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="${s.k==="uspech"?8:5}" class="hpt ${s.k||""} ${s.unsure?"un":""}"/>${s.k==="uspech"?`<text x="${pts[i][0]}" y="${pts[i][1]+24}" class="hlab">🏆 mistr</text>`:""}<text x="${pts[i][0]}" y="${H+20}" class="hax" text-anchor="middle">${esc(s.s.replace("20",""))}</text></g>`).join("")}</svg>`;}
+function renderHistorie(){const el=$("#histBox");if(!el)return;
+ el.innerHTML=`<p class="hlead">Sokol Košice je vesnický klub, který zažil přebor, covidem utnuté sezony, rok bez jediné výhry i sestup – a pak s partou kamarádů vyhrál ligu tři kola před koncem. Tady je jeho příběh tak, jak se ho zatím podařilo složit z novin, výsledkových serverů a vzpomínek.</p>
+ <div class="card"><h3 style="font-size:1.5rem;margin-bottom:6px">Cesta soutěžemi</h3><p class="muted" style="font-size:.85rem">Čím výš bod, tím vyšší soutěž. Najeďte na bod pro detail sezony.</p>${histChart()}
+  <div class="htable" role="table">${HIST_SEASONS.slice().reverse().map(s=>`<div class="hrow ${s.k||""}" role="row"><b>${esc(s.s)}</b><span>${esc(s.lg)}</span><span>${s.pos?esc(s.pos):"–"}${s.pts!=null?` · ${s.pts} b.`:""}</span><small>${esc(s.note||"")}</small></div>`).join("")}</div></div>
+ <h3 class="sec2">Úspěchy, pády a milníky</h3>
+ <ol class="htl">${HIST_TL.map(t=>`<li class="${t.k}"><span class="hy">${esc(t.y)}</span><div class="hc"><span class="stag">${HIST_KIND[t.k]}</span><h4>${esc(t.t)}</h4><p>${esc(t.x)}</p>${t.photo?`<img src="${photoUrl(t.photo)}" alt="" loading="lazy">`:""}${t.src.length?`<p class="hsrc">${t.src.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener">zdroj${t.src.length>1?" "+(i+1):""}</a>`).join(" · ")}</p>`:""}</div></li>`).join("")}</ol>
+ <h3 class="sec2">Lidé, kteří psali historii</h3>
+ <div class="hpeople">${HIST_PEOPLE.map(p=>{const sl=slug(p.n),has=typeof PROFILES!=="undefined"&&PROFILES[sl];return `<div class="card hp"><span class="stag">${esc(p.r)} · ${esc(p.y)}</span><h4>${has?`<a href="#hrac-${sl}">${esc(p.n)}</a>`:esc(p.n)}</h4><p>${esc(p.x)}</p><a class="hsrc" href="${esc(p.src)}" target="_blank" rel="noopener">zdroj</a></div>`;}).join("")}</div>
+ <div class="card hhelp"><h3 style="font-size:1.5rem">Pomozte doplnit historii</h3>
+  <p>Kdy se v Košicích začal hrát fotbal? Kdo byli předsedové, nejlepší střelci a legendy z 70., 80. a 90. let? Kdy se stavěly kabiny? <b>Máte doma staré fotky, výstřižky z novin nebo zápisy?</b></p>
+  <p>Dejte je kapitánovi nebo komukoli z výboru – naskenujeme je, vrátíme a přidáme sem i s vaším příběhem. Hráči je můžou rovnou nahrát v Kabině → Fotky.</p>
+  <p class="muted" style="font-size:.85rem">Zatím chybí: rok založení, historie hřiště, předsedové klubu, období před rokem 2009 a dobové fotografie. Online se je dohledat nepodařilo.</p>
+  <p style="font-size:.88rem">Fotky z mistrovského zápasu v Mažicích: <a href="https://www.jcted.cz/fotbaliste-kosic-vytiskli-na-blatech-stvrzenku-na-sve-prvenstvi-v-10-lize/" target="_blank" rel="noopener">galerie na JCTED</a> · <a href="https://fotbalunas.cz/klub/451" target="_blank" rel="noopener">profil klubu na Fotbal u nás</a></p></div>
+ <details class="card"><summary><b>Zdroje</b></summary><ul class="hsrcl">${HIST_SRC.map(([t,u])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join("")}</ul></details>`;}
+renderHistorie();
 /* ================= FIFA KARTY: parametry hráčů ================= */
 const ATTR_F=[["tem","TEM","Tempo"],["str","STŘ","Střelba"],["pri","PŘI","Přihrávky"],["kli","KLI","Kličky"],["obr","OBR","Obrana"],["fyz","FYZ","Fyzička"]];
 const ATTR_G=[["chy","CHY","Chytání"],["ref","REF","Reflexy"],["vyb","VÝB","Výběhy"],["roz","ROZ","Rozehrávka"],["pst","POS","Postavení"],["tem","TEM","Tempo"]];
