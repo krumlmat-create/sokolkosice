@@ -1,4 +1,4 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="TJ Sokol Košice – fotbalový klub z Košic u Tábora. Výsledky, tabulky, tým, akademie."><meta property="og:title" content="TJ Sokol Košice"><meta property="og:description" content="Fotbal z Košic u Tábora. Mistr 10. ligy 2025/26, nováček Fixi Coffee 9. ligy."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="TJ Sokol Košice – fotbalový klub z Košic u Tábora. Výsledky, tabulky, tým, akademie."><meta property="og:title" content="TJ Sokol Košice"><meta property="og:type" content="website"><meta property="og:image" content="https://krumlmat-create.github.io/sokolkosice/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0b3a7a"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-180.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsTeam","name":"TJ Sokol Košice","sport":"Fotbal","location":{"@type":"Place","name":"Košice u Tábora","address":{"@type":"PostalAddress","addressLocality":"Košice","postalCode":"391 17","addressCountry":"CZ"}}}</script><meta property="og:description" content="Fotbal z Košic u Tábora. Mistr 10. ligy 2025/26, nováček Fixi Coffee 9. ligy."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>TJ Sokol Košice</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-siz
 body.modal-open,body.menu-open{overflow:hidden}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:#0b0d0c}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;line-height:.92;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1,h2,h3{font-family:var(--f-display);text-transform:uppercase;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:.005em}
 p{margin:0}
 a{color:inherit}
 button,select,input,textarea{font:inherit}
@@ -91,9 +91,11 @@ button,select,input,textarea{font:inherit}
 .tbl th{text-align:left;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:8px;border-bottom:2px solid var(--ink)}
 .tbl td{padding:9px 8px;border-bottom:1px solid var(--line)}
 .tbl .n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.tbl td.tm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:0;width:100%}
+.blk .formrow{flex-wrap:wrap}.blk .formrow small{font-size:.75rem}
 .tbl tr.us td{background:var(--club);color:var(--on-club);font-weight:700}
 .scroll{overflow-x:auto}
-input[type=text],input[type=password],input[type=date],select,textarea{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:var(--r);padding:10px 11px;width:100%}
+input[type=text],input[type=password],input[type=date],input[type=time],input[type=number],input:not([type]),select,textarea{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:var(--r);padding:10px 11px;width:100%}
 textarea{resize:vertical}
 label.l{display:grid;gap:5px;font-size:.85rem;font-weight:600}
 form.f{display:grid;gap:14px}
@@ -110,7 +112,7 @@ form.f{display:grid;gap:14px}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;padding-block:52px 40px;align-items:center}
 .hero .wrap>*{min-width:0}
 #lead .stag{color:var(--on-club);background:rgba(0,0,0,.22);padding:3px 8px}
-#lead h1{font-size:clamp(2.8rem,7vw,5.6rem);font-weight:900;margin:14px 0 16px}
+#lead h1{font-size:clamp(1.9rem,4.2vw,3.5rem);font-weight:900;margin:14px 0 16px;max-width:22ch}
 #lead p{max-width:44ch;font-size:1.05rem;opacity:.92;margin-bottom:22px}
 #matchCentre{display:grid;gap:12px}
 .mc{background:var(--card);color:var(--ink);border-radius:var(--r);padding:16px 18px;box-shadow:0 12px 30px rgba(0,0,0,.18)}
@@ -134,6 +136,7 @@ form.f{display:grid;gap:14px}
 .motmbox b{font-family:var(--f-display);font-weight:900;font-size:2rem;text-transform:uppercase;line-height:1}
 .motmbox em{font-style:normal;color:var(--muted)}
 .mc.empty p{margin-top:8px;font-size:.9rem;color:var(--muted)}
+.mc.brk p{margin-top:10px;font-size:1rem;color:#e6e1d6;line-height:1.45}
 .crestmini{flex:none;width:30px;height:34px;display:grid;place-items:center;background:var(--soft);color:var(--muted);font-family:var(--f-display);font-weight:900;clip-path:polygon(50% 0,100% 15%,100% 60%,50% 100%,0 60%,0 15%)}
 .mc.next .crestmini{background:#232825;color:#bdb8aa}
 .crestmini.us{background:none}
@@ -144,7 +147,7 @@ form.f{display:grid;gap:14px}
 .story{display:grid;grid-template-rows:auto 1fr auto;gap:10px;min-height:170px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--ink);border-radius:var(--r);padding:16px;text-decoration:none;transition:transform .15s,border-color .15s}
 .story:hover{transform:translateY(-3px);border-top-color:var(--club)}
 .story.V{border-top-color:var(--good)}.story.P{border-top-color:var(--bad)}.story.R{border-top-color:var(--draw)}
-.story b{font-family:var(--f-display);font-weight:800;font-size:1.45rem;text-transform:uppercase;line-height:1}
+.story b{font-family:var(--f-display);font-weight:800;font-size:1.45rem;text-transform:uppercase;line-height:1.08}
 .story em{font-style:normal;font-size:.78rem;color:var(--muted);font-family:var(--f-mono)}
 .story p{color:var(--muted);font-size:.92rem}
 .newsall{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
@@ -163,8 +166,10 @@ form.f{display:grid;gap:14px}
 .blk h3{font-size:1.6rem;font-weight:900;margin-bottom:12px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .blk h3 a{font-size:.95rem;color:var(--club);text-decoration:none}
 .formrow{display:flex;align-items:center;gap:6px;margin-top:12px;font-size:.82rem;color:var(--muted)}
-.champ{background:var(--ink);color:var(--paper);border-radius:var(--r);padding:22px;position:relative;overflow:hidden;display:grid;gap:10px;align-content:start}
-.champ::after{content:"50";position:absolute;right:-6px;bottom:-34px;font-family:var(--f-display);font-weight:900;font-size:9rem;color:transparent;-webkit-text-stroke:2px var(--gold);opacity:.35}
+.champ{background:#0b0d0c;color:#f2eee4;border:1px solid #232825;border-radius:var(--r);padding:22px;position:relative;overflow:hidden;display:grid;gap:10px;align-content:start}
+.champ::after{content:"50";position:absolute;right:14px;bottom:-12px;font-family:var(--f-display);font-weight:900;font-size:5.5rem;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--gold);opacity:.35;pointer-events:none}
+.champ>*{position:relative;z-index:1}
+.champ p{margin-bottom:6px}
 .champ h3{font-size:2rem;color:var(--gold)}
 .champ p{font-size:.92rem;opacity:.9;position:relative}
 .bars,.scorers{display:grid;gap:4px}
@@ -189,8 +194,8 @@ a.bar:hover span{color:var(--club)}
 .pimg .sil{width:78%;height:auto}
 .pini{position:absolute;inset:26% 0 auto;text-align:center;font-family:var(--f-display);font-weight:900;font-size:5.5rem;line-height:1;color:rgba(255,255,255,.14)}
 .pname{position:absolute;left:0;right:0;bottom:0;padding:40px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.72));display:grid;line-height:1}
-.pname small{font-size:.78rem;font-weight:500;opacity:.9}
-.pname b{font-family:var(--f-display);font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:.95}
+.pname small{font-size:.78rem;font-weight:500;opacity:.9;line-height:1.2;margin-bottom:3px}
+.pname b{font-family:var(--f-display);font-weight:900;font-size:1.7rem;text-transform:uppercase;line-height:1.08}
 .pname em{font-style:normal;font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;opacity:.8;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .pcard:hover .pnum{-webkit-text-stroke-color:#fff}
 .pcard:hover{box-shadow:0 0 0 3px var(--gold)}
@@ -447,6 +452,8 @@ details .mlist{margin-top:10px}
 /* ---------- footer ---------- */
 footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem}
 .sponsorbelt.foot{margin-top:40px}
+:root[data-theme="dark"] .sponsorbelt{background:#151917;border-color:#29302c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sponsorbelt{background:#151917;border-color:#29302c}}
 footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:44px calc(28px + env(safe-area-inset-bottom,0px))}
 footer h4{font-family:var(--f-display);text-transform:uppercase;color:#fff;font-size:1.3rem;margin:0 0 10px}
 footer a{color:#e8e3d8}
@@ -467,6 +474,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   footer .wrap{grid-template-columns:1fr 1fr}
 }
 @media (max-width:620px){
+  .tbl .hz{display:none}
+  #ptsChart .ax{font-size:13px}#ptsChart .strong{font-size:15px}
   .news,.banners{grid-template-columns:1fr}
   .tiles,.pstats,.simsum{grid-template-columns:1fr 1fr}
   .tile:nth-child(2),.pstats div:nth-child(2){border-right:0}
@@ -524,7 +533,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 .btok{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;width:72px;background:var(--soft);border:2px solid transparent;border-radius:var(--r);padding:6px 2px;cursor:pointer;font:inherit;color:var(--ink)}
 .btok .av{width:38px;height:38px;font-size:.75rem}
 .btok b{font-size:.7rem;max-width:66px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.btok i{font-style:normal;font-size:.62rem;font-family:var(--f-mono);color:var(--muted)}
+.btok i{font-style:normal;font-size:.62rem;font-family:var(--f-mono);color:var(--muted);white-space:nowrap}
+.avp{position:relative;overflow:hidden}.avp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit}
 .btok.sel{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 18%,var(--soft))}
 .mchelp{font-size:.8rem;margin-top:8px}
 .mcidle{border:2px dashed var(--line);border-radius:var(--r);padding:24px;text-align:center}.mcidle b{font-family:var(--f-display);font-size:1.6rem;text-transform:uppercase}.mcidle p{color:var(--muted);margin-top:6px}
@@ -581,7 +591,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 .mcidle:has(.prev){border:0;padding:0}
 #tacSeg,#mcSpeed{flex-wrap:nowrap}
 .prev-g p b{font:inherit;font-weight:700}
-@media(max-width:640px){.mc-ctrl{display:grid;grid-template-columns:1fr 1fr}.mc-ctrl #oppSel,.mc-ctrl #tacSeg,.mc-ctrl #simOne{grid-column:1/-1}#tacSeg{display:flex}#tacSeg button{flex:1;padding:8px 4px;font-size:.88rem}}
+@media(max-width:640px){.mc-ctrl{display:grid;grid-template-columns:1fr 1fr}.mc-ctrl #teamSel,.mc-ctrl #oppSel,.mc-ctrl #tacSeg,.mc-ctrl #simOne{grid-column:1/-1}#tacSeg{display:flex}#tacSeg button{flex:1;padding:8px 4px;font-size:.88rem}}
 #mcLive,#mc{scroll-margin-top:76px}
 #mc,#mc .mc-grid,#mc .mc-grid>*{min-width:0;max-width:100%}.bench{width:100%;contain:inline-size}.mcfeed,.mcstats,.mcboard{min-width:0;max-width:100%}
 .mommeter{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center;margin-top:8px;font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;color:var(--muted)}
@@ -608,10 +618,10 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 .fcard.silver{--c1:#f4f6f8;--c2:#bcc3cb;--c3:#76808a;--ink2:#161a1f}
 .fcard.bronze{--c1:#f0c497;--c2:#b8774a;--c3:#6f411d;--ink2:#1f1108}
 .fcard::after{content:"";position:absolute;inset:3.5cqi;clip-path:inherit;border:1px solid rgba(255,255,255,.55);pointer-events:none}
-.fc-top{position:absolute;left:9cqi;top:9cqi;display:flex;flex-direction:column;align-items:center;line-height:.9;z-index:2}
+.fc-top{position:absolute;left:7cqi;top:8cqi;display:flex;flex-direction:column;align-items:center;line-height:.9;z-index:3;padding:1.5cqi 1.5cqi 2cqi;border-radius:2.5cqi;background:linear-gradient(180deg,var(--c1),var(--c2))}
 .fc-top b{font-family:var(--f-display);font-weight:900;font-size:17cqi}
 .fc-top i{font-style:normal;font-family:var(--f-display);font-weight:800;font-size:7.5cqi;margin-top:1cqi}
-.fc-ph{width:66cqi;height:52cqi;margin:7cqi 0 0 18cqi;display:block;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
+.fc-ph{position:relative;z-index:0;width:62cqi;height:52cqi;margin:7cqi 0 0 26cqi;display:block;overflow:hidden;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent)}
 .fc-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
 .fc-in{display:grid;place-items:center;width:100%;height:100%;font-family:var(--f-display);font-weight:900;font-size:22cqi;opacity:.35}
 .fc-name{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:10cqi;line-height:1;padding:2.5cqi 4cqi 2cqi;margin-top:-2cqi;border-bottom:1px solid rgba(0,0,0,.25);max-width:86%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
@@ -667,7 +677,7 @@ small.dn{color:var(--bad)}
 .fcard.gold::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.65) 48%,transparent 60%);background-size:250% 100%;animation:shine 4.5s ease-in-out infinite;mix-blend-mode:overlay;z-index:1}
 .fcard.silver::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.45) 50%,transparent 60%);background-size:250% 100%;animation:shine 7s ease-in-out infinite;mix-blend-mode:overlay;z-index:1}
 @keyframes shine{0%,55%{background-position:130% 0}100%{background-position:-60% 0}}
-.fcard.in{animation:fcIn .55s cubic-bezier(.2,.8,.2,1.2) both;animation-delay:calc(var(--i,0)*45ms)}
+.fcard.in{animation:fcIn .55s cubic-bezier(.2,.8,.2,1.2) backwards;animation-delay:calc(min(var(--i,0),8)*45ms)}
 @keyframes fcIn{from{opacity:0;transform:perspective(800px) translateY(26px) rotateX(18deg) scale(.9)}to{opacity:1}}
 /* medailonek: otevření balíčku a otočení karty */
 .phero-card{position:relative}
@@ -690,6 +700,58 @@ small.dn{color:var(--bad)}
 .fc-bk-s{font-size:5cqi;text-align:center}.fc-bk-c{display:grid;gap:.5cqi;font-size:4.3cqi;text-align:center;opacity:.85}
 .fc-bk-tip{margin-top:auto;text-align:center;font-family:var(--f-mono);font-size:3.8cqi;opacity:.6}
 @media (prefers-reduced-motion: reduce){.fcard,.fcard.tilt{transform:none!important;transition:none}.fcard::before,.fc-rays,.fcard.in,.fflip{animation:none!important}.fflip-in{transition:none}}
+
+.attbox{display:grid;gap:16px}.attbox .two{margin:0}
+.atiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.atile{background:var(--card,var(--bg));border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:grid;gap:2px}
+.atile b{font-family:var(--f-display);font-size:2rem;line-height:1}.atile small{color:var(--muted);font-size:.8rem}
+.achart{display:flex;align-items:flex-end;gap:4px;height:180px;padding-top:18px;overflow-x:auto}
+.acol{position:relative;flex:1 0 18px;max-width:40px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;outline:none}
+.acol i{display:block;height:var(--h);background:var(--club);border-radius:4px 4px 0 0;min-height:2px}
+.acol.T i{background:#2f8a3e}.acol.A i{background:#c99a1c}
+.acol u{display:block;height:var(--h);background:repeating-linear-gradient(45deg,var(--soft),var(--soft) 3px,var(--line) 3px,var(--line) 6px);order:-1;border-radius:4px 4px 0 0;margin-bottom:2px}
+.acol em{position:absolute;left:0;right:0;text-align:center;bottom:calc(var(--hh,0px) + 100%);font-style:normal;font-size:.7rem;font-family:var(--f-mono);color:var(--muted);top:-16px}
+.acol span{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);font-size:.62rem;color:var(--muted);white-space:nowrap}
+.acol:hover i,.acol:focus i{filter:brightness(1.15)}
+.achart{margin-bottom:22px}
+.alegend{font-size:.8rem;display:flex;gap:6px;align-items:center;flex-wrap:wrap}.lg{width:10px;height:10px;border-radius:2px;display:inline-block;background:var(--club)}.lg.T{background:#2f8a3e}.lg.A{background:#c99a1c}.lg.M{background:repeating-linear-gradient(45deg,var(--soft),var(--soft) 2px,var(--line) 2px,var(--line) 4px)}.lg+.lg,.alegend .lg:not(:first-child){margin-left:8px}
+.atable{display:grid;font-size:.9rem}.arow{display:grid;grid-template-columns:minmax(0,1.6fr) .8fr .8fr 1.4fr .7fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line)}
+.arow.h{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.arow span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.arow .rk{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-right:6px}
+.apct{display:grid;grid-template-columns:1fr 42px;gap:6px;align-items:center}.apct s{display:block;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--club) var(--w),var(--soft) var(--w))}.apct b{font-family:var(--f-mono);font-size:.8rem;text-align:right}
+.alist{display:grid;gap:10px}.alist>div{border-bottom:1px solid var(--line);padding-bottom:8px}.alist p{margin:2px 0}.alist b{font-size:.85rem}
+.aimp{display:grid;gap:8px;justify-items:start}
+@media (max-width:620px){.atiles{grid-template-columns:repeat(2,1fr)}.arow{grid-template-columns:minmax(0,1.5fr) .7fr .7fr 1.2fr;font-size:.82rem}.arow>span:nth-child(5){display:none}}
+
+.dcard .att{display:none}
+.kme{font-size:.85rem;color:var(--muted);align-self:center}
+.khead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.evlist{display:grid;gap:12px}
+.evcard{background:var(--card,var(--bg));border:1px solid var(--line);border-left:4px solid #2f8a3e;border-radius:8px;padding:14px 16px;display:grid;gap:10px}
+.evcard.Z{border-left-color:var(--club)}.evcard.A{border-left-color:#c99a1c}.evcard.past{opacity:.85}
+.evcard.flash{animation:evflash 1.6s ease 2}@keyframes evflash{50%{box-shadow:0 0 0 4px color-mix(in srgb,var(--gold,#f2c230) 60%,transparent)}}
+.evcard header{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:start}
+.evcard h3{font-size:1.35rem;margin:2px 0}.evcard header p{margin:2px 0;font-size:.88rem}
+.evtyp{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:700;padding:4px 8px;border-radius:4px;background:#2f8a3e;color:#fff}
+.evcard.Z .evtyp{background:var(--club)}.evcard.A .evtyp{background:#c99a1c;color:#1b1b1b}
+.evcnt{text-align:center;line-height:1}.evcnt b{font-family:var(--f-display);font-size:2rem;display:block}.evcnt small{font-size:.72rem;color:var(--muted)}
+.rsvp{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.rsvp input{flex:1;min-width:180px}
+.evnames{display:grid;gap:6px}.evnames>div{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.evnames .stag{min-width:74px;color:var(--muted)}
+.evact{display:flex;gap:8px;flex-wrap:wrap}
+.presf{border-top:1px solid var(--line);padding-top:10px}.presf h4{margin:0 0 6px}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:12px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);font-size:.9rem}.prow label{display:flex;gap:4px;align-items:center;font-size:.82rem;white-space:nowrap}
+.evform{margin-bottom:14px}.evgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}.evgrid .evwide{grid-column:span 2}
+.evpast{margin-top:16px}.evpast summary,.kacc summary,.sazeb summary,details.card summary{cursor:pointer;font-weight:600;padding:6px 0}
+.kacc{margin-top:16px}
+.flist{display:grid}.frow{display:grid;grid-template-columns:minmax(0,1fr) auto auto auto;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.frow small{display:block;color:var(--muted);font-size:.8rem}.frow.paid{opacity:.55}.famt{font-family:var(--f-mono);white-space:nowrap}.fbtn{display:flex;gap:6px;align-items:center}
+label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
+.fsug{border-color:var(--gold,#c99a1c)}
+#kPokl{display:grid;gap:16px}#kPokl .two{margin:0}
+.sazeb h4{margin:12px 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.srow{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid var(--line);font-size:.9rem;align-items:center}.srow input{width:130px}
+@media (max-width:620px){.evgrid{grid-template-columns:1fr 1fr}.evcard header{grid-template-columns:1fr auto}.evtyp{grid-column:1/-1;justify-self:start}
+ .prow{grid-template-columns:1fr auto auto;row-gap:2px}.prow span{grid-column:1/-1}.frow{grid-template-columns:minmax(0,1fr) auto}.frow>.muted:nth-child(2){display:none}.fbtn{grid-column:1/-1}}
+.rwhy{flex:0 1 210px;width:auto}.rwhy.need{outline:3px solid var(--gold,#f2c230);outline-offset:1px}
 </style>
 
 </head><body>
@@ -722,22 +784,20 @@ small.dn{color:var(--bad)}
     <div id="matchCentre"></div>
   </div></div>
 
-  <div class="sponsorbelt" aria-label="Sponzoři klubu"><span class="beltlbl">Sponzoři</span><div class="track"></div></div>
+  <div class="wrap band" style="padding-block:28px 0">
+    <div class="trio">
+      <div class="blk card"><h3>Tabulka <a href="#zapasy">celá</a></h3><div class="scroll"><table class="tbl" id="tblHome"></table></div>
+        <div class="formrow">Jsme <b id="homePos"></b> · forma <span id="homeForm" style="display:flex;gap:4px"></span> <small>(od nejstaršího)</small></div></div>
+      <div class="blk card"><h3>Střelci 26/27</h3><div class="scorers" id="homeScorers"></div></div>
+      <div class="champ"><span class="stag" style="color:var(--gold)">Sezona 2025/26</span><h3>Mistři 10. ligy</h3><p>16 výher, 2 remízy, 3 porážky, skóre 71:26 a 50 bodů. Druhý tým měl o 12 bodů méně.</p><a class="btn light sm" href="#zprava-mistri-2026" style="justify-self:start">Příběh sezony</a></div>
+    </div>
+  </div>
   <div class="wrap" style="padding-top:28px" id="dokopnaWrap">
-    <div class="dokopna"><div><span class="stag" style="color:var(--gold)">Sezona končí</span><h3>Dokopná 2026</h3><p>Podzim je za námi. Hlasujte v kabině o hráče roku, kabiňáka a nejcennější gól a nahrajte fotky z večera.</p></div><a class="btn light" href="#kabina">Do kabiny</a></div>
+    <div class="dokopna"><div><span class="stag" style="color:var(--gold)">Sezona skončila</span><h3>Dokopná 2026 proběhla</h3><p>Díky všem, kdo dorazili 31. 10. Fotky a ceny dokopné najdete v Kabině.</p></div><a class="btn light" href="#kabina">Do kabiny</a></div>
   </div>
   <div class="wrap band">
     <div class="sechead"><h2 class="sec">Aktuality</h2><a class="more" href="#aktuality">Všechny</a></div>
     <div class="news" id="newsGrid"></div>
-  </div>
-
-  <div class="wrap band" style="padding-top:0">
-    <div class="trio">
-      <div class="blk card"><h3>Tabulka <a href="#zapasy">celá</a></h3><div class="scroll"><table class="tbl" id="tblHome"></table></div>
-        <div class="formrow">Jsme <b id="homePos"></b> · forma <span id="homeForm" style="display:flex;gap:4px"></span></div></div>
-      <div class="blk card"><h3>Střelci 26/27</h3><div class="scorers" id="homeScorers"></div></div>
-      <div class="champ"><span class="stag" style="color:var(--gold)">Sezona 2025/26</span><h3>Mistři 10. ligy</h3><p>16 výher, 2 remízy, 3 porážky, skóre 71:26 a 50 bodů. Druhý tým měl o 12 bodů méně.</p><a class="btn light sm" href="#zprava-mistri-2026" style="justify-self:start;position:relative">Příběh sezony</a></div>
-    </div>
   </div>
 
   <div class="wrap band" style="padding-top:0">
@@ -749,7 +809,7 @@ small.dn{color:var(--bad)}
     <div class="strip" id="homeSquad"></div>
   </div>
 
-  <div class="wrap band" style="padding-top:0">
+  <div class="wrap band" style="padding-top:0" id="homeGalWrap" hidden>
     <div class="sechead"><h2 class="sec">Fotogalerie</h2><a class="more" href="#kabina">Přidat fotky</a></div>
     <div class="gallery" id="homeGallery"></div>
   </div>
@@ -763,7 +823,7 @@ small.dn{color:var(--bad)}
 
   <div class="wrap band" style="padding-top:0">
     <div class="partners">
-      <div><span class="stag">Partneři klubu</span><h3>Děkujeme sponzorům</h3><p class="muted">Bez nich by se v Košicích fotbal nehrál. Chcete se přidat, nebo sponzorovat konkrétního hráče? Ozvěte se komukoli z výboru.</p></div>
+      <div><span class="stag">Partneři klubu</span><h3>Děkujeme partnerům</h3><p class="muted">Bez nich by se v Košicích fotbal nehrál. Chcete se přidat, nebo sponzorovat konkrétního hráče? Ozvěte se komukoli z výboru.</p></div>
       <div class="splogos" id="sponsors"></div>
     </div>
   </div>
@@ -796,13 +856,13 @@ small.dn{color:var(--bad)}
   </div>
   <div class="wrap band" style="padding-top:0">
     <h2 class="sec">Sezona v číslech</h2>
-    <div class="card"><div class="scroll"><svg id="ptsChart" role="img" aria-label="Body Košic po kolech" style="width:100%;min-width:540px;height:auto;display:block"></svg></div>
+    <div class="card"><div class="scroll"><svg id="ptsChart" role="img" aria-label="Body Košic po kolech" style="width:100%;height:auto;display:block"></svg></div>
       <p class="muted" style="font-size:.82rem;margin-top:6px">Body po jednotlivých kolech. Přerušovaná zlatá čára ukazuje tempo 2 body na zápas.</p></div>
     <div class="tiles" id="statTiles"></div>
   </div>
   <div class="wrap band" style="padding-top:0">
     <div class="two">
-      <div><h2 class="sec">Kanonýři <small id="scorersSeason"></small></h2><div class="scorers" id="scorers2526"></div></div>
+      <div><h2 class="sec">Střelci <small id="scorersSeason"></small></h2><div class="scorers" id="scorers2526"></div></div>
       <div><h2 class="sec">Kde nás sledovat</h2><p class="muted">Výsledky okresních soutěží publikuje každé pondělí Táborský deník a týdeník Táborsko (JcTed.cz). Fotky z jarního zápasu na Červeném koni najdete v <a href="https://www.jcted.cz/favorite-na-okresnich-travnicich-neklopytli-fotbaliste-kosic-jdou-v-nejnizsi-soutezi-do-trhaku/" target="_blank" rel="noopener">galerii JcTed.cz</a>.</p></div>
     </div>
   </div>
@@ -874,7 +934,7 @@ small.dn{color:var(--bad)}
   <h2 class="sec">Virtuální 9. liga</h2>
   <p class="muted" style="max-width:72ch;margin:-8px 0 26px">Vyberte si kterýkoli tým 9. ligy a odehrajte s ním celou sezonu, nebo jen přátelák. Zápasy běží minutu po minutě a během pauzy můžete střídat a měnit posty. Síla týmů vychází ze skutečné tabulky, formy a soupisek. Nejlepší trenéři jsou v žebříčku.</p>
   <div class="card sz" id="szCard"><div class="sz-top"><h3 style="font-size:1.8rem">Moje sezona</h3><span class="muted" id="szWho"></span></div><div id="szBody"></div></div>
-  <div class="card" id="szLeadCard" style="margin:24px 0"><h3 style="font-size:1.8rem;margin-bottom:10px">Žebříček trenérů</h3><p class="muted" style="font-size:.88rem;margin:-4px 0 12px">Odehrajte svou ligu a po posledním kole se váš výsledek zapíše sem: přezdívka, tým, body a místo.</p><div id="szLeaders"></div></div>
+  <div class="card" id="szLeadCard" style="margin:24px 0" hidden><h3 style="font-size:1.8rem;margin-bottom:10px">Žebříček trenérů</h3><p class="muted" style="font-size:.88rem;margin:-4px 0 12px">Odehrajte svou ligu a po posledním kole se váš výsledek zapíše sem: přezdívka, tým, body a místo.</p><div id="szLeaders"></div></div>
   <div class="card mc" id="mc">
     <p class="sz-banner" id="szBanner" hidden></p>
     <div class="mc-head"><h3 style="font-size:1.8rem">Zápasové centrum</h3><span class="muted" style="font-size:.88rem">síla sestavy <b id="mcPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
@@ -926,18 +986,27 @@ small.dn{color:var(--bad)}
 <!-- ============ KABINA ============ -->
 <section class="view" id="v-kabina"><div class="wrap band">
   <div id="gate" class="gate"><span class="stag">Jen pro spoluhráče</span><h1>Kabina</h1>
-    <p class="muted">Služby, lajnování, dresy, docházka, anketa a fotky. Heslo dostanete od kapitána.</p>
-    <form id="gateForm" style="display:grid;gap:10px"><label for="pin" class="stag" style="color:var(--muted)">Heslo do kabiny</label><input type="password" id="pin" autocomplete="off"><button class="btn" type="submit">Vstoupit</button><p class="muted" id="gateMsg"></p></form></div>
+    <p class="muted">Ankety na tréninky a zápasy, docházka, pokladna, služby a fotky. Každý hráč má vlastní účet.</p>
+    <div class="seg" role="group" aria-label="Přihlášení" style="margin-bottom:12px"><button type="button" data-gm="in" aria-pressed="true">Přihlásit</button><button type="button" data-gm="reg" aria-pressed="false">První přihlášení</button></div>
+    <form id="gateForm" class="f" style="display:grid;gap:10px">
+      <label class="l" for="gWho">Kdo jsi<select id="gWho" required><option value="">Vyber své jméno…</option></select></label>
+      <label class="l" for="gKab" id="gKabL" hidden>Heslo kabiny (dostaneš od kapitána)<input type="password" id="gKab" autocomplete="off"></label>
+      <label class="l" for="pin" id="gPinL">PIN<input type="password" id="pin" inputmode="numeric" autocomplete="current-password" maxlength="8"></label>
+      <label class="l" for="gPin2" id="gPin2L" hidden>Nový PIN znovu<input type="password" id="gPin2" inputmode="numeric" autocomplete="new-password" maxlength="8"></label>
+      <button class="btn" type="submit" id="gBtn">Vstoupit</button><p class="muted" id="gateMsg" role="status"></p>
+      <p class="muted" id="gateMode" style="font-size:.82rem"></p></form></div>
   <div id="kabina" hidden>
     <div class="sechead"><h2 class="sec">Kabina</h2>
       <div style="display:flex;gap:8px;flex-wrap:wrap"><div class="seg" role="group" aria-label="Sekce kabiny">
-        <button type="button" data-k="dokopna" aria-pressed="true">Dokopná</button><button type="button" data-k="sluzby" aria-pressed="false">Služby</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
-        <button class="btn ghost sm" id="logout" type="button">Zamknout</button></div></div>
+        <button type="button" data-k="akce" aria-pressed="true">Akce</button><button type="button" data-k="stat" aria-pressed="false">Docházka</button><button type="button" data-k="pokladna" aria-pressed="false">Pokladna</button><button type="button" data-k="sluzby" aria-pressed="false">Služby</button><button type="button" data-k="dresy" aria-pressed="false">Dresy</button><button type="button" data-k="anketa" aria-pressed="false">Anketa</button><button type="button" data-k="dokopna" aria-pressed="false">Dokopná</button><button type="button" data-k="fotky" aria-pressed="false">Fotky</button></div>
+        <span class="kme" id="kMe"></span><button class="btn ghost sm" id="logout" type="button">Odhlásit</button></div></div>
     <p class="muted" id="storeNote" style="margin:-8px 0 18px;font-size:.88rem"></p>
-    <div data-kpane="dokopna"><div id="recap"></div></div>
+    <div data-kpane="akce"><div id="kAkce"></div></div>
+    <div data-kpane="pokladna" hidden><div id="kPokl"></div></div>
+    <div data-kpane="dokopna" hidden><div id="recap"></div></div>
     <div data-kpane="sluzby" hidden><div class="kgrid" id="dutyMatches"></div>
-      <form class="card f" id="addMatch" style="max-width:560px;margin-top:16px"><h3 style="font-size:1.5rem">Přidat zápas nebo akci</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><label class="l" for="am-date">Datum<input type="date" id="am-date" required></label><label class="l" for="am-opp">Soupeř nebo akce<input type="text" id="am-opp" required placeholder="např. Brigáda na hřišti"></label></div>
+      <form class="card f" id="addMatch" style="max-width:560px;margin-top:16px"><h3 style="font-size:1.5rem">Přidat trénink, zápas nebo akci</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><label class="l" for="am-date">Datum<input type="date" id="am-date" required></label><label class="l" for="am-typ">Typ<select id="am-typ"><option value="T">Trénink</option><option value="Z">Zápas</option><option value="A">Akce</option></select></label><label class="l" for="am-opp">Název<input type="text" id="am-opp" required placeholder="např. Trénink, Brigáda"></label></div>
         <button class="btn" type="submit">Přidat do rozpisu</button></form></div>
     <div data-kpane="anketa" hidden><div class="two">
       <form class="card f" id="voteForm"><h3 style="font-size:1.8rem">Ceny dokopné 2026</h3><p class="muted" style="font-size:.88rem">Každý hlasuje jednou, hlas jde kdykoli změnit. Výsledky se počítají živě.</p>
@@ -955,10 +1024,9 @@ small.dn{color:var(--bad)}
         <p class="muted" id="kitNext" style="margin-top:12px;font-size:.88rem"></p></div>
       <div class="card"><h3 style="font-size:1.6rem;margin-bottom:10px">Historie</h3><div id="kitLog" class="kitlog"></div></div>
     </div></div>
-    <div data-kpane="stat" hidden><div class="two">
-      <div class="card"><h3 style="font-size:1.6rem;margin-bottom:10px">Kdo chodí nejvíc</h3><div class="bars" id="attStats"></div><p class="muted" style="font-size:.82rem;margin-top:10px">Počítá odpovědi „Jdu“ z docházky u zápasů a akcí.</p></div>
-      <div class="card"><h3 style="font-size:1.6rem;margin-bottom:10px">Služby a dresy</h3><div class="bars" id="dutyStats"></div><p class="muted" style="font-size:.82rem;margin-top:10px">Kolikrát kdo lajnoval, pral dresy nebo měl jinou službu.</p></div>
-    </div></div>
+    <div data-kpane="stat" hidden><div id="attBox" class="attbox"></div>
+      <div class="card" style="margin-top:16px"><h3 style="font-size:1.4rem;margin-bottom:10px">Služby a dresy</h3><div class="bars" id="dutyStats"></div><p class="muted" style="font-size:.82rem;margin-top:10px">Kolikrát kdo lajnoval, pral dresy nebo měl jinou službu.</p><div id="attStats" hidden></div></div>
+    </div>
     <div data-kpane="fotky" hidden>
       <div class="card" style="display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:16px"><label class="l" for="photoCap" style="flex:1;min-width:200px">Popisek (nepovinný)<input type="text" id="photoCap" placeholder="např. Dokopná 2026"></label>
         <label class="btn" for="photoIn" id="photoBtn">Nahrát fotky</label><input type="file" id="photoIn" accept="image/*" multiple hidden></div>
@@ -994,7 +1062,7 @@ small.dn{color:var(--bad)}
 </div>
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Fotka"><button class="btn ghost sm" type="button" id="lbClose">Zavřít</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
-<div class="sponsorbelt foot" aria-label="Sponzoři klubu"><span class="beltlbl">Partneři</span><div class="track"></div></div>
+<div class="sponsorbelt foot" aria-label="Partneři klubu"><span class="beltlbl">Partneři</span><div class="track"></div></div>
 <footer>
   <div class="wrap">
     <div><h4>TJ Sokol Košice</h4><p>391 17 Košice, okres Tábor.<br>Fixi Coffee 9. liga OFS Tábor.</p><p style="margin-top:10px">Mistr KAVAS ELEKTRO 10. ligy 2025/26.</p></div>
@@ -1237,14 +1305,14 @@ function mRow(m,extra){const r=res(m),home=isUs(m[2]);
 function table(el,rows,opt={}){
  let list=rows.map((r,i)=>({r,i}));
  if(opt.compact){const k=rows.findIndex(r=>isUs(r[0]));const from=Math.max(0,Math.min(rows.length-5,k-2));list=list.slice(from,from+5);}
- el.innerHTML=`<thead><tr><th class="n">#</th><th>Tým</th><th class="n">Z</th>${opt.compact?"":`<th class="n">V</th><th class="n">R</th><th class="n">P</th>`}<th class="n">Skóre</th><th class="n">B</th></tr></thead><tbody>`+
- list.map(({r,i})=>`<tr class="${isUs(r[0])?"us":""}"><td class="n">${i+1}.</td><td>${esc(r[0])}</td><td class="n">${r[1]}</td>${opt.compact?"":`<td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td>`}<td class="n">${r[5]}:${r[6]}</td><td class="n"><b>${r[7]}</b></td></tr>`).join("")+"</tbody>";}
+ el.innerHTML=`<thead><tr><th class="n">#</th><th class="tm">Tým</th><th class="n hz">Z</th>${opt.compact?"":`<th class="n">V</th><th class="n">R</th><th class="n">P</th>`}<th class="n hz">Skóre</th><th class="n">B</th></tr></thead><tbody>`+
+ list.map(({r,i})=>`<tr class="${isUs(r[0])?"us":""}"><td class="n">${i+1}.</td><td class="tm" title="${esc(r[0])}">${esc(r[0])}</td><td class="n hz">${r[1]}</td>${opt.compact?"":`<td class="n">${r[2]}</td><td class="n">${r[3]}</td><td class="n">${r[4]}</td>`}<td class="n hz">${r[5]}:${r[6]}</td><td class="n"><b>${r[7]}</b></td></tr>`).join("")+"</tbody>";}
 
 /* ---------- match centre ---------- */
 function matchCentre(){
  const played=S2627.filter(m=>m[3]!=null),last=played[played.length-1],next=S2627.find(m=>m[3]==null),now=new Date();
  const crest=(t)=>isUs(t)?`<span class="crestmini us">${CREST}</span>`:`<span class="crestmini">${esc(t.replace(/^(Sokol|TJ|FC|ZD|SK) /,"")[0])}</span>`;
- const card=(m,kind)=>{if(!m)return `<div class="mc empty"><div class="mc-k">${kind}</div><p>Jarní los zveřejníme, jakmile ho OFS Tábor vydá.</p></div>`;
+ const card=(m,kind)=>{if(!m)return `<div class="mc next brk"><div class="mc-k">Zimní přestávka<span>Fixi Coffee 9. liga</span></div><p>Jaro začíná v březnu 2027, los zveřejníme hned, jak vyjde.</p></div>`;
   const kick=dt(m[1]),live=m[3]==null&&now>=kick&&now<new Date(kick.getTime()+2*3600e3),today=now.toDateString()===kick.toDateString();
   const lbl=m[3]!=null?"Poslední zápas":live?"Hraje se":today?"Dnes":"Příští zápas";
   return `<div class="mc ${m[3]==null?"next":""}"><div class="mc-k">${lbl}<span>${m[0]}. kolo · Fixi Coffee 9. liga</span></div>
@@ -1301,7 +1369,7 @@ function renderStory(id){const s=stories().find(x=>x.id===id);const el=$("#story
 let season="2627";
 function renderStats(){const L=(season==="2627"?S2627:S2526).filter(m=>m[3]!=null);if(!L.length)return;
  let pts=0;const cum=L.map(m=>{const r=res(m);pts+=r==="V"?3:r==="R"?1:0;return pts;});
- const W=680,H=240,pl=36,pr=16,pt=18,pb=30,n=L.length,max=Math.max(10,Math.ceil(Math.max(...cum,n*2)/10)*10);
+ const W=matchMedia("(max-width:620px)").matches?380:680,H=240,pl=36,pr=16,pt=18,pb=30,n=L.length,max=Math.max(10,Math.ceil(Math.max(...cum,n*2)/10)*10);
  const X=i=>pl+(n===1?0:i*(W-pl-pr)/(n-1)),Y=v=>H-pb-v*(H-pt-pb)/max;
  let g="";for(let v=0;v<=max;v+=max>30?10:5)g+=`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${pl-6}" y="${Y(v)+4}" text-anchor="end" class="ax">${v}</text>`;
  const ideal=L.map((_,i)=>`${X(i)},${Y((i+1)*2)}`).join(" "),line=cum.map((v,i)=>`${X(i)},${Y(v)}`).join(" ");
@@ -1315,8 +1383,9 @@ function renderStats(){const L=(season==="2627"?S2627:S2526).filter(m=>m[3]!=nul
  const diff=m=>(isUs(m[2])?m[3]-m[5]:m[5]-m[3]);const best=[...L].sort((a,b)=>diff(b)-diff(a))[0];
   const G=goals(L),top=Object.entries(G).sort((a,b)=>b[1]-a[1])[0];
  $("#statTiles").innerHTML=[["Skóre",`${gf}:${ga}`,`${(gf/L.length).toFixed(1).replace(".",",")} gólu na zápas`],["Body doma / venku",`${p(home)} / ${p(away)}`,`${home.length} doma, ${away.length} venku`],
-  ["Nejvyšší výhra",best&&diff(best)>0?`${best[3]}:${best[5]}`:"–",best&&diff(best)>0?`${best[0]}. kolo, ${isUs(best[2])?"doma s "+best[4]:"v "+best[2]}`:""],
+  ["Nejvyšší výhra",best&&diff(best)>0?`${best[3]}:${best[5]}`:"–",best&&diff(best)>0?`${best[0]}. kolo, ${isUs(best[2])?"doma":"venku"}: ${best[2]} – ${best[4]}`:""],
   (()=>{const t=Object.entries(G).sort((a,b)=>b[1]-a[1]),lead=t.filter(x=>x[1]===t[0][1]);return ["Nejlepší střelec",t.length?`${t[0][1]} ${plural(t[0][1],"gól","góly","gólů")}`:"–",lead.map(x=>x[0]).join(", ")];})()].map(([a,b,c])=>`<div class="tile"><span>${a}</span><b>${esc(b)}</b><em>${esc(c)}</em></div>`).join("");}
+matchMedia("(max-width:620px)").addEventListener("change",()=>renderStats());
 function renderSeason(){renderStats();const L=season==="2627"?S2627:S2526;
  scorers($("#scorers2526"),goals(L),8);$("#scorersSeason").textContent=season==="2627"?"2026/27":"2025/26";
  $("#matchList").innerHTML=[...L].reverse().map(m=>mRow(m)).join("");table($("#tblSeason"),season==="2627"?T2627:T2526);
@@ -1361,7 +1430,7 @@ function renderTips(){const topics=["Vše",...new Set(TIPS.map(t=>t.t))];
  $("#tips").innerHTML=TIPS.filter(t=>tipTopic==="Vše"||t.t===tipTopic).map(t=>`<article class="tip"><span class="stag">${esc(t.t)}</span><h3>${esc(t.h)}</h3><ul>${t.p.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="drill"><b>${t.tip?"Tip":"Cvičení"}</b>${esc(t.d)}</div></article>`).join("");}
 
 /* ================= MEDAILONEK NA ÚVODU ================= */
-function renderFeature(){const ps=players().filter(p=>p.pos!=="T");if(!ps.length)return;
+function renderFeature(){const ps=players().filter(p=>p.pos!=="T"&&p.photo);if(!ps.length){$("#featurePlayer").innerHTML="";return;}
  const withStory=ps.filter(p=>p.quote||p.bio);const fromDb=withStory.filter(p=>playerDocs[p.id]);
  const day=Math.floor(Date.now()/864e5);
  const lastM=S2627.filter(m=>m[3]!=null).slice(-1)[0],mm=lastM&&motmFor(lastM),recent=lastM&&(Date.now()-dt(lastM[1]).getTime())<8*864e5;
@@ -1499,11 +1568,9 @@ const PIN_HASH="dc8624f9";
 const hsh=s=>{let x=0x811c9dc5;for(const c of s){x^=c.charCodeAt(0);x=Math.imul(x,16777619)>>>0;}return x.toString(16).padStart(8,"0");};
 let unlocked=false;try{unlocked=sessionStorage.getItem("kab")==="1";}catch(e){}
 function showKabina(){$("#gate").hidden=unlocked;$("#kabina").hidden=!unlocked;}
-$("#gateForm").addEventListener("submit",e=>{e.preventDefault();if(hsh($("#pin").value.trim().toLowerCase())===PIN_HASH){unlocked=true;try{sessionStorage.setItem("kab","1")}catch(e){}showKabina();}else{$("#gateMsg").textContent="Špatné heslo. Zeptejte se kapitána nebo trenéra.";}});
-$("#logout").onclick=()=>{unlocked=false;try{sessionStorage.removeItem("kab")}catch(e){}$("#pin").value="";showKabina();};
 $$("[data-k]").forEach(b=>b.onclick=()=>{$$("[data-k]").forEach(x=>x.setAttribute("aria-pressed",x===b));$$("[data-kpane]").forEach(p=>p.hidden=p.dataset.kpane!==b.dataset.k);});
 const ROLES=[["lajn","Lajnování"],["dresy","Praní dresů"],["bufet","Bufet a pivo"],["site","Branky a sítě"],["kasa","Vstupné"]];
-const EXTRA_EVENTS=[{id:"dokopna2026",date:"2026-10-31",title:"Dokopná 2026"}];
+const EXTRA_EVENTS=[{id:"dokopnaakce26",date:"2026-10-31",title:"Dokopná 2026"}];
 let extraMatches=[],duties={},attRaw={},att={};
 function buildAtt(){att={};Object.entries(attRaw).forEach(([k,v])=>{const m=k.split("__")[0];(att[m]=att[m]||[]).push(v);});}
 function dutyMatches(){return [...S2627.filter(m=>m[3]==null).map(m=>({id:"r"+m[0],date:m[1].slice(0,10),time:m[1].length>10?m[1].slice(11,16):"",home:isUs(m[2]),title:m[2]+" – "+m[4]+" ("+m[0]+". kolo)"})),...EXTRA_EVENTS.map(e=>({...e,home:true,event:true})),...extraMatches.map(e=>({...e,home:true}))].sort((a,b)=>a.date.localeCompare(b.date));}
@@ -1529,7 +1596,7 @@ async function saveDuty(key,val){try{if(db){const ref=db.collection("duties").do
  else{val?duties[key]=val:delete duties[key];store.set("duties",duties);renderDuties();}toast(val?"Zapsáno":"Uvolněno");}catch(e){toast("Uložit se nepovedlo, zkuste to znovu");}}
 async function saveAtt(mid,name,st){const key=mid+"__"+slug(name),val={n:name.slice(0,40),s:st};
  try{if(db)await db.collection("attendance").doc(key).set({...val,at:new Date().toISOString()});else{attRaw[key]=val;store.set("att",attRaw);buildAtt();renderDuties();}toast("Docházka uložena");}catch(e){toast("Docházku se nepovedlo uložit");}}
-$("#addMatch").addEventListener("submit",async e=>{e.preventDefault();const m={date:$("#am-date").value,title:$("#am-opp").value.trim().slice(0,60)};if(!m.date||!m.title)return;
+$("#addMatch").addEventListener("submit",async e=>{e.preventDefault();const m={date:$("#am-date").value,typ:$("#am-typ").value,title:$("#am-opp").value.trim().slice(0,60)};if(!m.date||!m.title)return;
  const id="m"+Date.now();try{if(db)await db.collection("matches").doc(id).set(m);else{extraMatches.push({id,...m});store.set("matches",extraMatches);renderDuties();}e.target.reset();toast("Přidáno do rozpisu");}catch(err){toast("Přidat se nepovedlo");}});
 /* dresy */
 let kit={},kitLog=[];
@@ -1565,7 +1632,10 @@ $("#voteForm").addEventListener("submit",async e=>{e.preventDefault();
 /* fotky */
 function renderPhotos(dbList){const stat=PHOTOS.map(p=>({...p,url:photoUrl(p.f)}));const list=[...(dbList||[]),...stat];const html=list.length?list.map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"><figcaption>${esc(p.caption||"")}</figcaption></figure>`).join(""):"";
  $("#photos").innerHTML=html||`<div class="empty">Zatím tu nejsou žádné fotky. Nahrajte první, třeba z dnešní dokopné.</div>`;
- const pubList=[...(dbList||[]),...stat.filter(p=>p.pub)];$("#homeGallery").innerHTML=pubList.length?pubList.slice(0,12).map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" loading="lazy"></figure>`).join(""):`<div class="empty">Fotky ze zápasů a z dokopné sem přidávají hráči v Kabině.</div>`;}
+ const pubList=[...(dbList||[]),...stat.filter(p=>p.pub)].filter(p=>p.url);const hg=$("#homeGallery"),hw=$("#homeGalWrap");
+ hg.innerHTML=pubList.slice(0,6).map(p=>`<figure><img src="${esc(p.url)}" alt="${esc(p.caption||"Fotka z klubu")}" decoding="async"></figure>`).join("");
+ const galCheck=()=>{if(hw)hw.hidden=hg.querySelectorAll("figure").length<3;};
+ hg.querySelectorAll("img").forEach(i=>i.addEventListener("error",()=>{i.closest("figure").remove();galCheck();}));galCheck();}
 $("#photoIn").addEventListener("change",async e=>{const files=[...e.target.files];if(!files.length)return;if(!assets||!db){toast("Nahrávání fotek teď není dostupné");return;}
  for(const f of files){try{const a=await assets.upload(f);await db.collection("photos").doc("p"+Date.now()+Math.random().toString(36).slice(2,6)).set({assetId:a.id,url:a.url,caption:$("#photoCap").value.trim().slice(0,60),at:new Date().toISOString()});}catch(err){toast("Fotku "+f.name+" se nepodařilo nahrát");}}
  e.target.value="";toast("Nahráno");});
@@ -1580,11 +1650,11 @@ const POSX={gk:["Brankář: 3× 10 pádů na obě strany, odrazy z kolen","Brank
 $("#planForm").addEventListener("submit",e=>{e.preventDefault();const p=$("#p-pos").value,g=$("#p-goal").value,n=+$("#p-days").value;
  const days=[["Pondělí",""],["Úterý","Týmový trénink"],["Středa",""],["Čtvrtek","Týmový trénink"],["Pátek",""],["Sobota","Zápas"],["Neděle","Regenerace: procházka, protažení, válec 15 min"]];
  const free=[0,2,4].slice(0,n);let k=0;
- $("#planOut").innerHTML=`<h3>Plán na týden</h3><p class="muted">Týmové tréninky upravte podle skutečných dnů.</p>`+days.map(([d,t],i)=>{let items=t?[t]:[];if(free.includes(i)){items=[PLAN[g][k%3],POSX[p][k%2]];k++;}if(!items.length)items=["Volno"];
+ $("#planOut").innerHTML=`<p class="muted">Týmové tréninky upravte podle skutečných dnů.</p>`+days.map(([d,t],i)=>{let items=t?[t]:[];if(free.includes(i)){items=[PLAN[g][k%3],POSX[p][k%2]];k++;}if(!items.length)items=["Volno"];
   return `<div class="day"><b>${d}</b><ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;}).join("");});
 /* ================= ROUTING ================= */
 const VIEWS=["domu","aktuality","zapasy","tym","klub","akademie","hra","kabina"];
-function route(){let h=location.hash.slice(1);let v=VIEWS.includes(h)?h:"domu";
+function route(){let h=location.hash.slice(1).split("?")[0];let v=VIEWS.includes(h)?h:"domu";
  if(h.startsWith("hrac-")){v="hrac";renderPlayer(h.slice(5));}
  else if(h.startsWith("zprava-")){v="zprava";renderStory(h.slice(7));}
  $$(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));
@@ -1605,7 +1675,7 @@ function renderAll(){
  const h=location.hash.slice(1);if(h.startsWith("hrac-"))renderPlayer(h.slice(5));if(h.startsWith("zprava-"))renderStory(h.slice(7));
 }
 async function initCaps(){
- if(!C){$("#storeNote").textContent="Na této verzi webu se zápisy ukládají jen ve vašem prohlížeči.";const a=document.createElement("p");a.className="muted";a.innerHTML=`Sdílenou kabinu pro celý tým najdete v <a href="${KABINA_URL}" target="_blank" rel="noopener">klubové verzi webu</a>.`;$("#gate").append(a);localFallback();return;}
+ if(!C){$("#storeNote").textContent=LB_URL?"Akce, docházka a pokladna se sdílí s celým týmem. Služby, dresy a anketa se zatím ukládají jen v tomhle prohlížeči.":"Ukázkový režim: zápisy se ukládají jen v tomhle prohlížeči.";localFallback();return;}
  try{db=await C.use("db");}catch(e){db=null;}
  try{user=await C.use("user");canEdit=user?await user.canEdit():false;}catch(e){user=null;}
  $("#storeNote").textContent=db?"Zápisy vidí všichni spoluhráči v reálném čase.":"Sdílené ukládání teď není dostupné (asi nejste přihlášení). Zápisy se uloží jen ve vašem prohlížeči.";
@@ -1636,6 +1706,337 @@ setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
 $("#sponsors").innerHTML=SPONSORS.map(s=>`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
 const band=SPONSORS.map(s=>`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
 $$(".sponsorbelt .track").forEach(t=>t.innerHTML=`<div class="set">${band}</div><div class="set" aria-hidden="true">${band}</div>`);renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
+/* ===== Docházka: statistiky tréninků a zápasů (kabina + import anket z WhatsAppu) ===== */
+// Ankety z WhatsAppu: {id,d:"YYYY-MM-DD",t:"T"|"Z"|"A",q,yes,no,maybe,names?:{yes:[],no:[],maybe:[]}}
+const WA_POLLS=[];
+let waPolls=store.get("wapolls",[]),attFilter="all",attSubbed=false;
+const ATT_T={T:"Trénink",Z:"Zápas",A:"Akce"};
+/* -- přiřazení jmen z ankety ke hráčům (přezdívka, příjmení, celé jméno) -- */
+function attAlias(){const m={};field().forEach(p=>{const s=slug(p.name),parts=s.split("-");m[s]=p.name;m[parts[parts.length-1]]=m[parts[parts.length-1]]?"?":p.name;
+  const pr=PROFILES[p.slug||s];if(pr&&pr.nick)m[slug(pr.nick)]=p.name;});return m;}
+function attCanon(n,al){const s=slug(n);if(al[s]&&al[s]!=="?")return al[s];const parts=s.split("-");
+  for(const x of [parts[parts.length-1],parts[0]])if(al[x]&&al[x]!=="?")return al[x];return String(n).trim();}
+/* -- parser exportu chatu (Android i iPhone, česky i anglicky) -- */
+function parseWA(txt){const lines=String(txt).replace(/\r/g,"").replace(/‎|‏/g,"").split("\n");
+ const head=/^\[?(\d{1,2})[./](\d{1,2})[./](\d{2,4}),? (\d{1,2}):(\d{2})(?::\d{2})?(?: ?[AP]M)?\]?(?: -)? ([^:]{1,60}): (.*)$/;
+ const msgs=[];let cur=null;
+ for(const l of lines){const m=l.match(head);if(m){let y=+m[3];if(y<100)y+=2000;cur={d:`${y}-${String(m[2]).padStart(2,"0")}-${String(m[1]).padStart(2,"0")}`,who:m[6].trim(),text:[m[7]]};msgs.push(cur);}else if(cur)cur.text.push(l);}
+ const out=[];
+ msgs.forEach(mm=>{const t=mm.text;if(!/^(ANKETA|POLL|HLASOVÁNÍ|ENCUESTA|UMFRAGE)\s*:\s*$/i.test(t[0].trim()))return;
+  const q=(t[1]||"").trim(),opts=[];
+  t.slice(2).forEach(l=>{const o=l.trim().match(/^[^:]{2,12}:\s*(.+?)\s*\((\d+)[^)]*\)\s*$/);if(o)opts.push([o[1],+o[2]]);});
+  if(!q||!opts.length)return;
+  let yes=0,no=0,maybe=0;opts.forEach(([o,c])=>{const s=slug(o);
+   if(/^(ne|nejdu|nebudu|nemuzu|nedorazim|nestiham|ne-)|nejdu|nemuzu|nebudu/.test(s)||/❌|👎/.test(o))no+=c;
+   else if(/mozna|nevim|uvidim|pozde|later|maybe/.test(s)||/🤷|❓/.test(o))maybe+=c;
+   else if(/^(ano|jdu|budu|prijdu|dorazim|jo|jasne|yes|beru)|jdu|budu|prijdu/.test(s)||/✅|👍|💪|⚽/.test(o)||o.trim()==="+")yes+=c;
+   else if(opts.length<=3&&opts[0][0]===o)yes+=c; else maybe+=c;});
+  const qs=slug(q);
+  const typ=/trenin|trenink|treni/.test(qs)?"T":/zapas|utkani|kolo|doma|venku|proti|^vs|-vs-|pohar/.test(qs)||SZ_TEAMS().some(x=>!isUs(x)&&qs.includes(slug(x).split("-").pop()))?"Z":"A";
+  out.push({id:"wa"+mm.d.replace(/-/g,"")+slug(q).slice(0,20),d:mm.d,t:typ,q:q.slice(0,90),yes,no,maybe});});
+ return out;}
+/* -- všechny události s docházkou -- */
+function attEvents(){const ev=[],al=attAlias();
+ try{kabEvents().forEach(e=>ev.push(e));}catch(x){}
+ const dm=typeof dutyMatches==="function"?dutyMatches():[];
+ dm.forEach(m=>{const A=att[m.id]||[];if(!A.length)return;
+  const t=m.typ||(String(m.id).startsWith("r")?"Z":/trén|trenink/i.test(m.title)?"T":"A");
+  const nm={yes:[],no:[],maybe:[]};A.forEach(a=>nm[a.s==="ano"?"yes":a.s==="ne"?"no":"maybe"].push(attCanon(a.n,al)));
+  ev.push({id:m.id,d:m.date,t,q:m.title,yes:nm.yes.length,no:nm.no.length,maybe:nm.maybe.length,names:nm,src:"web"});});
+ const seen=new Set(ev.map(e=>e.id));
+ [...WA_POLLS,...waPolls].forEach(p=>{if(seen.has(p.id))return;seen.add(p.id);
+  const names=p.names?{yes:(p.names.yes||[]).map(n=>attCanon(n,al)),no:(p.names.no||[]).map(n=>attCanon(n,al)),maybe:(p.names.maybe||[]).map(n=>attCanon(n,al))}:null;
+  ev.push({...p,names,src:"wa"});});
+ return ev.sort((a,b)=>a.d.localeCompare(b.d));}
+function renderAtt(){const box=$("#attBox");if(!box)return;
+ const all=attEvents(),today=new Date().toISOString().slice(0,10),ev=all.filter(e=>attFilter==="all"||e.t===attFilter);
+ const avg=t=>{const x=all.filter(e=>e.t===t&&e.d<=today);return x.length?(x.reduce((s,e)=>s+e.yes,0)/x.length):null;};
+ const f1=v=>v==null?"–":v.toFixed(1).replace(".",",");
+ const past=all.filter(e=>e.d<=today),best=past.slice().sort((a,b)=>b.yes-a.yes)[0];
+ const last=past.slice(-4),prev=past.slice(-8,-4),trend=last.length&&prev.length?(last.reduce((s,e)=>s+e.yes,0)/last.length)-(prev.reduce((s,e)=>s+e.yes,0)/prev.length):null;
+ const tiles=`<div class="atiles">
+  <div class="atile"><span class="stag">Trénink</span><b>${f1(avg("T"))}</b><small>lidí v průměru</small></div>
+  <div class="atile"><span class="stag">Zápas</span><b>${f1(avg("Z"))}</b><small>hlásí „jdu“</small></div>
+  <div class="atile"><span class="stag">Události</span><b>${past.length}</b><small>s docházkou</small></div>
+  <div class="atile"><span class="stag">Trend</span><b>${trend==null?"–":(trend>=0?"▲ ":"▼ ")+f1(Math.abs(trend))}</b><small>${trend==null?"málo dat":trend>=0?"chodí se víc":"chodí se míň"}</small></div></div>`;
+ const seg=`<div class="seg" role="group" aria-label="Typ události">${[["all","Vše"],["T","Tréninky"],["Z","Zápasy"],["A","Akce"]].map(([k,l])=>`<button type="button" data-af="${k}" aria-pressed="${attFilter===k}">${l}</button>`).join("")}</div>`;
+ const shown=ev.slice(-24),mx=Math.max(14,...shown.map(e=>e.yes+e.maybe));
+ const chart=shown.length?`<div class="achart" role="img" aria-label="Počet lidí, kteří se hlásili, po událostech">${shown.map(e=>`<div class="acol ${e.t}" tabindex="0" title="${esc(fmtDL(e.d))} · ${esc(ATT_T[e.t])}: ${esc(e.q)} · jde ${e.yes}${e.maybe?", možná "+e.maybe:""}${e.no?", nejde "+e.no:""}"><i style="--h:${e.yes/mx*100}%"></i>${e.maybe?`<u style="--h:${e.maybe/mx*100}%"></u>`:""}<em>${e.yes}</em><span>${dt(e.d).getDate()}.${dt(e.d).getMonth()+1}.</span></div>`).join("")}</div>
+  <p class="muted alegend"><span class="lg T"></span>trénink <span class="lg Z"></span>zápas <span class="lg A"></span>akce <span class="lg M"></span>možná</p>`:`<p class="muted">Zatím žádná docházka${attFilter!=="all"?" v tomhle filtru":""}. Nahrajte export z WhatsAppu nebo se hlaste u zápasů v záložce Služby.</p>`;
+ /* hráči */
+ const named=all.filter(e=>e.names&&e.d<=today),P={};
+ named.forEach(e=>{const all3=[...e.names.yes,...e.names.no,...e.names.maybe];
+  all3.forEach(n=>{P[n]=P[n]||{T:[0,0],Z:[0,0],A:[0,0],seq:[]};});
+  Object.keys(P).forEach(n=>{const r=P[n];r[e.t][1]++;if(e.names.yes.includes(n)){r[e.t][0]++;r.seq.push(1);}else r.seq.push(0);});});
+ const rows=Object.entries(P).map(([n,r])=>{const y=r.T[0]+r.Z[0]+r.A[0],c=r.T[1]+r.Z[1]+r.A[1];let st=0;for(let i=r.seq.length-1;i>=0&&r.seq[i];i--)st++;return {n,r,y,c,pct:c?y/c:0,st};})
+  .filter(x=>x.c).sort((a,b)=>b.pct-a.pct||b.y-a.y);
+ const pf=(a)=>a[1]?`${a[0]}/${a[1]}`:"–";
+ const ptable=rows.length?`<div class="atable" role="table"><div class="arow h" role="row"><span>Hráč</span><span>Tréninky</span><span>Zápasy</span><span>Účast</span><span>Série</span></div>${rows.map((x,i)=>`<div class="arow" role="row"><span><i class="rk">${i+1}</i>${esc(x.n)}</span><span>${pf(x.r.T)}</span><span>${pf(x.r.Z)}</span><span class="apct"><s style="--w:${Math.round(x.pct*100)}%"></s><b>${Math.round(x.pct*100)} %</b></span><span>${x.st?x.st+"×"+(x.st>=5?" 🔥":""):"–"}</span></div>`).join("")}</div>
+  ${rows.length>=3?`<p class="muted" style="font-size:.85rem;margin-top:10px">🏅 Nejvěrnější: <b>${esc(rows[0].n)}</b>${rows.find(x=>x.st>=3)?` · nejdelší série: <b>${esc(rows.slice().sort((a,b)=>b.st-a.st)[0].n)}</b>`:""}</p>`:""}`
+  :`<p class="muted">Statistiky po hráčích se objeví, jakmile budou u událostí jména: kluci se hlásí tlačítky „Jdu / Nejdu“ v záložce Služby, nebo se doplní jména z anket („Zobrazit hlasy“ ve WhatsAppu).</p>`;
+ const recent=all.filter(e=>e.d<=today).slice(-8).reverse();
+ box.innerHTML=`${tiles}
+  <div class="card"><div class="sechead" style="margin-bottom:12px"><h3 style="font-size:1.5rem">Kolik lidí chodí</h3>${seg}</div>${chart}</div>
+  <div class="two"><div class="card"><h3 style="font-size:1.5rem;margin-bottom:10px">Docházka hráčů</h3>${ptable}</div>
+   <div class="card"><h3 style="font-size:1.5rem;margin-bottom:10px">Poslední ankety a akce</h3>${recent.length?`<div class="alist">${recent.map(e=>`<div><span class="stag">${esc(fmtDL(e.d))} · ${ATT_T[e.t]}${e.src==="wa"?" · WhatsApp":""}</span><p>${esc(e.q)}</p><b>✅ ${e.yes}${e.maybe?` · 🤷 ${e.maybe}`:""}${e.no?` · ❌ ${e.no}`:""}</b></div>`).join("")}</div>`:`<p class="muted">Zatím nic.</p>`}
+   ${best?`<p class="muted" style="font-size:.85rem;margin-top:10px">Rekord: ${best.yes} lidí – ${esc(best.q)} (${esc(fmtDL(best.d))}).</p>`:""}</div></div>
+  ${(()=>{let W=[];try{W=KS?KS.rsvp.filter(r=>r.s!=="ano"&&r.why):[];}catch(x){}if(!W.length)return "";const c={};W.forEach(r=>c[r.why]=(c[r.why]||0)+1);const e=Object.entries(c).sort((x,y)=>y[1]-x[1]),m=e[0][1];
+   return `<div class="card"><h3 style="font-size:1.5rem;margin-bottom:10px">Proč lidi chybí</h3><div class="bars">${e.map(([w,n],i)=>`<div class="bar"><i class="rk">${i+1}</i><span>${esc(whyL(w))}</span><s style="--w:${n/m*100}%"></s><em>${n}</em></div>`).join("")}</div><p class="muted" style="font-size:.8rem;margin-top:8px">Důvody u odpovědí „Nejdu“ a „Možná“.</p></div>`;})()}
+  <div class="card aimp"><h3 style="font-size:1.3rem">Nahrát ankety z WhatsAppu</h3>
+   <p class="muted" style="font-size:.88rem">Ve skupině: ⋮ → Další → <b>Exportovat chat</b> → Bez médií. Soubor <code>.txt</code> nahrajte sem; ankety o trénink a zápas se načtou samy. Nic dalšího z chatu se neukládá.</p>
+   <label class="btn sm" for="waIn">Vybrat export (.txt)</label><input type="file" id="waIn" accept=".txt,text/plain" hidden>
+   ${waPolls.length?`<button class="btn sm ghost" type="button" id="waClear">Smazat nahrané ankety (${waPolls.length})</button>`:""}<p class="muted" id="waMsg" style="font-size:.85rem"></p></div>`;
+ $$("[data-af]").forEach(b=>b.onclick=()=>{attFilter=b.dataset.af;renderAtt();});
+ $("#waIn").onchange=async e=>{const f=e.target.files[0];if(!f)return;
+  if(f.size>15e6){toast("Soubor je moc velký, exportujte bez médií");return;}
+  const txt=await f.text(),got=parseWA(txt);
+  if(!got.length){$("#waMsg").textContent="V souboru jsem nenašel žádné ankety. Je to export chatu skupiny (.txt)?";return;}
+  const ids=new Set(waPolls.map(p=>p.id));const nu=got.filter(p=>!ids.has(p.id));waPolls=[...waPolls,...nu].sort((a,b)=>a.d.localeCompare(b.d));
+  store.set("wapolls",waPolls);
+  if(db)try{await Promise.all(nu.map(p=>db.collection("wapolls").doc(p.id).set(p)));}catch(x){}
+  toast(`Načteno ${got.length} anket, nových ${nu.length}`);renderAtt();};
+ const wc=$("#waClear");if(wc)wc.onclick=async()=>{if(db)try{await Promise.all(waPolls.map(p=>db.collection("wapolls").doc(p.id).delete()));}catch(x){}waPolls=[];store.set("wapolls",[]);renderAtt();};
+ if(db&&!attSubbed){attSubbed=true;db.collection("wapolls").onSnapshot(s=>{const d=s.docs.map(x=>x.data());if(d.length){waPolls=d.sort((a,b)=>a.d.localeCompare(b.d));renderAtt();}},()=>{});}}
+const _rks=renderKStats;
+renderKStats=function(){_rks();renderAtt();};
+renderAtt();
+/* ===== Jádro kabiny: účty, akce, přihlášky, docházka, pokladna. Stejný kód běží v Google Apps Scriptu i v ukázkovém režimu webu. ===== */
+const KCORE_ADMINS=["matej-kruml","zdenek-radosta"];
+const KCORE_HEAD={hraci:["slug","name","pin","salt","tok","role","fails","at"],akce:["id","typ","date","time","place","title","note","by","at"],
+ odpovedi:["key","ev","slug","s","prev","note","at","why"],dochazka:["key","ev","slug","p","late","exc","at"],pokuty:["id","slug","date","rule","amount","item","note","paid","key","by","at"],nastaveni:["k","v"]};
+function kcore(DB,d){
+ const S=v=>String(v==null?"":v),clean=(v,n)=>S(v).replace(/[<>]/g,"").trim().slice(0,n),now=()=>new Date().toISOString();
+ const players=()=>DB.rows("hraci"),me=()=>{if(!d.tok)return null;const p=players().find(x=>x.tok&&x.tok===S(d.tok));return p||null;};
+ const isAdm=p=>!!p&&(p.role==="admin"||KCORE_ADMINS.indexOf(p.slug)>=0);
+ const pub=p=>({slug:p.slug,name:p.name,reg:!!p.pin,role:isAdm(p)?"admin":""});
+ const A=d.a;
+ if(A==="roster"){let ps=players();if(!ps.length&&Array.isArray(d.seed)){d.seed.slice(0,60).forEach(x=>DB.upsert("hraci","slug",{slug:clean(x.slug,48),name:clean(x.name,48),pin:"",salt:"",tok:"",role:"",fails:0,at:now()}));ps=players();}return{ok:true,players:ps.map(pub)};}
+ if(A==="register"){const slug=clean(d.slug,48),p=players().find(x=>x.slug===slug);
+  if(!p)return{ok:false,err:"Hráč není na soupisce"};
+  if(DB.hash("kab|"+S(d.kabina).trim().toLowerCase())!==DB.prop("KABINA"))return{ok:false,err:"Špatné heslo kabiny"};
+  if(p.pin&&!d.force)return{ok:false,err:"Účet už existuje, přihlas se PINem. Zapomenutý PIN smaže správce."};
+  if(!/^\d{4,8}$/.test(S(d.pin)))return{ok:false,err:"PIN musí mít 4 až 8 číslic"};
+  const salt=DB.uid().slice(0,12),tok=DB.uid();DB.upsert("hraci","slug",{...p,salt,pin:DB.hash(salt+"|"+S(d.pin)),tok,fails:0,at:now()});
+  return{ok:true,tok,me:pub({...p,pin:1})};}
+ if(A==="login"){const p=players().find(x=>x.slug===S(d.slug));if(!p||!p.pin)return{ok:false,err:"Účet zatím není založený, použij „První přihlášení“"};
+  if(+p.fails>=10)return{ok:false,err:"Moc špatných pokusů. PIN ti smaže správce."};
+  if(DB.hash(p.salt+"|"+S(d.pin))!==p.pin){DB.upsert("hraci","slug",{...p,fails:(+p.fails||0)+1});return{ok:false,err:"Špatný PIN"};}
+  const tok=p.tok||DB.uid();DB.upsert("hraci","slug",{...p,tok,fails:0});return{ok:true,tok,me:pub(p)};}
+ const m=me();if(!m)return{ok:false,err:"auth"};
+ const adm=isAdm(m),need=()=>adm?null:{ok:false,err:"Tohle smí jen správce"};
+ if(A==="logout"){DB.upsert("hraci","slug",{...m,tok:""});return{ok:true};}
+ if(A==="pin"){if(!/^\d{4,8}$/.test(S(d.pin)))return{ok:false,err:"PIN musí mít 4 až 8 číslic"};const salt=DB.uid().slice(0,12);DB.upsert("hraci","slug",{...m,salt,pin:DB.hash(salt+"|"+S(d.pin))});return{ok:true};}
+ if(A==="state"){let rules=null;const r=DB.rows("nastaveni").find(x=>x.k==="rules");if(r)try{rules=JSON.parse(r.v);}catch(e){}
+  return{ok:true,me:pub(m),players:players().map(pub),events:DB.rows("akce"),rsvp:DB.rows("odpovedi"),pres:DB.rows("dochazka"),fines:DB.rows("pokuty"),rules};}
+ if(A==="rsvp"){const ev=DB.rows("akce").find(x=>x.id===S(d.ev));if(!ev)return{ok:false,err:"Akce neexistuje"};
+  const who=adm&&d.slug?S(d.slug):m.slug,s=["ano","ne","mozna"].indexOf(S(d.s))>=0?S(d.s):"ano",key=ev.id+"__"+who;
+  if(!adm&&S(ev.date)<now().slice(0,10))return{ok:false,err:"Akce už proběhla"};
+  const old=DB.rows("odpovedi").find(x=>x.key===key);
+  DB.upsert("odpovedi","key",{key,ev:ev.id,slug:who,s,prev:old?(old.s!==s?old.s:old.prev):"",note:clean(d.note,80),at:now(),why:s==="ano"?"":clean(d.why,20)});return{ok:true};}
+ if(A==="ev_save"){if(need())return need();const e=d.ev||{},id=S(e.id)||("e"+Date.now().toString(36));
+  if(!/^\d{4}-\d\d-\d\d$/.test(S(e.date)))return{ok:false,err:"Chybí datum"};
+  DB.upsert("akce","id",{id,typ:["T","Z","A"].indexOf(e.typ)>=0?e.typ:"T",date:S(e.date),time:clean(e.time,5),place:clean(e.place,60),title:clean(e.title,70)||"Trénink",note:clean(e.note,200),by:m.slug,at:now()});return{ok:true,id};}
+ if(A==="ev_del"){if(need())return need();DB.del("akce","id",S(d.id));return{ok:true};}
+ if(A==="pres"){if(need())return need();(d.list||[]).forEach(x=>DB.upsert("dochazka","key",{key:S(d.ev)+"__"+S(x.slug),ev:S(d.ev),slug:S(x.slug),p:x.p?1:0,late:x.late?1:0,exc:x.exc?1:0,at:now()}));return{ok:true};}
+ if(A==="fine_add"){if(need())return need();const list=Array.isArray(d.list)?d.list:[d];const have=DB.rows("pokuty").map(x=>x.key).filter(Boolean);let n=0;
+  list.forEach(f=>{if(f.key&&have.indexOf(S(f.key))>=0)return;n++;DB.upsert("pokuty","id",{id:"f"+Date.now().toString(36)+n+DB.uid().slice(0,4),slug:clean(f.slug,48),date:S(f.date).slice(0,10)||now().slice(0,10),rule:clean(f.rule,40),amount:Math.max(0,Math.min(5000,Math.round(+f.amount||0))),item:clean(f.item,30),note:clean(f.note,80),paid:0,key:clean(f.key,90),by:m.slug,at:now()});});
+  return{ok:true,added:n};}
+ if(A==="fine_paid"){if(need())return need();const f=DB.rows("pokuty").find(x=>x.id===S(d.id));if(!f)return{ok:false,err:"Nenalezeno"};DB.upsert("pokuty","id",{...f,paid:d.paid?1:0});return{ok:true};}
+ if(A==="fine_del"){if(need())return need();DB.del("pokuty","id",S(d.id));return{ok:true};}
+ if(A==="rules_save"){if(need())return need();DB.upsert("nastaveni","k",{k:"rules",v:JSON.stringify(d.rules||[]).slice(0,20000)});return{ok:true};}
+ if(A==="pin_reset"){if(need())return need();const p=players().find(x=>x.slug===S(d.slug));if(!p)return{ok:false};DB.upsert("hraci","slug",{...p,pin:"",salt:"",tok:"",fails:0});return{ok:true};}
+ if(A==="role"){if(need())return need();const p=players().find(x=>x.slug===S(d.slug));if(!p)return{ok:false};DB.upsert("hraci","slug",{...p,role:d.admin?"admin":""});return{ok:true};}
+ if(A==="roster_sync"){if(need())return need();const have=players().map(x=>x.slug);(d.list||[]).forEach(x=>{if(have.indexOf(S(x.slug))<0)DB.upsert("hraci","slug",{slug:clean(x.slug,48),name:clean(x.name,48),pin:"",salt:"",tok:"",role:"",fails:0,at:now()});});return{ok:true};}
+ return{ok:false,err:"Neznámá akce"};}
+/* ===== Kabina s účty hráčů: akce a ankety, docházka, pokladna pokut a zápisného ===== */
+const KAB_PUBLIC="https://krumlmat-create.github.io/sokolkosice/";
+const KAB_TYP={T:"Trénink",Z:"Zápas",A:"Akce"};
+const WHY=[["prace","💼 Práce"],["nemoc","🤒 Nemoc"],["zraneni","🩹 Zranění"],["dovolena","🏖️ Dovolená"],["rodina","👨‍👩‍👧 Rodina"],["skola","📚 Škola"],["jine","Jiné"]];
+const WHY_EXC=["nemoc","zraneni"];const whyL=w=>{const x=WHY.find(q=>q[0]===w);return x?x[1]:"";};
+const RULES_DEF=[
+ {id:"nohlas",cat:"Docházka",name:"Nehlasoval v anketě k akci",amount:20,auto:1},
+ {id:"pozde_odhl",cat:"Docházka",name:"Odhlásil se až v den akce",amount:50,auto:1},
+ {id:"neprisel_t",cat:"Docházka",name:"Řekl „jdu“ a na trénink nepřišel",amount:100,auto:1},
+ {id:"neprisel_z",cat:"Docházka",name:"Nepřišel na zápas bez omluvy",amount:200,auto:1},
+ {id:"pozde_t",cat:"Docházka",name:"Pozdní příchod na trénink",amount:20,auto:1},
+ {id:"pozde_z",cat:"Docházka",name:"Pozdní příchod na sraz k zápasu",amount:50,auto:1},
+ {id:"zk_kecy",cat:"Zápas",name:"Žlutá karta za kecy",amount:100},
+ {id:"zk",cat:"Zápas",name:"Žlutá karta",amount:30},
+ {id:"ck",cat:"Zápas",name:"Červená karta",amount:200},
+ {id:"penalta",cat:"Zápas",name:"Neproměněná penalta",amount:50},
+ {id:"vlastnak",cat:"Zápas",name:"Vlastní gól",amount:100},
+ {id:"vystroj",cat:"Zápas",name:"Zapomenutá výstroj (kopačky, chrániče, dres)",amount:50},
+ {id:"mobil",cat:"Kabina",name:"Mobil v ruce při poradě",amount:20},
+ {id:"dresy",cat:"Kabina",name:"Dresy nevrácené do dalšího tréninku",amount:100},
+ {id:"sluzba",cat:"Kabina",name:"Neodvedená služba (lajnování, bufet, sítě)",amount:100},
+ {id:"neporadek",cat:"Kabina",name:"Nepořádek po sobě v kabině",amount:20},
+ {id:"zap_novy",cat:"Zápisné",name:"Nový hráč – první zápas za Sokol",amount:0,item:"basa piv"},
+ {id:"zap_gol",cat:"Zápisné",name:"První gól za Sokol",amount:0,item:"basa piv"},
+ {id:"zap_hattrick",cat:"Zápisné",name:"Hattrick",amount:0,item:"basa piv"},
+ {id:"zap_nar",cat:"Zápisné",name:"Narozeniny",amount:0,item:"runda pro kabinu"},
+ {id:"zap_svatba",cat:"Zápisné",name:"Svatba nebo miminko",amount:0,item:"sud"},
+ {id:"prispevek",cat:"Příspěvky",name:"Členský příspěvek na sezonu",amount:500}];
+/* -- úložiště: Google tabulka (LB_URL), jinak ukázkový režim v prohlížeči -- */
+const LDB={_d:null,_l(){if(!this._d)this._d=store.get("kdb",{});return this._d;},_s(){store.set("kdb",this._d);},
+ rows(n){return (this._l()[n]||[]).map(r=>({...r}));},
+ upsert(n,key,o){const d=this._l(),a=d[n]=d[n]||[],i=a.findIndex(r=>String(r[key])===String(o[key]));const row={};KCORE_HEAD[n].forEach(k=>row[k]=o[k]==null?"":String(o[k]));if(i>=0)a[i]=row;else a.push(row);this._s();},
+ del(n,key,val){const d=this._l();d[n]=(d[n]||[]).filter(r=>String(r[key])!==String(val));this._s();},
+ hash(s){return hsh(s)+hsh("x"+s);},uid(){return (Date.now().toString(36)+Math.random().toString(36).slice(2)+Math.random().toString(36).slice(2)).slice(0,24);},
+ prop(k){return k==="KABINA"?"a20f24637b998d45":"";}};
+const KAB_REMOTE=!!LB_URL&&!C;
+async function kapi(d){if(!KAB_REMOTE)return kcore(LDB,d);
+ const r=await fetch(LB_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)});return r.json();}
+unlocked=false;
+let KS=null,ktok=store.get("ktok",""),kOpenEv="",kPresEv="",kEditEv=null,kGm="in";
+const kAdm=()=>KS&&KS.me&&KS.me.role==="admin";
+const kName=s=>{const p=KS&&KS.players.find(x=>x.slug===s);return p?p.name:s;};
+const kRules=()=>(KS&&Array.isArray(KS.rules)&&KS.rules.length?KS.rules:RULES_DEF);
+const kSquad=()=>field().filter(p=>p.pos!=="T"||p.num).map(p=>({slug:slug(p.name),name:p.name}));
+const kToday=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
+const kc=n=>n.toLocaleString("cs-CZ")+" Kč";
+/* -- přihlášení -- */
+async function kRoster(){try{const r=await kapi({a:"roster",seed:kSquad()});const list=(r.players&&r.players.length?r.players:kSquad()).slice().sort((a,b)=>a.name.localeCompare(b.name,"cs"));
+  const cur=$("#gWho").value||store.get("kwho","");$("#gWho").innerHTML='<option value="">Vyber své jméno…</option>'+list.map(p=>`<option value="${esc(p.slug)}"${p.slug===cur?" selected":""}>${esc(p.name)}${p.reg?"":" (bez účtu)"}</option>`).join("");}
+ catch(e){$("#gateMsg").textContent="Kabina se teď nedá načíst. Zkuste to za chvíli.";}}
+function kGate(mode){kGm=mode;$$("[data-gm]").forEach(b=>b.setAttribute("aria-pressed",b.dataset.gm===mode));
+ $("#gKabL").hidden=mode!=="reg";$("#gPin2L").hidden=mode!=="reg";$("#gPinL").firstChild.textContent=mode==="reg"?"Vymysli si PIN (4–8 číslic)":"PIN";
+ $("#gBtn").textContent=mode==="reg"?"Založit účet":"Vstoupit";$("#gateMsg").textContent="";}
+$$("[data-gm]").forEach(b=>b.onclick=()=>kGate(b.dataset.gm));
+$("#gateMode").textContent=KAB_REMOTE?"":"Ukázkový režim: účty a ankety se zatím ukládají jen v tomhle prohlížeči.";
+$("#gateForm").addEventListener("submit",async e=>{e.preventDefault();const slugv=$("#gWho").value,pin=$("#pin").value.trim();
+ if(!slugv){$("#gateMsg").textContent="Vyber své jméno.";return;}
+ if(kGm==="reg"&&pin!==$("#gPin2").value.trim()){$("#gateMsg").textContent="PINy se neshodují.";return;}
+ $("#gBtn").disabled=true;
+ try{const r=await kapi(kGm==="reg"?{a:"register",slug:slugv,kabina:$("#gKab").value,pin}:{a:"login",slug:slugv,pin});
+  if(!r.ok){$("#gateMsg").textContent=r.err||"Nepovedlo se.";return;}
+  ktok=r.tok;store.set("ktok",ktok);store.set("kwho",slugv);$("#pin").value="";$("#gPin2").value="";$("#gKab").value="";await kLoad();}
+ catch(x){$("#gateMsg").textContent="Spojení se nepovedlo, zkuste to znovu.";}finally{$("#gBtn").disabled=false;}});
+$("#logout").onclick=async()=>{try{await kapi({a:"logout",tok:ktok});}catch(e){}ktok="";store.set("ktok","");KS=null;unlocked=false;showKabina();kRoster();};
+async function kLoad(){if(!ktok){unlocked=false;showKabina();return;}
+ try{const r=await kapi({a:"state",tok:ktok});if(!r.ok){if(r.err==="auth"){ktok="";store.set("ktok","");}unlocked=false;showKabina();return;}
+  KS=r;unlocked=true;showKabina();kRender();}catch(e){toast("Kabina se nenačetla");}}
+async function kDo(d,msg){try{const r=await kapi({...d,tok:ktok});if(!r.ok){toast(r.err==="auth"?"Přihlas se znovu":(r.err||"Nepovedlo se"));if(r.err==="auth")kLoad();return null;}
+  if(msg)toast(msg);await kLoad();return r;}catch(e){toast("Spojení se nepovedlo");return null;}}
+function kRender(){if(!KS)return;$("#kMe").innerHTML=`${esc(KS.me.name)}${kAdm()?' <span class="pill V">správce</span>':""}`;
+ renderAkce();renderPokl();if(typeof renderAtt==="function")renderAtt();
+ const m=location.hash.match(/akce=([a-z0-9]+)/i);if(m&&!kOpenEv){kOpenEv=m[1];setTimeout(()=>{const el=$("#ev-"+m[1]);if(el){$('[data-k="akce"]').click();el.scrollIntoView({block:"center"});el.classList.add("flash");}},80);}}
+/* -- akce a ankety -- */
+function evRsvp(id){const o={ano:[],mozna:[],ne:[]};KS.rsvp.filter(r=>r.ev===id).forEach(r=>(o[r.s]||o.ano).push(r));return o;}
+function evPres(id){return KS.pres.filter(r=>r.ev===id);}
+function evShare(e){const R=evRsvp(e.id),url=KAB_PUBLIC+"#kabina?akce="+e.id;
+ return `⚽ ${KAB_TYP[e.typ]}: ${e.title}\n📅 ${fmtDL(e.date)}${e.time?" v "+e.time:""}${e.place?"\n📍 "+e.place:""}${e.note?"\n📝 "+e.note:""}\n\n✅ ${R.ano.length} jde · 🤷 ${R.mozna.length} možná · ❌ ${R.ne.length} nejde${R.ne.length?"\n❌ "+R.ne.map(r=>kName(r.slug).split(" ").slice(-1)[0]+(r.why?" ("+whyL(r.why).replace(/^\S+ /,"").toLowerCase()+")":"")).join(", "):""}\n👉 Přihlas se tady: ${url}`;}
+function evCard(e){const R=evRsvp(e.id),my=KS.rsvp.find(r=>r.ev===e.id&&r.slug===KS.me.slug),past=e.date<kToday(),P=evPres(e.id);
+ const voted=new Set(KS.rsvp.filter(r=>r.ev===e.id).map(r=>r.slug)),nov=KS.players.filter(p=>!voted.has(p.slug));
+ const names=(arr,cls)=>arr.map(r=>`<span class="pill ${cls}" title="${esc([whyL(r.why),r.note].filter(Boolean).join(" · "))}">${esc(kName(r.slug))}${r.why?` <small>${esc(whyL(r.why).split(" ")[0])}</small>`:""}${r.note?" 💬":""}</span>`).join("");
+ const presTxt=P.length?`<p class="muted" style="font-size:.85rem">Přišlo: <b>${P.filter(x=>+x.p).length}</b>${P.some(x=>+x.late)?` · pozdě: ${P.filter(x=>+x.late).map(x=>esc(kName(x.slug))).join(", ")}`:""}</p>`:"";
+ return `<article class="evcard ${e.typ} ${past?"past":""}" id="ev-${esc(e.id)}"><header><span class="evtyp">${KAB_TYP[e.typ]}</span><div><span class="stag">${esc(fmtDL(e.date))}${e.time?" · "+esc(e.time):""}${e.place?" · "+esc(e.place):""}</span><h3>${esc(e.title)}</h3>${e.note?`<p class="muted">${esc(e.note)}</p>`:""}</div>
+  <div class="evcnt"><b>${R.ano.length}</b><small>jde</small></div></header>
+  ${past?presTxt:`<div class="rsvp" role="group" aria-label="Moje odpověď">${[["ano","✅ Jdu"],["mozna","🤷 Možná"],["ne","❌ Nejdu"]].map(([s,l])=>`<button type="button" class="btn sm ${my&&my.s===s?"":"ghost"}" aria-pressed="${!!(my&&my.s===s)}" data-rs="${esc(e.id)}" data-s="${s}">${l}</button>`).join("")}
+   <select id="rw-${esc(e.id)}" aria-label="Důvod, proč nejdu" class="rwhy"><option value="">Důvod (u Nejdu / Možná)…</option>${WHY.map(([v,l])=>`<option value="${v}"${my&&my.why===v?" selected":""}>${l}</option>`).join("")}</select>
+   <input type="text" id="rn-${esc(e.id)}" maxlength="80" placeholder="Poznámka (nepovinné)" value="${esc(my&&my.note||"")}" aria-label="Poznámka k odpovědi"></div>`}
+  <div class="evnames">${R.ano.length?`<div><span class="stag">Jde</span>${names(R.ano,"V")}</div>`:""}${R.mozna.length?`<div><span class="stag">Možná</span>${names(R.mozna,"R")}</div>`:""}${R.ne.length?`<div><span class="stag">Nejde</span>${names(R.ne,"P")}</div>`:""}
+   ${nov.length&&!past?`<div><span class="stag">Nehlasovali (${nov.length})</span><span class="muted" style="font-size:.85rem">${nov.map(p=>esc(p.name.split(" ").slice(-1)[0])).join(", ")}</span></div>`:""}</div>
+  <div class="evact"><a class="btn sm ghost" href="https://wa.me/?text=${encodeURIComponent(evShare(e))}" target="_blank" rel="noopener">Poslat do WhatsAppu</a><button class="btn sm ghost" type="button" data-cp="${esc(e.id)}">Zkopírovat text</button>
+   ${kAdm()?`${e.date<=kToday()?`<button class="btn sm" type="button" data-pr="${esc(e.id)}">${P.length?"Upravit docházku":"Zapsat docházku"}</button>`:""}<button class="btn sm ghost" type="button" data-ed="${esc(e.id)}">Upravit</button><button class="btn sm ghost" type="button" data-del="${esc(e.id)}">Smazat</button>`:""}</div>
+  ${kPresEv===e.id?presForm(e):""}</article>`;}
+function presForm(e){const P=evPres(e.id),R=KS.rsvp.filter(r=>r.ev===e.id);
+ const list=KS.players.slice().sort((a,b)=>a.name.localeCompare(b.name,"cs")).map(p=>{const x=P.find(q=>q.slug===p.slug),r=R.find(q=>q.slug===p.slug);
+  const on=x?+x.p:(r&&r.s==="ano"?1:0);
+  return `<div class="prow"><span>${esc(p.name)}${r?` <small class="muted">(${r.s==="ano"?"jdu":r.s==="ne"?"nejdu":"možná"})</small>`:""}</span><label><input type="checkbox" data-pp="${esc(p.slug)}" ${on?"checked":""}> přišel</label><label><input type="checkbox" data-pl="${esc(p.slug)}" ${x&&+x.late?"checked":""}> pozdě</label><label><input type="checkbox" data-pe="${esc(p.slug)}" ${x&&+x.exc?"checked":""}> omluven</label></div>`;}).join("");
+ return `<form class="presf" data-prf="${esc(e.id)}"><h4>Kdo skutečně přišel</h4>${list}<div style="display:flex;gap:8px;margin-top:10px"><button class="btn sm" type="submit">Uložit docházku</button><button class="btn sm ghost" type="button" data-prx>Zavřít</button></div></form>`;}
+function evForm(){const e=kEditEv||{};const d=e.date||kToday();
+ return `<form class="card f evform" id="evForm"><h3 style="font-size:1.4rem">${e.id?"Upravit akci":"Nová akce nebo anketa"}</h3>
+  <div class="evgrid"><label class="l">Typ<select id="ef-typ">${Object.entries(KAB_TYP).map(([k,l])=>`<option value="${k}"${(e.typ||"T")===k?" selected":""}>${l}</option>`).join("")}</select></label>
+  <label class="l">Datum<input type="date" id="ef-date" value="${esc(d)}" required></label><label class="l">Čas<input type="time" id="ef-time" value="${esc(e.time||"17:30")}"></label>
+  <label class="l">Místo<input type="text" id="ef-place" maxlength="60" value="${esc(e.place||"Hřiště Košice")}"></label>
+  <label class="l evwide">Název<input type="text" id="ef-title" maxlength="70" value="${esc(e.title||"")}" placeholder="např. Trénink, Zápas s Vlkovem, Brigáda"></label>
+  <label class="l evwide">Poznámka<input type="text" id="ef-note" maxlength="200" value="${esc(e.note||"")}" placeholder="např. sraz 13:45, s sebou světlé dresy"></label>
+  ${e.id?"":`<label class="l">Opakovat každý týden<select id="ef-rep">${[1,2,3,4,6,8].map(n=>`<option value="${n}">${n===1?"jen jednou":n+"×"}</option>`).join("")}</select></label>`}</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="submit">${e.id?"Uložit":"Vytvořit"}</button><button class="btn ghost" type="button" id="efX">Zrušit</button></div></form>`;}
+function renderAkce(){const box=$("#kAkce");if(!box||!KS)return;const t=kToday();
+ const ev=KS.events.slice().sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)),up=ev.filter(e=>e.date>=t),past=ev.filter(e=>e.date<t).reverse().slice(0,8);
+ const mine=KS.rsvp.filter(r=>r.slug===KS.me.slug),todo=up.filter(e=>!mine.some(r=>r.ev===e.id));
+ box.innerHTML=`<div class="khead"><div><h3 style="font-size:1.6rem">Ahoj ${esc(KS.me.name.split(" ")[0])}!</h3><p class="muted">${todo.length?`Čeká na tebe <b>${todo.length}</b> ${todo.length===1?"anketa":todo.length<5?"ankety":"anket"}.`:"Na všechny akce máš odpovězeno. 👍"}</p></div>
+  ${kAdm()?`<button class="btn" type="button" id="evNew">+ Nová akce</button>`:""}</div>
+  ${kEditEv?evForm():""}
+  ${up.length?`<div class="evlist">${up.map(evCard).join("")}</div>`:`<div class="card"><p class="muted">Žádné naplánované akce.${kAdm()?" Vytvoř první tlačítkem „Nová akce“ a pošli odkaz do WhatsAppu.":" Až trenér vypíše trénink nebo zápas, objeví se tady."}</p></div>`}
+  ${past.length?`<details class="evpast"${kPresEv&&past.some(e=>e.id===kPresEv)?" open":""}><summary>Proběhlé akce (${past.length})</summary><div class="evlist">${past.map(evCard).join("")}</div></details>`:""}
+  <details class="kacc"><summary>Můj účet</summary><form id="pinForm" class="f" style="display:flex;gap:8px;flex-wrap:wrap;align-items:end"><label class="l">Nový PIN<input type="password" id="np" inputmode="numeric" maxlength="8"></label><button class="btn sm" type="submit">Změnit PIN</button></form></details>`;
+ const on=(s,f)=>$$(s).forEach(b=>b.onclick=()=>f(b));
+ on("[data-rs]",b=>{const id=b.dataset.rs,s=b.dataset.s,w=($("#rw-"+id)||{}).value||"";
+  if(s==="ne"&&!w){const sel=$("#rw-"+id);sel.classList.add("need");sel.focus();try{sel.showPicker&&sel.showPicker();}catch(x){}toast("Vyber důvod, proč nejdeš");sel.onchange=()=>{sel.classList.remove("need");if(sel.value)kDo({a:"rsvp",ev:id,s:"ne",why:sel.value,note:($("#rn-"+id)||{}).value||""},"Omluveno, díky za info");};return;}
+  kDo({a:"rsvp",ev:id,s,why:w,note:($("#rn-"+id)||{}).value||""},s==="ano"?"Jsi zapsaný, díky!":"Uloženo");});
+ on("[data-cp]",b=>{const e=KS.events.find(x=>x.id===b.dataset.cp);if(e)copyText(evShare(e));});
+ on("[data-pr]",b=>{kPresEv=kPresEv===b.dataset.pr?"":b.dataset.pr;renderAkce();});
+ on("[data-prx]",()=>{kPresEv="";renderAkce();});
+ on("[data-ed]",b=>{kEditEv=KS.events.find(x=>x.id===b.dataset.ed)||null;renderAkce();$("#evForm").scrollIntoView({block:"center"});});
+ on("[data-del]",b=>{if(b.dataset.sure){kDo({a:"ev_del",id:b.dataset.del},"Smazáno");}else{b.dataset.sure=1;b.textContent="Opravdu smazat?";}});
+ const nb=$("#evNew");if(nb)nb.onclick=()=>{kEditEv={};renderAkce();$("#ef-title").focus();};
+ const ef=$("#evForm");if(ef){$("#efX").onclick=()=>{kEditEv=null;renderAkce();};
+  $("#ef-typ").onchange=()=>{const v=$("#ef-typ").value;if(!$("#ef-title").value||Object.values(KAB_TYP).includes($("#ef-title").value))$("#ef-title").value=KAB_TYP[v];if(v==="Z"&&$("#ef-time").value==="17:30")$("#ef-time").value="14:00";};
+  ef.onsubmit=async x=>{x.preventDefault();const base={id:kEditEv.id||"",typ:$("#ef-typ").value,date:$("#ef-date").value,time:$("#ef-time").value,place:$("#ef-place").value,title:$("#ef-title").value||KAB_TYP[$("#ef-typ").value],note:$("#ef-note").value};
+   const rep=kEditEv.id?1:+($("#ef-rep")||{}).value||1;let ok=true;
+   for(let i=0;i<rep;i++){const d=dt(base.date);d.setDate(d.getDate()+7*i);const iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    const r=await kapi({a:"ev_save",tok:ktok,ev:{...base,id:i?"":base.id,date:iso}});if(!r.ok){ok=false;toast(r.err||"Nepovedlo se");break;}}
+   if(ok){kEditEv=null;toast(rep>1?`Vytvořeno ${rep} akcí`:"Uloženo");await kLoad();}};}
+ $$("[data-prf]").forEach(f=>f.onsubmit=x=>{x.preventDefault();const list=KS.players.map(p=>({slug:p.slug,p:f.querySelector(`[data-pp="${p.slug}"]`).checked,late:f.querySelector(`[data-pl="${p.slug}"]`).checked,exc:f.querySelector(`[data-pe="${p.slug}"]`).checked}));
+  kPresEv="";kDo({a:"pres",ev:f.dataset.prf,list},"Docházka uložena");});
+ const pf=$("#pinForm");if(pf)pf.onsubmit=x=>{x.preventDefault();kDo({a:"pin",pin:$("#np").value.trim()},"PIN změněn");};}
+/* -- automatické návrhy pokut z docházky -- */
+function fineSuggest(){if(!KS)return[];const R=Object.fromEntries(kRules().map(r=>[r.id,r])),out=[],t=kToday(),have=new Set(KS.fines.map(f=>f.key));
+ const add=(rid,slugv,e,note)=>{const r=R[rid];if(!r)return;const key=rid+"|"+e.id+"|"+slugv;if(have.has(key))return;out.push({key,slug:slugv,rule:r.name,amount:+r.amount||0,item:r.item||"",date:e.date,note:note||(KAB_TYP[e.typ]+" "+fmtD(e.date)+(e.title&&e.title!==KAB_TYP[e.typ]?" – "+e.title:""))});};
+ const regd=KS.players.filter(p=>p.reg);
+ KS.events.filter(e=>e.date<t).forEach(e=>{const rs=KS.rsvp.filter(r=>r.ev===e.id),P=evPres(e.id);
+  regd.forEach(p=>{const r=rs.find(x=>x.slug===p.slug),x=P.find(q=>q.slug===p.slug);
+   if(!r&&!(x&&+x.p))add("nohlas",p.slug,e);
+   if(r&&r.s==="ne"&&(r.prev==="ano"||r.prev==="mozna")&&String(r.at).slice(0,10)>=e.date&&!(x&&+x.exc)&&WHY_EXC.indexOf(r.why)<0)add("pozde_odhl",p.slug,e);
+   if(P.length&&x&&!+x.p&&!+x.exc){if(e.typ==="Z"&&(!r||r.s!=="ne"))add("neprisel_z",p.slug,e);else if(e.typ!=="Z"&&r&&r.s==="ano")add("neprisel_t",p.slug,e);}
+   if(x&&+x.late&&!+x.exc)add(e.typ==="Z"?"pozde_z":"pozde_t",p.slug,e);});});
+ return out;}
+function renderPokl(){const box=$("#kPokl");if(!box||!KS)return;const F=KS.fines,unpaid=F.filter(f=>!+f.paid),paid=F.filter(f=>+f.paid);
+ const sum=a=>a.reduce((s,f)=>s+(+f.amount||0),0),mine=F.filter(f=>f.slug===KS.me.slug),myDebt=sum(mine.filter(f=>!+f.paid)),myItems=mine.filter(f=>!+f.paid&&f.item);
+ const per={};unpaid.forEach(f=>{const o=per[f.slug]=per[f.slug]||{k:0,items:[],n:0};o.k+=+f.amount||0;o.n++;if(f.item)o.items.push(f.item);});
+ const top=Object.entries(per).sort((a,b)=>b[1].k-a[1].k||b[1].items.length-a[1].items.length),mx=top.length?Math.max(1,top[0][1].k):1;
+ const fRow=(f,admin)=>`<div class="frow ${+f.paid?"paid":""}"><span><b>${esc(kName(f.slug))}</b><small>${esc(f.rule)}${f.note?" · "+esc(f.note):""}</small></span><span class="muted">${esc(fmtD(f.date))}</span><b class="famt">${f.item?esc(f.item):kc(+f.amount||0)}</b>
+  ${admin?`<span class="fbtn"><button type="button" class="btn sm ${+f.paid?"ghost":""}" data-fp="${esc(f.id)}" data-v="${+f.paid?0:1}">${+f.paid?"Vrátit":"Zaplaceno"}</button><button type="button" class="link" data-fd="${esc(f.id)}" aria-label="Smazat">✕</button></span>`:`<span class="muted">${+f.paid?"zaplaceno":"dluží"}</span>`}</div>`;
+ const cats=[...new Set(kRules().map(r=>r.cat))];
+ const sug=kAdm()?fineSuggest():[];
+ box.innerHTML=`<div class="atiles"><div class="atile"><span class="stag">Můj dluh</span><b>${kc(myDebt)}</b><small>${myItems.length?"+ "+myItems.map(f=>esc(f.item)).join(", "):myDebt?"zaplať u pokladníka":mine.length?"vše zaplaceno, díky":"zatím čistý štít"}</small></div>
+  <div class="atile"><span class="stag">V pokladně</span><b>${kc(sum(paid))}</b><small>vybráno celkem</small></div>
+  <div class="atile"><span class="stag">Nezaplaceno</span><b>${kc(sum(unpaid))}</b><small>${unpaid.length} ${unpaid.length===1?"položka":unpaid.length>1&&unpaid.length<5?"položky":"položek"}</small></div>
+  <div class="atile"><span class="stag">Zápisné</span><b>${unpaid.filter(f=>f.item).length}</b><small>bas a rund čeká na zapití</small></div></div>
+ ${sug.length?`<div class="card fsug"><h3 style="font-size:1.4rem">Návrhy pokut z docházky (${sug.length})</h3><p class="muted" style="font-size:.85rem">Spočítané z anket a zapsané docházky. Odškrtni, co nechceš, a zbytek zapiš.</p>
+   <div class="fsl">${sug.map((s,i)=>`<label class="frow"><input type="checkbox" data-sg="${i}" checked><span><b>${esc(kName(s.slug))}</b><small>${esc(s.rule)} · ${esc(s.note)}</small></span><b class="famt">${s.item?esc(s.item):kc(s.amount)}</b></label>`).join("")}</div>
+   <button class="btn" type="button" id="sgGo" style="margin-top:10px">Zapsat vybrané</button></div>`:""}
+ <div class="two"><div class="card"><h3 style="font-size:1.5rem;margin-bottom:10px">Tabulka hříšníků</h3>${top.length?`<div class="bars">${top.map(([s,o],i)=>`<div class="bar"><i class="rk">${i+1}</i><span>${esc(kName(s))}${o.items.length?` <small class="muted">+ ${o.items.length}× ${esc(o.items[0])}</small>`:""}</span><s style="--w:${o.k/mx*100}%"></s><em>${o.k}</em></div>`).join("")}</div><p class="muted" style="font-size:.8rem;margin-top:8px">Nezaplacené pokuty v Kč.</p>`:`<p class="muted">Nikdo nic nedluží. Zatím. 😇</p>`}</div>
+  <div class="card"><h3 style="font-size:1.5rem;margin-bottom:10px">Moje pokuty</h3>${mine.length?`<div class="flist">${mine.slice().reverse().map(f=>fRow(f,false)).join("")}</div>`:`<p class="muted">Žádné. Jen tak dál.</p>`}</div></div>
+ ${kAdm()?`<form class="card f" id="fAdd"><h3 style="font-size:1.4rem">Zapsat pokutu nebo zápisné</h3><div class="evgrid">
+   <label class="l">Hráč<select id="fa-who">${KS.players.slice().sort((a,b)=>a.name.localeCompare(b.name,"cs")).map(p=>`<option value="${esc(p.slug)}">${esc(p.name)}</option>`).join("")}</select></label>
+   <label class="l evwide">Za co<select id="fa-rule">${cats.map(c=>`<optgroup label="${esc(c)}">${kRules().filter(r=>r.cat===c).map(r=>`<option value="${esc(r.id)}">${esc(r.name)} – ${r.item?esc(r.item):kc(+r.amount)}</option>`).join("")}</optgroup>`).join("")}<option value="_">Jiné (napíšu)</option></select></label>
+   <label class="l">Částka Kč<input type="number" id="fa-amt" min="0" max="5000" step="10"></label><label class="l">Datum<input type="date" id="fa-date" value="${kToday()}"></label>
+   <label class="l evwide">Poznámka<input type="text" id="fa-note" maxlength="80" placeholder="např. zápas s Vlkovem"></label></div><button class="btn" type="submit">Zapsat</button></form>
+  <div class="card"><h3 style="font-size:1.4rem;margin-bottom:10px">Všechny pokuty</h3>${F.length?`<div class="flist">${F.slice().sort((a,b)=>(+a.paid-+b.paid)||b.date.localeCompare(a.date)).map(f=>fRow(f,true)).join("")}</div>`:`<p class="muted">Zatím nic.</p>`}</div>`:""}
+ <details class="card sazeb"${kAdm()?"":" open"}><summary><h3 style="font-size:1.4rem;display:inline">Sazebník pokut a zápisného</h3></summary>
+  ${cats.map(c=>`<h4>${esc(c)}</h4>${kRules().filter(r=>r.cat===c).map(r=>`<div class="srow"><span>${esc(r.name)}${r.auto?' <small class="pill V" title="Počítá se samo z docházky">auto</small>':""}</span>${kAdm()?`<input type="text" data-ru="${esc(r.id)}" value="${r.item?esc(r.item):+r.amount}" aria-label="Sazba: ${esc(r.name)}">`:`<b>${r.item?esc(r.item):kc(+r.amount)}</b>`}</div>`).join("")}`).join("")}
+  ${kAdm()?`<button class="btn sm" type="button" id="ruSave" style="margin-top:10px">Uložit sazebník</button>`:""}
+  <p class="muted" style="font-size:.82rem;margin-top:10px">Pokuty jdou do týmové pokladny na soustředění, dokopnou a vybavení. Omluva předem (v anketě „Nejdu“ s důvodem) pokutu neruší jen u odhlášení v den akce.</p></details>
+ ${kAdm()?`<details class="card"><summary><h3 style="font-size:1.3rem;display:inline">Účty hráčů</h3></summary><div class="flist">${KS.players.slice().sort((a,b)=>a.name.localeCompare(b.name,"cs")).map(p=>`<div class="frow"><span><b>${esc(p.name)}</b><small>${p.reg?"účet založený":"zatím bez účtu"}${p.role==="admin"?" · správce":""}</small></span>${p.reg?`<button type="button" class="btn sm ghost" data-pin="${esc(p.slug)}">Smazat PIN</button>`:""}<button type="button" class="btn sm ghost" data-adm="${esc(p.slug)}" data-v="${p.role==="admin"?0:1}">${p.role==="admin"?"Odebrat správce":"Udělat správcem"}</button></div>`).join("")}</div>
+  <button type="button" class="btn sm ghost" id="rosSync" style="margin-top:10px">Doplnit nové hráče ze soupisky</button></details>`:""}`;
+ const on=(s,f)=>$$(s).forEach(b=>b.onclick=()=>f(b));
+ on("[data-fp]",b=>kDo({a:"fine_paid",id:b.dataset.fp,paid:+b.dataset.v},+b.dataset.v?"Zaplaceno":"Vráceno"));
+ on("[data-fd]",b=>{if(b.dataset.sure)kDo({a:"fine_del",id:b.dataset.fd},"Smazáno");else{b.dataset.sure=1;b.textContent="smazat?";}});
+ on("[data-pin]",b=>kDo({a:"pin_reset",slug:b.dataset.pin},"PIN smazán, hráč si založí nový"));
+ on("[data-adm]",b=>kDo({a:"role",slug:b.dataset.adm,admin:+b.dataset.v},"Uloženo"));
+ const rs=$("#rosSync");if(rs)rs.onclick=()=>kDo({a:"roster_sync",list:kSquad()},"Soupiska doplněna");
+ const sg=$("#sgGo");if(sg)sg.onclick=()=>{const list=sug.filter((s,i)=>$(`[data-sg="${i}"]`).checked);if(list.length)kDo({a:"fine_add",list},`Zapsáno ${list.length} položek`);};
+ const fr=$("#fa-rule");if(fr){const sync=()=>{const r=kRules().find(x=>x.id===fr.value);$("#fa-amt").value=r?(+r.amount||0):"";$("#fa-amt").disabled=!!(r&&r.item);};fr.onchange=sync;sync();
+  $("#fAdd").onsubmit=x=>{x.preventDefault();const r=kRules().find(q=>q.id===fr.value);kDo({a:"fine_add",slug:$("#fa-who").value,rule:r?r.name:($("#fa-note").value||"Pokuta"),amount:+$("#fa-amt").value||0,item:r&&r.item||"",date:$("#fa-date").value,note:$("#fa-note").value},"Zapsáno");};}
+ const sv=$("#ruSave");if(sv)sv.onclick=()=>{const rules=kRules().map(r=>{const v=($(`[data-ru="${r.id}"]`)||{}).value||"";const n=+String(v).replace(/[^\d]/g,"");return /^\s*\d+\s*(kč)?\s*$/i.test(v)?{...r,amount:n,item:""}:{...r,amount:0,item:v.trim().slice(0,30)||r.item};});kDo({a:"rules_save",rules},"Sazebník uložen");};}
+/* -- docházka z akcí do statistik -- */
+function kabEvents(){if(!KS)return[];return KS.events.map(e=>{const R=evRsvp(e.id),P=evPres(e.id);
+ const names=P.length?{yes:P.filter(x=>+x.p).map(x=>kName(x.slug)),no:P.filter(x=>!+x.p).map(x=>kName(x.slug)),maybe:[]}:{yes:R.ano.map(r=>kName(r.slug)),no:R.ne.map(r=>kName(r.slug)),maybe:R.mozna.map(r=>kName(r.slug))};
+ return {id:e.id,d:e.date,t:e.typ,q:e.title,yes:names.yes.length,no:names.no.length,maybe:names.maybe.length,names,src:P.length?"pres":"rsvp"};});}
+kGate("in");kRoster();kLoad();
 /* ================= FIFA KARTY: parametry hráčů ================= */
 const ATTR_F=[["tem","TEM","Tempo"],["str","STŘ","Střelba"],["pri","PŘI","Přihrávky"],["kli","KLI","Kličky"],["obr","OBR","Obrana"],["fyz","FYZ","Fyzička"]];
 const ATTR_G=[["chy","CHY","Chytání"],["ref","REF","Reflexy"],["vyb","VÝB","Výběhy"],["roz","ROZ","Rozehrávka"],["pst","POS","Postavení"],["tem","TEM","Tempo"]];
@@ -1697,7 +2098,7 @@ function cardHTML(p,i,big){const n=p.name;if(!attrs[n])ensureRatings();const a=a
  <span class="fc-top"><b>${o}</b><i>${POSN[role]}</i></span>
  <span class="fc-ph">${p.photo?`<img src="${esc(p.photo)}" alt="" loading="lazy">`:`<span class="fc-in">${esc(initials(n.replace(/ (st|ml)\.$/,"")))}</span>`}</span>
  <span class="fc-name">${esc(cardName(n))}</span>
- <span class="fc-at">${L.map(([k,l])=>`<span><b>${a[k]}</b> ${l}</span>`).join("")}</span><span class="fc-club" aria-hidden="true">SK${p.num?` · ${esc(p.num)}`:""}</span><span class="fc-glare" aria-hidden="true"></span></${big?"div":"a"}>`;}
+ <span class="fc-at">${L.map(([k,l])=>`<span><b>${a[k]}</b> ${l}</span>`).join("")}</span>${p.num?`<span class="fc-club" aria-hidden="true">SK · ${esc(p.num)}</span>`:""}<span class="fc-glare" aria-hidden="true"></span></${big?"div":"a"}>`;}
 let cardSort=store.get("cardSort","ovr");
 function renderCards(){const el=$("#cardGrid");if(!el)return;ensureRatings();
  const F=field().slice().sort(cardSort==="pos"?(x,y)=>"BOZU".indexOf(natRole(x,attrs[x.name]))-"BOZU".indexOf(natRole(y,attrs[y.name]))||ratings[y.name]-ratings[x.name]:(x,y)=>ratings[y.name]-ratings[x.name]);
@@ -1800,7 +2201,7 @@ const AT=(n,k)=>(((CA()[n]||{})[k])||(CR()[n]||55))*stamF(n);
 const disp=n=>{if(!n)return"";if(!DSP)DSP=new Map();if(DSP.has(n))return DSP.get(n);
  const st=/ st\.$/.test(n),base=n.replace(/ (st|ml)\.$/,""),ln=lastName(base),dup=teamField().some(m=>m!==n&&lastName(m.replace(/ (st|ml)\.$/,""))===ln&&/ st\.$/.test(m)===st);
  const v=(dup?short(base):ln)+(st?" st.":"");DSP.set(n,v);return v;};
-const av=(n,cls="av")=>{const p=pl(n);return p.photo?`<img class="${cls}" src="${esc(p.photo)}" alt="" loading="lazy">`:`<span class="${cls}">${esc(initials(n.replace(/ (st|ml)\.$/,"")))}</span>`;};
+const av=(n,cls="av")=>{const p=pl(n),ini=esc(initials(n.replace(/ (st|ml)\.$/,"")));return p.photo?`<span class="${cls} avp">${ini}<img src="${esc(p.photo)}" alt="" loading="lazy" onerror="this.remove()"></span>`:`<span class="${cls}">${ini}</span>`;};
 const oppShort=n=>n.replace(/^(TJ|Sokol|SK|FC|ZD|Radenín)\s+/,"");
 const rnd=a=>a[Math.floor(Math.random()*a.length)];
 const pickW=(list,wf)=>{const w=list.map(wf),t=w.reduce((a,b)=>a+b,0);let r=Math.random()*t;for(let i=0;i<list.length;i++){r-=w[i];if(r<=0)return list[i];}return list[list.length-1];};
@@ -1834,7 +2235,7 @@ function benchList(){return teamField().filter(n=>!lineup.includes(n)&&!UNAV.has
 function renderPitch(){const pitch=$("#pitch");if(!pitch)return;const S=FORMS[form],lv=live();
  pitch.innerHTML=`<div class="pl pl-half"></div><div class="pl pl-c"></div><div class="pl pl-box t"></div><div class="pl pl-box b"></div><div class="pl pl-six t"></div><div class="pl pl-six b"></div>`+lineup.map((n,i)=>n?tokHTML(n,i,S[i][0],S[i][1]):`<span class="tok empty" style="left:${S[i][2]}%;top:${S[i][3]}%"><span class="av">–</span><b>${lv?"vyloučen":"volno"}</b></span>`).join("");
  const B=benchList();
- $("#bench").innerHTML=B.length?B.map(n=>`<button type="button" class="btok${sel&&sel.w==="b"&&sel.n===n?" sel":""}" data-n="${esc(n)}">${av(n)}<b>${esc(disp(n))}</b><i>${({B:"BR",O:"O",Z:"Z",U:"Ú"})[posOf(n)]||"–"} · ${Math.round(CR()[n]||0)}</i></button>`).join(""):`<p class="muted">Na lavičce nikdo není.</p>`;
+ $("#bench").innerHTML=B.length?B.map(n=>`<button type="button" class="btok${sel&&sel.w==="b"&&sel.n===n?" sel":""}" data-n="${esc(n)}">${av(n)}<b>${esc(disp(n))}</b><i>${Math.round(CR()[n]||0)}${({B:" BR",O:" OBR",Z:" ZÁL",U:" ÚT"})[posOf(n)]||""}</i></button>`).join(""):`<p class="muted">Na lavičce nikdo není.</p>`;
  $("#subsInfo").textContent=lv?`Střídání ${M.subs}/${MAX_SUBS}`:`Lavička (${B.length})`;
  $("#mcPower").textContent=lineupPower();
  $("#formSel").value=form;document.querySelectorAll("#tacSeg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===tactic));
@@ -2180,13 +2581,15 @@ async function szRenderLeaders(){const el=$("#szLeaders");if(!el)return;
  ${Object.keys(rec).length?`<h4 class="mch">Rekordy týmů</h4><div class="lbrec">${Object.values(rec).sort((a,b)=>b.pts-a.pts).map(l=>`<span><b>${l.pts}</b> ${esc(l.team)} <small class="muted">${esc(nm(l))}, ${l.pos}. místo</small></span>`).join("")}</div>`:""}
  <p class="muted" style="font-size:.8rem;margin-top:8px">Pořadí je podle bodů navíc proti očekávání: kdo vytáhne slabší tým výš, než mu patří podle skutečné tabulky, vede. ✓ = dohraná sezona. Výsledky se zapisují po každém odehraném kole.</p>`;
  $("#lbSeg").onclick=e=>{const b=e.target.closest("button");if(!b)return;lbFilter=b.dataset.f;store.set("lbFilter",lbFilter);szRenderLeaders();};}
+/* karta žebříčku je skrytá, dokud v něm nejsou žádné záznamy */
+{const _lr=szRenderLeaders;szRenderLeaders=async function(){await _lr();const c=$("#szLeadCard");if(!c)return;const n=(!LBU&&szMode!=="db")?store.get("myResults",[]).length:szLeaders.filter(l=>l.team&&l.round>0).length;c.hidden=!n;};}
 
 /* ---------- vykreslení ---------- */
 let szTab=store.get("szTab","tab"),szRound=null;
 function szStartForm(el){const opts=SZ_TEAMS().map(t=>{const r=T2627.find(x=>szNorm(x[0])===t),pos=T2627.indexOf(r)+1;return`<option value="${esc(t)}">${esc(t)} (${pos}. místo, ${r?r[7]:0} b.)</option>`;}).join("");
  el.innerHTML=`<div class="sz-start"><p>Vyberte si tým a doveďte ho co nejvýš. Každé kolo odehrajete svůj zápas v zápasovém centru (nebo rychlou simulací), ostatní zápasy se dohrají samy a tabulka se průběžně počítá. Sbírejte úspěchy a na konci se zapište do síně slávy.</p>
   <div class="sz-form"><label class="l">Vaše přezdívka do žebříčku<input id="szNick" maxlength="24" placeholder="např. Pepa" autocomplete="nickname"></label><label class="l">Tým<select id="szTeam">${opts}</select></label><label class="l">Kód party <small class="muted">(nepovinné)</small><input id="szGroup" maxlength="12" placeholder="např. KOSICE7" autocapitalize="characters"></label>
-  <label class="l">Začátek<select id="szMode"><option value="real">Od skutečného stavu po 11. kole (jaro, 11 kol)</option><option value="full">Celá sezona od 1. kola (22 kol)</option></select></label>
+  <label class="l">Začátek<select id="szMode"><option value="real">Jaro od skutečné tabulky (11 kol)</option><option value="full">Celá sezona od 1. kola (22 kol)</option></select></label>
   <button class="btn" type="button" id="szGo">Začít sezonu</button></div>
   <p class="muted" style="font-size:.84rem">Rozehraná sezona se ukládá v tomto prohlížeči, výsledek pak do žebříčku.</p></div>`;
  $("#szTeam").value=CT.name;$("#szNick").value=store.get("nick","");$("#szGroup").value=szUrlGroup()||store.get("group","");
