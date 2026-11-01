@@ -636,7 +636,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 
 /* moje sezona */
 .sz-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-.sz-start p{max-width:70ch}.sz-form{display:grid;grid-template-columns:1fr 1.4fr auto;gap:12px;align-items:end;margin:14px 0}
+.sz-start p{max-width:70ch}.sz-form{display:grid;grid-template-columns:1fr 1fr 1.4fr auto;gap:12px;align-items:end;margin:14px 0}
 .sz-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:end;border-bottom:1px solid var(--line);padding-bottom:12px}
 .sz-head b{display:block;font-family:var(--f-display);font-size:1.8rem;text-transform:uppercase;line-height:1}
 .sz-kpi{display:flex;gap:18px;flex-wrap:wrap;font-size:.86rem;color:var(--muted)}.sz-kpi b{font-family:var(--f-mono);font-size:1.5rem;color:var(--ink);display:block}
@@ -648,6 +648,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 .sz-me td{background:color-mix(in srgb,var(--gold) 22%,transparent)!important;font-weight:700}
 .sz-log{max-height:300px;overflow:auto}
 .sz-banner{background:var(--gold);color:#111;font-weight:700;border-radius:8px;padding:8px 12px;margin:0 0 12px}
+.lbseg{margin-bottom:12px}.lbrec{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem}.lbrec b{font-family:var(--f-mono)}.btn.light-on-club{background:#fff;color:var(--club);margin-left:8px}
 .lead tr.me td{background:color-mix(in srgb,var(--gold) 22%,transparent)}
 .card.dim #rateList{opacity:.45;pointer-events:none}
 @media(max-width:760px){.sz-form{grid-template-columns:1fr}.sz-grid{grid-template-columns:1fr}.sz-next .mcbtns{margin:0}}
@@ -835,7 +836,7 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
   <h2 class="sec">Virtuální 9. liga</h2>
   <p class="muted" style="max-width:72ch;margin:-8px 0 26px">Vyberte si kterýkoli tým 9. ligy a odehrajte s ním celou sezonu, nebo jen přátelák. Zápasy běží minutu po minutě a během pauzy můžete střídat a měnit posty. Síla týmů vychází ze skutečné tabulky, formy a soupisek. Nejlepší trenéři jsou v žebříčku.</p>
   <div class="card sz" id="szCard"><div class="sz-top"><h3 style="font-size:1.8rem">Moje sezona</h3><span class="muted" id="szWho"></span></div><div id="szBody"></div></div>
-  <div class="card" id="szLeadCard" style="margin:24px 0"><h3 style="font-size:1.8rem;margin-bottom:10px">Žebříček trenérů</h3><div id="szLeaders"></div></div>
+  <div class="card" id="szLeadCard" style="margin:24px 0"><h3 style="font-size:1.8rem;margin-bottom:10px">Žebříček trenérů</h3><p class="muted" style="font-size:.88rem;margin:-4px 0 12px">Odehrajte svou ligu a po posledním kole se váš výsledek zapíše sem: přezdívka, tým, body a místo.</p><div id="szLeaders"></div></div>
   <div class="card mc" id="mc">
     <p class="sz-banner" id="szBanner" hidden></p>
     <div class="mc-head"><h3 style="font-size:1.8rem">Zápasové centrum</h3><span class="muted" style="font-size:.88rem">síla sestavy <b id="mcPower" style="font-family:var(--f-mono);color:var(--ink)"></b></span></div>
@@ -966,6 +967,8 @@ footer .legal{grid-column:1/-1;border-top:1px solid #222825;padding-top:16px;fon
 </footer>
 <script>
 (()=>{
+/* adresa společného žebříčku (Google Apps Script nad tabulkou „Sokol Košice – žebříček virtuální ligy“) */
+const LB_URL="";
 const photoUrl=f=>(typeof PHOTO_MAP!=="undefined"&&PHOTO_MAP[f])||("foto/"+f);
 /* ================= DATA (zdroj: Táborský deník, JcTed.cz; stav k 31. 10. 2026) ================= */
 let S2627=[ // [kolo, datum, domácí, góly D, hosté, góly H, střelci Košic]
@@ -2059,41 +2062,62 @@ function szCompleteRound(myHg,myAg,scorers){const S=SZ,k=S.round,mine=szMyMatch(
 async function szSave(){store.set("season",SZ);if(szMode==="db"&&szUid){try{await db.collection("data/users/"+szUid).doc("season").set({s:JSON.stringify(SZ),at:Date.now()});}catch(e){}}}
 async function szLoad(){szMode="local";SZ=store.get("season",null);
  if(db&&user){try{szUid=await user.id();if(szUid){szMode="db";const d=await db.collection("data/users/"+szUid).doc("season").get();if(d.exists){const x=d.data();SZ=x&&x.s?JSON.parse(x.s):SZ;}}}catch(e){szMode="local";}}
+ if(SZ&&!SZ.id){SZ.id="s"+Date.now().toString(36);SZ.nick=store.get("nick","");store.set("mySeasons",[...myIds(),SZ.id]);}
  szReady=true;szRender();szListenLeaders();szRenderLeaders();
- try{if(szMode==="db"&&user&&user.me){const me=await user.me();if(me&&me.name)$("#szWho").textContent="Hrajete jako "+me.name;}}catch(e){}}
+ }
 function szMaybeInit(){if(szTried)return;if(db||!C){szTried=true;szLoad();}}
 setTimeout(()=>{if(!szTried){szTried=true;szLoad();}},11000);
-/* žebříček trenérů: každý má jeden řádek se svou poslední sezonou */
-async function szPost(){if(szMode!=="db"||!szUid||!SZ)return;const T=szTable(SZ),pos=T.findIndex(r=>r.n===SZ.team)+1,row=T[pos-1],exp=szExpected(SZ);
- try{await db.collection("leaders").doc(szUid).set({uid:szUid,team:SZ.team,mode:SZ.mode,round:Math.min(SZ.round-1,SZ_ROUNDS),pts:row.b,pos,gf:row.gf,ga:row.ga,over:row.b-exp,done:!!SZ.done,at:Date.now()});}catch(e){}}
+/* ---------- společný žebříček ----------
+   Veřejný web zapisuje do Google tabulky (LB_URL, Apps Script). Verze v Claude bez LB_URL používá vlastní databázi. */
+const LBU=typeof LB_URL!=="undefined"?LB_URL:"";
+let lbFilter=store.get("lbFilter","done"),lbErr=false;
+const myIds=()=>store.get("mySeasons",[]);
+function szRow(){if(!SZ)return null;const T=szTable(SZ),pos=T.findIndex(r=>r.n===SZ.team)+1,row=T[pos-1];
+ return{id:SZ.id,nick:SZ.nick||store.get("nick","")||"Anonym",team:SZ.team,mode:SZ.mode,round:Math.min(SZ.round-1,SZ_ROUNDS),pts:row.b,pos,gf:row.gf,ga:row.ga,over:row.b-szExpected(SZ),done:SZ.done?1:0};}
+async function szPost(){const r=szRow();if(!r||!r.id)return;
+ if(LBU){try{await fetch(LBU,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(r)});}catch(e){}setTimeout(szFetchLeaders,1800);return;}
+ if(szMode==="db"&&szUid){try{await db.collection("leaders").doc(szUid).set({...r,uid:szUid,at:Date.now()});}catch(e){}}}
+async function szFetchLeaders(){if(!LBU)return;try{const res=await fetch(LBU+(LBU.includes("?")?"&":"?")+"t="+Date.now());const j=await res.json();szLeaders=(j.rows||[]).map(x=>({...x,round:+x.round,pts:+x.pts,pos:+x.pos,gf:+x.gf,ga:+x.ga,over:+x.over,done:+x.done}));lbErr=false;}catch(e){lbErr=true;}szRenderLeaders();}
 let szLeadSub=false;
-function szListenLeaders(){if(szMode!=="db"||szLeadSub)return;szLeadSub=true;db.collection("leaders").orderBy("over","desc").limit(50).onSnapshot(s=>{szLeaders=s.docs.map(d=>d.data());szRenderLeaders();},()=>{});}
+function szListenLeaders(){if(szLeadSub)return;szLeadSub=true;
+ if(LBU){szFetchLeaders();setInterval(()=>{if(hraVisible())szFetchLeaders();},60000);return;}
+ if(szMode==="db")db.collection("leaders").orderBy("over","desc").limit(100).onSnapshot(s=>{szLeaders=s.docs.map(d=>d.data());szRenderLeaders();},()=>{});}
 async function szRenderLeaders(){const el=$("#szLeaders");if(!el)return;
- if(szMode!=="db"){el.innerHTML=`<p class="muted">Žebříček trenérů a účty fungují ve verzi webu sdílené přes Claude, kde se každý hráč přihlásí svým účtem. Tady se vaše sezona ukládá jen do tohoto prohlížeče.</p>`;return;}
- if(!szLeaders.length){el.innerHTML=`<p class="muted">Zatím nikdo nehraje. Buďte první trenér v žebříčku.</p>`;return;}
- let names={};try{const ids=szLeaders.map(l=>l.uid).filter(Boolean);names=user&&user.profiles?await user.profiles(ids):{};}catch(e){}
- el.innerHTML=`<div class="scroll"><table class="tbl lead"><thead><tr><th>#</th><th>Trenér</th><th>Tým</th><th class="n">Kolo</th><th class="n">Místo</th><th class="n">Body</th><th class="n" title="Body navíc proti tomu, co by tým získal podle skutečné tabulky">+/− očekávání</th></tr></thead><tbody>${szLeaders.map((l,i)=>`<tr class="${l.uid===szUid?"me":""}"><td>${i+1}.</td><td>${esc((names[l.uid]&&names[l.uid].name)||"Trenér")}${l.uid===szUid?" (vy)":""}${l.done?" ✓":""}</td><td>${esc(l.team)}${l.mode==="full"?" <small class='muted'>celá</small>":""}</td><td class="n">${l.round}/${SZ_ROUNDS}</td><td class="n">${l.pos}.</td><td class="n">${l.pts}</td><td class="n"><b class="${l.over>=0?"up":"dn"}">${l.over>0?"+":""}${l.over}</b></td></tr>`).join("")}</tbody></table></div>
- <p class="muted" style="font-size:.8rem;margin-top:8px">Pořadí je podle bodů navíc proti očekávání: kdo vytáhne slabší tým výš, než mu patří podle skutečné tabulky, vede. ✓ = dohraná sezona.</p>`;}
+ if(!LBU&&szMode!=="db"){el.innerHTML=`<p class="muted">Společný žebříček se teprve zapojuje. Vaše sezona se zatím ukládá v tomto prohlížeči a do žebříčku se zapíše, jakmile bude spuštěný.</p>`;return;}
+ if(lbErr&&!szLeaders.length){el.innerHTML=`<p class="muted">Žebříček se teď nepodařilo načíst. Zkuste to za chvíli.</p>`;return;}
+ const mine=new Set(myIds());let L=szLeaders.filter(l=>l.team&&l.round>0);
+ if(lbFilter==="done")L=L.filter(l=>+l.done);else if(lbFilter==="real")L=L.filter(l=>l.mode==="real");else if(lbFilter==="full")L=L.filter(l=>l.mode==="full");
+ L.sort((a,b)=>b.over-a.over||b.pts-a.pts||b.round-a.round);
+ let names={};if(!LBU){try{names=user&&user.profiles?await user.profiles(L.map(l=>l.uid).filter(Boolean)):{};}catch(e){}}
+ const nm=l=>LBU?(l.nick||"Anonym"):((names[l.uid]&&names[l.uid].name)||l.nick||"Trenér");
+ const rec={};szLeaders.filter(l=>+l.done).forEach(l=>{if(!rec[l.team]||l.pts>rec[l.team].pts)rec[l.team]=l;});
+ el.innerHTML=`<div class="seg lbseg" id="lbSeg" role="group" aria-label="Filtr žebříčku">${[["done","Síň slávy"],["all","Všechny včetně rozehraných"],["real","Jaro"],["full","Celá sezona"]].map(([k,l])=>`<button type="button" data-f="${k}" aria-pressed="${k===lbFilter}">${l}</button>`).join("")}</div>
+ ${L.length?`<div class="scroll"><table class="tbl lead"><thead><tr><th>#</th><th>Trenér</th><th>Tým</th><th class="n">Kolo</th><th class="n">Místo</th><th class="n">Body</th><th class="n">Skóre</th><th class="n" title="Body navíc proti tomu, co by tým získal podle skutečné tabulky">+/−</th></tr></thead><tbody>${L.slice(0,60).map((l,i)=>`<tr class="${mine.has(l.id)||l.uid===szUid?"me":""}"><td>${i+1}.</td><td>${esc(nm(l))}${mine.has(l.id)?" <small class='muted'>(vy)</small>":""}${+l.done?" ✓":""}</td><td>${esc(l.team)}<small class="muted"> · ${l.mode==="full"?"celá":"jaro"}</small></td><td class="n">${l.round}/${SZ_ROUNDS}</td><td class="n">${l.pos}.</td><td class="n">${l.pts}</td><td class="n">${l.gf}:${l.ga}</td><td class="n"><b class="${l.over>=0?"up":"dn"}">${l.over>0?"+":""}${l.over}</b></td></tr>`).join("")}</tbody></table></div>`:`<p class="muted">V této kategorii zatím nikdo nehraje. Buďte první.</p>`}
+ ${Object.keys(rec).length?`<h4 class="mch">Rekordy týmů</h4><div class="lbrec">${Object.values(rec).sort((a,b)=>b.pts-a.pts).map(l=>`<span><b>${l.pts}</b> ${esc(l.team)} <small class="muted">${esc(nm(l))}, ${l.pos}. místo</small></span>`).join("")}</div>`:""}
+ <p class="muted" style="font-size:.8rem;margin-top:8px">Pořadí je podle bodů navíc proti očekávání: kdo vytáhne slabší tým výš, než mu patří podle skutečné tabulky, vede. ✓ = dohraná sezona. Výsledky se zapisují po každém odehraném kole.</p>`;
+ $("#lbSeg").onclick=e=>{const b=e.target.closest("button");if(!b)return;lbFilter=b.dataset.f;store.set("lbFilter",lbFilter);szRenderLeaders();};}
 
 /* ---------- vykreslení ---------- */
 function szRender(){const el=$("#szBody");if(!el)return;
  if(!szReady){el.innerHTML=`<p class="muted">Načítám…</p>`;return;}
  if(!SZ){const opts=SZ_TEAMS().map(t=>{const r=T2627.find(x=>szNorm(x[0])===t),pos=T2627.indexOf(r)+1;return`<option value="${esc(t)}">${esc(t)} (${pos}. místo, ${r?r[7]:0} b.)</option>`;}).join("");
   el.innerHTML=`<div class="sz-start"><p>Vyberte si tým a doveďte ho co nejvýš. Každé kolo odehrajete svůj zápas v zápasovém centru (nebo rychlou simulací), ostatní zápasy se dohrají samy a tabulka se průběžně počítá.</p>
-   <div class="sz-form"><label class="l">Tým<select id="szTeam">${opts}</select></label>
+   <div class="sz-form"><label class="l">Vaše přezdívka do žebříčku<input id="szNick" maxlength="24" placeholder="např. Trenér Pepa" autocomplete="nickname"></label><label class="l">Tým<select id="szTeam">${opts}</select></label>
    <label class="l">Začátek<select id="szMode"><option value="real">Od skutečného stavu po 11. kole (jaro, 11 kol)</option><option value="full">Celá sezona od 1. kola (22 kol)</option></select></label>
    <button class="btn" type="button" id="szGo">Začít sezonu</button></div>
-   <p class="muted" style="font-size:.84rem">${szMode==="db"?"Sezona se ukládá do vašeho účtu a výsledky se propisují do žebříčku trenérů.":"Sezona se ukládá v tomto prohlížeči."}</p></div>`;
-  $("#szTeam").value=CT.name;
-  $("#szGo").onclick=()=>{const team=$("#szTeam").value,mode=$("#szMode").value;SZ={v:1,team,mode,round:mode==="real"?12:1,res:{},goals:{},log:[],done:false,at:Date.now()};
+   <p class="muted" style="font-size:.84rem">Rozehraná sezona se ukládá v tomto prohlížeči, výsledky po každém kole do společného žebříčku.</p></div>`;
+  $("#szTeam").value=CT.name;$("#szNick").value=store.get("nick","");
+  $("#szGo").onclick=()=>{const nick=$("#szNick").value.trim().replace(/\s+/g," ").slice(0,24);if(!nick){toast("Napište přezdívku, ať vás najdete v žebříčku");$("#szNick").focus();return;}store.set("nick",nick);
+   const team=$("#szTeam").value,mode=$("#szMode").value,id="s"+Date.now().toString(36)+Math.random().toString(36).slice(2,8);store.set("mySeasons",[...myIds(),id].slice(-30));
+   SZ={v:2,id,nick,team,mode,round:mode==="real"?12:1,res:{},goals:{},log:[],done:false,at:Date.now()};
    if(mode==="real")(typeof R2627!=="undefined"?R2627:[]).forEach(m=>{SZ.res[szKey(m[0],szNorm(m[2]),szNorm(m[4]))]=[m[3],m[5]];});
    switchTeam(team);szSave();szRender();szPost();toast(`Sezona začíná. Trénujete ${team}.`);};
   return;}
  const S=SZ,T=szTable(S),pos=T.findIndex(r=>r.n===S.team)+1,me=T[pos-1],exp=szExpected(S),nx=!S.done&&szMyMatch(S,S.round);
  const top=Object.entries(S.goals).sort((a,b)=>b[1]-a[1]).slice(0,5);
- el.innerHTML=`<div class="sz-head"><div><span class="stag">Trénujete</span><b>${esc(S.team)}</b></div>
+ el.innerHTML=`<div class="sz-head"><div><span class="stag">Trenér ${esc(S.nick||"")} vede</span><b>${esc(S.team)}</b></div>
    <div class="sz-kpi"><span><b>${pos}.</b> místo</span><span><b>${me.b}</b> bodů</span><span><b class="${me.b-exp>=0?"up":"dn"}">${me.b-exp>0?"+":""}${me.b-exp}</b> proti očekávání</span><span><b>${Math.min(S.round-1,SZ_ROUNDS)}</b>/${SZ_ROUNDS} kol</span></div></div>
-  ${S.done?`<div class="sz-done"><b>Sezona dohrána!</b> ${esc(S.team)} končí na ${pos}. místě se ${me.b} body. ${pos===1?"Mistr ligy!":pos<=3?"Medailové umístění!":me.b-exp>0?"Lepší, než se čekalo.":"Příště to vyjde líp."}</div>`:
+  ${S.done?`<div class="sz-done"><b>Sezona dohrána!</b> ${esc(S.team)} končí na ${pos}. místě se ${me.b} body. ${pos===1?"Mistr ligy!":pos<=3?"Medailové umístění!":me.b-exp>0?"Lepší, než se čekalo.":"Příště to vyjde líp."} ${LBU||szMode==="db"?" Výsledek je zapsaný v síni slávy.":""} <button class="btn sm light-on-club" type="button" id="szShare">Sdílet</button></div>`:
   `<div class="sz-next"><span class="stag">${S.round}. kolo</span><b>${esc(nx[1])} – ${esc(nx[2])}</b><span class="muted">${nx[1]===S.team?"doma":"venku"}</span>
    <div class="mcbtns"><button class="btn" type="button" id="szPlay">Hrát v zápasovém centru</button><button class="btn ghost" type="button" id="szQuickBtn">Rychlá simulace</button></div></div>`}
   <div class="sz-grid"><div><h4 class="mch">Tabulka</h4><div class="scroll"><table class="tbl" id="szTbl"></table></div></div>
@@ -2103,6 +2127,7 @@ function szRender(){const el=$("#szBody");if(!el)return;
  table($("#szTbl"),T.map(r=>[r.n,r.z,r.v,r.r,r.p,r.gf,r.ga,r.b]));
  $("#szTbl").querySelectorAll("tr").forEach(tr=>{if(tr.textContent.includes(S.team))tr.classList.add("sz-me");});
  const rs=$("#szReset");if(rs)rs.onclick=()=>{if(!confirmReset())return;SZ=null;seasonLock=null;szSave();szRender();szUnlock();};
+ const sh=$("#szShare");if(sh)sh.onclick=()=>{const t=`Virtuální 9. liga Tábor: jako trenér ${S.team} jsem skončil ${pos}. se ${me.b} body (${me.gf}:${me.ga}). Zkus to líp na webu Sokola Košice!`;if(navigator.share)navigator.share({text:t}).catch(()=>{});else if(navigator.clipboard)navigator.clipboard.writeText(t).then(()=>toast("Zkopírováno"));};
  if(nx){$("#szPlay").onclick=()=>szPlayLive(nx);$("#szQuickBtn").onclick=()=>szPlayQuick(nx);}}
 let szArm=false;
 function confirmReset(){if(szArm){szArm=false;return true;}szArm=true;toast("Klepněte znovu pro potvrzení. Rozehraná sezona se smaže.");setTimeout(()=>szArm=false,4000);return false;}
