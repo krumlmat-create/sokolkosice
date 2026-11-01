@@ -905,7 +905,7 @@ const photoUrl=f=>(typeof PHOTO_MAP!=="undefined"&&PHOTO_MAP[f])||("foto/"+f);
 /* ================= DATA (zdroj: Táborský deník, JcTed.cz; stav k 31. 10. 2026) ================= */
 let S2627=[ // [kolo, datum, domácí, góly D, hosté, góly H, střelci Košic]
  [1,"2026-08-22","TJ Dražice",2,"Košice",0,[]],
- [2,"2026-08-29","Košice",1,"Planá n. L. B",1,["Petr Pícha"]],
+ [2,"2026-08-29","Košice",1,"Planá n. L.",1,["Petr Pícha"]],
  [3,"2026-09-05","FC HD2D",3,"Košice",0,[]],
  [4,"2026-09-13","Košice",3,"Radenín Kozmice",2,["Petr Himl","Jan Boháč","Vít Bárta"]],
  [5,"2026-09-20","Veselí n. L. B",4,"Košice",2,["Petr Himl","Jan Kovář"]],
@@ -939,7 +939,9 @@ const S2526=[
  [20,"2026-05-31","Chotoviny B",2,"Košice",2,["Jan Boháč","Tomáš Holota"]],
  [21,"2026-06-06","Košice",8,"Červený kůň",0,["Jan Boháč","Adam Čížek","Jan Kovář","Jan Škoda","Jan Boháč","Tomáš Fiala","Jan Boháč","Petr Pícha"]]
 ];
-let T2627=[["TJ Dražice",10,9,0,1,33,11,27],["Radenín Kozmice",10,8,0,2,32,15,24],["FC HD2D",10,7,0,3,28,13,21],["FC Bechyně",10,5,1,4,11,9,16],["Veselí n. L. B",10,5,0,5,23,26,15],["Božejovice",10,3,3,4,13,19,12],["Košice",11,3,2,6,19,24,11],["Planá n. L. B",10,3,2,5,23,29,11],["Sokol Vlkov",11,3,2,6,14,24,11],["Sokol Želeč",10,2,4,4,21,29,10],["ZD Vlastiboř",10,3,0,7,21,30,9],["Sokol Stádlec",10,2,2,6,15,24,8]];
+/* Všechny zápasy soutěže 2026/27 (Deník): [kolo, datum, domácí, góly D, hosté, góly H, "k" = kontumace] */
+let R2627=[[1,"2026-08-22","FC HD2D",2,"Radenín Kozmice",3],[1,"2026-08-22","Sokol Vlkov",3,"ZD Vlastiboř",1],[1,"2026-08-22","Sokol Želeč",1,"Sokol Stádlec",1],[1,"2026-08-22","TJ Dražice",2,"Košice",0],[1,"2026-08-23","Božejovice",1,"FC Bechyně",0],[1,"2026-08-23","Planá n. L.",2,"Veselí n. L. B",4],[2,"2026-08-28","FC Bechyně",2,"Sokol Vlkov",0],[2,"2026-08-29","Košice",1,"Planá n. L.",1],[2,"2026-08-29","Sokol Želeč",2,"Božejovice",2],[2,"2026-08-30","Sokol Stádlec",0,"Radenín Kozmice",2],[2,"2026-08-30","Veselí n. L. B",1,"FC HD2D",2],[2,"2026-08-30","ZD Vlastiboř",0,"TJ Dražice",3],[3,"2026-09-05","FC HD2D",3,"Košice",0],[3,"2026-09-05","Sokol Vlkov",1,"Sokol Želeč",1],[3,"2026-09-05","TJ Dražice",3,"FC Bechyně",0],[3,"2026-09-06","Božejovice",1,"Sokol Stádlec",0],[3,"2026-09-06","Planá n. L.",4,"ZD Vlastiboř",3],[3,"2026-09-06","Radenín Kozmice",7,"Veselí n. L. B",2],[4,"2026-09-12","Sokol Želeč",1,"TJ Dražice",7],[4,"2026-09-13","Božejovice",1,"Sokol Vlkov",1],[4,"2026-09-13","FC Bechyně",3,"Planá n. L.",0],[4,"2026-09-13","Košice",3,"Radenín Kozmice",2],[4,"2026-09-13","Sokol Stádlec",3,"Veselí n. L. B",1],[4,"2026-09-13","ZD Vlastiboř",1,"FC HD2D",3],[5,"2026-09-19","FC HD2D",0,"FC Bechyně",1],[5,"2026-09-19","Radenín Kozmice",6,"ZD Vlastiboř",1],[5,"2026-09-19","Sokol Vlkov",2,"Sokol Stádlec",0],[5,"2026-09-19","TJ Dražice",1,"Božejovice",0],[5,"2026-09-20","Planá n. L.",3,"Sokol Želeč",3],[5,"2026-09-20","Veselí n. L. B",4,"Košice",2],[6,"2026-09-26","Sokol Vlkov",5,"TJ Dražice",2],[6,"2026-09-26","Sokol Želeč",1,"FC HD2D",5],[6,"2026-09-27","Božejovice",3,"Planá n. L.",0,"k"],[6,"2026-09-27","FC Bechyně",0,"Radenín Kozmice",1],[6,"2026-09-27","Sokol Stádlec",3,"Košice",6],[6,"2026-09-27","ZD Vlastiboř",0,"Veselí n. L. B",3],[7,"2026-10-03","FC HD2D",5,"Božejovice",0],[7,"2026-10-03","Radenín Kozmice",2,"Sokol Želeč",1],[7,"2026-10-03","TJ Dražice",3,"Sokol Stádlec",0],[7,"2026-10-04","Košice",1,"ZD Vlastiboř",3],[7,"2026-10-04","Planá n. L.",4,"Sokol Vlkov",1],[7,"2026-10-04","Veselí n. L. B",1,"FC Bechyně",2],[8,"2026-10-10","Sokol Vlkov",0,"FC HD2D",3],[8,"2026-10-10","Sokol Želeč",6,"Veselí n. L. B",0],[8,"2026-10-11","Božejovice",2,"Radenín Kozmice",3],[8,"2026-10-11","FC Bechyně",1,"Košice",0],[8,"2026-10-11","Sokol Stádlec",4,"ZD Vlastiboř",3],[8,"2026-10-11","TJ Dražice",4,"Planá n. L.",3],[9,"2026-10-17","FC HD2D",1,"TJ Dražice",4],[9,"2026-10-17","Radenín Kozmice",5,"Sokol Vlkov",0],[9,"2026-10-18","Košice",1,"Sokol Želeč",3],[9,"2026-10-18","Planá n. L.",4,"Sokol Stádlec",3],[9,"2026-10-18","Veselí n. L. B",5,"Božejovice",1],[9,"2026-10-18","ZD Vlastiboř",2,"FC Bechyně",1],[10,"2026-10-24","Sokol Vlkov",1,"Veselí n. L. B",2],[10,"2026-10-24","Sokol Želeč",2,"ZD Vlastiboř",7],[10,"2026-10-25","Božejovice",2,"Košice",2],[10,"2026-10-25","Planá n. L.",2,"FC HD2D",4],[10,"2026-10-25","Sokol Stádlec",1,"FC Bechyně",1],[10,"2026-10-25","TJ Dražice",4,"Radenín Kozmice",1],[11,"2026-10-31","FC Bechyně",4,"Sokol Želeč",2],[11,"2026-10-31","FC HD2D",0,"Sokol Stádlec",1],[11,"2026-10-31","Košice",3,"Sokol Vlkov",0],[11,"2026-10-31","Radenín Kozmice",6,"Planá n. L.",0],[11,"2026-10-31","Veselí n. L. B",2,"TJ Dražice",6],[11,"2026-10-31","ZD Vlastiboř",3,"Božejovice",1]];
+let T2627=[["TJ Dražice",11,10,0,1,39,13,30],["Radenín Kozmice",11,9,0,2,38,15,27],["FC HD2D",11,7,0,4,28,14,21],["FC Bechyně",11,6,1,4,15,11,19],["Veselí n. L. B",11,5,0,6,25,32,15],["ZD Vlastiboř",11,4,0,7,24,31,12],["Božejovice",11,3,3,5,14,22,12],["Košice",11,3,2,6,19,24,11],["Sokol Stádlec",11,3,2,6,16,24,11],["Sokol Vlkov",11,3,2,6,14,24,11],["Planá n. L.",11,3,2,6,23,35,11],["Sokol Želeč",11,2,4,5,23,33,10]];
 const T2526=[["Košice",21,16,2,3,71,26,50],["Makov Hůrka",21,12,2,7,60,31,38],["Tučapy B",21,12,1,8,50,47,37],["Veselí n. L. B",21,10,3,8,62,52,33],["Chotoviny B",21,10,1,10,54,41,31],["ZD Pojbuky",21,10,1,10,46,39,31],["Červený kůň",21,7,2,12,41,51,23],["Mažice",21,1,0,20,13,110,3]];
 /* Sestavy, které známe ze zápisů v novinách */
 const LINEUPS={
@@ -1222,6 +1224,7 @@ function applySeason(d){
  if(!d||!Array.isArray(d.matches)||!Array.isArray(d.table))return;
  S2627=d.matches.map(m=>[m.k,m.d,m.h,m.hg??null,m.a,m.ag??null,m.sc||[]]);
  T2627=d.table.map(t=>[t.n,t.z,t.v,t.r,t.p,t.gf,t.ga,t.b]);
+ if(Array.isArray(d.league)&&d.league.length)R2627=d.league.map(m=>[m.k,m.d,m.h,m.hg,m.a,m.ag,m.x||""]);
  G27=goals(S2627);OPP=oppList();
  if(d.asOf)$$(".asOf").forEach(e=>e.textContent=d.asOf);
  renderAll();
@@ -1651,7 +1654,10 @@ function preMods(opp){
  const H=ALLM().filter(m=>oppOf(m)===opp.n),hp=H.reduce((a,m)=>a+PTS[resOf(m)],0);
  const h2hMod=H.length?Math.round(Math.max(-2.5,Math.min(2.5,(hp/H.length-1.4)*1.6*Math.min(1,H.length/4)))*10)/10:0;
  const row=T2627.find(r=>r[0]===opp.n),pos=row?T2627.indexOf(row)+1:0;
- return{f,pts,formMod,H,h2hMod,row,pos,mod:formMod+h2hMod};}
+ const of=(typeof R2627!=="undefined"?R2627:[]).filter(m=>m[3]!=null&&(m[2]===opp.n||m[4]===opp.n)).sort((a,b)=>a[1]<b[1]?-1:a[1]>b[1]?1:0).slice(-5);
+ const oRes=m=>{const h=m[2]===opp.n,f=h?m[3]:m[5],a=h?m[5]:m[3];return f>a?"V":f<a?"P":"R";},opts=of.reduce((a,m)=>a+PTS[oRes(m)],0);
+ const oppMod=of.length?Math.round(Math.max(-3,Math.min(3.5,(opts/of.length-1.35)*2.2))*10)/10:0;
+ return{f,pts,formMod,H,h2hMod,row,pos,mod:formMod+h2hMod,of,oRes,opts,oppMod};}
 const fmt=v=>(v>0?"+":v<0?"−":"±")+Math.abs(v).toFixed(1).replace(".",",");
 const bilance=H=>{const [v,r,p]=["V","R","P"].map(k=>H.filter(m=>resOf(m)===k).length);return `${v} ${plural(v,"výhra","výhry","výher")}, ${r} ${plural(r,"remíza","remízy","remíz")}, ${p} ${plural(p,"prohra","prohry","proher")}`;};
 /* skryté simulace pro odhad šancí */
@@ -1669,12 +1675,12 @@ function renderPreview(){const el=$("#mcIdle");if(!el||!OPP.length||live())retur
  <div class="oddsleg"><span><b>${pc(O.w)} %</b> výhra</span><span><b>${pc(O.d)} %</b> remíza</span><span><b>${pc(O.l)} %</b> prohra</span><span class="muted">čekané skóre ${O.gu.toFixed(1).replace(".",",")} : ${O.gt.toFixed(1).replace(".",",")}</span></div>
  <div class="prev-g">
   <div><h5>Forma Košic (od nejstaršího)</h5><div class="formrow">${P.f.map(m=>`<span class="pill ${resOf(m)}" title="${esc(oppOf(m))} ${scoreOf(m)}">${resOf(m)}</span>`).join("")}</div><p>${P.pts} ${plural(P.pts,"bod","body","bodů")} z posledních ${P.f.length} zápasů <em class="mod ${P.formMod>=0?"up":"dn"}">${fmt(P.formMod)}</em></p></div>
-  <div><h5>Soupeř podle tabulky</h5>${P.row?`<p><b>${P.pos}. místo</b>, ${P.row[7]} ${plural(P.row[7],"bod","body","bodů")} z ${P.row[1]} zápasů, skóre ${P.row[5]}:${P.row[6]}</p>`:"<p>Bez údajů</p>"}</div>
+  <div><h5>Soupeř: tabulka a forma</h5>${P.row?`<p><b>${P.pos}. místo</b>, ${P.row[7]} ${plural(P.row[7],"bod","body","bodů")} z ${P.row[1]} zápasů, skóre ${P.row[5]}:${P.row[6]}</p>`:"<p>Bez údajů</p>"}${P.of.length?`<div class="formrow" style="margin-top:6px">${P.of.map(m=>`<span class="pill ${P.oRes(m)}" title="${esc(m[2])} – ${esc(m[4])} ${m[3]}:${m[5]}${m[6]==="k"?" (kontumace)":""}">${P.oRes(m)}</span>`).join("")}</div><p>${P.opts} ${plural(P.opts,"bod","body","bodů")} z posledních ${P.of.length} zápasů <em class="mod ${P.oppMod>0?"dn":"up"}">${fmt(P.oppMod)}</em></p>`:""}</div>
   <div><h5>Vzájemné zápasy</h5>${P.H.length?`<p>${bilance(P.H)} <em class="mod ${P.h2hMod>=0?"up":"dn"}">${fmt(P.h2hMod)}</em></p><div class="h2h">${P.H.slice(-4).reverse().map(m=>`<span><span class="pill ${resOf(m)}">${resOf(m)}</span> ${m[1].slice(0,10).split("-").reverse().map(Number).join(". ")} · ${isUs(m[2])?"doma":"venku"} <b>${scoreOf(m)}</b></span>`).join("")}</div>`:`<p>Zatím jsme spolu nehráli. Bez bonusu.</p>`}</div>
- </div><p class="prev-note">Forma a vzájemné zápasy se promítají do síly Košic (${fmt(P.mod)}). ${home?"Doma pomáhají fanoušci.":"Venku to bude těžší."} Šance jsou spočítané z ${SIMS} odehraných simulací s vaší sestavou.</p></div>`;}
+ </div><p class="prev-note">Forma a vzájemné zápasy se promítají do síly Košic (${fmt(P.mod)}), forma soupeře do jeho síly (${fmt(P.oppMod)}). ${home?"Doma pomáhají fanoušci.":"Venku to bude těžší."} Šance jsou spočítané z ${SIMS} odehraných simulací s vaší sestavou.</p></div>`;}
 
 /* ---------- zápas ---------- */
-function newMatch(opp,home,silent){const s=66+(opp.s-66)*.6,j=()=>(Math.random()-.5)*6,P=preMods(opp);
+function newMatch(opp,home,silent){const P=preMods(opp),s=66+(opp.s-66)*.6+P.oppMod,j=()=>(Math.random()-.5)*6;
  M={P,mod:P.mod,opp,home,silent:!!silent,o:{def:s+j(),mid:s+j(),att:s+j(),gk:s-3+j()},minAbs:0,half:1,hm:0,add:[1+Math.floor(Math.random()*3),2+Math.floor(Math.random()*4)],
   us:0,them:0,st:{},played:{},off:new Set(),subs:0,goals:{},ast:{},yel:{},adj:{},log:[],tired:new Set(),inj:null,oppRed:false,mom:0,momT:-99,oSt:100,tiredT:-99,lowU:0,lowT:0,keeperUp:false,pend:null,evN:0,hold:0,
   stat:{pos:0,posN:0,shU:0,shT:0,onU:0,onT:0,coU:0,coT:0,fU:0,fT:0,yU:0,yT:0},paused:false,done:false,toEnd:false,pre:lineup.slice(),preF:form};
@@ -1767,7 +1773,7 @@ function kickoff(){syncLineup();if(xi.length<11||lineup.filter(Boolean).length<1
  $("#mc").classList.add("live");$("#mcLive").hidden=false;$("#mcIdle").hidden=true;$("#mcAfter").innerHTML="";$("#mcFeed").innerHTML="";
  const H=home?"Košice":opp.n,A=home?opp.n:"Košice";$("#mcH").textContent=H;$("#mcA").textContent=A;
  ["#oppSel","#venueSel","#simOne"].forEach(s=>$(s).disabled=true);$("#mcPause").disabled=false;$("#mcEnd").disabled=false;
- const P=M.P;feed("0′","info","",`Forma Košic (od nejstaršího): ${P.f.map(resOf).join(" ")||"–"}. ${P.H.length?`Vzájemná bilance: ${bilance(P.H)}.`:"Se soupeřem se potkávají poprvé."} Úprava síly ${fmt(P.mod)}.`);
+ const P=M.P;feed("0′","info","",`Forma Košic (od nejstaršího): ${P.f.map(resOf).join(" ")||"–"}. ${P.H.length?`Vzájemná bilance: ${bilance(P.H)}.`:"Se soupeřem se potkávají poprvé."} Úprava síly ${fmt(P.mod)}.${P.of.length?` Soupeř má formu ${P.of.map(P.oRes).join(" ")}.`:""}`);
  feed("0′","ko","",`Výkop! ${H} – ${A}. Rozestavení ${form}, taktika ${TAC[tactic].l.toLowerCase()}.`);
  if(matchMedia("(prefers-reduced-motion: reduce)").matches){speedI=2;$("#mcSpeed").querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",+x.dataset.s===2));}
  renderBoard();pause(false);setTimeout(()=>$("#mcLive").scrollIntoView({behavior:"smooth",block:"start"}),50);}
