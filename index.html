@@ -450,6 +450,19 @@ details .mlist{margin-top:10px}
 .splogos{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .splogos .spl{margin:0;background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .splogos img{display:block;width:100%;height:auto}
+.spbtn{display:block;padding:0;margin:0;border:0;background:none;cursor:pointer;border-radius:6px;flex:none;position:relative}
+.splogos .spbtn{width:100%}
+.spbtn:hover img{filter:brightness(.96)}
+.splogos .spbtn::after{content:"Medailonek";position:absolute;right:6px;bottom:6px;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--club);color:#fff;padding:2px 6px;border-radius:3px}
+.spcard{background:var(--paper);border-radius:var(--r);width:min(640px,100%);padding:24px;display:grid;gap:14px}
+.spcard header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.spcard h2{font-size:2rem;font-weight:900}
+.splogo{width:100%;max-width:344px;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
+.splead{font-weight:700;font-size:1.08rem}
+.sph{font-size:1.3rem;margin-bottom:6px}
+.spsvc{margin:0;padding-left:1.2em;display:grid;gap:4px}
+.splinks{display:flex;flex-wrap:wrap;gap:8px}
+.spcontact a{color:inherit}
 @media (max-width:620px){.splogos{grid-template-columns:repeat(2,1fr)}.sponsorbelt img{height:46px}}
 /* ---------- footer ---------- */
 footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem}
@@ -1124,6 +1137,7 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
   </form>
 </div>
 
+<div class="modal" id="spModal" hidden role="dialog" aria-modal="true" aria-labelledby="sp-title"><div class="spcard" id="spBody"></div></div>
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Fotka"><button class="btn ghost sm" type="button" id="lbClose">Zavřít</button><img id="lbImg" alt=""><p id="lbCap"></p></div>
 <div class="sponsorbelt foot" aria-label="Partneři klubu"><span class="beltlbl">Partneři</span><div class="track"></div></div>
 <footer>
@@ -1232,7 +1246,17 @@ const PHOTOS=[
  ["kosice-vlkov-18.jpg","Fanoušci s bubnem",false]
 ].map(([f,c,pub])=>({f,caption:c,pub:pub!==false,at:"2026-10-31T11:00:00"}));
 const BG={hero:"kosice-vlkov-22.jpg",player:"kosice-vlkov-06.jpg",kabina:"kosice-vlkov-02.jpg",recap:"kosice-vlkov-21.jpg",club:"kosice-vlkov-17.jpg",partners:"kosice-vlkov-17.jpg"};
-const SPONSORS=[["Amvili s.r.o.","amvili"],["Autodoprava JASPO","jaspo"],["Domy Procházka","domy-prochazka"],["Procházka Aleš","prochazka-ales"],["HABO dřevostavby s.r.o.","habo"],["premio – Pneu Kazda s.r.o.","premio"],["SK+ Zdravotní péče pro sportovce","sk-plus"],["Restaurace U Třech kytar","u-trech-kytar"],["Restaurace96","restaurace96"],["BROŽ","broz"]].map(([n,f])=>({n,img:photoUrl("sponzori/"+f+".jpg")}));
+/* Medailonky partnerů: po kliknutí na logo */
+const SPONSOR_INFO={
+ amvili:{name:"AMVILI s.r.o.",tag:"Energetické služby · Ing. Matěj Kruml",
+  lead:"Kontrola vytápění bez starostí – od podkladů po zápis do ENEX.",
+  text:"AMVILI je firma Matěje Krumla, energetického specialisty s oprávněním MPO, a zároveň košického záložníka s patnáctkou na zádech. Hlavní náplní jsou povinné kontroly systémů vytápění nad 70 kW podle vyhlášky č. 38/2022 Sb. – plynových kotelen, předávacích stanic dálkového tepla i tepelných čerpadel.\n\nKontrolu dělá Matěj osobně, bez call-centra a subdodavatelů: měří za provozu analyzátorem spalin a termokamerou, nabídne pevnou cenu předem a zprávu sám zapíše do evidence ENEX ministerstva průmyslu. Pracuje pro SVJ a bytová družstva, správce nemovitostí, obce, školy i firmy po celé republice.",
+  services:["Kontroly systémů vytápění nad 70 kW","Průkazy energetické náročnosti budov (PENB)","Energetické audity","Kontroly klimatizace"],
+  player:"matej-kruml",
+  links:[["Web","https://www.matejkruml.cz"],["LinkedIn","https://www.linkedin.com/in/matej-kruml111/"],["Facebook","https://www.facebook.com/profile.php?id=61595370654582"],["Instagram","https://www.instagram.com/elektrickyrys/"],["Recenze Google","https://maps.app.goo.gl/Qcwhki1Dqr6nCjVt7"]],
+  contact:[["+420 601 565 471","tel:+420601565471"],["matej.kruml@amvili.com","mailto:matej.kruml@amvili.com"]]}
+};
+const SPONSORS=[["Amvili s.r.o.","amvili"],["Autodoprava JASPO","jaspo"],["Domy Procházka","domy-prochazka"],["Procházka Aleš","prochazka-ales"],["HABO dřevostavby s.r.o.","habo"],["premio – Pneu Kazda s.r.o.","premio"],["SK+ Zdravotní péče pro sportovce","sk-plus"],["Restaurace U Třech kytar","u-trech-kytar"],["Restaurace96","restaurace96"],["BROŽ","broz"]].map(([n,f])=>({n,f,img:photoUrl("sponzori/"+f+".jpg"),info:SPONSOR_INFO[f]}));
 /* Hráč zápasu podle klubu: kolo -> jméno a popis */
 const MOTM={"2627-11":{name:"Michal Přívozník",text:"Michal Přívozník byl proti Vlkovu skvělý. Dal gól, makal od první do poslední minuty a zaslouženě je hráčem zápasu. První pivo na dokopné jde za ním."}};
 const motmFor=m=>MOTM[(S2627.includes(m)?"2627-":"2526-")+m[0]];
@@ -1767,8 +1791,22 @@ const lbClose=()=>{$("#lightbox").hidden=true;document.body.classList.remove("mo
 $("#lbClose").onclick=lbClose;$("#lightbox").addEventListener("click",e=>{if(e.target.id==="lightbox")lbClose();});addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#lightbox").hidden)lbClose();});
 const setBg=(sel,f)=>{const el=$(sel);if(el)el.style.setProperty("--bg-img",`url("${photoUrl(f)}")`);};
 setBg(".hero",BG.hero);setBg("#gate",BG.kabina);
-$("#sponsors").innerHTML=SPONSORS.map(s=>`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
-const band=SPONSORS.map(s=>`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
+$("#sponsors").innerHTML=SPONSORS.map(s=>s.info?`<figure class="spl"><button type="button" class="spbtn" data-sp="${esc(s.f)}" aria-label="${esc(s.n)} – medailonek partnera"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></button></figure>`:`<figure class="spl"><img src="${esc(s.img)}" alt="${esc(s.n)}" loading="lazy"></figure>`).join("");
+const band=SPONSORS.map(s=>s.info?`<button type="button" class="spbtn" data-sp="${esc(s.f)}" aria-label="${esc(s.n)} – medailonek partnera"><img src="${esc(s.img)}" alt="${esc(s.n)}"></button>`:`<img src="${esc(s.img)}" alt="${esc(s.n)}">`).join("");
+function openSponsor(f){const x=SPONSOR_INFO[f],sp=SPONSORS.find(q=>q.f===f);if(!x)return;
+ $("#spBody").innerHTML=`<header><div><span class="stag">Partner Sokola</span><h2 id="sp-title">${esc(x.name)}</h2><p class="muted">${esc(x.tag)}</p></div><button class="btn ghost sm" type="button" id="spClose">Zavřít</button></header>
+ <img class="splogo" src="${esc(sp.img)}" alt="Logo ${esc(x.name)}">
+ ${x.lead?`<p class="splead">${esc(x.lead)}</p>`:""}
+ ${x.text.split("\n\n").map(t=>`<p>${esc(t)}</p>`).join("")}
+ ${x.services?`<div><h3 class="sph">Co dělá</h3><ul class="spsvc">${x.services.map(v=>`<li>${esc(v)}</li>`).join("")}</ul></div>`:""}
+ ${x.player?`<p><a href="#hrac-${esc(x.player)}" data-spgo>Profil Matěje Krumla v soupisce Sokola</a></p>`:""}
+ <div class="splinks">${x.links.map(([l,u])=>`<a class="btn ${l==="Web"?"":"ghost"} sm" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join("")}</div>
+ ${x.contact?`<p class="muted spcontact">${x.contact.map(([l,u])=>`<a href="${esc(u)}">${esc(l)}</a>`).join(" · ")}</p>`:""}`;
+ $("#spModal").hidden=false;document.body.classList.add("modal-open");$("#spClose").onclick=closeSponsor;$("#spClose").focus();
+ $$("[data-spgo]").forEach(a=>a.addEventListener("click",closeSponsor));}
+function closeSponsor(){$("#spModal").hidden=true;document.body.classList.remove("modal-open");}
+document.addEventListener("click",e=>{const b=e.target.closest(".spbtn");if(b){openSponsor(b.dataset.sp);return;}if(e.target.id==="spModal")closeSponsor();});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#spModal").hidden)closeSponsor();});
 $$(".sponsorbelt .track").forEach(t=>t.innerHTML=`<div class="set">${band}</div><div class="set" aria-hidden="true">${band}</div>`);renderVotes();renderPhotos([]);showKabina();$("#planForm").requestSubmit();route();initCaps();
 /* ===== Docházka: statistiky tréninků a zápasů (kabina + import anket z WhatsAppu) ===== */
 // Ankety z WhatsAppu: {id,d:"YYYY-MM-DD",t:"T"|"Z"|"A",q,yes,no,maybe,names?:{yes:[],no:[],maybe:[]}}
