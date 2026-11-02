@@ -827,6 +827,46 @@ label.frow{grid-template-columns:auto minmax(0,1fr) auto;cursor:pointer}
 @media (max-width:620px){.hrow{grid-template-columns:62px minmax(0,1fr) auto}.hrow small{grid-column:2/-1}.htl:before{left:46px}.htl li{grid-template-columns:38px minmax(0,1fr);gap:22px}.htl li:after{left:40px}.hy{font-size:1.1rem}}
 </style>
 
+<style>
+/* ================= MOTION: GSAP + Lenis + efekty ve stylu React Bits ================= */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+html.mo-pre #lead,html.mo-pre #matchCentre{opacity:0}
+.mo-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--gold),#ffe9a6 60%,var(--sky));pointer-events:none;box-shadow:0 0 12px rgba(224,176,48,.55)}
+html.mo .hdr{transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+html.mo .hdr.hdr-hide{transform:translateY(calc(-100% - 2px))}
+html.mo .hdr.hdr-float{box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.mo-w{display:inline}
+/* hero parallax */
+html.mo .hero{background-position-y:calc(40% + var(--py,0px))}
+html.mo .phero{background-position-y:calc(50% + var(--py,0px))}
+/* Shiny text (React Bits): zlatý lesk */
+.champ h3,.motmbox b{background:linear-gradient(110deg,var(--gold) 0%,var(--gold) 38%,#fff3c4 50%,var(--gold) 62%,var(--gold) 100%);background-size:260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:mo-shine 5s linear infinite}
+@keyframes mo-shine{0%{background-position:130% 0}60%,100%{background-position:-30% 0}}
+/* tlačítka: odlesk při najetí */
+html.mo .btn:not(.sm){position:relative;overflow:hidden;isolation:isolate;will-change:transform}
+html.mo .btn:not(.sm)::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+html.mo .btn:not(.sm):hover::after{transform:translateX(120%)}
+/* karty a loga */
+html.mo .story{transition:border-color .2s,box-shadow .35s;will-change:transform;transform-style:preserve-3d}
+html.mo .story:hover{box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
+html.mo .splogos .spl{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+html.mo .splogos .spl:hover{transform:translateY(-4px);box-shadow:0 14px 28px -14px rgba(0,0,0,.35)}
+html.mo .sponsorbelt img{transition:transform .3s}
+html.mo .sponsorbelt img:hover{transform:scale(1.06)}
+html.mo .mrow{transition:background-color .2s}
+html.mo .mrow:hover{background:color-mix(in srgb,var(--club) 5%,var(--card))}
+html.mo .tbl tbody tr{transition:background-color .2s}
+html.mo .tbl tbody tr:hover{background:color-mix(in srgb,var(--club) 6%,transparent)}
+/* spotlight karta (React Bits: Spotlight Card) */
+html.mo .card.mo-spot{position:relative}
+html.mo .card.mo-spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--sx2,50%) var(--sy2,50%),color-mix(in srgb,var(--club) 10%,transparent),transparent 60%)}
+html.mo .card.mo-spot:hover::after{opacity:1}
+@media (prefers-reduced-motion:reduce){.champ h3,.motmbox b{animation:none}.mo-progress{display:none}}
+</style>
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("mo-pre");setTimeout(function(){document.documentElement.classList.remove("mo-pre")},2500)}}catch(e){}</script>
 </head><body>
 <a class="skip" href="#main">Přeskočit na obsah</a>
 <div class="ticker"><div class="wrap"><b>ZÁPAS</b><span id="ticker">Načítám…</span><a href="#zapasy">Program a výsledky</a></div></div>
@@ -4689,4 +4729,159 @@ szRender();szRenderLeaders();szMaybeInit();
 })();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js" defer></script>
+<script>
+/* ================= MOTION: GSAP + ScrollTrigger + SplitText + Lenis =================
+   Efekty inspirované React Bits (Split Text, Count Up, Magnet, Spotlight Card, Shiny Text, Tilted Card)
+   převedené do čistého GSAP. Bez knihoven nebo při „omezit pohyb“ web funguje beze změny. */
+addEventListener("DOMContentLoaded",()=>{
+const H=document.documentElement,done=()=>H.classList.remove("mo-pre");
+const RM=matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(RM||!window.gsap||!window.ScrollTrigger){done();return;}
+try{
+gsap.registerPlugin(ScrollTrigger);const SPLIT=!!window.SplitText;if(SPLIT)gsap.registerPlugin(SplitText);
+const FINE=matchMedia("(hover:hover) and (pointer:fine)").matches;
+H.classList.add("mo");
+const q=(s,r=document)=>[...r.querySelectorAll(s)];
+const view=()=>document.querySelector(".view.on");
+const visible=el=>{if(!el.isConnected)return false;const r=el.getBoundingClientRect();return r.width>0&&r.height>0;};
+
+/* ---------- Lenis: plynulé scrollování ---------- */
+let lenis=null;
+if(window.Lenis){
+ lenis=new Lenis({lerp:.1,smoothWheel:true,wheelMultiplier:1,anchors:false,
+  prevent:n=>!!(n&&n.closest&&n.closest(".modal,.lightbox,.scroll,.mainnav,[data-lenis-prevent],textarea,select,.dokgrid"))});
+ lenis.on("scroll",ScrollTrigger.update);
+ gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+ const sync=()=>{const c=document.body.classList;(c.contains("modal-open")||c.contains("menu-open"))?lenis.stop():lenis.start();};
+ new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:["class"]});
+ window.__lenis=lenis;}
+
+/* ---------- průběh čtení + schovávací hlavička ---------- */
+const bar=document.createElement("div");bar.className="mo-progress";bar.setAttribute("aria-hidden","true");document.body.appendChild(bar);
+const setBar=gsap.quickSetter(bar,"scaleX");const hdr=document.querySelector(".hdr");let lastY=scrollY,tick=false;
+function onScroll(){tick=false;const y=scrollY,max=H.scrollHeight-innerHeight;setBar(max>0?Math.min(1,y/max):0);
+ if(hdr&&!document.body.classList.contains("menu-open")){
+  if(y>280&&y>lastY+3)hdr.classList.add("hdr-hide");else if(y<lastY-3||y<140)hdr.classList.remove("hdr-hide");
+  hdr.classList.toggle("hdr-float",y>40);}
+ lastY=y;}
+addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(onScroll);}},{passive:true});
+hdr&&hdr.addEventListener("focusin",()=>hdr.classList.remove("hdr-hide"));
+
+/* ---------- Split Text: nadpisy ---------- */
+function wrapText(el){[...el.childNodes].forEach(n=>{if(n.nodeType===3&&n.textContent.trim()){const s=document.createElement("span");s.className="mo-w";n.replaceWith(s);s.appendChild(n);}});return q(":scope > .mo-w",el);}
+function splitIn(el,{delay=0,st=true,stagger=.022,dur=.85}={}){
+ if(el.dataset.moS)return;el.dataset.moS="1";
+ const disp=getComputedStyle(el).display,targets=/flex|grid/.test(disp)?wrapText(el):[el];if(!targets.length)return;
+ if(!SPLIT){gsap.from(el,{y:24,opacity:0,duration:.7,delay,ease:"power3.out",scrollTrigger:st?{trigger:el,start:"top 90%",once:true}:undefined});return;}
+ const sp=SplitText.create(targets,{type:"words,chars",mask:"words",aria:"auto"});
+ gsap.from(sp.chars,{yPercent:115,rotate:6,duration:dur,delay,ease:"power4.out",stagger,
+  scrollTrigger:st?{trigger:el,start:"top 90%",once:true}:undefined,onComplete:()=>sp.revert()});}
+
+/* ---------- Count Up: čísla a skóre ---------- */
+function countUp(el){if(el.dataset.moC)return;const t=el.textContent.trim();
+ const m=t.match(/^(\d{1,4})(?:\s*([:–-])\s*(\d{1,4}))?$/);if(!m)return;el.dataset.moC="1";
+ const a=+m[1],b=m[3]!=null?+m[3]:null,o={a:0,b:0};const fmt=()=>b==null?String(Math.round(o.a)):Math.round(o.a)+m[2]+Math.round(o.b);
+ const run=()=>{el.textContent=b==null?"0":"0"+m[2]+"0";gsap.to(o,{a,b:b??0,duration:Math.min(1.8,.6+Math.max(a,b||0)*.04),ease:"power2.out",onUpdate:()=>{el.textContent=fmt();},onComplete:()=>{el.textContent=t;}});};
+ ScrollTrigger.create({trigger:el,start:"top 92%",once:true,onEnter:run});}
+
+/* ---------- vyjíždění bloků ---------- */
+const REV=[".card",".blk",".champ",".story",".mrow",".hrow",".htl>li",".hp",".tip",".drill",".tile",".fact",".dokopna",".spl",".formrow",".timeline>*",".tips>*",".plan",".motmbox",".motm-card",".newsall>*"].join(",");
+let revST=[];
+function reveal(root){
+ const els=q(REV,root).filter(el=>!el.dataset.moR&&visible(el)&&!el.closest(".modal,.lightbox,#v-kabina,#v-hra .sz,.hdr"));
+ els.forEach(el=>el.dataset.moR="1");
+ const vh=innerHeight;const below=els.filter(el=>el.getBoundingClientRect().top>vh*.92);
+ const now=els.filter(el=>below.indexOf(el)<0&&el.getBoundingClientRect().bottom>0);
+ if(now.length)gsap.fromTo(now,{y:26,opacity:0},{y:0,opacity:1,duration:.75,ease:"power3.out",stagger:.045,delay:.05,clearProps:"transform,opacity"});
+ if(below.length){gsap.set(below,{y:34,opacity:0});
+  revST=revST.concat(ScrollTrigger.batch(below,{start:"top 92%",once:true,
+   onEnter:b=>gsap.to(b,{y:0,opacity:1,duration:.8,ease:"power3.out",stagger:.07,overwrite:true,clearProps:"transform,opacity"})}));}
+ q(".tbl tbody",root).forEach(tb=>{if(tb.dataset.moR||!visible(tb)||tb.closest("#v-kabina,#v-hra .sz"))return;tb.dataset.moR="1";
+  gsap.from(tb.children,{opacity:0,x:-14,duration:.5,ease:"power2.out",stagger:.035,clearProps:"transform,opacity",scrollTrigger:{trigger:tb,start:"top 92%",once:true}});});}
+function flushReveal(){revST.forEach(s=>s.kill&&s.kill());revST=[];q("[data-mo-r]").forEach(el=>{if(+getComputedStyle(el).opacity<1)gsap.set(el,{clearProps:"transform,opacity"});});}
+
+/* ---------- parallax ---------- */
+let pxST=[];
+function parallax(root){pxST.forEach(s=>s.kill());pxST=[];
+ q(".hero,.phero",root).forEach(h=>{if(!visible(h))return;
+  pxST.push(gsap.fromTo(h,{"--py":"0px"},{"--py":"110px",ease:"none",scrollTrigger:{trigger:h,start:"top top",end:"bottom top",scrub:.6}}).scrollTrigger);});}
+
+/* ---------- historie: graf se kreslí ---------- */
+function drawChart(root){q(".hchart",root).forEach(svg=>{if(svg.dataset.moD)return;svg.dataset.moD="1";const ln=svg.querySelector(".hln");if(!ln)return;
+ let L=0;try{L=ln.getTotalLength();}catch(e){}if(!L)return;
+ const tl=gsap.timeline({scrollTrigger:{trigger:svg,start:"top 85%",once:true}});
+ tl.fromTo(ln,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:1.8,ease:"power2.inOut",clearProps:"strokeDasharray,strokeDashoffset"})
+   .from(q(".hpt",svg),{scale:0,transformOrigin:"50% 50%",duration:.5,ease:"back.out(3)",stagger:.1},.2);});}
+
+/* ---------- úvod: hero ---------- */
+function heroIn(){const lead=document.querySelector("#lead"),v=view();
+ if(!lead||!v||v.id!=="v-domu"){done();return;}
+ const tl=gsap.timeline({defaults:{ease:"power4.out"}});
+ const h=lead.querySelector("h1"),bits=q(":scope > .stag, :scope > p, :scope > .btn",lead);
+ if(h){if(SPLIT){h.dataset.moS="1";const sp=SplitText.create(h,{type:"words,chars",mask:"words",aria:"auto"});tl.from(sp.chars,{yPercent:120,rotate:8,duration:1.05,stagger:.016,onComplete:()=>sp.revert()},.05);}
+  else tl.from(h,{y:40,opacity:0,duration:.9},.05);}
+ tl.from(bits,{y:26,opacity:0,duration:.85,stagger:.09,clearProps:"transform,opacity"},.3)
+   .from(q("#matchCentre > *"),{x:60,opacity:0,duration:1,stagger:.14,clearProps:"transform,opacity"},.2);
+ done();}
+
+/* ---------- při změně stránky ---------- */
+function scanView(first){const v=view();if(!v)return;
+ q(".sec, .sec2, .phero h1, #storyView h1",v).forEach(el=>splitIn(el));
+ q(".tile b,.fact b,.phero-num,.simsum b,.mc-s,.motmbox b",v).forEach(countUp);
+ if(!first&&v.id!=="v-domu")gsap.fromTo(v,{opacity:0},{opacity:1,duration:.4,ease:"power1.out",clearProps:"opacity"});
+ reveal(v);reveal(document.querySelector("footer")||document.body);
+ parallax(v);drawChart(v);spots(v);
+ const ph=v.querySelector(".phero-txt");if(ph&&!ph.dataset.moR){ph.dataset.moR="1";gsap.from(ph.children,{y:30,opacity:0,duration:.8,stagger:.08,ease:"power3.out",clearProps:"transform,opacity"});}
+ ScrollTrigger.refresh();}
+function onRoute(){flushReveal();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});if(hdr)hdr.classList.remove("hdr-hide");
+ requestAnimationFrame(()=>requestAnimationFrame(()=>scanView(false)));}
+addEventListener("hashchange",onRoute);
+
+/* ---------- přepínání záložek a nově načtený obsah ---------- */
+let rt=0;const later=()=>{clearTimeout(rt);rt=setTimeout(()=>{const v=view();if(v&&!/kabina|hra/.test(v.id)){reveal(v);q(".sec, .sec2",v).forEach(el=>splitIn(el));q(".tile b,.fact b,.simsum b",v).forEach(countUp);drawChart(v);}ScrollTrigger.refresh();},140);};
+new ResizeObserver(later).observe(document.body);
+document.addEventListener("click",e=>{if(e.target.closest(".seg button,[data-k],details summary"))later();});
+
+/* ---------- Magnet: tlačítka se lepí na kurzor ---------- */
+if(FINE){const MAG=".btn:not(.sm):not(.ghost),.more,.hdr .brand";let cur=null;
+ const rel=el=>gsap.to(el,{x:0,y:0,duration:.7,ease:"elastic.out(1,.45)"});
+ document.addEventListener("pointermove",e=>{const el=e.target.closest&&e.target.closest(MAG);
+  if(el&&el.closest(".modal,#v-kabina,#v-hra,.mainnav"))return;
+  if(el!==cur){if(cur)rel(cur);cur=el;}
+  if(!el)return;const r=el.getBoundingClientRect();
+  gsap.to(el,{x:(e.clientX-(r.left+r.width/2))*.28,y:(e.clientY-(r.top+r.height/2))*.4,duration:.35,ease:"power3.out",overwrite:"auto"});},{passive:true});
+ document.addEventListener("pointerleave",()=>{if(cur){rel(cur);cur=null;}});}
+
+/* ---------- Tilted Card: články se naklápějí ---------- */
+if(FINE){let tc=null;
+ document.addEventListener("pointermove",e=>{const el=e.target.closest&&e.target.closest(".story");
+  if(el!==tc){if(tc)gsap.to(tc,{rotateX:0,rotateY:0,y:0,duration:.6,ease:"power3.out",clearProps:"transform"});tc=el;}
+  if(!el)return;const r=el.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+  gsap.to(el,{rotateY:px*9,rotateX:-py*9,y:-4,transformPerspective:900,duration:.4,ease:"power2.out",overwrite:"auto"});},{passive:true});}
+
+/* ---------- Spotlight Card: světlo za kurzorem ---------- */
+function spots(root){if(!FINE)return;q(".card",root).forEach(c=>{if(c.dataset.moSp||c.closest("#v-kabina,#v-hra,.modal"))return;c.dataset.moSp="1";
+ if(getComputedStyle(c,"::after").content!=="none"||getComputedStyle(c).position!=="static")return;c.classList.add("mo-spot");});}
+if(FINE)document.addEventListener("pointermove",e=>{const c=e.target.closest&&e.target.closest(".mo-spot");if(!c)return;const r=c.getBoundingClientRect();
+ c.style.setProperty("--sx2",(e.clientX-r.left)+"px");c.style.setProperty("--sy2",(e.clientY-r.top)+"px");},{passive:true});
+
+/* ---------- modální okna a menu ---------- */
+const mo=new MutationObserver(ms=>ms.forEach(m=>{const d=m.target;if(d.hidden)return;
+ const inner=d.classList.contains("lightbox")?d.querySelector("img"):d.firstElementChild;
+ gsap.fromTo(d,{opacity:0},{opacity:1,duration:.25,ease:"power1.out",clearProps:"opacity"});
+ if(inner)gsap.fromTo(inner,{y:30,scale:.97,opacity:0},{y:0,scale:1,opacity:1,duration:.5,ease:"power3.out",clearProps:"transform,opacity"});}));
+q(".modal,.lightbox").forEach(d=>mo.observe(d,{attributes:true,attributeFilter:["hidden"]}));
+new MutationObserver(()=>{if(document.body.classList.contains("menu-open")&&getComputedStyle(document.querySelector("#menuBtn")).display!=="none")
+ gsap.fromTo(".mainnav a",{x:-30,opacity:0},{x:0,opacity:1,duration:.55,ease:"power3.out",stagger:.045,delay:.08,clearProps:"transform,opacity"});}).observe(document.body,{attributes:true,attributeFilter:["class"]});
+
+/* ---------- start ---------- */
+let started=false;const start=()=>{if(started)return;started=true;heroIn();scanView(true);onScroll();};
+Promise.race([document.fonts?document.fonts.ready:Promise.resolve(),new Promise(r=>setTimeout(r,700))]).then(start);
+}catch(err){console.warn("motion off",err);done();}
+});
+</script>
 </body></html>
