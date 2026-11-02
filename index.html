@@ -1,4 +1,4 @@
-<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="TJ Sokol Košice – fotbalový klub z Košic u Tábora. Výsledky, tabulky, tým, akademie."><meta property="og:title" content="TJ Sokol Košice"><meta property="og:type" content="website"><meta property="og:image" content="https://krumlmat-create.github.io/sokolkosice/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0b3a7a"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-180.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsTeam","name":"TJ Sokol Košice","sport":"Fotbal","location":{"@type":"Place","name":"Košice u Tábora","address":{"@type":"PostalAddress","addressLocality":"Košice","postalCode":"391 17","addressCountry":"CZ"}}}</script><meta property="og:description" content="Fotbal z Košic u Tábora. Mistr 10. ligy 2025/26, nováček Fixi Coffee 9. ligy."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<!doctype html><html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="TJ Sokol Košice – fotbalový klub z Košic u Tábora. Výsledky, tabulky, tým, akademie."><meta property="og:title" content="TJ Sokol Košice"><meta property="og:type" content="website"><link rel="canonical" href="https://www.sokolkosice.eu/"><meta property="og:url" content="https://www.sokolkosice.eu/"><meta property="og:site_name" content="TJ Sokol Košice"><meta property="og:locale" content="cs_CZ"><meta property="og:image" content="https://www.sokolkosice.eu/og.jpg"><meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0b3a7a"><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="icon-180.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"SportsTeam","name":"TJ Sokol Košice","url":"https://www.sokolkosice.eu/","logo":"https://www.sokolkosice.eu/icon-180.png","sport":"Fotbal","location":{"@type":"Place","name":"Košice u Tábora","address":{"@type":"PostalAddress","addressLocality":"Košice","postalCode":"391 17","addressCountry":"CZ"}}}</script><meta property="og:description" content="Fotbal z Košic u Tábora. Mistr 10. ligy 2025/26, nováček Fixi Coffee 9. ligy."><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>TJ Sokol Košice</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,6 +131,8 @@ form.f{display:grid;gap:14px}
 .mc.next .mc-f{color:#a8a395}
 .motm{display:inline-block;margin-top:10px;font-size:.8rem;font-weight:700;color:var(--gold);text-decoration:none;background:rgba(224,176,48,.12);padding:4px 8px;border-radius:3px}
 .mc:not(.next) .motm{color:#7a5a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .mc:not(.next) .motm{color:var(--gold)}}
+:root[data-theme="dark"] .mc:not(.next) .motm{color:var(--gold)}
 .motmbox{display:grid;gap:4px;border:2px solid var(--gold);border-radius:var(--r);padding:16px 18px;margin-bottom:20px;text-decoration:none;background:color-mix(in srgb,var(--gold) 10%,transparent)}
 .motmbox .stag{color:var(--ink)}
 .motmbox b{font-family:var(--f-display);font-weight:900;font-size:2rem;text-transform:uppercase;line-height:1}
@@ -1911,7 +1913,7 @@ function kcore(DB,d){
  if(A==="roster_sync"){if(need())return need();const have=players().map(x=>x.slug);(d.list||[]).forEach(x=>{if(have.indexOf(S(x.slug))<0)DB.upsert("hraci","slug",{slug:clean(x.slug,48),name:clean(x.name,48),pin:"",salt:"",tok:"",role:"",fails:0,at:now()});});return{ok:true};}
  return{ok:false,err:"Neznámá akce"};}
 /* ===== Kabina s účty hráčů: akce a ankety, docházka, pokladna pokut a zápisného ===== */
-const KAB_PUBLIC="https://krumlmat-create.github.io/sokolkosice/";
+const KAB_PUBLIC="https://www.sokolkosice.eu/";
 const KAB_TYP={T:"Trénink",Z:"Zápas",A:"Akce"};
 const WHY=[["prace","💼 Práce"],["nemoc","🤒 Nemoc"],["zraneni","🩹 Zranění"],["dovolena","🏖️ Dovolená"],["rodina","👨‍👩‍👧 Rodina"],["skola","📚 Škola"],["jine","Jiné"]];
 const WHY_EXC=["nemoc","zraneni"];const whyL=w=>{const x=WHY.find(q=>q[0]===w);return x?x[1]:"";};
