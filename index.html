@@ -864,6 +864,15 @@ html.mo .tbl tbody tr:hover{background:color-mix(in srgb,var(--club) 6%,transpar
 html.mo .card.mo-spot{position:relative}
 html.mo .card.mo-spot::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(420px circle at var(--sx2,50%) var(--sy2,50%),color-mix(in srgb,var(--club) 10%,transparent),transparent 60%)}
 html.mo .card.mo-spot:hover::after{opacity:1}
+.mo-curtain{position:fixed;inset:0;z-index:70;display:none;pointer-events:none;overflow:hidden}
+.mo-c1{position:absolute;inset:-5% -15%;background:linear-gradient(110deg,var(--club-dk),var(--club) 70%,var(--sky));will-change:transform}
+.mo-c2{position:absolute;left:50%;top:50%;width:240px;margin:-60px 0 0 -120px;display:grid;justify-items:center;gap:10px;color:#fff;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35))}
+.mo-c2 svg{width:64px;height:auto}
+.mo-c2 b{font-family:var(--f-display);font-weight:900;text-transform:uppercase;font-size:1.6rem;letter-spacing:.04em}
+.mo-spark{position:fixed;width:0;height:0;z-index:80;pointer-events:none}
+.mo-spark i{position:absolute;left:-1px;top:-1px;width:12px;height:2px;border-radius:2px;background:var(--gold);transform-origin:0 50%}
+html.mo .tbl tr.mo-us td{background-image:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);background-size:300% 100%;animation:mo-row 1.4s ease-out 1}
+@keyframes mo-row{from{background-position:120% 0}to{background-position:-60% 0}}
 @media (prefers-reduced-motion:reduce){.champ h3,.motmbox b{animation:none}.mo-progress{display:none}}
 </style>
 <script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("mo-pre");setTimeout(function(){document.documentElement.classList.remove("mo-pre")},2500)}}catch(e){}</script>
@@ -1265,7 +1274,7 @@ const PROFILES={
  "pavel-mazouch-st":{num:"6",photo:photoUrl("hrac-pavel-mazouch-st.jpg"),born:"1982",nick:"Mazy",job:"Autolakýrník",quote:"Co leží, neběží.",bio:"Pavel Mazouch starší, v kabině Mazy, je košický srdcař s šestkou na zádech. Když je hráčů málo, obleče dres a jde na hřiště.\n\nNejvíc si cení zápasu, kdy si poprvé zahrál se synem Pavlem, kterému kabina říká Mazda. Syn má na stejný zápas stejnou vzpomínku.\n\nPracuje jako autolakýrník. Jeho fotbalovým vzorem je N'Golo Kanté.",interview:[{q:"Odkud jsi?",a:"Z Košic, srdcař."},{q:"Jaký jsi hráč?",a:"Hraju, když nás je málo."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Když jsem si poprvé zahrál se synem."},{q:"Kdo je největší bavič kabiny?",a:"Boušan."},{q:"Fotbalový vzor?",a:"Kanté."},{q:"Co Košicím přeješ do jara?",a:"Top 4."}]},
  "tomas-fucik":{pos:"O",num:"18",photo:photoUrl("hrac-tomas-fucik.jpg"),born:"1990",nick:"Fugas",job:"Zkrat",quote:"Co běží, neleží.",bio:"Tomáš Fučík, v kabině Fugas, nosí v Košicích osmnáctku. Pochází z Mladé Vožice a do Košic se přiženil.\n\nNa hřišti hraje beka. Na zápas proti Vlastiboři nikdy nezapomene. Rituály ani pověry před zápasem nemá a vzory taky ne.\n\nNa otázku, co dělá, odpověděl stručně: zkrat.",interview:[{q:"Odkud jsi a jak ses dostal do Košic?",a:"Z Vožice a přiženil jsem se."},{q:"Jaký jsi hráč?",a:"Bek."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Vlastiboř."},{q:"Máš před zápasem nějaký rituál nebo pověru?",a:"Žádný."},{q:"Tvoje fotbalové motto?",a:"Co běží, neleží."},{q:"Kdo je největší bavič kabiny?",a:"Matěj."},{q:"Fotbalový vzor?",a:"Nikdo."},{q:"Co Košicím přeješ do jara?",a:"Udržet se."}]},
  "jan-kovar":{pos:"U",num:"17",photo:photoUrl("hrac-jan-kovar.jpg"),born:"2002",nick:"Kovy",job:"Elektrikář",quote:"Hlavně v klidu.",bio:"Jan Kovář, v kabině Kovy, nejčastěji nosí sedmnáctku. Pochází ze Soběslavi a do Košic ho přivedl dnešní jednatel klubu, který byl zároveň jeho učitelem.\n\nDřív hrál krajního záložníka, teď nastupuje v útoku. V mistrovské sezoně 2025/26 skóroval proti Chotovinám B (5:1) a Červenému koni (8:0). Letos dal gól ve Veselí B a sám ho považuje za svůj nejhezčí, protože to nebyla náhoda.\n\nMimo hřiště pracuje jako elektrikář.",interview:[{q:"Odkud jsi a jak ses dostal do Košic?",a:"Ze Soběslavi, dostal mě sem dnešní jednatel a můj učitel Jan Pumpr."},{q:"Jaký jsi hráč?",a:"Útočník, dříve krajní záložník."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Asi na můj druhý zápas, kde jsem dával gól."},{q:"Který z tvých gólů za Sokol byl nejhezčí?",a:"Asi ve Veselí, protože to nebyla náhoda."},{q:"Tvoje fotbalové motto?",a:"Hlavně v klidu."},{q:"Kdo je největší bavič kabiny?",a:"Marša."},{q:"Kdo v kabině nejvíc kecá a nejmíň běhá?",a:"Kruml."},{q:"Co Košicím přeješ do jara?",a:"Pevnou a velkou partu v kabině."}]},
- "jiri-slunecko":{pos:"B",stats:[["Titul","mistr 10. ligy 2025/26"],["90","zápasů v OP Tábor"],["8","sezon v okresním přeboru"],["3","žluté karty letos"]],num:"1",photo:photoUrl("hrac-jiri-slunecko.jpg"),since:"2025",born:"1993",nick:"Slunce",job:"Zemědělství",quote:"Za tým, za Košice!",bio:"Jiří Slunečko, v kabině Slunce, je brankářská jednička Košic. Pochází z Heřmaniček a do Sokola přišel v sezoně 2025/26, kterou tým zakončil titulem v 10. lize.\n\nNež přišel do Košic, chytal osm sezon okresního přeboru Tábor za Želeč a Vlastiboř a odchytal v něm 90 zápasů. Začínal v Horním Žďáru. Letos v 9. lize sbírá i žluté karty, má jich tři.\n\nMimo hřiště pracuje v zemědělství. Jeho největším fotbalovým vzorem je táta.",interview:[{q:"Odkud pocházíš?",a:"Z Heřmaniček."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Kozmice."},{q:"Máš před zápasem nějaký rituál nebo pověru?",a:"Mám, ale ten si nechám pro sebe."},{q:"Kdo je největší bavič kabiny?",a:"Boušan."},{q:"Fotbalový vzor?",a:"Můj táta."},{q:"Co Košicím přeješ do jara?",a:"Stíhací jízdu a jen výhry."}],career:[{season:"2015/16",club:"SK Horní Žďár",league:"",apps:null,goals:null},{season:"2017–2025",club:"TJ Sokol Želeč, TJ Vlastiboř",league:"Okresní přebor Tábor",apps:"90",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:null}],careerSrc:FU},
+ "jiri-slunecko":{pos:"B",stats:[["Mistr 10. ligy","2025/26"],["Zápasů v OP Tábor","90"],["Sezon v okresním přeboru","8"],["Žluté karty letos","3"]],num:"1",photo:photoUrl("hrac-jiri-slunecko.jpg"),since:"2025",born:"1993",nick:"Slunce",job:"Zemědělství",quote:"Za tým, za Košice!",bio:"Jiří Slunečko, v kabině Slunce, je brankářská jednička Košic. Pochází z Heřmaniček a do Sokola přišel v sezoně 2025/26, kterou tým zakončil titulem v 10. lize.\n\nNež přišel do Košic, chytal osm sezon okresního přeboru Tábor za Želeč a Vlastiboř a odchytal v něm 90 zápasů. Začínal v Horním Žďáru. Letos v 9. lize sbírá i žluté karty, má jich tři.\n\nMimo hřiště pracuje v zemědělství. Jeho největším fotbalovým vzorem je táta.",interview:[{q:"Odkud pocházíš?",a:"Z Heřmaniček."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Kozmice."},{q:"Máš před zápasem nějaký rituál nebo pověru?",a:"Mám, ale ten si nechám pro sebe."},{q:"Kdo je největší bavič kabiny?",a:"Boušan."},{q:"Fotbalový vzor?",a:"Můj táta."},{q:"Co Košicím přeješ do jara?",a:"Stíhací jízdu a jen výhry."}],career:[{season:"2015/16",club:"SK Horní Žďár",league:"",apps:null,goals:null},{season:"2017–2025",club:"TJ Sokol Želeč, TJ Vlastiboř",league:"Okresní přebor Tábor",apps:"90",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:null,goals:null}],careerSrc:FU},
  "david-cizek":{pos:"U",num:"11",photo:photoUrl("hrac-david-cizek.jpg"),since:"2015",born:"1999",nick:"Číža",job:"Mechanik",quote:"Co leží, neběží.",bio:"David Čížek, v kabině Číža, je košický rodák a stálice Sokola. Od sezony 2015/16 odehrál za Košice 138 zápasů a dal 16 gólů. Nejlepší sezonu měl v ročníku 2024/25 se 6 góly v 15 zápasech a v mistrovském roce přidal další 4.\n\nHraje všude, kde je ho potřeba, nejčastěji v útoku. Nejradši vzpomíná na svůj první gól v Koších.\n\nMimo hřiště pracuje jako mechanik. Fotbal hraje, ale moc ho nesleduje. A když už, tak Beckhama.",interview:[{q:"Odkud jsi?",a:"Narozen v Košicích."},{q:"Jaký jsi hráč?",a:"Všude, kde je mě potřeba."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"První gól v Koších."},{q:"Máš před zápasem nějaký rituál nebo pověru?",a:"S kocovinou."},{q:"Kdo je největší bavič kabiny?",a:"Sláva Kadlec."},{q:"Fotbalový vzor?",a:"Fotbal hraju, ale nekoukám. A jestli, tak Beckham."},{q:"Co Košicím přeješ do jara?",a:"Góly, góly, góly!"}],career:[{season:"2015–2026",club:"TJ Sokol Košice",league:"okresní soutěže Tábor",apps:"138",goals:"16"},{season:"2024/25",club:"TJ Sokol Košice",league:"okresní soutěž Tábor",apps:"15",goals:"6"}],careerSrc:FU},
  "david-marsik":{pos:"O",num:"13",photo:photoUrl("hrac-david-marsik.jpg"),since:"2023",born:"1990",nick:"Marša",job:"Skladník",quote:"Jistím to zezadu, víš jak.",bio:"David Maršík, v kabině Marša, je obránce s divizní zkušeností a třináctkou na zádech. Za Soběslav a Choustník odehrál 69 zápasů v Divizi A. Do Košic podle svých slov přišel tak, že šel náhodou okolo, a hraje tu od sezony 2023/24.\n\nVzadu všechno jistí a umí se prosadit i před bránou. V mistrovské sezoně 2025/26 dal jako obránce 4 góly. Před zápasem nesmí chybět Alpa.\n\nMimo hřiště pracuje jako skladník. Jeho vzorem je Dani Alves.",interview:[{q:"Jak ses dostal do Košic?",a:"Šel jsem náhodou okolo."},{q:"Jaký jsi hráč?",a:"Jistím to zezadu, víš jak."},{q:"Na který zápas za Sokol nikdy nezapomeneš?",a:"Trápí mě jich hodně, ale bude to zápas Vlastiboř/Božejovice."},{q:"Máš před zápasem nějaký rituál nebo pověru?",a:"Alpa."},{q:"Tvoje fotbalové motto?",a:"Já žádný neměl nikdy."},{q:"Kdo je největší bavič kabiny?",a:"Pavel Mazouch starší, „Micky Mouse“."},{q:"Fotbalový vzor?",a:"Dani Alves."},{q:"Co Košicím přeješ do jara?",a:"Víc bodů."}],career:[{season:"do 2023",club:"FK Spartak Soběslav, TJ Spartak Choustník",league:"Divize A",apps:"69",goals:null},{season:"2025/26",club:"TJ Sokol Košice",league:"10. liga Tábor",apps:"17",goals:"4"}],careerSrc:FU},
  "stanislav-kadlec":{pos:"Z",since:"2015",bio:"Záložník a jeden z pilířů kádru. Od sezony 2015/16 má za Košice 149 zápasů a 35 gólů. Letos otevřel skóre v Božejovicích (2:2).",career:[{season:"2015–2026",club:"TJ Sokol Košice",league:"okresní soutěže Tábor",apps:"149",goals:"35"}],careerSrc:FU},
@@ -4834,7 +4843,7 @@ function scanView(first){const v=view();if(!v)return;
  q(".tile b,.fact b,.phero-num,.simsum b,.mc-s,.motmbox b",v).forEach(countUp);
  if(!first&&v.id!=="v-domu")gsap.fromTo(v,{opacity:0},{opacity:1,duration:.4,ease:"power1.out",clearProps:"opacity"});
  reveal(v);reveal(document.querySelector("footer")||document.body);
- parallax(v);drawChart(v);spots(v);
+ parallax(v);drawChart(v);spots(v);bars(v);pills(v);dealCard(v);
  const ph=v.querySelector(".phero-txt");if(ph&&!ph.dataset.moR){ph.dataset.moR="1";gsap.from(ph.children,{y:30,opacity:0,duration:.8,stagger:.08,ease:"power3.out",clearProps:"transform,opacity"});}
  ScrollTrigger.refresh();}
 function onRoute(){flushReveal();if(lenis)lenis.scrollTo(0,{immediate:true,force:true});if(hdr)hdr.classList.remove("hdr-hide");
@@ -4877,6 +4886,56 @@ const mo=new MutationObserver(ms=>ms.forEach(m=>{const d=m.target;if(d.hidden)re
 q(".modal,.lightbox").forEach(d=>mo.observe(d,{attributes:true,attributeFilter:["hidden"]}));
 new MutationObserver(()=>{if(document.body.classList.contains("menu-open")&&getComputedStyle(document.querySelector("#menuBtn")).display!=="none")
  gsap.fromTo(".mainnav a",{x:-30,opacity:0},{x:0,opacity:1,duration:.55,ease:"power3.out",stagger:.045,delay:.08,clearProps:"transform,opacity"});}).observe(document.body,{attributes:true,attributeFilter:["class"]});
+
+/* ---------- sloupce střelců rostou ---------- */
+function bars(root){q(".bar s",root).forEach(el=>{if(el.dataset.moB||!visible(el))return;el.dataset.moB="1";
+ const w=el.style.getPropertyValue("--w")||getComputedStyle(el).getPropertyValue("--w");const n=parseFloat(w);if(isNaN(n))return;
+ gsap.fromTo(el,{"--w":"0%"},{"--w":n+"%",duration:1.2,ease:"power3.out",delay:.15,scrollTrigger:{trigger:el,start:"top 94%",once:true}});});}
+
+/* ---------- forma a výsledky: štítky naskočí ---------- */
+function pills(root){q(".formrow,.mres",root).forEach(r=>{if(r.dataset.moP||!visible(r)||r.closest("#v-kabina,#v-hra .sz"))return;r.dataset.moP="1";
+ const ps=q(".pill",r);if(!ps.length)return;
+ gsap.from(ps,{scale:0,rotate:-25,duration:.55,ease:"back.out(2.6)",stagger:.06,clearProps:"transform",scrollTrigger:{trigger:r,start:"top 94%",once:true}});});
+ q(".tbl tr.us",root).forEach(tr=>{if(tr.dataset.moU||!visible(tr))return;tr.dataset.moU="1";
+  ScrollTrigger.create({trigger:tr,start:"top 85%",once:true,onEnter:()=>{tr.classList.add("mo-us");setTimeout(()=>tr.classList.remove("mo-us"),1800);}});});}
+
+/* ---------- profil hráče: karta se rozdá ---------- */
+function dealCard(root){const c=root.querySelector(".phero-card");if(!c||c.dataset.moK)return;c.dataset.moK="1";
+ gsap.from(c,{rotateY:-70,rotateZ:-6,y:60,opacity:0,transformPerspective:1100,duration:1.1,ease:"power4.out",delay:.1,clearProps:"transform,opacity"});}
+
+/* ---------- přechod mezi stránkami: modrá opona ---------- */
+const cur=document.createElement("div");cur.className="mo-curtain";cur.setAttribute("aria-hidden","true");
+{const crest=document.querySelector(".hdr .brand svg");cur.innerHTML='<div class="mo-c1"></div><div class="mo-c2">'+(crest?crest.outerHTML:"")+'<b>Sokol Košice</b></div>';}
+document.body.appendChild(cur);
+const VIEWS_=["domu","aktuality","zapasy","tym","klub","historie","akademie","hra","kabina"];
+const viewOf=h=>{h=(h||"").replace(/^#/,"").split("?")[0];if(h.startsWith("hrac-"))return"hrac:"+h;if(h.startsWith("zprava-"))return"zprava:"+h;return VIEWS_.includes(h)?h:(h?"":"domu");};
+let busy=false;
+document.addEventListener("click",e=>{if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||busy)return;
+ const a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||a.target||a.closest(".modal,#v-kabina,#v-hra .sz"))return;
+ const to=a.getAttribute("href"),tv=viewOf(to);if(!tv||tv===viewOf(location.hash)||to.includes("?"))return;
+ e.preventDefault();busy=true;
+ gsap.timeline({onComplete:()=>{busy=false;}})
+  .set(cur,{display:"block"})
+  .fromTo(".mo-c1",{xPercent:-101,skewX:-12},{xPercent:0,skewX:0,duration:.42,ease:"power4.in"})
+  .fromTo(".mo-c2",{scale:.4,opacity:0,rotate:-20},{scale:1,opacity:1,rotate:0,duration:.3,ease:"back.out(2)"},"-=.12")
+  .add(()=>{location.hash=to;})
+  .to(".mo-c2",{scale:1.25,opacity:0,duration:.25,ease:"power2.in"},"+=.06")
+  .to(".mo-c1",{xPercent:101,skewX:12,duration:.5,ease:"power4.out"},"-=.12")
+  .set(cur,{display:"none"});});
+
+/* ---------- Scroll Velocity: pás partnerů zrychlí se scrollem ---------- */
+if(lenis){let belts=[];const grab=()=>{belts=document.getAnimations?document.getAnimations().filter(a=>a.animationName==="belt"):[];};
+ setTimeout(grab,600);const st={r:1};
+ lenis.on("scroll",({velocity})=>{if(!belts.length)return;const t=1+Math.min(6,Math.abs(velocity)*.35)*(velocity<0?-1:1);
+  gsap.to(st,{r:t,duration:.3,overwrite:true,onUpdate:()=>belts.forEach(a=>{try{a.playbackRate=st.r;}catch(e){}}),
+   onComplete:()=>gsap.to(st,{r:1,duration:1.2,ease:"power2.out",onUpdate:()=>belts.forEach(a=>{try{a.playbackRate=st.r;}catch(e){}})})});});}
+
+/* ---------- Click Spark: jiskry při kliknutí ---------- */
+document.addEventListener("pointerdown",e=>{const b=e.target.closest&&e.target.closest(".btn,.pcard,.fcard,.story,.spbtn");if(!b||b.closest("#v-hra .sz,.modal"))return;
+ const n=8,box=document.createElement("div");box.className="mo-spark";box.style.left=e.clientX+"px";box.style.top=e.clientY+"px";
+ for(let i=0;i<n;i++){const s=document.createElement("i");box.appendChild(s);const ang=i/n*Math.PI*2;
+  gsap.fromTo(s,{x:0,y:0,scaleX:1,opacity:1,rotate:ang*180/Math.PI},{x:Math.cos(ang)*26,y:Math.sin(ang)*26,scaleX:.2,opacity:0,duration:.5,ease:"power3.out"});}
+ document.body.appendChild(box);setTimeout(()=>box.remove(),600);},{passive:true});
 
 /* ---------- start ---------- */
 let started=false;const start=()=>{if(started)return;started=true;heroIn();scanView(true);onScroll();};
