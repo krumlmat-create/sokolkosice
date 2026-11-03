@@ -463,6 +463,8 @@ details .mlist{margin-top:10px}
 .spsvc{margin:0;padding-left:1.2em;display:grid;gap:4px}
 .splinks{display:flex;flex-wrap:wrap;gap:8px}
 .spcontact a{color:inherit}
+.pitchmap{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;aspect-ratio:16/10;background:var(--soft)}.pitchmap iframe{display:block;width:100%;height:100%;border:0}
+.spmeta{display:grid;gap:4px;font-size:.92rem}.spmeta a{color:inherit}
 @media (max-width:620px){.splogos{grid-template-columns:repeat(2,1fr)}.sponsorbelt img{height:46px}}
 /* ---------- footer ---------- */
 footer{background:#0b0d0c;color:#c9c4b8;font-size:.88rem}
@@ -1026,7 +1028,8 @@ html.mo .tbl tr.mo-us td{background-image:linear-gradient(100deg,transparent 30%
         <h3 style="font-size:2rem;margin-bottom:12px">Hřiště a kontakt</h3>
         <p><b>TJ Sokol Košice</b><br>391 17 Košice, okres Tábor</p>
         <p class="muted" style="margin-top:10px">Košice leží asi 11 km jihovýchodně od Tábora, převážně na Křemešnické vrchovině. K obci patří Doubí a Borek a obcí prochází dálnice D3. Železniční zastávka Doubí u Tábora leží na trati České Budějovice – Tábor.</p>
-        <p style="margin-top:14px"><a class="btn ghost" href="https://mapy.cz/zakladni?q=Ko%C5%A1ice%20T%C3%A1bor" target="_blank" rel="noopener">Mapa: Košice u Tábora</a></p>
+        <div class="pitchmap"><iframe src="https://frame.mapy.cz/s/calatovake" title="Mapa: fotbalové hřiště TJ Sokol Košice" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <p style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="https://mapy.com/s/calatovake" target="_blank" rel="noopener">Hřiště na Mapy.com</a><a class="btn ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=49.3235897,14.7412701" target="_blank" rel="noopener">Navigovat</a></p>
       </div>
     </div>
   </div>
@@ -1303,7 +1306,56 @@ const SPONSOR_INFO={
   services:["Kontroly systémů vytápění nad 70 kW","Průkazy energetické náročnosti budov (PENB)","Energetické audity","Kontroly klimatizace"],
   player:"matej-kruml",
   links:[["Web","https://www.matejkruml.cz"],["LinkedIn","https://www.linkedin.com/in/matej-kruml111/"],["Facebook","https://www.facebook.com/profile.php?id=61595370654582"],["Instagram","https://www.instagram.com/elektrickyrys/"],["Recenze Google","https://maps.app.goo.gl/Qcwhki1Dqr6nCjVt7"]],
-  contact:[["+420 601 565 471","tel:+420601565471"],["matej.kruml@amvili.com","mailto:matej.kruml@amvili.com"]]}
+  contact:[["+420 601 565 471","tel:+420601565471"],["matej.kruml@amvili.com","mailto:matej.kruml@amvili.com"]]},
+ jaspo:{name:"JASPO – AUTODOPRAVA s.r.o.",tag:"Autodoprava · písek a kamenivo · Roudná u Soběslavi",
+  lead:"Stabilní a spolehlivá společnost z Roudné – na trhu od roku 1998.",
+  text:"JASPO vozí sklápěcími soupravami sypké stavební, zemědělské a průmyslové materiály – podle vlastních údajů přes 1,5 milionu tun ročně. Na pobočkách v Klenovicích a v Táboře-Náchodě prodává písek a kamenivo a půjčuje malé i velké stavební stroje.\n\nVlastní technikou dělá také zemní a těžební práce v lomech a pískovnách. Sídlí kousek od Košic, v Roudné u Soběslavi.",
+  services:["Autodoprava sypkých materiálů sklápěči","Prodej písku a kameniva (Klenovice, Tábor-Náchod)","Půjčovna stavebních strojů","Zemní a těžební práce"],
+  links:[["Web","https://www.jaspo.cz"],["Facebook","https://cs-cz.facebook.com/jaspoautodoprava/"]],
+  addr:"Roudná 261, 392 01 Soběslav"},
+ "domy-prochazka":{name:"DOMY PROCHÁZKA s.r.o.",tag:"Montované nízkoenergetické domy · Košice",
+  lead:"Stavíme nízkoenergetické montované domy na míru.",
+  text:"Košická firma, která staví rodinné domy na klíč – a žádné typové: každý dům vzniká s klientem na míru, ve spolupráci s architektem Ing. arch. Ondřejem Jahodníkem.\n\nSpojuje tradiční přírodní materiál – dřevo – s moderními certifikovanými technologiemi. Domy mají nadstandardní tepelnou izolaci a postaví se rychleji než zděné.",
+  services:["Montované nízkoenergetické rodinné domy","Individuální projekty na míru","Stavba na klíč"],
+  links:[["Web","https://www.domypp.cz"]],
+  contact:[["+420 777 303 555","tel:+420777303555"],["prochazka@domypp.cz","mailto:prochazka@domypp.cz"]],
+  addr:"Košice 236, 391 17 Košice"},
+ habo:{name:"HABO – dřevostavby s.r.o.",tag:"Dřevostavby a fasády · Košice",
+  lead:"Stavební firma přímo z Košic.",
+  text:"HABO je malá košická stavební firma. Kromě dřevostaveb, které nese v názvu, se věnuje hlavně realizaci fasád a omítek.",
+  services:["Dřevostavby","Fasády a omítky","Stavební práce"],
+  links:[["Profil na Firmy.cz","https://www.firmy.cz/detail/13754500-habo-drevostavby-kosice.html"]],
+  addr:"Košice 229, 391 17 Košice"},
+ premio:{name:"Premio Pneu Kazda",tag:"Pneuservis a autoservis · Tábor",
+  lead:"Pneu Kazda s.r.o. – pneuservis a autoservis v síti Premio.",
+  text:"Firma s centrálou v Klenovicích provozuje v Táboře v Chýnovské ulici pneuservis a autoservis sítě Premio. Přezuje osobní, nákladní i motorky, pneumatiky uskladní a postará se o celé auto – od geometrie a klimatizace po brzdy, výfuky a diagnostiku.",
+  services:["Pneuservis osobní, nákladní, moto","Uskladnění pneumatik","Geometrie a klimatizace","Kompletní autoservis a diagnostika","Brzdy, tlumiče, výfuky, autoskla, baterie","Náhradní vozidlo"],
+  links:[["Web Premio Tábor","https://www.epremio.cz/all-dealers/tabor/premio-pneu-kazda-30069651.html"]],
+  contact:[["+420 381 252 519","tel:+420381252519"]],
+  hours:"Po–Čt 8–17 · Pá 7–16 · So 8–12",
+  addr:"Chýnovská 2900, 390 02 Tábor"},
+ "u-trech-kytar":{name:"Restaurace U Třech kytar",svcT:"Co nabízí",tag:"Hospoda a živá hudba · Košice",
+  lead:"Košická hospoda, kde se vaří a hraje.",
+  text:"Vesnická hospoda přímo v Košicích, kterou vedou Michal a Zuzana Šimíkovi. Michal je kuchař a muzikant, takže kromě denních obědů se tu často hraje živá hudba – koncerty tu odehrála třeba kapela Bonsai č. 3 nebo Medovej Jack.\n\nV říjnu 2025 se hospoda objevila v televizním pořadu Ano, šéfe!.",
+  services:["Denní menu a obědy","Restaurace","Koncerty a živá hudba"],
+  links:[["Facebook","https://www.facebook.com/utrechkytarandel"],["Ano, šéfe!","https://postopachsefa.cz/restaurace/restaurace-u-trech-kytar-103/"]],
+  contact:[["+420 604 874 515","tel:+420604874515"]],
+  hours:"Po, St 10–15 · Út, Čt, Pá 10–20 · So–Ne 11–20",
+  addr:"Košice 212, 391 17 Košice"},
+ restaurace96:{name:"Restaurace 96",svcT:"Co nabízí",tag:"Restaurace a ubytování · Košice",
+  lead:"Restaurace s ubytováním v Košicích, otevřeno denně.",
+  text:"Restaurace v Košicích s denním menu, hotovkami i minutkami – a když nechcete sedět, jídlo vám zabalí s sebou. K restauraci patří i tři pokoje s devíti lůžky a vlastním sociálním zařízením, takže se tu dá i přespat.",
+  services:["Denní menu","Hotovky a minutky","Jídlo s sebou","Ubytování: 3 pokoje, 9 lůžek"],
+  links:[["Facebook","https://www.facebook.com/restaurace96"]],
+  contact:[["+420 603 570 084","tel:+420603570084"],["restaurace96@seznam.cz","mailto:restaurace96@seznam.cz"]],
+  addr:"Košice 96, 391 17 Košice"},
+ broz:{name:"Brož-cz, spol. s r.o.",tag:"Doprava · servis · pelety · zemědělství · Košice",
+  lead:"Rodinná firma z Košic, od roku 1996.",
+  text:"Brož-cz jezdí kamionovou dopravu a spedici po celé Evropě – hlavně do Německa, Rakouska, Francie a Itálie. V Košicích má servis nákladních aut a zemědělské techniky a čerpací stanici.\n\nK tomu vyrábí dřevěné brikety a pelety a hospodaří zhruba na 150 hektarech polí. Od roku 2008 vede rodinný podnik další generace rodiny Brožů.",
+  services:["Vnitrostátní a mezinárodní kamionová doprava, spedice","Servis nákladních vozů, návěsů a traktorů","Náhradní díly, odtahový transportér","Čerpací stanice vč. AdBlue","Výroba briket a pelet","Zemědělství"],
+  links:[["Web","https://www.broz-cz.eu/"],["Facebook","https://www.facebook.com/Brozcz"]],
+  contact:[["+420 602 453 789","tel:+420602453789"],["broz@broz-cz.eu","mailto:broz@broz-cz.eu"]],
+  addr:"Košice 274, 391 17 Košice"},
 };
 const SPONSORS=[["Amvili s.r.o.","amvili"],["Autodoprava JASPO","jaspo"],["Domy Procházka","domy-prochazka"],["Procházka Aleš","prochazka-ales"],["HABO dřevostavby s.r.o.","habo"],["premio – Pneu Kazda s.r.o.","premio"],["SK+ Zdravotní péče pro sportovce","sk-plus"],["Restaurace U Třech kytar","u-trech-kytar"],["Restaurace96","restaurace96"],["BROŽ","broz"]].map(([n,f])=>({n,f,img:photoUrl("sponzori/"+f+".jpg"),info:SPONSOR_INFO[f]}));
 /* Hráč zápasu podle klubu: kolo -> jméno a popis */
@@ -1847,9 +1899,10 @@ function openSponsor(f){const x=SPONSOR_INFO[f],sp=SPONSORS.find(q=>q.f===f);if(
  <img class="splogo" src="${esc(sp.img)}" alt="Logo ${esc(x.name)}">
  ${x.lead?`<p class="splead">${esc(x.lead)}</p>`:""}
  ${x.text.split("\n\n").map(t=>`<p>${esc(t)}</p>`).join("")}
- ${x.services?`<div><h3 class="sph">Co dělá</h3><ul class="spsvc">${x.services.map(v=>`<li>${esc(v)}</li>`).join("")}</ul></div>`:""}
+ ${x.services?`<div><h3 class="sph">${x.svcT||"Co dělá"}</h3><ul class="spsvc">${x.services.map(v=>`<li>${esc(v)}</li>`).join("")}</ul></div>`:""}
  ${x.player?`<p><a href="#hrac-${esc(x.player)}" data-spgo>Profil Matěje Krumla v soupisce Sokola</a></p>`:""}
  <div class="splinks">${x.links.map(([l,u])=>`<a class="btn ${l==="Web"?"":"ghost"} sm" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join("")}</div>
+ ${x.addr||x.hours?`<p class="spmeta">${x.addr?`<span>📍 <a href="https://mapy.com/zakladni?q=${encodeURIComponent(x.addr)}" target="_blank" rel="noopener">${esc(x.addr)}</a></span>`:""}${x.hours?`<span>🕘 ${esc(x.hours)}</span>`:""}</p>`:""}
  ${x.contact?`<p class="muted spcontact">${x.contact.map(([l,u])=>`<a href="${esc(u)}">${esc(l)}</a>`).join(" · ")}</p>`:""}`;
  $("#spModal").hidden=false;document.body.classList.add("modal-open");$("#spClose").onclick=closeSponsor;$("#spClose").focus();
  $$("[data-spgo]").forEach(a=>a.addEventListener("click",closeSponsor));}
